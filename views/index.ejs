@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login/Register</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+        <link rel='stylesheet' href='/stylesheets/style.css' />
+        <link rel='stylesheet' href='/stylesheets/login/login.css' />
+
+        <script src="/javascripts/jquery-1.12.4.min.js"></script>
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <script src="/javascripts/login/login.js"></script>
+
+    </head>
+    <body>
+        <h3>Welcome to 5P♥5</h3>
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="tab-li active">
+                <a href="#login" aria-controls="login" role="tab" data-toggle="tab">
+                    Login
+                </a>
+            </li>
+            <li role="presentation" class="tab-li">
+                <a href="#register" aria-controls="register" role="tab" data-toggle="tab">
+                    Register
+                </a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade in active" id="login">
+                <form>
+                    <div class="form-group">
+                        <label for="username">User Name</label>
+                        <input type="text" class="form-control" id="username" placeholder="User Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-default" id="submitBtn" style="width: 100%">
+                        Login
+                    </button>
+                </form>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="register">
+                <!--TODO write the js for the form-->
+                <div role="tabpanel" class="tab-pane fade in active" id="login">
+                    <form>
+                        <div class="form-group">
+                            <label for="usernameR">User Name</label>
+                            <input type="text" class="form-control" id="usernameR" placeholder="User Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="passwordR">Password</label>
+                            <input type="password" class="form-control" id="passwordR" placeholder="Password">
+                        </div>
+                        <div class="form-group">
+                            <label for="repeatPasswordR">Repeat Password</label>
+                            <input type="password" class="form-control" id="repeatPasswordR" placeholder="Repeat Password">
+                        </div>
+                        <button type="submit" class="btn btn-default" id="submitBtn" style="width: 100%">
+                            Register
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
