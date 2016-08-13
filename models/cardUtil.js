@@ -38,7 +38,16 @@ function CardUtil(majorNumber) {
     this.cardEqual = function (a, b) {
         return a.number == b.number && a.color == b.color;
     };
-    
+
+    /**
+     * 判断是否为除了王以外的花色
+     * @param tar
+     * @returns {boolean}
+     */
+    this.isNormalColor = function (tar) {
+        return (tar == '♠' || tar == '♣' || tar == '♥' || tar == '♦');
+    };
+
     /**
      * 判断牌的类型,包括红五、王、参谋、副参谋、同数主、副同数主、一般主、副牌
      * @param card
@@ -62,6 +71,19 @@ function CardUtil(majorNumber) {
         if (this.majorColor == card.color)
             return CARD_TYPES.NormalMajor;
         return CARD_TYPES.Others;
+    };
+
+    /**
+     * 得到真主的数量
+     * @param cards
+     * @returns {number}
+     */
+    this.getAbsoluteMajorSum = function (cards) {
+        var len = cards.length;
+        var res = 0;
+        for (var i = 0; i < len, cards[i].type > CARD_TYPES.NormalMajor; i ++)
+            res ++;
+        return res;
     };
 
     /**
@@ -537,9 +559,10 @@ function CardUtil(majorNumber) {
     };
 
     /**
-     * 判断首次出牌是否合理
+     * 判断首次出牌是否合理(返回并非boolean而是最终打出的牌)
      * @param played 打出的牌(raw)
      * @param inHands 其余玩家的手牌(raw)
+     * @returns {*}
      */
     this.checkFirstPlayLegal = function (played, inHands) {
         var playerSumRemained = inHands.length;
@@ -552,22 +575,29 @@ function CardUtil(majorNumber) {
                 size ++;
             }
             if (size != 1)
-                return false;
+                return null;
             var structureLen = playedStructure.length;
             //非甩牌
             if (structureLen == 1)
-                return true;
+                return played;
             playedStructure.sort(this.structureDesc);
             for (var j = 0; j < structureLen; j ++) {
                 //这里的limitation已经是有序的了,因为structure和limitation的排序规则一致
                 var limit = this.structureToLimitation(playedStructure[j]);
                 var struInHand = this.getCardStructureWithoutTractor(inHands[i])[type];
                 var matched = this.findStructure(struInHand, limit);
-                if (this.cardDesc(matched.content[0], playedStructure[j].content[0]) < 0)
-                    return false;
+                if (this.cardDesc(matched.content[0], playedStructure[j].content[0]) < 0) {
+                    var res = [];
+                    var multi = playedStructure[j].multi;
+                    var len = playedStructure[j].content.length;
+                    for (var k = 0; k < len; k ++)
+                        for (var m = 0; m < multi; m ++)
+                            res.push(playedStructure[j].content[k]);
+                    return res;
+                }
             }
         }
-        return true;
+        return played;
     };
 
     /**

@@ -66,13 +66,13 @@ var Agent = function (userId) {
         table.checkGameStart(err, function () {});
     };
 
-    this.conductInGame = function (actionType, content, err) {
+    this.operateInGame = function (actionType, content, err) {
         if (this.status != AgentStatus.IN_GAME)
             return err('Not In Game');
         var table = this.currentTable;
         if (table == null)
             return err('Table not found');
-
+        table.inGameOperation(this, actionType, content, err, function () {});
     };
 };
 

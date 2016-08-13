@@ -7,40 +7,6 @@ var CardUtil = require('../models/cardUtil');
 
 var cardUtil = new CardUtil.CardUtil(7);
 
-var CARDS_IN_HAND_UNSORTED = [
-    {number: 9, color: '♣'},
-    {number: 7, color: '♥'},
-    {number: 8, color: '♣'},
-    {number: 14, color: '♦'},
-    {number: 3, color: '♦'},
-    {number: 10, color: '♠'},
-    {number: 5, color: '♣'},
-    {number: 12, color: '♥'},
-    {number: 8, color: '♠'},
-    {number: 2, color: '♥'},
-    {number: 3, color: '♥'},
-    {number: 8, color: '♥'},
-    {number: 3, color: '♦'},
-    {number: 5, color: '♦'},
-    {number: 7, color: '♠'},
-    {number: 2, color: '♣'},
-    {number: 3, color: '♠'},
-    {number: 4, color: '♠'},
-    {number: 7, color: '♥'},
-    {number: 6, color: '♣'},
-    {number: 1, color: 'J'},
-    {number: 11, color: '♥'},
-    {number: 1, color: 'J'},
-    {number: 6, color: '♥'},
-    {number: 3, color: '♣'},
-    {number: 3, color: '♥'},
-    {number: 8, color: '♦'},
-    {number: 7, color: '♦'},
-    {number: 3, color: '♣'},
-    {number: 0, color: 'J'},
-    {number: 5, color: '♣'}
-    ];
-
 var CARDS_IN_HAND = [
     { number: 1, color: 'J', type: 6 },
     { number: 1, color: 'J', type: 6 },
@@ -1352,7 +1318,7 @@ describe("Check first play legal", function() {
             ]
         ];
         cardUtil.majorColor = '♥';
-        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(true);
+        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(played);
     });
     it("Failed if there is bigger one: ♥7", function () {
         var played = [
@@ -1374,8 +1340,9 @@ describe("Check first play legal", function() {
                 {number: 9, color: '♥', type: 1}
             ]
         ];
+        var res = [{number: 6, color: '♥', type: 1}];
         cardUtil.majorColor = '♥';
-        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(false);
+        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(res);
     });
     it("Success if all biggest: ♥7", function () {
         var played = [
@@ -1398,7 +1365,7 @@ describe("Check first play legal", function() {
             ]
         ];
         cardUtil.majorColor = '♥';
-        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(true);
+        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(played);
     });
     it("Complex situation: ♥7", function () {
         var played = [
@@ -1421,8 +1388,14 @@ describe("Check first play legal", function() {
                 {number: 2, color: '♥', type: 1},
             ]
         ];
+        var res = [
+            {number: 8, color: '♥', type: 1},
+            {number: 8, color: '♥', type: 1},
+            {number: 6, color: '♥', type: 1},
+            {number: 6, color: '♥', type: 1}
+        ];
         cardUtil.majorColor = '♥';
-        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(false);
+        cardUtil.checkFirstPlayLegal(played, inHands).should.eql(res);
     });
 });
 

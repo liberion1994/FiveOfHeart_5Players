@@ -55,8 +55,6 @@ function Table(id) {
             return err('Seat not exists');
         if (this.status == TableStatus.GAMING)
             return err('Cannot leave in game');
-        if (this.agents[sid] != agent)
-            return err('Not your seat');
         this.agents[sid] = null;
         this.status = TableStatus.AVAILABLE;
         callback();
@@ -69,9 +67,19 @@ function Table(id) {
             if (this.agents[i] == null)
                 return callback();
         }
-        //TODO emit update to clients
+        //TODO start the game and emit update to clients
         callback();
-    }
+    };
+
+    this.inGameOperation = function (agent, actionType, content, err, callback) {
+        var sid = this.agentToSid(agent);
+        if (sid >= Property.GamePlayers || sid < 0)
+            return err('Seat not exists');
+        if (this.status != TableStatus.GAMING)
+            return err('Game hasn\'t started');
+        this.game.onAction(sid, actionType, content, err, function () {});
+        callback();
+    };
 }
 
 exports.TableStatus = TableStatus;
