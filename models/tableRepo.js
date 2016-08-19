@@ -11,7 +11,7 @@ var TableRepo = {
 };
 
 TableRepo.createTable = function () {
-    ret = new Table(TableRepo.currentId ++);
+    var ret = new Table(TableRepo.currentId ++);
     TableRepo.tables.push(ret);
     return ret;
 };

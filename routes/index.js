@@ -16,4 +16,10 @@ router.get('/test',
     }
 );
 
+router.get('/test2',
+    function(req, res) {
+        res.render('test2');
+    }
+);
+
 module.exports = router;

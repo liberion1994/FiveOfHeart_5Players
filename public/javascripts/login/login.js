@@ -9,11 +9,11 @@ function submitLogin(usernameDiv, passwordDiv) {
         type: 'POST',
         url: '/users/login',
         data: {username: username, password: password},
-        success: function (res) {
+        success: function () {
             location.href = '/tables';
         },
         error: function () {
-            alert('登录失败');
+            alert('登录失败!');
         }
     });
 }

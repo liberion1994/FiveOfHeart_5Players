@@ -1,0 +1,15 @@
+.table-wrapper {
+    float: left;
+    overflow: hidden;
+    width: 25%;
+    text-align: center;
+    padding: 10px;
+}
+
+.table {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius:5px;
+    background: #33bbff;
+    color: white;
+}

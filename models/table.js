@@ -4,6 +4,7 @@
 
 var Property = require('../properties/property');
 var IoServer = require('../socket_io/socketIoServer');
+var Game = require('./game');
 
 var TableStatus = {
     AVAILABLE       : 1,
@@ -16,7 +17,50 @@ function Table(id) {
     this.status = TableStatus.AVAILABLE;
     this.agents = new Array(Property.GamePlayers);
     this.game = null;
+    this.currentEventId = 0;
 
+    this.masterInGame = null;
+    this.majorNumbersInGame = new Array(Property.GamePlayers);
+
+    this.histories = [];
+
+    this.log = function (content) {
+        this.histories.push(content);
+    };
+
+    this.reset = function () {
+        this.masterInGame = null;
+        for (var i = 0; i < Property.GamePlayers; i ++)
+            this.majorNumbersInGame[i] = Property.StartMajorNumber;
+    };
+
+    this.tableInfo = function (agent) {
+        var sid = this.agentToSid(agent);
+        return {
+            id: this.id,
+            status: this.status,
+            currentSid: sid,
+            seats: this.seatsInfo(),
+            currentEventId: this.currentEventId,
+            masterInGame: this.masterInGame,
+            majorNumbersInGame: this.majorNumbersInGame,
+            game: (this.game == null) ? null : this.game.gameInfo(sid)
+        }
+    };
+
+    this.seatsInfo = function () {
+        var res = [];
+        for (var i = 0; i < Property.GamePlayers; i ++) {
+            if (this.agents[i] == null) {
+                res.push({available: true});
+            } else {
+                res.push({available: false, user: this.agents[i].username});
+            }
+        }
+        return res;
+    };
+
+    this.reset();
     /**
      * agent to sid
      * @param agent
@@ -46,6 +90,7 @@ function Table(id) {
         this.agents[sid] = agent;
         if (this.isFull())
             this.status = TableStatus.TO_BE_STARTED;
+        this.log(agent.username + '加入了' + sid + '号座位');
         callback();
     };
 
@@ -57,6 +102,8 @@ function Table(id) {
             return err('Cannot leave in game');
         this.agents[sid] = null;
         this.status = TableStatus.AVAILABLE;
+        this.reset();
+        this.log(agent.username + '离开了' + sid + '号座位');
         callback();
     };
 
@@ -67,7 +114,11 @@ function Table(id) {
             if (this.agents[i] == null)
                 return callback();
         }
-        //TODO start the game and emit update to clients
+        var majorNum = Property.StartMajorNumber;
+        if (this.masterInGame != null)
+            majorNum = this.majorNumbersInGame[this.masterInGame];
+        this.game = new Game.Game(this.masterInGame, majorNum);
+
         callback();
     };
 
@@ -77,8 +128,12 @@ function Table(id) {
             return err('Seat not exists');
         if (this.status != TableStatus.GAMING)
             return err('Game hasn\'t started');
-        this.game.onAction(sid, actionType, content, err, function () {});
-        callback();
+        var _this = this;
+        this.game.onAction(sid, actionType, content, err, function (action) {
+            _this.log(agent.username + '做了' + actionType);
+            //TODO if last round, should do something here(delete the game and display the sumup)
+            callback(action);
+        });
     };
 }
 

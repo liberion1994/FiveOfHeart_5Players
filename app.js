@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var passport = require('./passport');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -12,9 +11,9 @@ var tables = require('./routes/tables');
 var captcha = require('./routes/captcha');
 
 var TableRepo = require('./models/tableRepo');
-var IoServer = require('./socket_io/socketIoServer');
-
+var passport = require('./passport');
 var sessionMiddleware = require('./middleware');
+var IoServer = require('./socket_io/socketIoServer');
 
 var app = express();
 
@@ -71,7 +70,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.ready = function (server) {
-    IoServer.prepareSocketIO(server);
+    IoServer.init(server);
     TableRepo.init();
 };
 

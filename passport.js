@@ -5,6 +5,7 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 var User = require('./daos/userDAO');
+var AgentRepo = require('./models/agentRepo');
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -23,13 +24,13 @@ passport.use(new LocalStrategy(
 
 passport.serializeUser(function (user, done) {
     // save what to identify the session
-    done(null, user.id);
+    done(null, user.username);
 });
 
-passport.deserializeUser(function (id, done) {
+passport.deserializeUser(function (username, done) {
     // get passport.user
-    //TODO find the user agent and return to 'user' here
-    User.findById(id, function(err, user) {
+    User.findOne({ username: username }, function(err, user) {
+        user.agent = AgentRepo.findOrCreateAgentByUsername(user.username);
         done(err, user);
     });
 });

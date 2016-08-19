@@ -1063,12 +1063,12 @@ describe("Get Limitation", function() {
             { number: 2, color: '♥', type: 0 }
         ];
         var res = {
-            sum: 0,
-            type: 'M',
-            limitation: []
+            sum: 2,
+            type: null,
+            limitation: null
         };
         cardUtil.majorColor = '♥';
-        (cardUtil.getLimitation(played, inHand) == null).should.eql(true);
+        cardUtil.getLimitation(played, inHand).should.eql(res);
     });
     it("There should be no limitation if no same type cards in hand : ♥7", function() {
         var played = [
@@ -1085,12 +1085,12 @@ describe("Get Limitation", function() {
             { number: 2, color: '♠', type: 0 }
         ];
         var res = {
-            sum: 0,
-            type: 'M',
-            limitation: [ { type: 'single', multi: 3, length: 1 } ]
+            sum: 6,
+            type: null,
+            limitation: null
         };
         cardUtil.majorColor = '♥';
-        (cardUtil.getLimitation(played, inHand) == null).should.eql(true);
+        cardUtil.getLimitation(played, inHand).should.eql(res);
     });
     it("Sum should not above in-hand cards sum : ♥7", function() {
         var played = [
@@ -1221,7 +1221,7 @@ describe("Match Limitation", function() {
         var played = [
             { number: 14, color: '♥', type: 1 }
         ];
-        var lim = null;
+        var lim = {sum: 1};
         cardUtil.majorColor = '♥';
         cardUtil.matchLimitation(played, lim).should.eql(true);
     });
@@ -1432,6 +1432,29 @@ describe("Check not first play legal", function() {
         ];
         cardUtil.majorColor = '♥';
         cardUtil.checkNotFirstPlayLegal(firstPlayed, played, inHand).should.eql(true);
+    });
+    it("Wrong amount : ♥7", function () {
+        var inHand = [
+            {number: 1, color: 'J', type: 6},
+            {number: 1, color: 'J', type: 6},
+            {number: 1, color: 'J', type: 6},
+            {number: 10, color: '♥', type: 1},
+            {number: 8, color: '♥', type: 1},
+            {number: 8, color: '♥', type: 1},
+            {number: 6, color: '♥', type: 1},
+            {number: 6, color: '♥', type: 1},
+            {number: 4, color: '♥', type: 1},
+            {number: 2, color: '♥', type: 1}
+        ];
+        var played = [
+            {number: 1, color: 'J', type: 6}
+        ];
+        var firstPlayed = [
+            {number: 5, color: '♠', type: 0},
+            {number: 5, color: '♠', type: 0}
+        ];
+        cardUtil.majorColor = '♥';
+        cardUtil.checkNotFirstPlayLegal(firstPlayed, played, inHand).should.eql(false);
     });
 });
 

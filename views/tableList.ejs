@@ -6,9 +6,11 @@
 
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/tableList/tableList.css' />
 
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/tableList/tableList.js"></script>
 </head>
 <body>
 
@@ -20,7 +22,7 @@
                         data-toggle="collapse"
                         data-target="#navbar-collapse"
                         aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
+                    <!--<span class="sr-only">Toggle navigation</span>-->
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -39,10 +41,26 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <h1>Table List</h1>
-    <p>Welcome</p>
-    <div id="displayArea">
+    <div class="container">
+        <div id="table-option" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" id="table-modal-header"></div>
+                    <div class="modal-body" id="table-modal-body"><p>桌面信息</p></div>
+                </div>
+            </div>
+        </div>
+        <h1>大厅</h1>
+        <div>
 
-</div>
+            <% tables.forEach(function (table) { %>
+                <div class="table-wrapper">
+                    <div class="table" table-id='<%= table.id%>'>
+                        第<%= table.id %>桌
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
 </body>
 </html>

@@ -49,6 +49,20 @@ function CardUtil(majorNumber) {
     };
 
     /**
+     * 判断含有多少红五
+     * @param cards
+     * @returns {number}
+     */
+    this.containsFiveOfHearts = function (cards) {
+        var len = cards.length;
+        var res = 0;
+        for (var i = 0; i < len; i ++)
+            if (cards[i].number == 5 && cards[i].color == '♥')
+                res ++;
+        return res;
+    };
+
+    /**
      * 判断牌的类型,包括红五、王、参谋、副参谋、同数主、副同数主、一般主、副牌
      * @param card
      * @returns {number}
@@ -338,6 +352,27 @@ function CardUtil(majorNumber) {
     };
 
     /**
+     * 最后一轮得分的倍数
+     * @param cards
+     * @returns {number}
+     */
+    this.getMultiple = function (cards) {
+        var struc = this.getCardStructureWithoutTractor(cards);
+        var res = 2;
+        for (var type in struc) {
+            var len = struc[type].length;
+            for (var i = 0; i < len; i ++) {
+                var a = struc[type][i].multi;
+                var b = struc[type][i].content.length;
+                var tmpRes = parseInt(2 * Math.pow(a, b));
+                if (tmpRes > res)
+                    res = tmpRes;
+            }
+        }
+        return res;
+    };
+
+    /**
      * 获得结构化的牌组(识别拖拉机),
      * 其中能不视作拖拉机的就不视作拖拉机,
      * 例如3344455不是拖拉机,7788999是2拖拉机
@@ -586,6 +621,8 @@ function CardUtil(majorNumber) {
                 var limit = this.structureToLimitation(playedStructure[j]);
                 var struInHand = this.getCardStructureWithoutTractor(inHands[i])[type];
                 var matched = this.findStructure(struInHand, limit);
+                if (matched == null)
+                    continue;
                 if (this.cardDesc(matched.content[0], playedStructure[j].content[0]) < 0) {
                     var res = [];
                     var multi = playedStructure[j].multi;
@@ -652,6 +689,8 @@ function CardUtil(majorNumber) {
             var limit = this.structureToLimitation(firstPlayedStructure[j]);
             var matched1 = this.findStructure(preMaxStructureWithoutTractor, limit);
             var matched2 = this.findStructure(playedStructureWithoutTractor, limit);
+            if (matched2 == null)
+                return false;
             if (this.cardDesc(matched1.content[0], matched2.content[0]) <= 0) //pre >= played
                 return false;
             //只有单牌可能出现同大小,此时如果比原来的大了,之后再跟的单牌就不用判断
@@ -676,13 +715,18 @@ function CardUtil(majorNumber) {
         playedStructure.sort(this.structureDesc);
         var tmp2 = this.getCardStructure(inHand);
         var inHandStructure = tmp2[type];
+        var sum1 = this.getCardSum(playedStructure);
 
         var limitation = [];
 
         if (inHandStructure == null)
-            return null;
-        var sum1 = this.getCardSum(playedStructure);
+            return {
+            sum: sum1,
+            type: null,
+            limitation: null
+        };
         var sum2 = this.getCardSum(inHandStructure);
+
 
         while (playedStructure.length != 0) {
             inHandStructure.sort(this.structureDesc);
@@ -818,8 +862,9 @@ function CardUtil(majorNumber) {
      * @returns {boolean}
      */
     this.matchLimitation = function (played, limit) {
-        if (limit == null)
-            return true;
+        if (limit.type == null) {
+            return played.length == limit.sum;
+        }
         var tmp = this.getCardStructureWithoutTractor(played);
         var playedStructure = tmp[limit.type];
         if (playedStructure == null)
