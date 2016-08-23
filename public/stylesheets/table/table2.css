@@ -102,7 +102,7 @@ a {
     color: limegreen;
 }
 
-#seat1, #seat2 {
+#seat4, #seat3 {
     position: absolute;
     left: 10px;
 }
@@ -111,7 +111,7 @@ a {
     bottom: 10px;
 }
 
-#seat3, #seat4 {
+#seat2, #seat1 {
     position: absolute;
     right: 10px;
 }
@@ -155,7 +155,6 @@ a {
 }
 
 .card-center {
-    font-size: 20pt;
     position: absolute;
     top: 50%;
     bottom: 50%;

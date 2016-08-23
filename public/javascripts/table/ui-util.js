@@ -34,7 +34,7 @@ function updateCard (card, index, xInPar, yInPar, deg, rx, ry, trasition) {
     var rot = 'rotate(' + deg + 'deg)';
     var rog = rx + 'px ' + ry + 'px';
     card.view
-        .attr('inhand-index', index)
+        .attr('index', index)
         .attr('status', 'inHand') // all returned to inHand
         .css('left', xInPar + 'px')
         .css('top', yInPar + 'px')
@@ -58,7 +58,7 @@ function drawCard (card, index, cardWidth, cardHeight, parDiv, xInPar, yInPar, d
     var rot = 'rotate(' + deg + 'deg)';
     var rog = rx + 'px ' + ry + 'px';
     var cardDiv = $('<div>')
-        .attr('inhand-index', index) //id is used to bind model
+        .attr('index', index) //id is used to bind model
         .attr('class', 'card ' + color)
         .attr('status', 'inHand')
         .css('width', cardWidth + 'px')
@@ -80,19 +80,27 @@ function drawCard (card, index, cardWidth, cardHeight, parDiv, xInPar, yInPar, d
     var txt = cardToText(card, '<br>');
     var cardTop = $('<div>')
         .attr('class', 'card-top')
-        .html(txt);
-    var cardCenter = $('<div>')
-        .attr('class', 'card-center')
-        .css('line-height', cardWidth / 2 + 'px')
-        .html(card.color);
-    var carBottom = $('<div>')
-        .attr('class', 'card-bottom')
+        .css('font-size', cardWidth / 5 + 'px')
+        .css('line-height', 1.2 * cardWidth / 5 + 'px')
         .html(txt);
     cardDiv.append(cardTop);
-    cardDiv.append(cardCenter);
+    var carBottom = $('<div>')
+        .attr('class', 'card-bottom')
+        .css('font-size', cardWidth / 5 + 'px')
+        .css('line-height', 1.2 * cardWidth / 5 + 'px')
+        .html(txt);
     cardDiv.append(carBottom);
+    if (cardWidth > 40) {
+        var cardCenter = $('<div>')
+            .attr('class', 'card-center')
+            .css('font-size', cardWidth / 2 + 'px')
+            .css('line-height', cardWidth / 2 + 'px')
+            .html(card.color);
+        cardDiv.append(cardCenter);
+    }
     cardDiv.appendTo(parDiv);
     card.view = cardDiv;
+    return cardDiv;
 }
 
 function setAnimation (target, type, option, callback) {

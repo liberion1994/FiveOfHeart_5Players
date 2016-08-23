@@ -9,43 +9,46 @@
  * 假设最大张开到30度,则根据计算总共多出0.6倍宽度
  */
 
-var CARDS_PLAYED = [
-    { number: 5, color: '♣', type: 0, from: 0, turnLeft: 0 },
-    { number: 3, color: '♣', type: 0, from: 0, turnLeft: 0 },
-    { number: 3, color: '♣', type: 0, from: 0, turnLeft: 0 },
-    { number: 2, color: '♣', type: 0, from: 0, turnLeft: 0 }
-];
-
-var SeatType = {
-    TBD: 0,
-    Master: 1,
-    SubMaster: 2,
-    Slave: 3
-};
-
-var seats = [
-    { id: 1, type: 0, fromMine: 0, active: true },
-    { id: 2, type: 1, fromMine: 1, active: false },
-    { id: 3, type: 2, fromMine: 2, active: false },
-    { id: 4, type: 3, fromMine: 3, active: false },
-    { id: 5, type: 3, fromMine: 4, active: false }
-];
 
 var cardWidth = 60;
 var cardHeight = cardWidth * 1.5;
+
+var cardWidthInTable = 40;
+var cardHeightInTable = cardWidthInTable * 1.5;
 
 var MinOneLineCardAmount = 13;
 
 var TableArea = function (targetDiv) {
     this.div = targetDiv;
-    this.cardsPlayed = CARDS_PLAYED;
     this.repaint = function () {
 
         this.width = this.div.width();
         this.height = this.div.height();
         for (var i = 0; i < 5; i ++)
             this.updateSeat(i);
-        // this.drawCardsOnTable();
+        if (table.game) {
+            this.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
+        } else {
+            if (table.masterInGame != null)
+                this.updateActiveSeat(table.masterInGame);
+            else
+                this.updateActiveSeat(0);
+        }
+        this.drawCurrentTurn();
+    };
+
+    this.drawCurrentTurn = function () {
+        if (!table.game)
+            return;
+        if (!table.game.currentTurn)
+            return;
+        switch (table.game.currentTurn.status) {
+            case GameStatus.PLAY_CARDS:
+                var len = table.game.currentTurn.done.length;
+                for (var i = 0; i < len; i ++)
+                    this.onNewCardsPlayed(table.game.currentTurn.done[i].cards,
+                        (table.game.currentTurn.done[i].sid - table.agentSid + 5 ) % 5);
+        }
     };
 
     this.updateSeat = function (sid) {
@@ -53,32 +56,70 @@ var TableArea = function (targetDiv) {
         var seat = table.seats[sid];
         if (seat) {
             if (seat.status != AgentStatus.IN_GAME)
-                $('#seat' + index).html(seat.user + '<br>' + agentStatusToText(seat.status));
+                $('#seat' + index).html(agentStatusToText(seat.status) + seat.user);
             else {
-                var inGameStatus = '闲家';
+                var inGameStatus = '<i class="icon-group"></i>';
                 if (table.game.masterSid == sid)
-                    inGameStatus = '庄家';
+                    inGameStatus = '<i class="icon-star"></i>';
                 else if (table.game.subMasterSid == sid)
-                    inGameStatus = '副庄';
-                else if (table.game.subMasterSid == null)
-                    inGameStatus = '待定';
-                $('#seat' + index).html(seat.user + '<br>' + inGameStatus + ':' + table.game.points[sid]);
+                    inGameStatus = '<i class="icon-star-empty"></i>';
+                $('#seat' + index).html(inGameStatus + seat.user + '|' + table.game.points[sid]);
             }
         } else {
-            $('#seat' + index).html('空座位');
+            $('#seat' + index).html('<i class="icon-circle-blank"></i>空座位');
         }
 
     };
 
-    this.drawCardsOnTable = function () {
-        var len = this.cardsPlayed.length;
-        for (var i = 0; i < len; i ++)
-            drawCard(this.cardsPlayed[i], 'ip_' + i, cardWidth, cardHeight, this.div,
-                30 + i * 15, 30, 0, 0, 0, function () {});
+    this.updateActiveSeat = function (sid) {
+        if (sid == this.activeSeat)
+            return;
+        if (this.activeSeat != null) {
+            var index = (this.activeSeat - table.agentSid + 5) % 5;
+            $('#seat' + index).removeAttr('active-seat');
+        }
+        var index2 = (sid - table.agentSid + 5) % 5;
+        $('#seat' + index2).attr('active-seat', true);
+        this.activeSeat = sid;
     };
 
-    this.onNewCardsPlayed = function (cards) {
-
+    /**
+     *
+     * @param cards
+     * @param index 不是sid,是相对位置
+     */
+    this.onNewCardsPlayed = function (cards, index) {
+        var len = cards.length;
+        switch (index) {
+            case 4:
+                for (var i = 0; i < len; i ++)
+                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                        10 + cardHeightInTable, this.height - 30 - cardWidthInTable - (len - i - 1) * 15,
+                        90, 0, 0, function () {});
+                break;
+            case 3:
+                for (var i = 0; i < len; i ++)
+                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                        10 + i * 15, 30, 0, 0, 0, function () {});
+                break;
+            case 2:
+                for (var i = 0; i < len; i ++)
+                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                        this.width - 10 - cardWidthInTable - (len - 1 - i) * 15, 30, 0, 0, 0,
+                        function () {});
+                break;
+            case 1:
+                for (var i = 0; i < len; i ++)
+                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                        this.width - 10 - cardHeightInTable, this.height - 30 - i * 15,
+                        -90, 0, 0, function () {});
+                break;
+            case 0:
+                for (var i = 0; i < len; i ++)
+                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                        (this.width - cardWidthInTable) / 2 + (i - (len - 1) / 2) * 15, this.height - cardHeightInTable - 30, 0, 0, 0,
+                        function () {});
+        }
     };
 };
 
@@ -255,7 +296,6 @@ var OperationArea = function (targetDiv) {
         var okBtn = $("<a type='button' class='btn btn-default control' id='okBtn'>埋底</a>");
         okBtn
             .click(function () {
-                //TODO complete the function
                 var cards = table.game.cards;
                 var len = cards.length;
                 var tmp = [];
@@ -325,7 +365,6 @@ var OperationArea = function (targetDiv) {
         var okBtn = $("<a type='button' class='btn btn-default control' id='okBtn'>出牌</a>");
         okBtn
             .click(function () {
-                //TODO complete the function
                 var cards = table.game.cards;
                 var len = cards.length;
                 var tmp = [];
@@ -453,7 +492,7 @@ var OperationArea = function (targetDiv) {
                 endCount --;
                 continue;
             }
-            setAnimation(cards[i].view, ' translateY(200px)', '-webkit-transform 1s ease',
+            setAnimation(cards[i].view, ' translateY(' + 2 * cardHeight + 'px)', '-webkit-transform 1s ease',
                 function () {
                     if (-- endCount == 0) {
                         var cx = (_this.width - cardWidth) / 2;
@@ -463,7 +502,7 @@ var OperationArea = function (targetDiv) {
                                 cards[i].view.remove();
                             }
                             drawCard(cards[i], 'ih_' + i, cardWidth, cardHeight, _this.div,
-                                cx, 200, 0, 0, 0, function () {
+                                cx, 2 * cardHeight + 40, 0, 0, 0, function () {
                                     _this.onCardChosen($(this))
                                 });
                         }
@@ -479,7 +518,7 @@ var OperationArea = function (targetDiv) {
         if (typeof(card.attr('animating')) != "undefined")
             return;
         var newly = card.css('transform');
-        var inHandIndex = parseInt(card.attr('inhand-index'));
+        var inHandIndex = parseInt(card.attr('index'));
         if (card.attr('status') != 'chosen') {
             newly += ' translateY(-10px)';
             card
@@ -502,7 +541,7 @@ var OperationArea = function (targetDiv) {
         cardDiv
             .attr('animating', true)
             .attr('status', 'played');
-        setAnimation(cardDiv, ' translateY(-150px)', '-webkit-transform 1s ease', function () { cardDiv.remove() });
+        setAnimation(cardDiv, ' translateY(' + (-2 * cardHeight - 40) + 'px)', '-webkit-transform 1s ease', function () { cardDiv.remove() });
     };
 
     this.moveOutCards = function (cards) {
@@ -529,10 +568,15 @@ var UI = function () {
     this.resize = function () {
         var windowHeight = $(document.body).height();
         var windowWidth = $(document.body).width();
+
+        cardWidth = windowWidth / 7;
+        cardHeight = cardWidth * 1.5;
+
         this.operationAreaProperty = {
             width: windowWidth - 20,
             height: cardHeight * 1.5 + 40
         };
+
         $('#operation-area')
             .css('width', this.operationAreaProperty.width + 'px')
             .css('height', this.operationAreaProperty.height + 'px');
@@ -546,6 +590,14 @@ var UI = function () {
             width: windowWidth - 20,
             height: windowHeight - $('#bottom-area').height() - 30
         };
+
+        cardHeightInTable = this.tableProperty.height / 2 - 70;
+        cardWidthInTable = this.tableProperty.width / 4 - 40;
+        if (cardHeightInTable > cardWidthInTable * 1.5)
+            cardHeightInTable = cardWidthInTable * 1.5;
+        else
+            cardWidthInTable = cardHeightInTable / 1.5;
+
         $('#table-area')
             .css('width', this.tableProperty.width + 'px')
             .css('height', this.tableProperty.height + 'px');
@@ -631,6 +683,7 @@ var UI = function () {
         this.repaint();
         this.logEvent(event);
         this.logSystemEvent('游戏开始');
+        this.logSystemEvent('[' + table.seats[table.game.currentTurn.startSid].user + ']先报真主数');
     };
 
     this.onUnPrepare = function (event) {
@@ -653,23 +706,27 @@ var UI = function () {
 
     this.onOfferMajorAmount = function(event) {
         this.operationArea.drawControls();
+        this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.logEvent(event);
     };
 
     this.onChooseMajorColor = function(event) {
         this.operationArea.drawControls();
+        this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.operationArea.resortCards();
         this.logEvent(event);
     };
 
     this.onReserveCards = function(event) {
         this.operationArea.drawControls();
+        this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.operationArea.moveOutCards(table.game.reservedCards);
         this.logEvent(event);
     };
 
     this.onChooseAColor = function(event) {
         this.operationArea.drawControls();
+        this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.logEvent(event);
     };
 
@@ -677,6 +734,8 @@ var UI = function () {
 
         //TODO draw cards on the table
         this.operationArea.drawControls();
+        this.tableArea.onNewCardsPlayed(event.content.cards, (event.sid - table.agentSid + 5) % 5);
+        this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.operationArea.moveOutCards(table.playedCardsPicked);
         table.playedCardsPicked = null;
         this.logEvent(event);
@@ -688,6 +747,7 @@ var UI = function () {
 
     this.drawNextTurn = function (event, newStatus, extraUpdated) {
         this.operationArea.drawControls();
+        this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         var txt = '[' + table.seats[table.game.currentTurn.startSid].user + ']';
         switch (newStatus) {
             case GameStatus.CHOOSE_MAJOR_COLOR:
@@ -705,6 +765,23 @@ var UI = function () {
                 break;
             case GameStatus.PLAY_CARDS:
                 this.logSystemEvent(txt + '本轮先出牌');
+                for (var i = 0; i < 5; i ++)
+                    this.tableArea.updateSeat(i);
+                //TODO 播放动画牌组收起
+                if (table.lastTurn) {
+                    switch (table.lastTurn.status) {
+                        case GameStatus.PLAY_CARDS:
+                            var len = table.lastTurn.done.length;
+                            for (var j = 0; j < len; j ++) {
+                                var cards = table.lastTurn.done[j].cards;
+                                var len2 = cards.length;
+                                for (var k = 0; k < len2; k ++) {
+                                    cards[k].view.remove();
+                                    cards[k].view = null;
+                                }
+                            }
+                    }
+                }
                 break;
         }
     };

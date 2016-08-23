@@ -74,6 +74,7 @@ function Table(data) {
                      */
                     var _this = this;
                     setTimeout(function () {
+                        _this.lastTurn = _this.game.currentTurn;
                         _this.game.currentTurn = event.content.updated.currentTurn;
                         var master = event.content.updated.masterSid;
                         if (master != null)
@@ -98,6 +99,7 @@ function Table(data) {
                             _this2.game.cards = _this2.cardUtil.getSortedCards(_this2.game.cards);
                             ui.onChooseMajorColor(event);
                             setTimeout(function () {
+                                _this2.lastTurn = _this2.game.currentTurn;
                                 _this2.game.currentTurn = event.content.updated.currentTurn;
                                 ui.drawNextTurn(event, _this2.game.currentTurn.status);
                             }, 1000);
@@ -107,6 +109,7 @@ function Table(data) {
                     this.game.cards = this.cardUtil.getSortedCards(this.game.cards);
                     ui.onChooseMajorColor(event);
                     setTimeout(function () {
+                        _this2.lastTurn = _this2.game.currentTurn;
                         _this2.game.currentTurn = event.content.updated.currentTurn;
                         ui.drawNextTurn(event, _this2.game.currentTurn.status);
                     }, 1000);
@@ -122,6 +125,7 @@ function Table(data) {
                 ui.onReserveCards(event);
                 var _this3 = this;
                 setTimeout(function () {
+                    _this3.lastTurn = _this3.game.currentTurn;
                     _this3.game.currentTurn = event.content.updated.currentTurn;
                     ui.drawNextTurn(event, _this3.game.currentTurn.status);
                 }, 1000);
@@ -131,6 +135,7 @@ function Table(data) {
                 ui.onChooseAColor(event);
                 var _this4 = this;
                 setTimeout(function () {
+                    _this4.lastTurn = _this4.game.currentTurn;
                     _this4.game.currentTurn = event.content.updated.currentTurn;
                     ui.drawNextTurn(event, _this4.game.currentTurn.status);
                 }, 1000);
@@ -160,8 +165,15 @@ function Table(data) {
                         //TODO 处理这里的复杂情况,现在只是更新了轮次信息
                     var _this5 = this;
                     setTimeout(function () {
-                        _this5.game.currentTurn = event.content.updated.currentTurn;
-                        ui.drawNextTurn(event, _this5.game.currentTurn.status);
+                        if (event.content.updated.currentTurn) {
+                            _this5.lastTurn = _this5.game.currentTurn;
+                            _this5.game.currentTurn = event.content.updated.currentTurn;
+                            _this5.game.points = event.content.updated.points;
+                            _this5.game.caught5Heart = event.content.updated.caught5Heart;
+                            ui.drawNextTurn(event, _this5.game.currentTurn.status);
+                        } else {
+                            //TODO result here
+                        }
                     }, 1000);
                 }
                 break;

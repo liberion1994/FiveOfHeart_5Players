@@ -36,14 +36,12 @@ var table;
 
 function agentStatusToText(status) {
     switch (status) {
-        case AgentStatus.HALL:
-            return '大厅中';
         case AgentStatus.UNPREPARED:
-            return '未准备';
+            return '<i class="icon-check-empty"></i>';
         case AgentStatus.PREPARED:
-            return '已准备';
+            return '<i class="icon-check"></i>';
         case AgentStatus.IN_GAME:
-            return '游戏中';
+            return '<i class="icon-headphones"></i>';
     }
 }
 
@@ -51,4 +49,7 @@ function agentStatusToText(status) {
 function bootstrapInit() {
     //init popovers
     $('[data-toggle="popover"]').popover();
+    $(".nav li.disabled a").click(function() {
+        return false;
+    });
 }
