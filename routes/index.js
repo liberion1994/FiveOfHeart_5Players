@@ -22,4 +22,10 @@ router.get('/test2',
     }
 );
 
+router.get('/ui-test',
+    function(req, res) {
+        res.render('ui-test');
+    }
+);
+
 module.exports = router;

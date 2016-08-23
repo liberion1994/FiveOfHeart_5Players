@@ -5,14 +5,54 @@
 function SocketClient() {
     this.socket = io();
 
+    this.synchronizing = false;
+
     this.getAllInfo = function (err, succ) {
+        this.synchronizing = true;
+        var _this = this;
         $.ajax({
             type: 'GET',
             url: '/tables/current_table/info',
             success: function (res) {
+                _this.synchronizing = false;
                 succ(res);
             },
             error: function (msg) {
+                _this.synchronizing = false;
+                err(msg);
+            }
+        });
+    };
+
+    this.getGameInfo = function (err, succ) {
+        this.synchronizing = true;
+        var _this = this;
+        $.ajax({
+            type: 'GET',
+            url: '/tables/current_table/game/info',
+            success: function (res) {
+                _this.synchronizing = false;
+                succ(res);
+            },
+            error: function (msg) {
+                _this.synchronizing = false;
+                err(msg);
+            }
+        });
+    };
+
+    this.getReservedCards = function (err, succ) {
+        this.synchronizing = true;
+        var _this = this;
+        $.ajax({
+            type: 'GET',
+            url: '/tables/current_table/game/reserved_cards',
+            success: function (res) {
+                _this.synchronizing = false;
+                succ(res);
+            },
+            error: function (msg) {
+                _this.synchronizing = false;
                 err(msg);
             }
         });
@@ -27,29 +67,49 @@ function SocketClient() {
             case AgentCommandType.LeaveTable:
                 this.socket.emit('command', { type: commandType });
                 break;
-
+            case AgentCommandType.InGame:
+                this.socket.emit('command', { type: commandType, content: commandContent });
+                break;
             default:
                 error('未知的指令类型!');
                 break;
 
         }
     };
+
+    var _this = this;
     this.socket.on('event', function (event) {
-        ui.displayEvent(event);
+
+        if (_this.synchronizing)
+            return;
+
+        if (event.eid != table.currentEventId ++) {
+            alert('eid不同!');
+            //TODO 这里改成ajax全部更新
+        }
         //TODO reget all the info if eid not matched
         switch (event.type) {
             case AgentCommandType.IntoTable:
-                //ui.playAnimation
-                //controller.changeStatus
-                //ui.update
-                table.onIntoTable();
+                table.onIntoTable(event);
+                break;
+            case AgentCommandType.Prepare:
+                table.onPrepare(event);
+                break;
+            case AgentCommandType.UnPrepare:
+                table.onUnPrepare(event);
+                break;
+            case AgentCommandType.LeaveTable:
+                table.onLeaveTable(event);
+                break;
+            case AgentCommandType.InGame:
+                table.onInGame(event);
+                break;
         }
     });
 
     this.socket.on('err', function (msg) {
         alert(msg);
     });
-    this.emitCommand(AgentCommandType.IntoTable, null, function () {});
 }
 
 

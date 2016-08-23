@@ -9,41 +9,6 @@
  * 假设最大张开到30度,则根据计算总共多出0.6倍宽度
  */
 
-var CARDS_IN_HAND = [
-    { number: 1, color: 'J', type: 6 },
-    { number: 1, color: 'J', type: 6 },
-    { number: 0, color: 'J', type: 6 },
-    { number: 3, color: '♥', type: 5 },
-    { number: 3, color: '♥', type: 5 },
-    { number: 3, color: '♦', type: 4 },
-    { number: 3, color: '♦', type: 4 },
-    { number: 7, color: '♥', type: 3 },
-    { number: 7, color: '♥', type: 3 },
-    { number: 7, color: '♠', type: 2 },
-    { number: 7, color: '♦', type: 2 },
-    { number: 12, color: '♥', type: 1 },
-    { number: 11, color: '♥', type: 1 },
-    { number: 8, color: '♥', type: 1 },
-    { number: 6, color: '♥', type: 1 },
-    { number: 2, color: '♥', type: 1 },
-    { number: 10, color: '♠', type: 0 },
-    { number: 8, color: '♠', type: 0 },
-    { number: 4, color: '♠', type: 0 },
-    { number: 3, color: '♠', type: 0 },
-    { number: 14, color: '♦', type: 0 },
-    { number: 8, color: '♦', type: 0 },
-    { number: 5, color: '♦', type: 0 },
-    { number: 9, color: '♣', type: 0 },
-    { number: 8, color: '♣', type: 0 },
-    { number: 6, color: '♣', type: 0 },
-    { number: 5, color: '♣', type: 0 },
-    { number: 5, color: '♣', type: 0 },
-    { number: 3, color: '♣', type: 0 },
-    { number: 3, color: '♣', type: 0 },
-    { number: 2, color: '♣', type: 0 }
-];
-
-
 var CARDS_PLAYED = [
     { number: 5, color: '♣', type: 0, from: 0, turnLeft: 0 },
     { number: 3, color: '♣', type: 0, from: 0, turnLeft: 0 },
@@ -74,11 +39,35 @@ var MinOneLineCardAmount = 13;
 var TableArea = function (targetDiv) {
     this.div = targetDiv;
     this.cardsPlayed = CARDS_PLAYED;
-    this.onResize = function () {
+    this.repaint = function () {
 
         this.width = this.div.width();
         this.height = this.div.height();
-        this.drawCardsOnTable();
+        for (var i = 0; i < 5; i ++)
+            this.updateSeat(i);
+        // this.drawCardsOnTable();
+    };
+
+    this.updateSeat = function (sid) {
+        var index = (sid - table.agentSid + 5) % 5;
+        var seat = table.seats[sid];
+        if (seat) {
+            if (seat.status != AgentStatus.IN_GAME)
+                $('#seat' + index).html(seat.user + '<br>' + agentStatusToText(seat.status));
+            else {
+                var inGameStatus = '闲家';
+                if (table.game.masterSid == sid)
+                    inGameStatus = '庄家';
+                else if (table.game.subMasterSid == sid)
+                    inGameStatus = '副庄';
+                else if (table.game.subMasterSid == null)
+                    inGameStatus = '待定';
+                $('#seat' + index).html(seat.user + '<br>' + inGameStatus + ':' + table.game.points[sid]);
+            }
+        } else {
+            $('#seat' + index).html('空座位');
+        }
+
     };
 
     this.drawCardsOnTable = function () {
@@ -93,23 +82,270 @@ var TableArea = function (targetDiv) {
     };
 };
 
-var InHandCardsArea = function (cards, targetDiv) {
+var OperationArea = function (targetDiv) {
     
     this.div = targetDiv;
-    this.cards = cards;
 
-    this.onResize = function () {
+    this.repaint = function () {
+
+        this.div.empty();
 
         this.width = this.div.width();
         this.height = this.div.height();
 
-        this.drawCardsInHand();
+        var status = table.getCurrentAgentStatus();
+
+        switch (status) {
+            case AgentStatus.PREPARED:
+                this.preparedPane();
+                break;
+            case AgentStatus.UNPREPARED:
+                this.unPreparedPane();
+                break;
+            case AgentStatus.IN_GAME:
+                this.inGamePane();
+                break;
+        }
     };
 
     this.getAngle = function (index, total) {
         if (total == 1)
             return 0;
         return -30 + 60 * index / (total - 1);
+    };
+
+    this.preparedPane = function () {
+        var unPrepareBtn = $("<a type='button' class='btn btn-default' id='unPrepareBtn'>取消</a>");
+        unPrepareBtn
+            .click(function () { socketClient.emitCommand(AgentCommandType.UnPrepare, null, alert) })
+            .appendTo(this.div);
+        var leaveBtn = $("<a type='button' class='btn btn-default' id='leaveBtn'>离开</a>");
+        leaveBtn
+            .click(function () { socketClient.emitCommand(AgentCommandType.LeaveTable, null, alert) })
+            .appendTo(this.div);
+    };
+
+    this.unPreparedPane = function () {
+        var prepareBtn = $("<a type='button' class='btn btn-default' id='prepareBtn'>准备</a>");
+        prepareBtn
+            .click(function () { socketClient.emitCommand(AgentCommandType.Prepare, null, alert) })
+            .appendTo(this.div);
+        var leaveBtn = $("<a type='button' class='btn btn-default' id='leaveBtn'>离开</a>");
+        leaveBtn
+            .click(function () { socketClient.emitCommand(AgentCommandType.LeaveTable, null, alert) })
+            .appendTo(this.div);
+
+    };
+
+    this.inGamePane = function () {
+        this.drawCardsInHand();
+        this.drawControls();
+    };
+
+    //所有的控件必须带有control类,以便于统一删除
+    this.drawControls = function () {
+        this.div.children('.control').remove();
+        if (table.game.currentTurn.remainedSid.length == 0) //说明只是在显示本轮最后信息,短暂延时后会显示新的轮次,因此不画控件
+            return;
+        if (table.game.currentTurn.remainedSid[0] == table.agentSid) {
+            switch (table.game.currentTurn.status) {
+                case GameStatus.OFFER_MAJOR_AMOUNT:
+                    this.drawMajorAmountOptions();
+                    break;
+                case GameStatus.CHOOSE_MAJOR_COLOR:
+                    this.drawMajorColorOptions();
+                    break;
+                case GameStatus.RESERVE_CARDS:
+                    this.drawReserveCardsBtn();
+                    break;
+                case GameStatus.CHOOSE_A_COLOR:
+                    this.drawAColorOptions();
+                    break;
+                case GameStatus.PLAY_CARDS:
+                    this.drawPlayCardsBtn();
+                    break;
+            }
+        }
+    };
+
+    this.drawMajorAmountOptions = function () {
+        var options = $("<div class='options control' id='major-amount-options'>");
+        for (var i = 0; i <= table.cardUtil.getAbsoluteMajorSum(table.game.cards); i ++) {
+            $("<div class='option-block'>" + i + "</div>")
+                .attr('major-amount-pick', i)
+                .click(function () {
+                    var newVal = $(this).attr('major-amount-pick');
+                    if (table.majorAmountPicked != null) {
+                        if (table.majorAmountPicked == newVal) {
+                            table.majorAmountPicked = null;
+                            $(this).removeClass('option-chosen');
+                            return;
+                        } else {
+                            $('#major-amount-options').children('div[major-amount-pick = ' +
+                                table.majorAmountPicked + ']').removeClass('option-chosen');
+                        }
+                    }
+                    table.majorAmountPicked = newVal;
+                    $(this).addClass('option-chosen');
+                })
+                .appendTo(options);
+        }
+        options.appendTo(this.div);
+
+        var okBtn = $("<a type='button' class='btn btn-default control' id='okBtn'>确定</a>");
+        okBtn
+            .click(function () {
+                var amount = table.majorAmountPicked;
+                if (amount) {
+                    socketClient.emitCommand(AgentCommandType.InGame, {
+                        actionType: GameStatus.OFFER_MAJOR_AMOUNT,
+                        actionContent: {amount: amount}
+                    }, alert)
+                } else {
+                    alert('请选择一个数字')
+                }
+            })
+            .appendTo(this.div);
+    };
+
+    this.drawMajorColorOptions = function () {
+        var colors = ['♥', '♠', '♦', '♣'];
+
+        var options = $("<div class='options control' id='major-color-options'>");
+        for (var i = 0; i < 4; i ++) {
+            $("<div class='option-block'>" + colors[i] + "</div>")
+                .attr('major-color-pick', colors[i])
+                .css('color', (i % 2 == 0) ? 'red' : 'black')
+                .click(function () {
+                    var newVal = $(this).attr('major-color-pick');
+                    if (table.majorColorPicked != null) {
+                        if (table.majorColorPicked == newVal) {
+                            table.majorColorPicked = null;
+                            $(this).removeClass('option-chosen');
+                            return;
+                        } else {
+                            $('#major-color-options').children('div[major-color-pick = \'' +
+                                table.majorColorPicked + '\']').removeClass('option-chosen');
+                        }
+                    }
+                    table.majorColorPicked = newVal;
+                    $(this).addClass('option-chosen');
+                })
+                .appendTo(options);
+        }
+        options.appendTo(this.div);
+
+        var okBtn = $("<a type='button' class='btn btn-default control' id='okBtn'>确定</a>");
+        okBtn
+            .click(function () {
+                var color = table.majorColorPicked;
+                if (color) {
+                    socketClient.emitCommand(AgentCommandType.InGame, {
+                        actionType: GameStatus.CHOOSE_MAJOR_COLOR,
+                        actionContent: {color: color}
+                    }, alert)
+                } else {
+                    alert('请选择一个花色')
+                }
+            })
+            .appendTo(this.div);
+    };
+
+    this.drawReserveCardsBtn = function () {
+        var okBtn = $("<a type='button' class='btn btn-default control' id='okBtn'>埋底</a>");
+        okBtn
+            .click(function () {
+                //TODO complete the function
+                var cards = table.game.cards;
+                var len = cards.length;
+                var tmp = [];
+                for (var i = 0; i < len; i ++) {
+                    var card = cards[i];
+                    if (card.status == 'chosen') {
+                        tmp.push(card);
+                    }
+                }
+                if (tmp.length != 7) {
+                    alert('底牌数量不对呀');
+                } else {
+                    table.game.reservedCards = tmp;
+                    socketClient.emitCommand(AgentCommandType.InGame, {
+                        actionType: GameStatus.RESERVE_CARDS,
+                        actionContent: {cards: tmp}
+                    }, alert)
+                }
+            })
+            .appendTo(this.div);
+    };
+
+    this.drawAColorOptions = function () {
+        var colors = ['♥', '♠', '♦', '♣'];
+
+        var options = $("<div class='options control' id='a-color-options'>");
+        for (var i = 0; i < 4; i ++) {
+            $("<div class='option-block'>" + colors[i] + "</div>")
+                .attr('a-color-pick', colors[i])
+                .css('color', (i % 2 == 0) ? 'red' : 'black')
+                .click(function () {
+                    var newVal = $(this).attr('a-color-pick');
+                    if (table.aColorPicked != null) {
+                        if (table.aColorPicked == newVal) {
+                            table.aColorPicked = null;
+                            $(this).removeClass('option-chosen');
+                            return;
+                        } else {
+                            $('#a-color-options').children('div[a-color-pick = \'' +
+                                table.aColorPicked + '\']').removeClass('option-chosen');
+                        }
+                    }
+                    table.aColorPicked = newVal;
+                    $(this).addClass('option-chosen');
+                })
+                .appendTo(options);
+        }
+        options.appendTo(this.div);
+
+        var okBtn = $("<a type='button' class='btn btn-default control' id='okBtn'>确定</a>");
+        okBtn
+            .click(function () {
+                var color = table.aColorPicked;
+                if (color) {
+                    socketClient.emitCommand(AgentCommandType.InGame, {
+                        actionType: GameStatus.CHOOSE_A_COLOR,
+                        actionContent: {color: color}
+                    }, alert)
+                } else {
+                    alert('请选择一个花色')
+                }
+            })
+            .appendTo(this.div);
+    };
+
+    this.drawPlayCardsBtn = function () {
+        var okBtn = $("<a type='button' class='btn btn-default control' id='okBtn'>出牌</a>");
+        okBtn
+            .click(function () {
+                //TODO complete the function
+                var cards = table.game.cards;
+                var len = cards.length;
+                var tmp = [];
+                for (var i = 0; i < len; i ++) {
+                    var card = cards[i];
+                    if (card.status == 'chosen') {
+                        tmp.push(card);
+                    }
+                }
+                if (tmp.length == 0) {
+                    alert('请选择至少一张牌');
+                } else {
+                    table.playedCardsPicked = tmp;
+                    socketClient.emitCommand(AgentCommandType.InGame, {
+                        actionType: GameStatus.PLAY_CARDS,
+                        actionContent: {cards: tmp}
+                    }, alert)
+                }
+            })
+            .appendTo(this.div);
     };
 
     /**
@@ -121,7 +357,8 @@ var InHandCardsArea = function (cards, targetDiv) {
      */
     this.drawCardsInHand = function () {
 
-        this.div.children().remove('.card');
+        var cards = table.game.cards;
+
 
         var param1 = {
             centerX: (this.width - cardWidth) / 2,
@@ -137,35 +374,37 @@ var InHandCardsArea = function (cards, targetDiv) {
         };
         var cardLine1, cardLine2 = null;
         var singleLine = true;
-        if (this.cards.length > MinOneLineCardAmount) {
-            var len1 = parseInt(this.cards.length * 0.55);
-            cardLine1 = this.cards.slice(0, len1);
-            cardLine2 = this.cards.slice(len1);
+        if (cards.length > MinOneLineCardAmount) {
+            var len1 = parseInt(cards.length * 0.55);
+            cardLine1 = cards.slice(0, len1);
+            cardLine2 = cards.slice(len1);
             singleLine = false;
         } else {
-            cardLine1 = this.cards;
+            cardLine1 = cards;
             param1.centerY += cardHeight * 0.25;
         }
 
         var _this = this;
         var len = cardLine1.length;
         for (var i = 0; i < len; i ++)
-            drawCard(cardLine1[i], 'ih_' + i, cardWidth, cardHeight, this.div,
+            drawCard(cardLine1[i], i, cardWidth, cardHeight, this.div,
                 param1.centerX, param1.centerY, this.getAngle(i, len),
                 param1.rotateX, param1.rotateY, function () { _this.onCardChosen($(this)) });
         if (!singleLine) {
             var len2 = cardLine2.length;
             for (var i2 = 0; i2 < len2; i2 ++)
-                drawCard(cardLine2[i2], 'ih_' + (len + i2), cardWidth, cardHeight, this.div,
+                drawCard(cardLine2[i2], (len + i2), cardWidth, cardHeight, this.div,
                     param2.centerX, param2.centerY, this.getAngle(i2, len2),
                     param2.rotateX, param2.rotateY, function () { _this.onCardChosen($(this)) });
         }
     };
 
     /**
-     * 更新手牌,并播放动画
+     * 调整手牌,并播放动画
      */
-    this.updateCards = function () {
+    this.adjustCards = function () {
+        var cards = table.game.cards;
+
         var param1 = {
             centerX: (this.width - cardWidth) / 2,
             centerY: this.height - cardHeight * 1.5 + 5,
@@ -180,124 +419,152 @@ var InHandCardsArea = function (cards, targetDiv) {
         };
         var cardLine1, cardLine2 = null;
         var singleLine = true;
-        if (this.cards.length > MinOneLineCardAmount) {
-            var len1 = parseInt(this.cards.length * 0.55);
-            cardLine1 = this.cards.slice(0, len1);
-            cardLine2 = this.cards.slice(len1);
+        if (cards.length > MinOneLineCardAmount) {
+            var len1 = parseInt(cards.length * 0.55);
+            cardLine1 = cards.slice(0, len1);
+            cardLine2 = cards.slice(len1);
             singleLine = false;
         } else {
-            cardLine1 = this.cards;
+            cardLine1 = cards;
             param1.centerY += cardHeight * 0.25;
         }
-
         var len = cardLine1.length;
-        for (var i = 0; i < len; i ++)
-            updateCard(cardLine1[i].view, 'ih_' + i,
+        for (var i = 0; i < len; i ++) {
+            updateCard(cardLine1[i], i,
                 param1.centerX, param1.centerY, this.getAngle(i, len),
                 param1.rotateX, param1.rotateY, '-webkit-transform .5s ease')
+        }
         if (!singleLine) {
             var len2 = cardLine2.length;
             for (var i2 = 0; i2 < len2; i2 ++)
-                updateCard(cardLine2[i2].view, 'ih_' + (len + i2),
+                updateCard(cardLine2[i2], (len + i2),
                     param2.centerX, param2.centerY, this.getAngle(i2, len2),
                     param2.rotateX, param2.rotateY, '-webkit-transform .5s ease');
         }
     };
 
+    this.resortCards = function () {
+        var cards = table.game.cards;
+        var len = cards.length;
+        var endCount = len;
+        var _this = this;
+        for (var i = 0; i < len; i ++) {
+            if (!cards[i].view) {
+                endCount --;
+                continue;
+            }
+            setAnimation(cards[i].view, ' translateY(200px)', '-webkit-transform 1s ease',
+                function () {
+                    if (-- endCount == 0) {
+                        var cx = (_this.width - cardWidth) / 2;
+                        for (var i = 0; i < len; i ++) {
+                            if (cards[i].view) {
+                                cards[i].view.removeAttr('animating');
+                                cards[i].view.remove();
+                            }
+                            drawCard(cards[i], 'ih_' + i, cardWidth, cardHeight, _this.div,
+                                cx, 200, 0, 0, 0, function () {
+                                    _this.onCardChosen($(this))
+                                });
+                        }
+                        setTimeout(function() {_this.adjustCards()}, 500);
+                    }
+                });
+        }
+    };
+
     this.onCardChosen = function (card) {
+        var cards = table.game.cards;
+
         if (typeof(card.attr('animating')) != "undefined")
             return;
         var newly = card.css('transform');
-        var inHandIndex = parseInt(card.attr('id').split('_')[1]);
+        var inHandIndex = parseInt(card.attr('inhand-index'));
         if (card.attr('status') != 'chosen') {
             newly += ' translateY(-10px)';
             card
                 .attr('animating', true)
                 .attr('status', 'chosen');
-            this.cards[inHandIndex].status = 'chosen';
+            cards[inHandIndex].status = 'chosen';
         } else {
             newly += ' translateY(10px)';
             card
                 .attr('animating', true)
                 .attr('status', 'inHand');
-            this.cards[inHandIndex].status = 'inHand';
+            cards[inHandIndex].status = 'inHand';
         }
         setAnimation(card, newly, '-webkit-transform .2s ease', function () {
             card.removeAttr('animating')
         });
     };
 
-    this.onCardOut = function (card) {
-        card
+    this.onCardOut = function (cardDiv) {
+        cardDiv
             .attr('animating', true)
             .attr('status', 'played');
-        setAnimation(card, ' translateY(-150px)', '-webkit-transform 1s ease', function () {
-            card.remove()
-        });
+        setAnimation(cardDiv, ' translateY(-150px)', '-webkit-transform 1s ease', function () { cardDiv.remove() });
     };
 
-    this.onPlayCards = function () {
-        var len = this.cards.length;
+    this.moveOutCards = function (cards) {
+        if (!cards)
+            return;
+        var len = cards.length;
         for (var i = 0; i < len; i ++) {
-            var card = this.cards[i];
-            if (card.status == 'chosen') {
-                this.onCardOut(this.cards[i].view);
-                this.cards.splice(i, 1);
-                i --; len --;
-            }
+            this.onCardOut(cards[i].view);
+            cards[i].view = null;
         }
-        //TODO 重新整理牌(选出view,将view动画移动而非重新创建view)
-        this.updateCards();
+        this.adjustCards();
     };
 
 };
 
 var UI = function () {
 
-    this.minFontSize = 8;
-    this.seatInfoWidth = 30;
-    this.seatInfoHeight = 10;
-
     cardWidth = 60;
     cardHeight = cardWidth * 1.5;
 
-    this.inHandCardsArea = new InHandCardsArea(CARDS_IN_HAND, $('#cardsInHand'));
-    this.tableArea = new TableArea($('#table'));
+    this.operationArea = new OperationArea($('#operation-area'));
+    this.tableArea = new TableArea($('#table-area'));
 
-
-    this.onIntoTable = function () {
-
-    };
-
-    this.onResize = function () {
+    this.resize = function () {
         var windowHeight = $(document.body).height();
         var windowWidth = $(document.body).width();
-        this.cardsInHandProperty = {
+        this.operationAreaProperty = {
             width: windowWidth - 20,
             height: cardHeight * 1.5 + 40
         };
-        $('#cardsInHand')
-            .css('width', this.cardsInHandProperty.width + 'px')
-            .css('height', this.cardsInHandProperty.height + 'px');
+        $('#operation-area')
+            .css('width', this.operationAreaProperty.width + 'px')
+            .css('height', this.operationAreaProperty.height + 'px');
+        $('#history-area')
+            .css('width', this.operationAreaProperty.width + 'px')
+            .css('height', this.operationAreaProperty.height + 'px');
+        $('#chat-area')
+            .css('width', this.operationAreaProperty.width + 'px')
+            .css('height', this.operationAreaProperty.height + 'px');
         this.tableProperty = {
             width: windowWidth - 20,
             height: windowHeight - $('#bottom-area').height() - 30
         };
-        $('#table')
+        $('#table-area')
             .css('width', this.tableProperty.width + 'px')
             .css('height', this.tableProperty.height + 'px');
-        this.inHandCardsArea.onResize();
-        this.tableArea.onResize();
     };
 
-    this.displayEvent = function (event) {
-        var txt = event.eid + ': ' + event.username;
+    this.repaint = function () {
+        this.resize();
+        this.operationArea.repaint();
+        this.tableArea.repaint();
+    };
+
+    this.logEvent = function (event) {
+        var txt = '[' + event.username + ']';
         switch (event.type) {
             case AgentCommandType.Disconnect:
                 txt += '掉线了';
                 break;
             case AgentCommandType.IntoTable:
-                txt += '进入了' + event.sid + '号座位';
+                txt += '加入了' + event.sid + '号座位';
                 break;
             case AgentCommandType.Prepare:
                 txt += '准备好了';
@@ -306,11 +573,139 @@ var UI = function () {
                 txt += '取消了准备';
                 break;
             case AgentCommandType.LeaveTable:
-                txt += '离开了座位';
+                txt += '离开了' + event.sid + '号座位';
+                break;
+            case AgentCommandType.InGame:
+                switch (event.content.actionType) {
+                    case GameStatus.OFFER_MAJOR_AMOUNT:
+                        txt += '称有' + event.content.amount + '张真主';
+                        break;
+                    case GameStatus.CHOOSE_MAJOR_COLOR:
+                        txt += '选择了' + event.content.color + '作为主花色';
+                        break;
+                    case GameStatus.RESERVE_CARDS:
+                        txt += '完成了埋底';
+                        break;
+                    case GameStatus.CHOOSE_A_COLOR:
+                        txt += '选择了' + event.content.color + '为A的花色';
+                        break;
+                    case GameStatus.PLAY_CARDS:
+                        if (event.content.partRejected)
+                            txt += '甩牌失败,';
+                        txt += '打出了:[';
+                        var len = event.content.cards.length;
+                        for (var i = 0; i < len; i ++)
+                            txt += cardToText(event.content.cards[i], '');
+                        txt += ']';
+                        break;
+                }
                 break;
         }
-        var paragraph = $('<div>')
-            .html(txt);
-        paragraph.appendTo($('#history'));
+        $('<div>')
+            .html(txt)
+            .appendTo($('#history-area'));
+    };
+
+    this.logSystemEvent = function (txt) {
+        $('<div>')
+            .css('color', 'blue')
+            .html(txt)
+            .appendTo($('#history-area'));
+    };
+
+    this.onIntoTable = function (event) {
+        this.tableArea.updateSeat(event.sid);
+        this.logEvent(event);
+    };
+
+    this.onPrepare = function (event) {
+        var sid = event.sid;
+        this.tableArea.updateSeat(sid);
+        if (sid == table.agentSid)
+            this.operationArea.repaint();
+        this.logEvent(event);
+
+    };
+
+    this.onPrepareAndGameStart = function (event) {
+        this.repaint();
+        this.logEvent(event);
+        this.logSystemEvent('游戏开始');
+    };
+
+    this.onUnPrepare = function (event) {
+        var sid = event.sid;
+        this.tableArea.updateSeat(sid);
+        if (sid == table.agentSid)
+            this.operationArea.repaint();
+        this.logEvent(event);
+    };
+
+    this.onLeaveTable = function (event) {
+        var sid = event.sid;
+        if (sid == table.agentSid)
+            location.href = '/tables';
+        else {
+            this.tableArea.updateSeat(sid);
+            this.logEvent(event);
+        }
+    };
+
+    this.onOfferMajorAmount = function(event) {
+        this.operationArea.drawControls();
+        this.logEvent(event);
+    };
+
+    this.onChooseMajorColor = function(event) {
+        this.operationArea.drawControls();
+        this.operationArea.resortCards();
+        this.logEvent(event);
+    };
+
+    this.onReserveCards = function(event) {
+        this.operationArea.drawControls();
+        this.operationArea.moveOutCards(table.game.reservedCards);
+        this.logEvent(event);
+    };
+
+    this.onChooseAColor = function(event) {
+        this.operationArea.drawControls();
+        this.logEvent(event);
+    };
+
+    this.onPlayCards = function (event) {
+
+        //TODO draw cards on the table
+        this.operationArea.drawControls();
+        this.operationArea.moveOutCards(table.playedCardsPicked);
+        table.playedCardsPicked = null;
+        this.logEvent(event);
+        if (event.content.subMasterSid) {
+            this.tableArea.updateSeat(event.content.subMasterSid);
+            this.logSystemEvent('[' + table.seats[event.content.subMasterSid].user + ']成为了副庄');
+        }
+    };
+
+    this.drawNextTurn = function (event, newStatus, extraUpdated) {
+        this.operationArea.drawControls();
+        var txt = '[' + table.seats[table.game.currentTurn.startSid].user + ']';
+        switch (newStatus) {
+            case GameStatus.CHOOSE_MAJOR_COLOR:
+                if (extraUpdated.masterSid != null) {
+                    this.tableArea.updateSeat(extraUpdated.masterSid);
+                    this.logSystemEvent(txt + '成为了庄家');
+                }
+                this.logSystemEvent(txt + '正在选择主花色');
+                break;
+            case GameStatus.RESERVE_CARDS:
+                this.logSystemEvent(txt + '正在埋底牌');
+                break;
+            case GameStatus.CHOOSE_A_COLOR:
+                this.logSystemEvent(txt + '正在选择A的花色');
+                break;
+            case GameStatus.PLAY_CARDS:
+                this.logSystemEvent(txt + '本轮先出牌');
+                break;
+        }
     };
 };

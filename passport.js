@@ -37,6 +37,11 @@ passport.deserializeUser(function (username, done) {
 
 passport.isAuthenticated = function(req, res, next) {
     if (req.isAuthenticated()) return next();
+    res.status(401).send('您尚未登录!');
+};
+
+passport.isAuthenticatedBackToLogin = function(req, res, next) {
+    if (req.isAuthenticated()) return next();
     res.redirect('/');
 };
 

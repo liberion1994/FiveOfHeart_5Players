@@ -17,7 +17,7 @@ $(document).ready(function () {
                 var len = seats.length;
                 for (var i = 0; i < len; i ++) {
                     var inner = '座位' + i + ':';
-                    if (seats[i].available == true) {
+                    if (seats[i].user == null) {
                         $('<p>').html(inner + '<a class="enterBtn" table-id=' + tid + ' seat-id=' + i + '>加入</a>').appendTo(body);
                     } else {
                         $('<p>').html(inner + seats[i].user).appendTo(body);
@@ -37,14 +37,14 @@ $(document).ready(function () {
                                 alert(msg);
                             }
                         },
-                        error: function () {
-                            alert('服务器无响应');
+                        error: function (msg) {
+                            alert(msg);
                         }
                     });
                 });
             },
-            error: function () {
-                alert('服务器无响应');
+            error: function (msg) {
+                alert(msg);
             }
         });
         $('#table-option').modal();

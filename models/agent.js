@@ -32,7 +32,7 @@ var Agent = function (username) {
         table.enterAgent(this, sid, err, function () {
             _this.status = AgentStatus.UNPREPARED;
             _this.currentTable = table;
-            callback('success');
+            callback();
         });
     };
 

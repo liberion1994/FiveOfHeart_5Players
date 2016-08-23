@@ -35,6 +35,15 @@ a {
     overflow: hidden;
 }
 
+#chat-area {
+    overflow: scroll;
+}
+
+#history-area {
+    overflow: scroll;
+    padding: 5px;
+}
+
 #history {
     padding: 20px;
     font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -46,7 +55,7 @@ a {
     top: 10px;
 }
 
-#playCardBtn, #prepareBtn, #unPrepareBtn {
+#playCardBtn, #prepareBtn, #unPrepareBtn, #okBtn {
     position: absolute;
     right: 0;
     top: 10px;
@@ -80,8 +89,8 @@ a {
 
 .seat {
     color: grey;
+    text-align: center;
     margin: 0;
-    white-space: pre-line;
 }
 
 .seat:hover, .seat:visited, .seat:focus, .seat:active{
@@ -94,11 +103,21 @@ a {
 }
 
 #seat1, #seat2 {
-    float: left;
+    position: absolute;
+    left: 10px;
+}
+
+#seat1, #seat4 {
+    bottom: 10px;
 }
 
 #seat3, #seat4 {
-    float: right;
+    position: absolute;
+    right: 10px;
+}
+
+#seat2, #seat3 {
+    top: 10px;
 }
 
 .card {
@@ -108,7 +127,6 @@ a {
     -webkit-border-radius: 5px;
     border-radius:5px;
     box-shadow:1px 1px 3px #aaaaaa;
-    white-space: pre-line;
 }
 
 .card-top {
@@ -145,4 +163,32 @@ a {
     right: 50%;
     margin: -25% -25% -25% -25%;
     text-align: center;
+}
+
+.font-red {
+    color: red;
+}
+
+.font-black {
+    color: black;
+}
+
+.option-block {
+    font-size: 20px;
+    padding: 5px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.options {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    background: #f8f8f8;
+    border-radius: 5px;
+}
+
+.option-chosen {
+    box-shadow: inset 1px 1px 2px #888888;
 }

@@ -30,11 +30,11 @@ function cardToText(card, split) {
     return txt;
 }
 
-function updateCard (cardDiv, id, xInPar, yInPar, deg, rx, ry, trasition) {
+function updateCard (card, index, xInPar, yInPar, deg, rx, ry, trasition) {
     var rot = 'rotate(' + deg + 'deg)';
     var rog = rx + 'px ' + ry + 'px';
-    cardDiv
-        .attr('id', id)
+    card.view
+        .attr('inhand-index', index)
         .attr('status', 'inHand') // all returned to inHand
         .css('left', xInPar + 'px')
         .css('top', yInPar + 'px')
@@ -51,14 +51,14 @@ function updateCard (cardDiv, id, xInPar, yInPar, deg, rx, ry, trasition) {
         .css('transition', trasition);
 }
 
-function drawCard (card, id, cardWidth, cardHeight, parDiv, xInPar, yInPar, deg, rx, ry, onTapstart) {
+function drawCard (card, index, cardWidth, cardHeight, parDiv, xInPar, yInPar, deg, rx, ry, onTapstart) {
     var color = 'font-red';
     if (card.color == '♠' || card.color == '♣' || card.color == 'J' && card.number == 0)
         color = 'font-black';
     var rot = 'rotate(' + deg + 'deg)';
     var rog = rx + 'px ' + ry + 'px';
     var cardDiv = $('<div>')
-        .attr('id', id) //id is used to bind model
+        .attr('inhand-index', index) //id is used to bind model
         .attr('class', 'card ' + color)
         .attr('status', 'inHand')
         .css('width', cardWidth + 'px')
@@ -75,7 +75,7 @@ function drawCard (card, id, cardWidth, cardHeight, parDiv, xInPar, yInPar, deg,
         .css('-webkit-transform-origin',rog)
         .css('-o-transform', rot)
         .css('-o-transform-origin', rog)
-        .tapstart(onTapstart);
+        .click(onTapstart);
 
     var txt = cardToText(card, '<br>');
     var cardTop = $('<div>')

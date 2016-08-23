@@ -9,7 +9,7 @@
     <link rel='stylesheet' href='/stylesheets/animate.min.css' />
 
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
-    <script src="/javascripts/jquery.mobile-events.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
     <script src="/javascripts/angular.min.js"></script>
     <script src="/javascripts/table/app.js"></script>
@@ -45,26 +45,11 @@
         </div><!-- /.container-fluid -->
     </nav>
 
-    <div id="table" ng-style="tableAreaSize()">
-        <div id="seat-top">
-            <a id="seat2" class="seat" active-seat=true data-container="body" data-toggle="popover"
-               data-placement="right" data-content="信息获取中...">待定</a>
-            <a id="seat3" class="seat" data-container="body" data-toggle="popover"
-               data-placement="left" data-content="信息获取中...">待定</a>
-        </div>
-        <div id="seat-bottom">
-            <a id="seat1" class="seat" data-container="body" data-toggle="popover"
-               data-placement="right" data-content="信息获取中...">待定</a>
-            <a id="seat0" class="seat" data-container="body" data-toggle="popover"
-               data-placement="top" data-content="信息获取中...">待定</a>
-            <a id="seat4" class="seat" data-container="body" data-toggle="popover"
-               data-placement="left" data-content="信息获取中...">待定</a>
-        </div>
-    </div>
+    <table-area table="tableInfo"></table-area>
     <div id="bottom-area">
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="tab-li active">
-                <a href="#cardsInHand" aria-controls="cardsInHand" role="tab" data-toggle="tab">手牌</a>
+                <a href="#operation-area" aria-controls="operation-area" role="tab" data-toggle="tab">手牌</a>
             </li>
             <li role="presentation" class="tab-li">
                 <a href="#chat" aria-controls="chat" role="tab" data-toggle="tab">发言</a>
@@ -74,23 +59,7 @@
             </li>
         </ul>
         <div class="tab-content">
-            <div id="cardsInHand" ng-style="inHandAreaSize()" role="tabpanel" class="tab-pane active">
-                <ul>
-                    <card-dis ng-repeat="card in cardsInHand" card-model="card"></card-dis>
-                </ul>
-                <a type="submit" class="btn btn-default" id="submitBtn">确认</a>
-                <div class="dropdown" id="viewBtn">
-                    <a id="viewLabel" type="button" class="btn btn-default"
-                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        查看
-                        <span class="caret"></span>
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="viewLabel">
-                        <li><a>上一轮</a></li>
-                        <li><a>底牌</a></li>
-                    </ul>
-                </div>
-            </div>
+            <operation-area role="tabpanel" class="tab-pane active" table="tableInfo"></operation-area>
             <div role="tabpanel" class="tab-pane" id="chat"></div>
             <div role="tabpanel" class="tab-pane" id="history"></div>
         </div>

@@ -1,4 +1,7 @@
 /**
+ * Created by liboyuan on 16/8/21.
+ */
+/**
  * Created by liboyuan on 16/8/18.
  */
 
@@ -11,55 +14,41 @@ var AgentCommandType = {
     Disconnect: 6
 };
 
+var AgentStatus = {
+    HALL        : 1,
+    UNPREPARED  : 2,
+    PREPARED    : 3,
+    IN_GAME     : 4
+};
+
+var GameStatus = {
+    OFFER_MAJOR_AMOUNT  : 1,
+    CHOOSE_MAJOR_COLOR  : 2,
+    RESERVE_CARDS       : 3,
+    CHOOSE_A_COLOR      : 4,
+    PLAY_CARDS          : 5
+};
+
+
 var ui;
 var socketClient;
 var table;
 
-$(document).ready(function () {
+function agentStatusToText(status) {
+    switch (status) {
+        case AgentStatus.HALL:
+            return '大厅中';
+        case AgentStatus.UNPREPARED:
+            return '未准备';
+        case AgentStatus.PREPARED:
+            return '已准备';
+        case AgentStatus.IN_GAME:
+            return '游戏中';
+    }
+}
 
-    socketClient = new SocketClient();
-    socketClient.getAllInfo(
-        function (msg) { location.href='/tables' },
-        function (res) {
-            table = res;
-            socketClient = new SocketClient();
-            ui = new UI();
-            //TODO ui.drawEverything
-            bootstrapInit();
-            initControls();
-        });
-
-    $.ajax({
-        type: 'GET',
-        url: '/tables/current_table/info',
-        success: function (res) {
-            table = res;
-            socketClient = new SocketClient();
-            ui = new UI();
-            ui.onResize();
-            bootstrapInit();
-            initControls();
-        },
-        error: function () {
-            location.href='/tables';
-        }
-    });
-
-
-
-    $(window).resize(function () {
-        ui.onResize();
-    });
-});
 
 function bootstrapInit() {
     //init popovers
     $('[data-toggle="popover"]').popover();
-}
-
-function initControls() {
-    $('#submitBtn').click(function () {
-        socketClient.emitCommand(AgentCommandType.Prepare, null, alert);
-        // ui.inHandCardsArea.onPlayCards();
-    });
 }

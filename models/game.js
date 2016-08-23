@@ -50,8 +50,12 @@ function Game(masterSid, majorNumber) {
             caught5Heart: this.caught5Heart,
 
             cards: this.cards[sid],
-            reservedCards: (sid == this.masterSid && this.status >= GameStatus.CHOOSE_A_COLOR) ? this.reservedCards : null
+            reservedCards: (sid == this.masterSid && this.currentTurn.status > GameStatus.CHOOSE_MAJOR_COLOR) ? this.reservedCards : null
         }
+    };
+
+    this.getReservedCards = function (sid) {
+        return (sid == this.masterSid && this.currentTurn.status > GameStatus.CHOOSE_MAJOR_COLOR) ? this.reservedCards : null;
     };
 
     /**
@@ -152,40 +156,38 @@ function Game(masterSid, majorNumber) {
      * @param content
      */
     this.commitAction = function (content) {
-        //TODO complete this function
         content.sid = this.currentTurn.remainedSid.shift();
         content.actionType = this.currentTurn.status;
         this.currentTurn.done.push(content);
+        this.nextStatus(content);
         console.log(content);
-        this.nextStatus();
     };
 
-    this.nextStatus = function () {
-        //TODO complete this function
+    this.nextStatus = function (content) {
         if (this.currentTurn.remainedSid.length != 0)
             return;
         switch (this.currentTurn.status) {
             case GameStatus.OFFER_MAJOR_AMOUNT:
-                this.waitingForChooseMajorColor();
+                this.waitingForChooseMajorColor(content);
                 break;
             case GameStatus.CHOOSE_MAJOR_COLOR:
-                this.waitingForReserveCards();
+                this.waitingForReserveCards(content);
                 break;
             case GameStatus.RESERVE_CARDS:
-                this.waitingForChooseAColor();
+                this.waitingForChooseAColor(content);
                 break;
             case GameStatus.CHOOSE_A_COLOR:
-                this.waitingForPlayCards();
+                this.waitingForPlayCards(content);
                 break;
             case GameStatus.PLAY_CARDS:
-                this.waitingForPlayCardsNextRound();
+                this.waitingForPlayCardsNextRound(content);
                 break;
             default:
                 break;
         }
     };
 
-    this.waitingForChooseMajorColor = function () {
+    this.waitingForChooseMajorColor = function (content) {
         var maxMajorSum = -1;
         var sid = -1;
         for (var i = 0; i < Property.GamePlayers; i ++){
@@ -202,11 +204,16 @@ function Game(masterSid, majorNumber) {
             maxSid: null
         };
         this.currentTurn.remainedSid.push(sid);
-        if (this.masterSid == null)
+        content.updated = {
+            currentTurn: this.currentTurn
+        };
+        if (this.masterSid == null) {
             this.masterSid = sid;
+            content.updated.masterSid = sid;
+        }
     };
 
-    this.waitingForReserveCards = function () {
+    this.waitingForReserveCards = function (content) {
         this.currentTurn = {
             status: GameStatus.RESERVE_CARDS,
             startSid: this.masterSid,
@@ -215,9 +222,12 @@ function Game(masterSid, majorNumber) {
             maxSid: null
         };
         this.currentTurn.remainedSid.push(this.masterSid);
+        content.updated = {
+            currentTurn: this.currentTurn
+        };
     };
 
-    this.waitingForChooseAColor = function () {
+    this.waitingForChooseAColor = function (content) {
         this.currentTurn = {
             status: GameStatus.CHOOSE_A_COLOR,
             startSid: this.masterSid,
@@ -226,9 +236,12 @@ function Game(masterSid, majorNumber) {
             maxSid: null
         };
         this.currentTurn.remainedSid.push(this.masterSid);
+        content.updated = {
+            currentTurn: this.currentTurn
+        };
     };
 
-    this.waitingForPlayCards = function () {
+    this.waitingForPlayCards = function (content) {
         var sid = this.masterSid;
         this.currentTurn = {
             status: GameStatus.PLAY_CARDS,
@@ -239,10 +252,14 @@ function Game(masterSid, majorNumber) {
         };
         for (var i = 0; i < Property.GamePlayers; i ++)
             this.currentTurn.remainedSid.push((sid + i) % Property.GamePlayers);
+        content.updated = {
+            currentTurn: this.currentTurn
+        };
     };
 
-    this.waitingForPlayCardsNextRound = function () {
+    this.waitingForPlayCardsNextRound = function (content) {
 
+        content.updated = {};
         //计算本轮得分以及抓到的红五情况
         var sid = this.currentTurn.maxSid;
         var score = 0;
@@ -264,6 +281,7 @@ function Game(masterSid, majorNumber) {
             }
             //last round ended
             this.sumUp();
+            content.updated.result = this.result;
         } else {
             this.points[sid] += score;
             this.currentTurn = {
@@ -275,6 +293,10 @@ function Game(masterSid, majorNumber) {
             };
             for (var i = 0; i < Property.GamePlayers; i++)
                 this.currentTurn.remainedSid.push((sid + i) % Property.GamePlayers);
+            content.updated.currentTurn = this.currentTurn;
+            content.updated.points = this.points;
+            content.updated.caught5Heart = this.caught5Heart;
+
         }
     };
 
@@ -285,19 +307,19 @@ function Game(masterSid, majorNumber) {
             return err('Wrong command');
         switch (this.currentTurn.status) {
             case GameStatus.OFFER_MAJOR_AMOUNT:
-                this.offerMajorAmount(sid, content, err, function () { callback() });
+                this.offerMajorAmount(sid, content, err, function (action) { callback(action) });
                 break;
             case GameStatus.CHOOSE_MAJOR_COLOR:
-                this.chooseMajorColor(sid, content, err, function () { callback() });
+                this.chooseMajorColor(sid, content, err, function (action) { callback(action) });
                 break;
             case GameStatus.RESERVE_CARDS:
-                this.reserveCards(sid, content, err, function () { callback() });
+                this.reserveCards(sid, content, err, function (action) { callback(action) });
                 break;
             case GameStatus.CHOOSE_A_COLOR:
-                this.chooseAColor(sid, content, err, function () { callback() });
+                this.chooseAColor(sid, content, err, function (action) { callback(action) });
                 break;
             case GameStatus.PLAY_CARDS:
-                return this.playCards(sid, content, err, function () { callback() });
+                return this.playCards(sid, content, err, function (action) { callback(action) });
                 break;
             default:
                 break;
@@ -315,7 +337,7 @@ function Game(masterSid, majorNumber) {
         if (content == null)
             return err('No content received');
         var realSum = this.cardUtil.getAbsoluteMajorSum(this.cards[sid]);
-        var offeredSum = content.sum;
+        var offeredSum = content.amount;
         if (offeredSum == null)
             return err('No content received');
         if (offeredSum > realSum)
@@ -369,7 +391,7 @@ function Game(masterSid, majorNumber) {
         if (!this.cardUtil.popCards(this.cards[sid], cards))
             return err('Cards not match');
         this.reservedCards = cards;
-        var action = {cards: cards};
+        var action = {};
         this.commitAction(action);
         callback(action);
     };
@@ -458,7 +480,6 @@ function Game(masterSid, majorNumber) {
         var partRejected = !(res == cards);
         if (!this.cardUtil.popCards(this.cards[sid], res))
             return err('Cards not match');
-        this.becomeSubMaster(sid, res);
         if (this.currentTurn.maxSid == null) {
             this.currentTurn.maxSid = sid;
         } else {
@@ -474,7 +495,9 @@ function Game(masterSid, majorNumber) {
             }
         }
         var action = {cards: res, partRejected: partRejected};
-        this.commitAction(action);
+        if (this.becomeSubMaster(sid, res))
+            action.subMasterSid = sid;
+            this.commitAction(action);
         callback(action);
     };
 
