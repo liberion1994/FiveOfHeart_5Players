@@ -30,6 +30,20 @@ function cardToText(card, split) {
     return txt;
 }
 
+function cardColorWithColor(color) {
+    switch (color) {
+        case '♥':
+        case '♦':
+            return "<span style='color:red;'>" + color + "</span>";
+        default:
+            return color;
+    }
+}
+
+function isBlack(card) {
+    return (card.color == '♠' || card.color == '♣' || card.color == 'J' && card.number == 0);
+}
+
 function updateCard (card, index, xInPar, yInPar, deg, rx, ry, trasition) {
     var rot = 'rotate(' + deg + 'deg)';
     var rog = rx + 'px ' + ry + 'px';
@@ -53,7 +67,7 @@ function updateCard (card, index, xInPar, yInPar, deg, rx, ry, trasition) {
 
 function drawCard (card, index, cardWidth, cardHeight, parDiv, xInPar, yInPar, deg, rx, ry, onTapstart) {
     var color = 'font-red';
-    if (card.color == '♠' || card.color == '♣' || card.color == 'J' && card.number == 0)
+    if (isBlack(card))
         color = 'font-black';
     var rot = 'rotate(' + deg + 'deg)';
     var rog = rx + 'px ' + ry + 'px';

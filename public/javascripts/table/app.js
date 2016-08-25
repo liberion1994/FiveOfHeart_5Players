@@ -42,7 +42,6 @@ angular.module('myApp', [])
 
         this.emitCommand = function (commandType, commandContent, error) {
             this.socket.emit('command', { type: commandType, actionContent: commandContent });
-            //TODO start a timer and call error if timeout
         };
 
         this.fetchInfo = function (succ, err) {

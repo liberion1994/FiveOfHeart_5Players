@@ -3,7 +3,7 @@
  */
 var socket_io = require('socket.io');
 var sessionMiddleware = require('../middleware');
-
+var agentRepo = require('../models/agentRepo');
 
 var AgentCommandType = {
     IntoTable:  1,
@@ -34,6 +34,7 @@ socket_io.init = function (server) {
 
             socket.eventId = 0;
 
+            function emitFail(msg) { socket.emit('fail', msg) }
             function emitErr(msg) { socket.emit('err', msg) }
 
             var agent = getAgent(socket);
@@ -79,14 +80,16 @@ socket_io.init = function (server) {
                             username: agent.username,
                             eid: agent.currentTable.currentEventId ++
                         };
-                        agent.leaveTable(emitErr, function () {
+                        agent.leaveTable(emitFail, function () {
                             socket_io.io.in(group)
                                 .emit('event', ret);
                             socket.leave(group);
+                            //在大厅中的agent没有任何有用的状态信息,因此可以删除;此时当前访问还是拥有该agent的引用,所以还能找到
+                            agentRepo.deleteAgentByUsername(agent.username);
                         });
                         break;
                     case AgentCommandType.Prepare:
-                        agent.prepareForGame(emitErr, function () {
+                        agent.prepareForGame(emitFail, function () {
                             socket_io.io.in('table_' + agent.currentTable.id)
                                 .emit('event', {
                                     type: AgentCommandType.Prepare,
@@ -97,7 +100,7 @@ socket_io.init = function (server) {
                         });
                         break;
                     case AgentCommandType.UnPrepare:
-                        agent.unPrepareForGame(emitErr, function () {
+                        agent.unPrepareForGame(emitFail, function () {
                             socket_io.io.in('table_' + agent.currentTable.id)
                                 .emit('event', {
                                     type: AgentCommandType.UnPrepare,
@@ -108,7 +111,7 @@ socket_io.init = function (server) {
                         });
                         break;
                     case AgentCommandType.InGame:
-                        agent.operateInGame(command.content.actionType, command.content.actionContent, emitErr, function (event) {
+                        agent.operateInGame(command.content.actionType, command.content.actionContent, emitFail, function (event) {
                             socket_io.io.in('table_' + agent.currentTable.id)
                                 .emit('event', {
                                     type: AgentCommandType.InGame,

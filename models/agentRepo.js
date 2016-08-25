@@ -23,6 +23,17 @@ AgentRepo.findAgentByUsername = function (username) {
     return null;
 };
 
+AgentRepo.deleteAgentByUsername = function (username) {
+    var len = AgentRepo.agents.length;
+    for (var i = 0; i < len; i ++) {
+        if (AgentRepo.agents[i].username == username) {
+            AgentRepo.agents.splice(i, 1);
+            return;
+        }
+    }
+};
+
+
 AgentRepo.findOrCreateAgentByUsername = function (username) {
     var len = AgentRepo.agents.length;
     for (var i = 0; i < len; i ++) {

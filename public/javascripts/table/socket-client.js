@@ -84,10 +84,9 @@ function SocketClient() {
             return;
 
         if (event.eid != table.currentEventId ++) {
-            alert('eid不同!');
-            //TODO 这里改成ajax全部更新
+            notify('似乎和后台不同步呢', 'error');
+            reInit();
         }
-        //TODO reget all the info if eid not matched
         switch (event.type) {
             case AgentCommandType.IntoTable:
                 table.onIntoTable(event);
@@ -108,7 +107,12 @@ function SocketClient() {
     });
 
     this.socket.on('err', function (msg) {
-        alert(msg);
+        notify(msg, 'error');
+        reInit();
+    });
+
+    this.socket.on('fail', function (msg) {
+        notify(msg, 'error');
     });
 }
 

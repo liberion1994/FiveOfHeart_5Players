@@ -3,7 +3,6 @@
  */
 
 var Property = require('../properties/property');
-var IoServer = require('../socket_io/socketIoServer');
 var Game = require('./game');
 var Agent = require('./agent');
 
@@ -17,16 +16,17 @@ function Table(id) {
     this.masterInGame = null;
     this.majorNumbersInGame = new Array(Property.GamePlayers);
 
-    this.histories = [];
-
-    this.log = function (content) {
-        this.histories.push(content);
-    };
 
     this.reset = function () {
         this.masterInGame = null;
-        for (var i = 0; i < Property.GamePlayers; i ++)
+        var noLeft = true;
+        for (var i = 0; i < Property.GamePlayers; i ++) {
             this.majorNumbersInGame[i] = Property.StartMajorNumber;
+            if (this.agents[i])
+                noLeft = false;
+        }
+        if (noLeft)
+            this.currentEventId = 0;
     };
 
     this.tableInfo = function (agent) {
@@ -98,7 +98,6 @@ function Table(id) {
         if (this.agents[sid] != null)
             return err('Seat already occupied');
         this.agents[sid] = agent;
-        this.log(agent.username + '加入了' + sid + '号座位');
         callback();
     };
 
@@ -110,7 +109,6 @@ function Table(id) {
             return err('Cannot leave in game');
         this.agents[sid] = null;
         this.reset();
-        this.log(agent.username + '离开了' + sid + '号座位');
         callback();
     };
 
@@ -138,11 +136,53 @@ function Table(id) {
             return err('Game hasn\'t started');
         var _this = this;
         this.game.onAction(sid, actionType, content, err, function (action) {
-            _this.log(agent.username + '做了' + actionType);
             //TODO if last round, should do something here(delete the game and display the sumup)
+            if (_this.game.result) {
+                /**
+                 * 游戏结束:
+                 * 1.更新每家打的点数
+                 * 2.确定下一句的庄家
+                 * 3.所有玩家状态变为为准备
+                 * 4.删除前一局游戏
+                 */
+                if (_this.game.result.winners == '庄家') {
+                    _this.levelUp(_this.game.masterSid, _this.game.result.levelUp);
+                    if (_this.game.subMasterSid != null) {
+                        _this.masterInGame = _this.game.subMasterSid;
+                        _this.levelUp(_this.game.subMasterSid, _this.game.result.levelUp);
+                    }
+                    else
+                        _this.masterInGame = _this.game.masterSid;
+                } else {
+                    var matched = false;
+                    for (var i = 1; i < Property.GamePlayers; i ++) {
+                        var tmpId = (_this.game.masterSid + i) % Property.GamePlayers;
+                        if (_this.game.subMasterSid != tmpId) {
+                            _this.levelUp(tmpId, _this.game.result.levelUp);
+                            if (!matched) {
+                                _this.masterInGame = tmpId;
+                                matched = true;
+                            }
+                        }
+                    }
+                }
+                _this.game = null;
+                for (var j = 0; j < Property.GamePlayers; j ++)
+                    _this.agents[j].status = Agent.AgentStatus.UNPREPARED;
+            }
             callback(action);
         });
     };
+
+    this.levelUp = function (sid, up) {
+        for (var i = 0; i < up; i ++) {
+            this.majorNumbersInGame[sid] ++;
+            if (this.majorNumbersInGame[sid] == 3 || this.majorNumbersInGame[sid] == 5)
+                this.majorNumbersInGame[sid] ++;
+            if (this.majorNumbersInGame[sid] > 14)
+                this.majorNumbersInGame[sid] -= 13;
+        }
+    }
 }
 
 exports.Table = Table;

@@ -10,7 +10,11 @@ var TableRepo = require('../models/tableRepo');
 router.get('/',
     passport.isAuthenticatedBackToLogin,
     function(req, res) {
-        res.render('tableList', {tables: TableRepo.getAllTables()});
+        var agent = req.user.agent;
+        if (agent.currentTable == null)
+            res.render('tableList', {tables: TableRepo.getAllTables(), username: agent.username});
+        else
+            res.redirect('/tables/' + agent.currentTable.id);
     }
 );
 
@@ -22,7 +26,7 @@ router.get('/:id',
         if (agent.currentTable == null || agent.currentTable.id != tid) {
             res.redirect('/');
         } else {
-            res.render('test');
+            res.render('table', {tableId: tid});
         }
     }
 );

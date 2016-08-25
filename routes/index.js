@@ -10,12 +10,6 @@ router.get('/',
     }
 );
 
-router.get('/test',
-    function(req, res) {
-        res.render('test');
-    }
-);
-
 router.get('/test2',
     function(req, res) {
         res.render('test2');

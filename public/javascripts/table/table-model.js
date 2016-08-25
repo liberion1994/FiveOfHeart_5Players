@@ -12,6 +12,14 @@ function Table(data) {
             this.cardUtil.majorColor = this.game.majorColor;
     }
 
+    this.reset = function () {
+        this.masterInGame = null;
+        for (var i = 0; i < 5; i ++) {
+            if (this.seats[i])
+                this.seats[i].majorNumberInGame = 2;
+        }
+    };
+
     this.getCurrentAgentStatus = function () {
         var sid = this.agentSid;
         return this.seats[sid].status;
@@ -38,7 +46,7 @@ function Table(data) {
         }
         var _this = this;
         socketClient.getGameInfo(
-            function () {}, //TODO complete the error function
+            function () {reInit()},
             function (info) {
                 for (var i = 0; i < 5; i ++)
                     _this.seats[i].status = AgentStatus.IN_GAME;
@@ -55,6 +63,7 @@ function Table(data) {
     };
 
     this.onLeaveTable = function (event) {
+        this.reset();
         this.seats[event.sid] = null;
         ui.onLeaveTable(event);
     };
@@ -65,7 +74,6 @@ function Table(data) {
 
         switch (event.content.actionType) {
             case GameStatus.OFFER_MAJOR_AMOUNT:
-                //TODO 在这里可以把每个人报的数画出来
                 ui.onOfferMajorAmount(event);
                 if (this.game.currentTurn.remainedSid.length == 0) {
                     /**
@@ -91,7 +99,7 @@ function Table(data) {
                 if (this.game.masterSid == this.agentSid) {
                     //庄家需要去取底牌
                     socketClient.getReservedCards(
-                        function () {alert('无法获取底牌信息')},
+                        function () {notify('无法获取底牌信息', 'error')},
                         function (cards) {
                             var len = cards.length;
                             for (var i = 0; i < len; i ++)
@@ -119,8 +127,10 @@ function Table(data) {
                 if (event.sid == this.agentSid) {
                     //移除所有的底牌
                     var res = this.cardUtil.popCards(this.game.cards, this.game.reservedCards);
-                    if (!res)
-                        alert('未知错误');
+                    if (!res) {
+                        notify('未知错误', 'error');
+                        reInit();
+                    }
                 }
                 ui.onReserveCards(event);
                 var _this3 = this;
@@ -149,10 +159,12 @@ function Table(data) {
                         console.log(this.playedCardsPicked);
                     }
                     var res2 = this.cardUtil.popCards(this.game.cards, this.playedCardsPicked);
-                    if (!res2)
-                        alert('未知错误');
+                    if (!res2) {
+                        notify('未知错误', 'error');
+                        reInit();
+                    }
                 }
-                if (event.content.subMasterSid) {
+                if (event.content.subMasterSid != null) {
                     this.game.subMasterSid = event.content.subMasterSid;
                 }
                 ui.onPlayCards(event);
@@ -162,19 +174,19 @@ function Table(data) {
                      * 更新:,得分情况,抓到红五的情况
                      * 可能更新:副庄家信息,结局信息/下一轮的轮次信息
                      */
-                        //TODO 处理这里的复杂情况,现在只是更新了轮次信息
                     var _this5 = this;
-                    setTimeout(function () {
-                        if (event.content.updated.currentTurn) {
+                    if (event.content.updated.currentTurn) {
+                        setTimeout(function () {
                             _this5.lastTurn = _this5.game.currentTurn;
                             _this5.game.currentTurn = event.content.updated.currentTurn;
                             _this5.game.points = event.content.updated.points;
                             _this5.game.caught5Heart = event.content.updated.caught5Heart;
                             ui.drawNextTurn(event, _this5.game.currentTurn.status);
-                        } else {
-                            //TODO result here
-                        }
-                    }, 1000);
+
+                        }, 1000);
+                    } else {
+                        setTimeout(function () {ui.showResult(event.content.updated.result)}, 2000);
+                    }
                 }
                 break;
         }

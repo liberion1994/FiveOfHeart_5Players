@@ -34,10 +34,42 @@ var TableArea = function (targetDiv) {
             else
                 this.updateActiveSeat(0);
         }
+        this.updateGameInfo();
         this.drawCurrentTurn();
     };
 
+    this.updateGameInfo = function () {
+        if (!table.game) {
+            $('#game-info').html("<i class='icon-star'></i>" +
+                (table.masterInGame == null ? "待定" : table.seats[table.masterInGame].user));
+        } else {
+            var majorColor = table.game.majorNumber;
+            var aColor = 'A';
+            if (table.game.majorColor) {
+                if (!(table.game.majorColor == '♥' || table.game.majorColor == '♦')) {
+                    majorColor = table.game.majorColor + table.game.majorNumber;
+                } else {
+                    majorColor = "<span style='color:red;'>" + table.game.majorColor + table.game.majorNumber + "</span>";
+                }
+            }
+            if (table.game.aColor) {
+                if (table.game.subMasterSid != null) {
+                    aColor = "<span style='color:lightgray; text-decoration: line-through;'>" + table.game.aColor + 'A' + "</span>";
+                } else {
+                    if (!(table.game.aColor == '♥' || table.game.aColor == '♦')) {
+                        aColor = table.game.aColor + 'A';
+                    } else {
+                        aColor = "<span style='color:red;'>" + table.game.aColor + 'A' + "</span>";
+                    }
+                }
+            }
+            $('#game-info').html("<i class='icon-star'></i>" + majorColor + "&nbsp;<i class='icon-star-empty'></i>" + aColor);
+        }
+    };
+
     this.drawCurrentTurn = function () {
+        //目前只会画card,所以只remove了card
+        this.div.children('.card').remove();
         if (!table.game)
             return;
         if (!table.game.currentTurn)
@@ -63,7 +95,7 @@ var TableArea = function (targetDiv) {
                     inGameStatus = '<i class="icon-star"></i>';
                 else if (table.game.subMasterSid == sid)
                     inGameStatus = '<i class="icon-star-empty"></i>';
-                $('#seat' + index).html(inGameStatus + seat.user + '|' + table.game.points[sid]);
+                $('#seat' + index).html(inGameStatus + seat.user + '&nbsp;' + table.game.points[sid]);
             }
         } else {
             $('#seat' + index).html('<i class="icon-circle-blank"></i>空座位');
@@ -158,22 +190,22 @@ var OperationArea = function (targetDiv) {
     this.preparedPane = function () {
         var unPrepareBtn = $("<a type='button' class='btn btn-default' id='unPrepareBtn'>取消</a>");
         unPrepareBtn
-            .click(function () { socketClient.emitCommand(AgentCommandType.UnPrepare, null, alert) })
+            .click(function () { socketClient.emitCommand(AgentCommandType.UnPrepare, null, wrappedAlert) })
             .appendTo(this.div);
         var leaveBtn = $("<a type='button' class='btn btn-default' id='leaveBtn'>离开</a>");
         leaveBtn
-            .click(function () { socketClient.emitCommand(AgentCommandType.LeaveTable, null, alert) })
+            .click(function () { socketClient.emitCommand(AgentCommandType.LeaveTable, null, wrappedAlert) })
             .appendTo(this.div);
     };
 
     this.unPreparedPane = function () {
         var prepareBtn = $("<a type='button' class='btn btn-default' id='prepareBtn'>准备</a>");
         prepareBtn
-            .click(function () { socketClient.emitCommand(AgentCommandType.Prepare, null, alert) })
+            .click(function () { socketClient.emitCommand(AgentCommandType.Prepare, null, wrappedAlert) })
             .appendTo(this.div);
         var leaveBtn = $("<a type='button' class='btn btn-default' id='leaveBtn'>离开</a>");
         leaveBtn
-            .click(function () { socketClient.emitCommand(AgentCommandType.LeaveTable, null, alert) })
+            .click(function () { socketClient.emitCommand(AgentCommandType.LeaveTable, null, wrappedAlert) })
             .appendTo(this.div);
 
     };
@@ -241,9 +273,9 @@ var OperationArea = function (targetDiv) {
                     socketClient.emitCommand(AgentCommandType.InGame, {
                         actionType: GameStatus.OFFER_MAJOR_AMOUNT,
                         actionContent: {amount: amount}
-                    }, alert)
+                    }, wrappedAlert)
                 } else {
-                    alert('请选择一个数字')
+                    notify('请选择一个数字', 'error')
                 }
             })
             .appendTo(this.div);
@@ -284,9 +316,9 @@ var OperationArea = function (targetDiv) {
                     socketClient.emitCommand(AgentCommandType.InGame, {
                         actionType: GameStatus.CHOOSE_MAJOR_COLOR,
                         actionContent: {color: color}
-                    }, alert)
+                    }, wrappedAlert)
                 } else {
-                    alert('请选择一个花色')
+                    notify('请选择一个花色', 'error')
                 }
             })
             .appendTo(this.div);
@@ -306,13 +338,13 @@ var OperationArea = function (targetDiv) {
                     }
                 }
                 if (tmp.length != 7) {
-                    alert('底牌数量不对呀');
+                    notify('底牌数量不对呀', 'error');
                 } else {
                     table.game.reservedCards = tmp;
                     socketClient.emitCommand(AgentCommandType.InGame, {
                         actionType: GameStatus.RESERVE_CARDS,
                         actionContent: {cards: tmp}
-                    }, alert)
+                    }, wrappedAlert)
                 }
             })
             .appendTo(this.div);
@@ -353,9 +385,9 @@ var OperationArea = function (targetDiv) {
                     socketClient.emitCommand(AgentCommandType.InGame, {
                         actionType: GameStatus.CHOOSE_A_COLOR,
                         actionContent: {color: color}
-                    }, alert)
+                    }, wrappedAlert)
                 } else {
-                    alert('请选择一个花色')
+                    notify('请选择一个花色', 'error')
                 }
             })
             .appendTo(this.div);
@@ -375,13 +407,13 @@ var OperationArea = function (targetDiv) {
                     }
                 }
                 if (tmp.length == 0) {
-                    alert('请选择至少一张牌');
+                    notify('请选择至少一张牌', 'error');
                 } else {
                     table.playedCardsPicked = tmp;
                     socketClient.emitCommand(AgentCommandType.InGame, {
                         actionType: GameStatus.PLAY_CARDS,
                         actionContent: {cards: tmp}
-                    }, alert)
+                    }, wrappedAlert)
                 }
             })
             .appendTo(this.div);
@@ -469,16 +501,19 @@ var OperationArea = function (targetDiv) {
         }
         var len = cardLine1.length;
         for (var i = 0; i < len; i ++) {
+            cardLine1[i].status = 'inHand';
             updateCard(cardLine1[i], i,
                 param1.centerX, param1.centerY, this.getAngle(i, len),
-                param1.rotateX, param1.rotateY, '-webkit-transform .5s ease')
+                param1.rotateX, param1.rotateY, '-webkit-transform .5s ease');
         }
         if (!singleLine) {
             var len2 = cardLine2.length;
-            for (var i2 = 0; i2 < len2; i2 ++)
+            for (var i2 = 0; i2 < len2; i2 ++) {
+                cardLine2[i2].status = 'inHand';
                 updateCard(cardLine2[i2], (len + i2),
                     param2.centerX, param2.centerY, this.getAngle(i2, len2),
                     param2.rotateX, param2.rotateY, '-webkit-transform .5s ease');
+            }
         }
     };
 
@@ -487,6 +522,12 @@ var OperationArea = function (targetDiv) {
         var len = cards.length;
         var endCount = len;
         var _this = this;
+
+        if (!$("#operation-area").hasClass("active")) {
+            //如果不是active的pane,动画会无法播放,因此要直接画出来
+            this.drawCardsInHand();
+            return;
+        }
         for (var i = 0; i < len; i ++) {
             if (!cards[i].view) {
                 endCount --;
@@ -514,23 +555,24 @@ var OperationArea = function (targetDiv) {
 
     this.onCardChosen = function (card) {
         var cards = table.game.cards;
-
+        var inHandIndex = parseInt(card.attr('index'));
+        var card_model = cards[inHandIndex];
         if (typeof(card.attr('animating')) != "undefined")
             return;
         var newly = card.css('transform');
-        var inHandIndex = parseInt(card.attr('index'));
+
         if (card.attr('status') != 'chosen') {
             newly += ' translateY(-10px)';
             card
                 .attr('animating', true)
                 .attr('status', 'chosen');
-            cards[inHandIndex].status = 'chosen';
+            card_model.status = 'chosen';
         } else {
             newly += ' translateY(10px)';
             card
                 .attr('animating', true)
                 .attr('status', 'inHand');
-            cards[inHandIndex].status = 'inHand';
+            card_model.status = 'inHand';
         }
         setAnimation(card, newly, '-webkit-transform .2s ease', function () {
             card.removeAttr('animating')
@@ -568,6 +610,12 @@ var UI = function () {
     this.resize = function () {
         var windowHeight = $(document.body).height();
         var windowWidth = $(document.body).width();
+        var margin_left = 0;
+
+        if (windowWidth > windowHeight * 0.75) {
+            margin_left = (windowWidth - windowHeight * 0.75) / 2;
+            windowWidth = windowHeight * 0.75;
+        }
 
         cardWidth = windowWidth / 7;
         cardHeight = cardWidth * 1.5;
@@ -586,9 +634,12 @@ var UI = function () {
         $('#chat-area')
             .css('width', this.operationAreaProperty.width + 'px')
             .css('height', this.operationAreaProperty.height + 'px');
+        var bottom_area = $('#bottom-area')
+            .css('width', windowWidth + 'px')
+            .css('margin-left', margin_left + 'px');
         this.tableProperty = {
             width: windowWidth - 20,
-            height: windowHeight - $('#bottom-area').height() - 30
+            height: windowHeight - bottom_area.height() - 30
         };
 
         cardHeightInTable = this.tableProperty.height / 2 - 70;
@@ -600,7 +651,8 @@ var UI = function () {
 
         $('#table-area')
             .css('width', this.tableProperty.width + 'px')
-            .css('height', this.tableProperty.height + 'px');
+            .css('height', this.tableProperty.height + 'px')
+            .css('left', margin_left + 'px');
     };
 
     this.repaint = function () {
@@ -633,21 +685,25 @@ var UI = function () {
                         txt += '称有' + event.content.amount + '张真主';
                         break;
                     case GameStatus.CHOOSE_MAJOR_COLOR:
-                        txt += '选择了' + event.content.color + '作为主花色';
+                        txt += '选择了' + cardColorWithColor(event.content.color) + '作为主花色';
                         break;
                     case GameStatus.RESERVE_CARDS:
                         txt += '完成了埋底';
                         break;
                     case GameStatus.CHOOSE_A_COLOR:
-                        txt += '选择了' + event.content.color + '为A的花色';
+                        txt += '选择了' + cardColorWithColor(event.content.color) + '为A的花色';
                         break;
                     case GameStatus.PLAY_CARDS:
                         if (event.content.partRejected)
                             txt += '甩牌失败,';
                         txt += '打出了:[';
                         var len = event.content.cards.length;
-                        for (var i = 0; i < len; i ++)
-                            txt += cardToText(event.content.cards[i], '');
+                        for (var i = 0; i < len; i ++) {
+                            if (isBlack(event.content.cards[i]))
+                                txt += cardToText(event.content.cards[i], '');
+                            else
+                                txt += "<span style='color:red;'>" + cardToText(event.content.cards[i], '') + "</span>";
+                        }
                         txt += ']';
                         break;
                 }
@@ -658,11 +714,36 @@ var UI = function () {
             .appendTo($('#history-area'));
     };
 
+    this.showResult = function (result) {
+        this.logSystemEvent('游戏结束');
+        $('#game-result-modal-header')
+            .empty()
+            .append('<h3>' + result.winners + '胜,升级数:' + result.levelUp + '</h3>');
+        var body = $('#game-result-modal-body')
+            .empty()
+            .append('<p>闲家得分:&nbsp;' + result.slavePoints + '</p>')
+            .append('<p>底牌:</p>');
+        var div = $('<div>')
+            .css('position', 'relative')
+            .css('height', cardHeight);
+        var len = result.reservedCards.length;
+        for (var i = 0; i < len; i ++)
+            drawCard(result.reservedCards[i], i, cardWidth, cardHeight, div,
+                10 + 15 * i, 0, 0, 0, 0, function () {});
+        div.appendTo(body);
+        $('#game-result')
+            .on('hidden.bs.modal', function () {
+                reInit();
+            })
+            .modal();
+    };
+
     this.logSystemEvent = function (txt) {
         $('<div>')
             .css('color', 'blue')
             .html(txt)
             .appendTo($('#history-area'));
+        notify(txt, 'alert');
     };
 
     this.onIntoTable = function (event) {
@@ -700,6 +781,7 @@ var UI = function () {
             location.href = '/tables';
         else {
             this.tableArea.updateSeat(sid);
+            this.tableArea.updateGameInfo();
             this.logEvent(event);
         }
     };
@@ -712,6 +794,7 @@ var UI = function () {
 
     this.onChooseMajorColor = function(event) {
         this.operationArea.drawControls();
+        this.tableArea.updateGameInfo();
         this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.operationArea.resortCards();
         this.logEvent(event);
@@ -726,21 +809,22 @@ var UI = function () {
 
     this.onChooseAColor = function(event) {
         this.operationArea.drawControls();
+        this.tableArea.updateGameInfo();
         this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.logEvent(event);
     };
 
     this.onPlayCards = function (event) {
 
-        //TODO draw cards on the table
         this.operationArea.drawControls();
         this.tableArea.onNewCardsPlayed(event.content.cards, (event.sid - table.agentSid + 5) % 5);
         this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
-        this.operationArea.moveOutCards(table.playedCardsPicked);
-        table.playedCardsPicked = null;
+        if (event.sid == table.agentSid)
+            this.operationArea.moveOutCards(table.playedCardsPicked);
         this.logEvent(event);
-        if (event.content.subMasterSid) {
+        if (event.content.subMasterSid != null) {
             this.tableArea.updateSeat(event.content.subMasterSid);
+            this.tableArea.updateGameInfo();
             this.logSystemEvent('[' + table.seats[event.content.subMasterSid].user + ']成为了副庄');
         }
     };
@@ -767,7 +851,6 @@ var UI = function () {
                 this.logSystemEvent(txt + '本轮先出牌');
                 for (var i = 0; i < 5; i ++)
                     this.tableArea.updateSeat(i);
-                //TODO 播放动画牌组收起
                 if (table.lastTurn) {
                     switch (table.lastTurn.status) {
                         case GameStatus.PLAY_CARDS:

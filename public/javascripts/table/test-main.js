@@ -57,7 +57,8 @@ $(document).ready(function () {
         { number: 5, color: '♣', type: 0 },
         { number: 3, color: '♣', type: 0 },
         { number: 3, color: '♣', type: 0 },
-        { number: 2, color: '♣', type: 0 }
+        { number: 2, color: '♣', type: 0 },
+        { number: 1, color: 'J', type: 6 }
     ];
 
     ui = new UI();
@@ -66,6 +67,7 @@ $(document).ready(function () {
 
     ui.operationArea.repaint();
     setTimeout(function () {
+        notify('123456', 'error');
         for (var i = 0; i < 7; i ++)
             table.game.cards.push({ number: 8, color: '♦', type: 0 });
         table.cardUtil = new CardUtil(table.game.majorNumber);

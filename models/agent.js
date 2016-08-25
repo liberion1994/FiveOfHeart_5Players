@@ -4,7 +4,7 @@
 
 //TODO 把所有的枚举变量放到一个外部文件方便操作
 
-var tableRepo = require('../models/tableRepo');
+var tableRepo = require('./tableRepo');
 
 var AgentStatus = {
     HALL        : 1,
@@ -17,8 +17,6 @@ var Agent = function (username) {
     this.username = username;
     this.status = AgentStatus.HALL;
     this.currentTable = null;
-
-    this.activeDate = new Date().getTime();
 
     //TODO add log & update active date for each function
 

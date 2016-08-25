@@ -65,7 +65,7 @@ function Game(masterSid, majorNumber) {
 
         var slavePoints = 0;
         //刚好的话是不升级的
-        var slaveUpper = -1;
+        var slaveUpper = 0;
         for (var i = 0; i < Property.GamePlayers; i ++) {
             var tmpLen = this.caught5Heart[i].length;
             if (i != this.masterSid && i != this.subMasterSid) {
@@ -89,17 +89,20 @@ function Game(masterSid, majorNumber) {
                 (slavePoints - Property.LevelUpPoints) / Property.UpperPointsPerLevel);
         } else {
             if (slavePoints == 0) {
-                slaveUpper -= 2;
+                slaveUpper -= 3;
             } else if (slavePoints < Property.UpperPointsPerLevel){
+                slaveUpper -=2;
+            } else {
                 slaveUpper --;
             }
         }
-        var winners = 'Slave';
+        var winners = '闲家';
         if (slaveUpper < 0) {
-            winners = 'Master';
+            winners = '庄家';
             slaveUpper = -slaveUpper;
         }
         this.result = {
+            slavePoints: slavePoints,
             reservedCards: this.reservedCards,
             winners: winners,
             levelUp: slaveUpper
@@ -268,22 +271,22 @@ function Game(masterSid, majorNumber) {
             var h5 = this.cardUtil.containsFiveOfHearts(this.currentTurn.done[j].cards);
             if (h5 > 0) {
                 for (var k = 0; k < h5; k ++)
-                    this.caught5Heart[sid].push(j);
+                    this.caught5Heart[sid].push(this.currentTurn.done[j].sid);
             }
         }
+        this.points[sid] += score;
 
         //判断是否最后一轮
         if (this.cards[0].length == 0) {
             //牌型是根据第一个出牌的决定
             if (sid != this.masterSid && sid != this.subMasterSid) {
-                this.points[sid] += score * this.cardUtil.getMultiple(
+                this.points[sid] += this.cardUtil.getPoints(this.reservedCards) * this.cardUtil.getMultiple(
                         this.currentTurn.done[0].cards);
             }
             //last round ended
             this.sumUp();
             content.updated.result = this.result;
         } else {
-            this.points[sid] += score;
             this.currentTurn = {
                 status: GameStatus.PLAY_CARDS,
                 startSid: sid,
@@ -302,9 +305,9 @@ function Game(masterSid, majorNumber) {
 
     this.onAction = function (sid, action, content, err, callback) {
         if (sid != this.currentTurn.remainedSid[0])
-            return err('Not your turn');
+            return err('还没轮到你哟');
         if (action != this.currentTurn.status)
-            return err('Wrong command');
+            return err('现在不是做这个的时候');
         switch (this.currentTurn.status) {
             case GameStatus.OFFER_MAJOR_AMOUNT:
                 this.offerMajorAmount(sid, content, err, function (action) { callback(action) });
@@ -335,13 +338,13 @@ function Game(masterSid, majorNumber) {
      */
     this.offerMajorAmount = function (sid, content, err, callback) {
         if (content == null)
-            return err('No content received');
+            return err('没有收到真主数量呢');
         var realSum = this.cardUtil.getAbsoluteMajorSum(this.cards[sid]);
         var offeredSum = content.amount;
         if (offeredSum == null)
-            return err('No content received');
+            return err('没有收到真主数量呢');
         if (offeredSum > realSum)
-            return err('The amount should not above the real amount');
+            return err('你没有那么多真主啦');
         var action = {amount: offeredSum};
         this.commitAction(action);
         callback(action);
@@ -357,14 +360,14 @@ function Game(masterSid, majorNumber) {
      */
     this.chooseMajorColor = function (sid, content, err, callback) {
         if (content == null)
-            return err('No content received');
+            return err('没有收到主花色唉');
         var color = content.color;
         if (!this.cardUtil.isNormalColor(color))
-            return err('Illegal color');
+            return err('这是个什么花色?');
         this.majorColor = color;
         this.cardUtil.majorColor = color;
         for (var j = 0; j < Property.ReservedCardSum; j ++)
-            this.cards[sid].push(this.reservedCards[j]);
+            this.cards[this.masterSid].push(this.reservedCards[j]);
         for (var i = 0; i < Property.GamePlayers; i ++)
             this.cards[i] = this.cardUtil.getSortedCards(this.cards[i]);
         var action = {color: color};
@@ -382,14 +385,14 @@ function Game(masterSid, majorNumber) {
      */
     this.reserveCards = function (sid, content, err, callback) {
         if (content == null)
-            return err('No content received');
+            return err('没有收到要埋的底牌');
         var cards = this.cardUtil.extractCards(this.cards[sid], content.cards);
         if (cards == null)
-            return err('No content received');
+            return err('指令中含有不存在的牌');
         if (cards.length != Property.ReservedCardSum)
-            return err('Wrong cards amount');
+            return err('底牌数量好像不对呢');
         if (!this.cardUtil.popCards(this.cards[sid], cards))
-            return err('Cards not match');
+            return err('指令中含有不存在的牌');
         this.reservedCards = cards;
         var action = {};
         this.commitAction(action);
@@ -406,10 +409,10 @@ function Game(masterSid, majorNumber) {
      */
     this.chooseAColor = function (sid, content, err, callback) {
         if (content == null)
-            return err('No content received');
+            return err('没有收到A的花色唉');
         var color = content.color;
         if (!this.cardUtil.isNormalColor(color))
-            return err('Illegal color');
+            return err('这是个什么花色?');
         this.aColor = color;
         var action = {color: color};
         this.commitAction(action);
@@ -470,16 +473,16 @@ function Game(masterSid, majorNumber) {
      */
     this.playCards = function (sid, content, err, callback) {
         if (content == null)
-            return err('No content received');
+            return err('没有收到想出的牌呢');
         var cards = this.cardUtil.extractCards(this.cards[sid], content.cards);
         if (cards == null)
-            return err('Cards not match');
+            return err('你好像没有这些牌吧');
         var res = this.checkAvailable(cards);
         if (res == null)
-            return err('Illegal operation');
+            return err('这样出是不是不符合规范呢?');
         var partRejected = !(res == cards);
         if (!this.cardUtil.popCards(this.cards[sid], res))
-            return err('Cards not match');
+            return err('你好像没有这些牌吧');
         if (this.currentTurn.maxSid == null) {
             this.currentTurn.maxSid = sid;
         } else {

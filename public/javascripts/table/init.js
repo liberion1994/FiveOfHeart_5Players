@@ -53,3 +53,65 @@ function bootstrapInit() {
         return false;
     });
 }
+
+function reInit() {
+    socketClient.getAllInfo(
+        function () { location.href='/tables' },
+        function (res) {
+            table = new Table(res);
+            ui = new UI();
+            ui.repaint();
+            ui.logSystemEvent('已重新同步');
+            bootstrapInit();
+        });
+}
+
+function notify(text, type) {
+    switch (type) {
+        case 'error':
+            $.notify({
+                message: text
+            }, {
+                element: '#operation-area',
+                delay: 500,
+                timer: 500,
+                placement : {
+                    from: 'bottom',
+                    align: 'center'
+                },
+                animate: {
+                    enter: 'animated fadeInUp',
+                    exit: 'animated fadeOutDown'
+                },
+                allow_dismiss: false,
+                type: 'danger'
+            });
+            break;
+        case 'alert':
+            $.notify({
+                message: text
+            }, {
+                element: '#table-area',
+                delay: 1000,
+                timer: 1000,
+                newest_on_top: true,
+                placement : {
+                    from: 'top',
+                    align: 'center'
+                },
+                animate: {
+                    enter: 'animated fadeIn',
+                    exit: 'animated fadeOut'
+                },
+                allow_dismiss: false,
+                type: 'info'
+            });
+            break;
+        default:
+            break;
+    }
+}
+
+function wrappedAlert(msg) {
+    notify(msg, 'error');
+}

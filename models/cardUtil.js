@@ -620,6 +620,8 @@ function CardUtil(majorNumber) {
                 //这里的limitation已经是有序的了,因为structure和limitation的排序规则一致
                 var limit = this.structureToLimitation(playedStructure[j]);
                 var struInHand = this.getCardStructureWithoutTractor(inHands[i])[type];
+                if (struInHand == null)
+                    break;
                 var matched = this.findStructure(struInHand, limit);
                 if (matched == null)
                     continue;
@@ -802,7 +804,8 @@ function CardUtil(majorNumber) {
             }
         }
         return {
-            sum: sum1 < sum2 ? sum1 : sum2,
+            sum: sum1,
+            sumInType: sum1 < sum2 ? sum1 : sum2,
             type: type,
             limitation: limitation
         };
@@ -862,8 +865,11 @@ function CardUtil(majorNumber) {
      * @returns {boolean}
      */
     this.matchLimitation = function (played, limit) {
+
+        if (played.length != limit.sum)
+            return false;
         if (limit.type == null) {
-            return played.length == limit.sum;
+            return true;
         }
         var tmp = this.getCardStructureWithoutTractor(played);
         var playedStructure = tmp[limit.type];
@@ -871,7 +877,7 @@ function CardUtil(majorNumber) {
             return false;
         var len = playedStructure.length;
         var sum = this.getCardSumWithoutTractor(playedStructure);
-        if (sum != limit.sum)
+        if (sum != limit.sumInType)
             return false;
         limit.limitation.sort(this.limitationDesc);
         var len2 = limit.limitation.length;

@@ -11,8 +11,8 @@ $(document).ready(function () {
             type: 'GET',
             url: '/tables/' + tid + '/seats',
             success: function (seats) {
-                var header = $('#table-modal-header').html('');
-                var body = $('#table-modal-body').html('');
+                var header = $('#table-modal-header').empty();
+                var body = $('#table-modal-body').empty();
                 $('<h3>').html('加入第' + tid + '桌').appendTo(header);
                 var len = seats.length;
                 for (var i = 0; i < len; i ++) {
@@ -37,14 +37,14 @@ $(document).ready(function () {
                                 alert(msg);
                             }
                         },
-                        error: function (msg) {
-                            alert(msg);
+                        error: function () {
+                            alert('未知错误');
                         }
                     });
                 });
             },
             error: function (msg) {
-                alert(msg);
+                alert('未知错误');
             }
         });
         $('#table-option').modal();
