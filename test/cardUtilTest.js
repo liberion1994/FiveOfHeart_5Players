@@ -1015,6 +1015,7 @@ describe("Get Limitation", function() {
         ];
         var res = {
             sum: 4,
+            sumInType: 4,
             type: 'M',
             limitation: [ { type: 'tractor', multi: 2, length: 2 } ]
         };
@@ -1032,6 +1033,7 @@ describe("Get Limitation", function() {
         ];
         var res = {
             sum: 6,
+            sumInType: 6,
             type: 'M',
             limitation: [ { type: 'tractor', multi: 2, length: 2 } ]
         };
@@ -1046,6 +1048,7 @@ describe("Get Limitation", function() {
         ];
         var res = {
             sum: 3,
+            sumInType: 3,
             type: 'M',
             limitation: [ { type: 'single', multi: 2, length: 1 } ]
         };
@@ -1107,7 +1110,8 @@ describe("Get Limitation", function() {
             { number: 2, color: '♥', type: 1 }
         ];
         var res = {
-            sum: 3,
+            sum: 6,
+            sumInType: 3,
             type: 'M',
             limitation: [ { type: 'single', multi: 3, length: 1 } ]
         };
@@ -1134,6 +1138,7 @@ describe("Get Limitation", function() {
         ];
         var res = {
             sum: 6,
+            sumInType: 6,
             type: 'M',
             limitation: [ { type: 'tractor', multi: 2, length: 2 } ]
         };
@@ -1166,7 +1171,8 @@ describe("Get Limitation", function() {
             { number: 10, color: '♥', type: 1 }
         ];
         var res = {
-            sum: 8,
+            sum: 12,
+            sumInType: 8,
             type: 'M',
             limitation: [ { type: 'tractor', multi: 2, length: 2 }, { type: 'tractor', multi: 2, length: 2 } ]
         };
@@ -1192,7 +1198,8 @@ describe("Get Limitation", function() {
             { number: 2, color: '♥', type: 1 }
         ];
         var res = {
-            sum: 6,
+            sum: 7,
+            sumInType: 6,
             type: 'M',
             limitation: [ { type: 'single', multi: 2, length: 1 }, { type: 'tractor', multi: 2, length: 2 } ]
         };
@@ -1234,6 +1241,7 @@ describe("Match Limitation", function() {
         ];
         var lim = {
             sum: 4,
+            sumInType: 4,
             type: 'M',
             limitation: [{type: 'tractor', multi: 2, length: 2}]
         };
@@ -1252,6 +1260,7 @@ describe("Match Limitation", function() {
         ];
         var lim = {
             sum: 7,
+            sumInType: 7,
             type: 'M',
             limitation: [{type: 'tractor', multi: 2, length: 3}]
         };
@@ -1270,6 +1279,7 @@ describe("Match Limitation", function() {
         ];
         var lim = {
             sum: 7,
+            sumInType: 7,
             type: 'M',
             limitation: [{type: 'tractor', multi: 2, length: 2}, {type: 'single', multi: 3, length: 1}]
         };
@@ -1291,6 +1301,7 @@ describe("Match Limitation", function() {
         ];
         var lim = {
             sum: 10,
+            sumInType: 10,
             type: 'M',
             limitation: [{type: 'tractor', multi: 2, length: 2}, {type: 'tractor', multi: 2, length: 3}]
         };

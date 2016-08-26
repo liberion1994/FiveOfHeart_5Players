@@ -6,7 +6,6 @@ var Property = require('../properties/property');
 var Game = require('./game');
 var Agent = require('./agent');
 
-
 function Table(id) {
     this.id = id;
     this.agents = new Array(Property.GamePlayers);

@@ -733,7 +733,7 @@ var UI = function () {
         div.appendTo(body);
         $('#game-result')
             .on('hidden.bs.modal', function () {
-                reInit();
+                reSync();
             })
             .modal();
     };

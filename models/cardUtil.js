@@ -775,7 +775,7 @@ function CardUtil(majorNumber) {
                             continue;
                         }
                     }
-                    for (var n = 0; n < target.content.length; n ++) {
+                    for (var n = 0; n < tmpLen; n ++) {
                         playedStructure.push({
                             type: 'single',
                             multi: target.multi,

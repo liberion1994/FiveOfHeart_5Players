@@ -85,7 +85,7 @@ function SocketClient() {
 
         if (event.eid != table.currentEventId ++) {
             notify('似乎和后台不同步呢', 'error');
-            reInit();
+            reSync();
         }
         switch (event.type) {
             case AgentCommandType.IntoTable:
@@ -108,7 +108,7 @@ function SocketClient() {
 
     this.socket.on('err', function (msg) {
         notify(msg, 'error');
-        reInit();
+        reSync();
     });
 
     this.socket.on('fail', function (msg) {

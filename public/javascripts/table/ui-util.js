@@ -65,7 +65,7 @@ function updateCard (card, index, xInPar, yInPar, deg, rx, ry, trasition) {
         .css('transition', trasition);
 }
 
-function drawCard (card, index, cardWidth, cardHeight, parDiv, xInPar, yInPar, deg, rx, ry, onTapstart) {
+function drawCard (card, index, cardWidth, cardHeight, parDiv, xInPar, yInPar, deg, rx, ry, onClick) {
     var color = 'font-red';
     if (isBlack(card))
         color = 'font-black';
@@ -89,7 +89,7 @@ function drawCard (card, index, cardWidth, cardHeight, parDiv, xInPar, yInPar, d
         .css('-webkit-transform-origin',rog)
         .css('-o-transform', rot)
         .css('-o-transform-origin', rog)
-        .click(onTapstart);
+        .click(onClick);
 
     var txt = cardToText(card, '<br>');
     var cardTop = $('<div>')

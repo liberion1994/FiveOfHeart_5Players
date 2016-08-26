@@ -54,7 +54,7 @@ function bootstrapInit() {
     });
 }
 
-function reInit() {
+function reSync() {
     socketClient.getAllInfo(
         function () { location.href='/tables' },
         function (res) {
@@ -94,7 +94,6 @@ function notify(text, type) {
                 element: '#table-area',
                 delay: 1000,
                 timer: 1000,
-                newest_on_top: true,
                 placement : {
                     from: 'top',
                     align: 'center'

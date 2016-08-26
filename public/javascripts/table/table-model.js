@@ -46,7 +46,7 @@ function Table(data) {
         }
         var _this = this;
         socketClient.getGameInfo(
-            function () {reInit()},
+            function () {reSync()},
             function (info) {
                 for (var i = 0; i < 5; i ++)
                     _this.seats[i].status = AgentStatus.IN_GAME;
@@ -99,7 +99,7 @@ function Table(data) {
                 if (this.game.masterSid == this.agentSid) {
                     //庄家需要去取底牌
                     socketClient.getReservedCards(
-                        function () {notify('无法获取底牌信息', 'error')},
+                        function () {notify('无法获取底牌信息', 'error'); reSync(); },
                         function (cards) {
                             var len = cards.length;
                             for (var i = 0; i < len; i ++)
@@ -129,7 +129,7 @@ function Table(data) {
                     var res = this.cardUtil.popCards(this.game.cards, this.game.reservedCards);
                     if (!res) {
                         notify('未知错误', 'error');
-                        reInit();
+                        reSync();
                     }
                 }
                 ui.onReserveCards(event);
@@ -161,7 +161,7 @@ function Table(data) {
                     var res2 = this.cardUtil.popCards(this.game.cards, this.playedCardsPicked);
                     if (!res2) {
                         notify('未知错误', 'error');
-                        reInit();
+                        reSync();
                     }
                 }
                 if (event.content.subMasterSid != null) {
