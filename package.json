@@ -19,8 +19,6 @@
     "mongoose": "latest",
     "express-session": "latest",
     "connect-mongo": "latest",
-    "ccap": "latest",
-    "should": "latest",
-    "jquery-touch-events": "latest"
+    "should": "latest"
   }
 }

@@ -8,7 +8,6 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var tables = require('./routes/tables');
-var captcha = require('./routes/captcha');
 
 var TableRepo = require('./models/tableRepo');
 var passport = require('./passport');
@@ -36,7 +35,6 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/tables', tables);
-app.use('/captcha', captcha);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

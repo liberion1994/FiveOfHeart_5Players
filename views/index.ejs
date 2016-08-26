@@ -5,24 +5,25 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
-        <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
         <link rel='stylesheet' href='/stylesheets/style.css' />
         <link rel='stylesheet' href='/stylesheets/login/login.css' />
+        <link rel='stylesheet' href='/stylesheets/animate.min.css' />
 
         <script src="/javascripts/jquery-1.12.4.min.js"></script>
         <script src="/javascripts/bootstrap.min.js"></script>
+        <script src="/javascripts/bootstrap-notify.min.js"></script>
         <script src="/javascripts/login/login.js"></script>
 
     </head>
     <body>
         <h3>欢迎来到五人红五</h3>
         <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="tab-li active">
+            <li role="presentation" class="tab-li active" id="loginNav">
                 <a href="#login" aria-controls="login" role="tab" data-toggle="tab">
                     登录
                 </a>
             </li>
-            <li role="presentation" class="tab-li">
+            <li role="presentation" class="tab-li" id="registerNav">
                 <a href="#register" aria-controls="register" role="tab" data-toggle="tab">
                     注册
                 </a>
@@ -48,27 +49,24 @@
                 </form>
             </div>
             <div role="tabpanel" class="tab-pane fade" id="register">
-                <!--TODO write the js for the form-->
-                <div role="tabpanel" class="tab-pane fade in active" id="login">
-                    <form>
-                        <div class="form-group">
-                            <label for="usernameR">用户名</label>
-                            <input type="text" class="form-control" id="usernameR" placeholder="User Name">
-                        </div>
-                        <div class="form-group">
-                            <label for="passwordR">密码</label>
-                            <input type="password" class="form-control" id="passwordR" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <label for="repeatPasswordR">重复密码</label>
-                            <input type="password" class="form-control" id="repeatPasswordR" placeholder="Repeat Password">
-                        </div>
-                        <a class="btn btn-default" id="submitBtn" style="width: 100%">
-                            注册
-                        </a>
-                    </form>
-
-                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="usernameR">用户名</label>
+                        <input type="text" class="form-control" id="usernameR" placeholder="User Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordR">密码</label>
+                        <input type="password" class="form-control" id="passwordR" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="repeatPasswordR">重复密码</label>
+                        <input type="password" class="form-control" id="repeatPasswordR" placeholder="Repeat Password">
+                    </div>
+                    <a class="btn btn-default" id="submitBtnR" style="width: 100%">
+                        注册
+                    </a>
+                </form>
+                <p style="margin-top: 20px; text-align: center"><strong>说明:</strong>请不要使用常用用户名和密码注册</p>
             </div>
         </div>
 
