@@ -18,8 +18,6 @@ var Agent = function (username) {
     this.status = AgentStatus.HALL;
     this.currentTable = null;
 
-    //TODO add log & update active date for each function
-
     this.enterTable = function (tid, sid, err, callback) {
         if (this.status != AgentStatus.HALL)
             return err('You already in some table');
@@ -55,7 +53,6 @@ var Agent = function (username) {
         if (table == null)
             return err('Table not found');
         this.status = AgentStatus.PREPARED;
-        //TODO modify this sentence
         table.checkGameStart(err, function () {
             callback();
         });

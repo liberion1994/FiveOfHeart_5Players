@@ -24,7 +24,6 @@ router.post('/login',
 router.post('/logout',
     passport.isAuthenticated,
     function(req, res) {
-        agentRepo.deleteAgentByUsername(req.user.username);
         req.logOut();
         res.end('success');
     }

@@ -82,14 +82,6 @@ function Table(id) {
         }
         return -1;
     };
-
-    this.isFull = function () {
-        for (var i = 0; i < Property.GamePlayers; i ++) {
-            if (this.agents[i] == null)
-                return false;
-        }
-        return true;
-    };
     
     this.enterAgent = function (agent, sid, err, callback) {
         if (sid >= Property.GamePlayers || sid < 0)
@@ -135,7 +127,6 @@ function Table(id) {
             return err('Game hasn\'t started');
         var _this = this;
         this.game.onAction(sid, actionType, content, err, function (action) {
-            //TODO if last round, should do something here(delete the game and display the sumup)
             if (_this.game.result) {
                 /**
                  * 游戏结束:
