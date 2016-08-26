@@ -235,6 +235,8 @@ var OperationArea = function (targetDiv) {
                     this.drawAColorOptions();
                     break;
                 case GameStatus.PLAY_CARDS:
+                    if (table.agentSid == table.game.masterSid)
+                        this.drawViewBtn();
                     this.drawPlayCardsBtn();
                     break;
             }
@@ -415,6 +417,32 @@ var OperationArea = function (targetDiv) {
                         actionContent: {cards: tmp}
                     }, wrappedAlert)
                 }
+            })
+            .appendTo(this.div);
+    };
+
+    this.drawViewBtn = function () {
+        var okBtn = $("<a type='button' class='btn btn-default control' id='viewBtn'>底牌</a>");
+        okBtn
+            .click(function () {
+                if (!table.game.reservedCards)
+                    return notify('您现在不能查看底牌的呢', 'error');
+                var body = $('#reserved-cards-modal-body')
+                    .empty();
+                var div = $('<div>')
+                    .css('margin-top', '20px')
+                    .css('position', 'relative')
+                    .css('height', cardHeight);
+                var len = table.game.reservedCards.length;
+                for (var i = 0; i < len; i ++)
+                    drawCard(table.game.reservedCards[i], i, cardWidth, cardHeight, div,
+                        10 + 20 * i, 0, 0, 0, 0, function () {});
+                div.appendTo(body);
+                $('#reserved-cards')
+                    .on('hidden.bs.modal', function () {
+                        body.empty();
+                    })
+                    .modal();
             })
             .appendTo(this.div);
     };
@@ -729,7 +757,7 @@ var UI = function () {
         var len = result.reservedCards.length;
         for (var i = 0; i < len; i ++)
             drawCard(result.reservedCards[i], i, cardWidth, cardHeight, div,
-                10 + 15 * i, 0, 0, 0, 0, function () {});
+                10 + 20 * i, 0, 0, 0, 0, function () {});
         div.appendTo(body);
         $('#game-result')
             .on('hidden.bs.modal', function () {

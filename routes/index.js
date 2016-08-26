@@ -6,7 +6,7 @@ var passport = require('../passport');
 router.get('/',
     passport.isNotAuthenticated,
     function(req, res) {
-        res.render('index');
+        res.render('login');
     }
 );
 
