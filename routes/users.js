@@ -4,6 +4,7 @@ var passport = require('../passport');
 var agentRepo = require('../models/agentRepo');
 var User = require('../daos/userDAO');
 var validator = require('../utils/validator');
+var Agent = require("../models/agent");
 
 router.post('/login',
     function (req, res, next) {
@@ -24,6 +25,12 @@ router.post('/login',
 router.post('/logout',
     passport.isAuthenticated,
     function(req, res) {
+        var agent = req.user.agent;
+        if (agent.status == Agent.AgentStatus.IN_GAME) {
+            return res.status(400).send('您正在游戏中,无法登出');
+        } else if (agent.status != Agent.AgentStatus.HALL) {
+            return res.status(400).send('您正在房间内,请先退出房间');
+        }
         req.logOut();
         res.end('success');
     }

@@ -1,12 +1,9 @@
 /**
  * Created by liboyuan on 16/8/21.
  */
-/**
- * Created by liboyuan on 16/8/18.
- */
 
 var AgentCommandType = {
-    IntoTable:  1,
+    EnterTable: 1,
     LeaveTable: 2,
     Prepare:    3,
     UnPrepare:  4,
@@ -44,7 +41,6 @@ function agentStatusToText(status) {
             return '<i class="icon-headphones"></i>';
     }
 }
-
 
 function bootstrapInit() {
     //init popovers

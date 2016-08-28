@@ -5,20 +5,11 @@
 function cardToText(card, split) {
     var num = card.number;
     switch (num) {
-        case 11:
-            num = 'J';
-            break;
-        case 12:
-            num = 'Q';
-            break;
-        case 13:
-            num = 'K';
-            break;
-        case 14:
-            num = 'A';
-            break;
-        default:
-            break;
+        case 11: num = 'J'; break;
+        case 12: num = 'Q'; break;
+        case 13: num = 'K'; break;
+        case 14: num = 'A'; break;
+        default: break;
     }
     var txt = card.color + split + num;
     if (card.color == 'J') {

@@ -4,6 +4,7 @@
 
 var CardUtil = require('./cardUtil');
 var Property = require("../properties/property");
+var AutoPlayer = require('../ai/autoPlayer');
 
 var GameStatus = {
     OFFER_MAJOR_AMOUNT  : 1,
@@ -34,6 +35,8 @@ function Game(masterSid, majorNumber) {
     this.currentTurn = null;
 
     this.result = null;
+
+    this.autoPlayer = new AutoPlayer(this);
 
     this.gameInfo = function (sid) {
         return {

@@ -88,8 +88,8 @@ function SocketClient() {
             reSync();
         }
         switch (event.type) {
-            case AgentCommandType.IntoTable:
-                table.onIntoTable(event);
+            case AgentCommandType.EnterTable:
+                table.onEnterTable(event);
                 break;
             case AgentCommandType.Prepare:
                 table.onPrepare(event);
@@ -113,6 +113,10 @@ function SocketClient() {
 
     this.socket.on('fail', function (msg) {
         notify(msg, 'error');
+    });
+
+    this.socket.on('tick', function (msg) {
+        table.onTimerCountDown(msg.count);
     });
 }
 

@@ -5,6 +5,7 @@
 var Property = require('../properties/property');
 var Game = require('./game');
 var Agent = require('./agent');
+var socket_io = require('../socket_io/socketIoServer');
 
 function Table(id) {
     this.id = id;
@@ -15,9 +16,40 @@ function Table(id) {
     this.masterInGame = null;
     this.majorNumbersInGame = new Array(Property.GamePlayers);
 
+    this.tableTimer = {
+        currentCount: -1,
+        restart: function (initCount, onCountDown, onTimeOut) {
+            if (this.timer)
+                clearInterval(this.timer);
+            this.currentCount = initCount;
+            var _this = this;
+            this.timer = setInterval(function () {
+                _this.currentCount --;
+                onCountDown();
+                if (_this.currentCount == 0) {
+                    clearInterval(_this.timer);
+                    if (onTimeOut)
+                        onTimeOut();
+                }
+            }, 1000);
+        },
+        stop: function () {
+            if (this.timer)
+                clearInterval(this.timer);
+            this.currentCount = -1;
+        }
+    };
+
+    this.isFull = function () {
+        for (var i = 0; i < Property.GamePlayers; i ++)
+            if (!this.agents[i])
+                return false;
+        return true;
+    };
 
     this.reset = function () {
         this.masterInGame = null;
+        this.tableTimer.stop();
         var noLeft = true;
         for (var i = 0; i < Property.GamePlayers; i ++) {
             this.majorNumbersInGame[i] = Property.StartMajorNumber;
@@ -37,7 +69,9 @@ function Table(id) {
             seats: this.wrappedSeatsInfo(),
             currentEventId: this.currentEventId,
             masterInGame: this.masterInGame,
-            game: (this.game == null) ? null : this.game.gameInfo(sid)
+            game: (this.game == null) ? null : this.game.gameInfo(sid),
+
+            timerCount: this.tableTimer.currentCount
         }
     };
 
@@ -89,6 +123,21 @@ function Table(id) {
         if (this.agents[sid] != null)
             return err('Seat already occupied');
         this.agents[sid] = agent;
+        if (this.isFull()) {
+            var group = 'table_' + this.id;
+            var _this = this;
+            this.tableTimer.restart(Property.NotPrepareOutTimeTableFull,
+                function () {
+                    socket_io.io.in(group).emit('tick',
+                        {consequence: 'leave', count: _this.tableTimer.currentCount});
+                }, function () {
+                    for (var i = 0; i < Property.GamePlayers; i ++) {
+                        if (_this.agents[i] && _this.agents[i].status == Agent.AgentStatus.UNPREPARED) {
+                            socket_io.io.onLeaveTable(_this.agents[i], true);
+                        }
+                    }
+                });
+        }
         callback();
     };
 
@@ -116,6 +165,24 @@ function Table(id) {
         this.game = new Game.Game(this.masterInGame, majorNum);
         for (var j = 0; j < Property.GamePlayers; j ++)
             this.agents[j].status = Agent.AgentStatus.IN_GAME;
+
+        var group = 'table_' + this.id;
+        var _this = this;
+        this.tableTimer.restart(Property.InGameTime,
+            function () {
+                socket_io.io.in(group).emit('tick',
+                    {consequence: 'auto_play', count: _this.tableTimer.currentCount});
+            }, function () {
+                var agent = _this.agents[_this.game.currentTurn.remainedSid[0]];
+                var actionType = _this.game.currentTurn.status;
+                var actionContent =  _this.game.autoPlayer.makeAction();
+                var command = {
+                    actionType: actionType,
+                    actionContent: actionContent
+                };
+                socket_io.io.onInGame(agent, command, function () {}, function () {});
+            });
+
         callback();
     };
 
@@ -128,42 +195,78 @@ function Table(id) {
         var _this = this;
         this.game.onAction(sid, actionType, content, err, function (action) {
             if (_this.game.result) {
-                /**
-                 * 游戏结束:
-                 * 1.更新每家打的点数
-                 * 2.确定下一句的庄家
-                 * 3.所有玩家状态变为为准备
-                 * 4.删除前一局游戏
-                 */
-                if (_this.game.result.winners == '庄家') {
-                    _this.levelUp(_this.game.masterSid, _this.game.result.levelUp);
-                    if (_this.game.subMasterSid != null) {
-                        _this.masterInGame = _this.game.subMasterSid;
-                        _this.levelUp(_this.game.subMasterSid, _this.game.result.levelUp);
-                    }
-                    else
-                        _this.masterInGame = _this.game.masterSid;
-                } else {
-                    var matched = false;
-                    for (var i = 1; i < Property.GamePlayers; i ++) {
-                        var tmpId = (_this.game.masterSid + i) % Property.GamePlayers;
-                        if (_this.game.subMasterSid != tmpId) {
-                            _this.levelUp(tmpId, _this.game.result.levelUp);
-                            if (!matched) {
-                                _this.masterInGame = tmpId;
-                                matched = true;
-                            }
-                        }
-                    }
-                }
-                _this.game = null;
-                for (var j = 0; j < Property.GamePlayers; j ++)
-                    _this.agents[j].status = Agent.AgentStatus.UNPREPARED;
+                _this.onGameEnd();
+            } else {
+                var group = 'table_' + _this.id;
+                _this.tableTimer.restart(Property.InGameTime,
+                    function () {
+                        socket_io.io.in(group).emit('tick',
+                            {consequence: 'auto_play', count: _this.tableTimer.currentCount});
+                    }, function () {
+                        var agent = _this.agents[_this.game.currentTurn.remainedSid[0]];
+                        var actionType = _this.game.currentTurn.status;
+                        var actionContent =  _this.game.autoPlayer.makeAction();
+                        var command = {
+                            actionType: actionType,
+                            actionContent: actionContent
+                        };
+                        socket_io.io.onInGame(agent, command, function () {}, function () {});
+                    });
+
             }
             callback(action);
         });
     };
 
+    this.onGameEnd = function () {
+        /**
+         * 游戏结束:
+         * 1.更新每家打的点数
+         * 2.确定下一句的庄家
+         * 3.所有玩家状态变为为准备
+         * 4.删除前一局游戏
+         * 5.重新打开准备计时器
+         */
+        if (this.game.result.winners == '庄家') {
+            this.levelUp(this.game.masterSid, this.game.result.levelUp);
+            if (this.game.subMasterSid != null) {
+                this.masterInGame = this.game.subMasterSid;
+                this.levelUp(this.game.subMasterSid, this.game.result.levelUp);
+            } else {
+                this.masterInGame = this.game.masterSid;
+            }
+        } else {
+            var matched = false;
+            for (var i = 1; i < Property.GamePlayers; i ++) {
+                var tmpId = (this.game.masterSid + i) % Property.GamePlayers;
+                if (this.game.subMasterSid != tmpId) {
+                    this.levelUp(tmpId, this.game.result.levelUp);
+                    if (!matched) {
+                        this.masterInGame = tmpId;
+                        matched = true;
+                    }
+                }
+            }
+        }
+        this.game = null;
+        for (var j = 0; j < Property.GamePlayers; j ++)
+            this.agents[j].unPrepareForGame(function () {}, function () {});
+
+        var group = 'table_' + this.id;
+        var _this = this;
+        this.tableTimer.restart(Property.NotPrepareOutTimeTableFullWithLastGameEnd,
+            function () {
+                socket_io.io.in(group).emit('tick',
+                    {consequence: 'leave', count: _this.tableTimer.currentCount});
+            }, function () {
+                for (var i = 0; i < Property.GamePlayers; i ++) {
+                    if (_this.agents[i] && _this.agents[i].status == Agent.AgentStatus.UNPREPARED) {
+                        socket_io.io.onLeaveTable(_this.agents[i], true);
+                    }
+                }
+            });
+    };
+    
     this.levelUp = function (sid, up) {
         for (var i = 0; i < up; i ++) {
             this.majorNumbersInGame[sid] ++;

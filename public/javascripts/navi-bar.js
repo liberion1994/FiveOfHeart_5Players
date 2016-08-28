@@ -12,8 +12,8 @@ $(function () {
                 else
                     alert('登出失败');
             },
-            error: function () {
-                alert('登出失败');
+            error: function (msg) {
+                alert('登出失败:' + msg.responseText);
             }
         });
     });

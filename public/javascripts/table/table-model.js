@@ -18,6 +18,7 @@ function Table(data) {
             if (this.seats[i])
                 this.seats[i].majorNumberInGame = 2;
         }
+        this.onTimerCountDown(0);
     };
 
     this.getCurrentAgentStatus = function () {
@@ -25,14 +26,19 @@ function Table(data) {
         return this.seats[sid].status;
     };
 
-    this.onIntoTable = function (event) {
+    this.onTimerCountDown = function (newCount) {
+        this.timerCount = newCount;
+        ui.onTimerCountDown();
+    };
+
+    this.onEnterTable = function (event) {
         if (!this.seats[event.sid]) {
             this.seats[event.sid] = {
                 user: event.username,
                 majorNumberInGame: 2,
                 status: AgentStatus.UNPREPARED
             };
-            ui.onIntoTable(event);
+            ui.onEnterTable(event);
         }
     };
 
@@ -52,6 +58,7 @@ function Table(data) {
                     _this.seats[i].status = AgentStatus.IN_GAME;
                 _this.game = info;
                 _this.cardUtil = new CardUtil(info.majorNumber);
+                _this.onTimerCountDown(0);
                 ui.onPrepareAndGameStart(event);
             }
         );
@@ -156,7 +163,6 @@ function Table(data) {
                     if (event.content.partRejected) {
                         this.playedCardsPicked = this.cardUtil.getCardsSameContent(
                             this.playedCardsPicked, event.content.cards);
-                        console.log(this.playedCardsPicked);
                     }
                     var res2 = this.cardUtil.popCards(this.game.cards, this.playedCardsPicked);
                     if (!res2) {

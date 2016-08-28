@@ -179,6 +179,14 @@ var OperationArea = function (targetDiv) {
                 this.inGamePane();
                 break;
         }
+
+        //draw timer
+        $("<div id='counter'>")
+            .append($("<div class='count' id='count1'>").html(table.timerCount == -1 ? 0 : parseInt(table.timer / 10)))
+            .append($("<div class='count' id='count2'>").html(table.timerCount == -1 ? 0 : table.timer % 10))
+            .appendTo(this.div);
+        this.updateTimerCount();
+
     };
 
     this.getAngle = function (index, total) {
@@ -199,15 +207,12 @@ var OperationArea = function (targetDiv) {
     };
 
     this.unPreparedPane = function () {
-        var prepareBtn = $("<a type='button' class='btn btn-default' id='prepareBtn'>准备</a>");
-        prepareBtn
+        $("<a type='button' class='btn btn-default' id='prepareBtn'>准备</a>")
             .click(function () { socketClient.emitCommand(AgentCommandType.Prepare, null, wrappedAlert) })
             .appendTo(this.div);
-        var leaveBtn = $("<a type='button' class='btn btn-default' id='leaveBtn'>离开</a>");
-        leaveBtn
+        $("<a type='button' class='btn btn-default' id='leaveBtn'>离开</a>")
             .click(function () { socketClient.emitCommand(AgentCommandType.LeaveTable, null, wrappedAlert) })
             .appendTo(this.div);
-
     };
 
     this.inGamePane = function () {
@@ -427,8 +432,7 @@ var OperationArea = function (targetDiv) {
             .click(function () {
                 if (!table.game.reservedCards)
                     return notify('您现在不能查看底牌的呢', 'error');
-                var body = $('#reserved-cards-modal-body')
-                    .empty();
+                var body = $('#reserved-cards-modal-body').empty();
                 var div = $('<div>')
                     .css('margin-top', '20px')
                     .css('position', 'relative')
@@ -438,11 +442,7 @@ var OperationArea = function (targetDiv) {
                     drawCard(table.game.reservedCards[i], i, cardWidth, cardHeight, div,
                         10 + 20 * i, 0, 0, 0, 0, function () {});
                 div.appendTo(body);
-                $('#reserved-cards')
-                    .on('hidden.bs.modal', function () {
-                        body.empty();
-                    })
-                    .modal();
+                $('#reserved-cards').modal();
             })
             .appendTo(this.div);
     };
@@ -496,6 +496,15 @@ var OperationArea = function (targetDiv) {
                     param2.centerX, param2.centerY, this.getAngle(i2, len2),
                     param2.rotateX, param2.rotateY, function () { _this.onCardChosen($(this)) });
         }
+    };
+
+    this.updateTimerCount = function () {
+        if (table.timerCount == -1)
+            return;
+        var new_count1 = parseInt(table.timerCount / 10),
+            new_count2 = table.timerCount % 10;
+        $('#count2').html(new_count2);
+        $('#count1').html(new_count1);
     };
 
     /**
@@ -695,7 +704,7 @@ var UI = function () {
             case AgentCommandType.Disconnect:
                 txt += '掉线了';
                 break;
-            case AgentCommandType.IntoTable:
+            case AgentCommandType.EnterTable:
                 txt += '加入了' + event.sid + '号座位';
                 break;
             case AgentCommandType.Prepare:
@@ -705,7 +714,10 @@ var UI = function () {
                 txt += '取消了准备';
                 break;
             case AgentCommandType.LeaveTable:
-                txt += '离开了' + event.sid + '号座位';
+                if (event.force)
+                    txt += '被系统踢出了' + event.sid + '号座位';
+                else
+                    txt += '离开了' + event.sid + '号座位';
                 break;
             case AgentCommandType.InGame:
                 switch (event.content.actionType) {
@@ -774,7 +786,11 @@ var UI = function () {
         notify(txt, 'alert');
     };
 
-    this.onIntoTable = function (event) {
+    this.onTimerCountDown = function () {
+        this.operationArea.updateTimerCount();
+    };
+
+    this.onEnterTable = function (event) {
         this.tableArea.updateSeat(event.sid);
         this.logEvent(event);
     };
@@ -891,6 +907,9 @@ var UI = function () {
                                     cards[k].view = null;
                                 }
                             }
+                            break;
+                        default:
+                            break;
                     }
                 }
                 break;

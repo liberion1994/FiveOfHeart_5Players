@@ -6,6 +6,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('../passport');
 var TableRepo = require('../models/tableRepo');
+var socket_io = require("../socket_io/socketIoServer");
 
 router.get('/',
     passport.isAuthenticatedBackToLogin,
@@ -65,7 +66,7 @@ router.get('/current_table/game/reserved_cards',
         var agent = req.user.agent;
         var table = agent.currentTable;
         if (table == null) {
-            res.status(400).send('您不在任何桌内');
+            res.status(400).eend('您不在任何桌内');
         } else if (table.game == null) {
             res.status(400).send('游戏尚未开始');
         } else {
@@ -96,7 +97,10 @@ router.post('/:id',
         if (tid == null || sid == null) {
             res.status(400).send('请求数据出错');
         } else {
-            agent.enterTable(tid, sid, res.end, function () { res.end('success'); });
+            agent.enterTable(tid, sid, res.end, function () {
+                socket_io.io.onEnterTable(agent);
+                res.end('success');
+            });
         }
     }
 );
