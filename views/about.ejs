@@ -14,15 +14,16 @@
         dd { text-indent:1em }
         p { text-indent:1em }
         div { margin: 20px; margin-top: 50px; }
-        a { float: right; margin-bottom: 20px; }
+        a { word-break: break-all; word-wrap:break-word; }
+        a.right { float: right; margin-bottom: 20px; }
     </style>
 </head>
 <body>
     <div>
         <h2>说明</h2>
-        <p>本系统为一个简单的五人红五游戏Web应用,源码发布在Github上,链接:</p>
+        <p>本系统为一个简单的五人红五游戏Web应用,源码发布在Github上,链接:
         <a href="https://github.com/liberion1994/FiveOfHeart_5Players">https://github.com/liberion1994/FiveOfHeart_5Players</a>
-
+        </p>
         <h2>鸣谢</h2>
         <p>感谢杭州市第二中学2012届13班的全体同学们,虽然也只有你们会看到这个了ˊ_>ˋ</p>
         <p>希望本系统可以一直更新和使用下去。</p>
@@ -96,7 +97,7 @@
             <dd>稍稍改进了日志系统</dd>
             <dd>完成了本页面</dd>
         </dl>
-        <a href="javascript:window.opener=null;window.open('','_self');window.close();">关闭本页面</a>
+        <a class="right" href="javascript:window.opener=null;window.open('','_self');window.close();">关闭本页面</a>
     </div>
 </body>
 </html>

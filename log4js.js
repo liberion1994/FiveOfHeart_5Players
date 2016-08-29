@@ -6,7 +6,7 @@ log4js.configure({
     appenders: [
         {
             type: 'dateFile',
-            filename: './logs/socket_server.log',
+            filename: __dirname + '/logs/socket_server.log',
             category: 'socket_server',
             pattern: "-yyyy-MM-dd",
             alwaysIncludePattern: false
