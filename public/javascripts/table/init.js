@@ -3,6 +3,7 @@
  */
 
 var AgentCommandType = {
+    IntoTable:  0,
     EnterTable: 1,
     LeaveTable: 2,
     Prepare:    3,
@@ -30,6 +31,9 @@ var GameStatus = {
 var ui;
 var socketClient;
 var table;
+var updated = false;
+var keyboardUp = false;
+var timer;
 
 function agentStatusToText(status) {
     switch (status) {
@@ -45,9 +49,8 @@ function agentStatusToText(status) {
 function bootstrapInit() {
     //init popovers
     $('[data-toggle="popover"]').popover();
-    $(".nav li.disabled a").click(function() {
-        return false;
-    });
+    $(".nav li.disabled a").click(function() {return false});
+    $(".seat").popover('destroy');
 }
 
 function reSync() {
@@ -57,7 +60,6 @@ function reSync() {
             table = new Table(res);
             ui = new UI();
             ui.repaint();
-            ui.logSystemEvent('已重新同步');
             bootstrapInit();
         });
 }
@@ -68,7 +70,7 @@ function notify(text, type) {
             $.notify({
                 message: text
             }, {
-                element: '#operation-area',
+                element: '#bottom-area',
                 delay: 500,
                 timer: 500,
                 placement : {

@@ -2,8 +2,6 @@
  * Created by liboyuan on 16/8/11.
  */
 
-//TODO 把所有的枚举变量放到一个外部文件方便操作
-
 var tableRepo = require('./tableRepo');
 var Property = require("../properties/property");
 var socket_io = require("../socket_io/socketIoServer");
@@ -46,10 +44,10 @@ var Agent = function (username) {
 
     this.enterTable = function (tid, sid, err, callback) {
         if (this.status != AgentStatus.HALL)
-            return err('You already in some table');
+            return err('你已经坐在哪张桌子了吧,刷新试试');
         var table = tableRepo.findTableById(tid);
         if (table == null)
-            return err('Table not found');
+            return err('找不到这张桌子唉');
         var _this = this;
         table.enterAgent(this, sid, err, function () {
             _this.prepareTimer.restart(Property.NotPrepareOutTime, function () {},
@@ -62,10 +60,10 @@ var Agent = function (username) {
 
     this.leaveTable = function (err, callback) {
         if (this.status == AgentStatus.HALL)
-            return err('You are not in the table');
+            return err('你已经坐在哪张桌子了吧,刷新试试');
         var table = this.currentTable;
         if (table == null)
-            return err('Table not found');
+            return err('找不到这张桌子唉');
         var _this = this;
         table.leaveAgent(this, err, function () {
             _this.prepareTimer.stop();
@@ -77,10 +75,10 @@ var Agent = function (username) {
 
     this.prepareForGame = function (err, callback) {
         if (this.status != AgentStatus.UNPREPARED)
-            return err('Failed to prepare');
+            return err('现在这个状态没法准备呀');
         var table = this.currentTable;
         if (table == null)
-            return err('Table not found');
+            return err('找不到这张桌子唉');
         this.status = AgentStatus.PREPARED;
         this.prepareTimer.stop();
         table.checkGameStart(err, function () {
@@ -90,10 +88,10 @@ var Agent = function (username) {
 
     this.unPrepareForGame = function (err, callback) {
         if (this.status != AgentStatus.PREPARED)
-            return err('Failed to unPrepare');
+            return err('现在这个状态没法准备呀');
         var table = this.currentTable;
         if (table == null)
-            return err('Table not found');
+            return err('找不到这张桌子唉');
         this.status = AgentStatus.UNPREPARED;
         var _this = this;
         this.prepareTimer.restart(Property.NotPrepareOutTime, function () {},
@@ -103,10 +101,10 @@ var Agent = function (username) {
 
     this.operateInGame = function (actionType, content, err, callback) {
         if (this.status != AgentStatus.IN_GAME)
-            return err('Not In Game');
+            return err('你是不是没在游戏中呢');
         var table = this.currentTable;
         if (table == null)
-            return err('Table not found');
+            return err('现在这个状态没法准备呀');
         table.inGameOperation(this, actionType, content, err, function (action) {
             callback(action);
         });

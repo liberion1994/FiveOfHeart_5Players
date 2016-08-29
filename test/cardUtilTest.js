@@ -1396,7 +1396,7 @@ describe("Check first play legal", function() {
                 {number: 10, color: '♥', type: 1},
                 {number: 10, color: '♥', type: 1},
                 {number: 10, color: '♥', type: 1},
-                {number: 2, color: '♥', type: 1},
+                {number: 2, color: '♥', type: 1}
             ]
         ];
         var res = [
@@ -1585,4 +1585,58 @@ describe("Card group comparison", function() {
         cardUtil.cardGroupLargerThan(firstPlayed, preMax, playedFailed).should.eql(false);
     });
 
+});
+
+describe("Check Multiple", function() {
+    it("Double", function () {
+        var played = [
+            {number: 14, color: '♥', type: 1},
+            {number: 14, color: '♥', type: 1}
+        ];
+        cardUtil.getMultiple(played).should.eql(4);
+    });
+});
+
+describe("Find Legal Cards", function() {
+    it("Simple Test", function () {
+        var played = [
+            { number: 4, color: '♣', type: 0 },
+            { number: 4, color: '♣', type: 0 },
+            { number: 4, color: '♣', type: 0 }
+        ];
+        var res = [
+            { number: 5, color: '♣', type: 0 },
+            { number: 5, color: '♣', type: 0 },
+            { number: 9, color: '♣', type: 0 }
+        ];
+        cardUtil.majorColor = '♥';
+        cardUtil.getCardsWithLimitation(CARDS_IN_HAND, cardUtil.getLimitation(played, CARDS_IN_HAND)).should.eql(res);
+    });
+
+    it("More Complex", function () {
+        var played = [
+            { number: 10, color: '♣', type: 0 },
+            { number: 10, color: '♣', type: 0 },
+            { number: 10, color: '♣', type: 0 },
+            { number: 6, color: '♣', type: 0 },
+            { number: 6, color: '♣', type: 0 },
+            { number: 6, color: '♣', type: 0 },
+            { number: 4, color: '♣', type: 0 },
+            { number: 4, color: '♣', type: 0 },
+            { number: 4, color: '♣', type: 0 }
+        ];
+        var res = [
+            { number: 5, color: '♣', type: 0 },
+            { number: 5, color: '♣', type: 0 },
+            { number: 3, color: '♣', type: 0 },
+            { number: 3, color: '♣', type: 0 },
+            { number: 9, color: '♣', type: 0 },
+            { number: 8, color: '♣', type: 0 },
+            { number: 6, color: '♣', type: 0 },
+            { number: 2, color: '♣', type: 0 },
+            { number: 1, color: 'J', type: 6 }
+        ];
+        cardUtil.majorColor = '♥';
+        cardUtil.getCardsWithLimitation(CARDS_IN_HAND, cardUtil.getLimitation(played, CARDS_IN_HAND)).should.eql(res);
+    });
 });

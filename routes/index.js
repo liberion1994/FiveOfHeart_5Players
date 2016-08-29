@@ -10,4 +10,11 @@ router.get('/',
     }
 );
 
+router.get('/about',
+    passport.isAuthenticatedBackToLogin,
+    function(req, res) {
+        res.render('about');
+    }
+);
+
 module.exports = router;

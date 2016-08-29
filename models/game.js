@@ -76,13 +76,13 @@ function Game(masterSid, majorNumber) {
                 for (var j = 0; j < tmpLen; j ++) {
                     var from = this.caught5Heart[i][j];
                     if (from == this.masterSid || from == this.subMasterSid)
-                        slaveUpper ++;
+                        slavePoints += 55;
                 }
             } else {
                 for (var j2 = 0; j2 < tmpLen; j2 ++) {
                     var from2 = this.caught5Heart[i][j2];
                     if (!(from2 == this.masterSid || from2 == this.subMasterSid)) {
-                        slaveUpper --;
+                        slavePoints -= 60;
                     }
                 }
             }
@@ -91,7 +91,9 @@ function Game(masterSid, majorNumber) {
             slaveUpper += parseInt(
                 (slavePoints - Property.LevelUpPoints) / Property.UpperPointsPerLevel);
         } else {
-            if (slavePoints == 0) {
+            if (slavePoints < 0) {
+                slaveUpper -= 3 + parseInt((-slavePoints) / Property.UpperPointsPerLevel);
+            } else if (slavePoints == 0) {
                 slaveUpper -= 3;
             } else if (slavePoints < Property.UpperPointsPerLevel){
                 slaveUpper -=2;
@@ -166,7 +168,6 @@ function Game(masterSid, majorNumber) {
         content.actionType = this.currentTurn.status;
         this.currentTurn.done.push(content);
         this.nextStatus(content);
-        console.log(content);
     };
 
     this.nextStatus = function (content) {
@@ -211,7 +212,8 @@ function Game(masterSid, majorNumber) {
         };
         this.currentTurn.remainedSid.push(sid);
         content.updated = {
-            currentTurn: this.currentTurn
+            currentTurn: this.currentTurn,
+            cards: this.cardUtil.getAbsoluteMajor(this.cards[sid], maxMajorSum)
         };
         if (this.masterSid == null) {
             this.masterSid = sid;
@@ -500,7 +502,9 @@ function Game(masterSid, majorNumber) {
                 }
             }
         }
-        var action = {cards: res, partRejected: partRejected};
+        var action = {cards: res};
+        if (partRejected)
+            action.original = cards;
         if (this.becomeSubMaster(sid, res))
             action.subMasterSid = sid;
             this.commitAction(action);

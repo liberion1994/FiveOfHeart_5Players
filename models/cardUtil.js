@@ -101,6 +101,19 @@ function CardUtil(majorNumber) {
     };
 
     /**
+     * 得到最大的n张真主
+     * @param cards
+     * @param amount
+     * @returns {Array}
+     */
+    this.getAbsoluteMajor = function (cards, amount) {
+        var res = [];
+        for (var i = 0; i < amount; i ++)
+            res.push(cards[i]);
+        return res;
+    };
+
+    /**
      * 牌的降序
      * @param a 牌
      * @param b 牌
@@ -357,7 +370,7 @@ function CardUtil(majorNumber) {
      * @returns {number}
      */
     this.getMultiple = function (cards) {
-        var struc = this.getCardStructureWithoutTractor(cards);
+        var struc = this.getCardStructure(cards);
         var res = 2;
         for (var type in struc) {
             var len = struc[type].length;
@@ -886,6 +899,67 @@ function CardUtil(majorNumber) {
                 return false;
         }
         return true;
+    };
+
+    /**
+     * 从手牌中取出满足限制条件的牌组,用于最简单的AI(自动出牌,只要合理即可)
+     * @param inHand
+     * @param limit
+     */
+    this.getCardsWithLimitation = function (inHand, limit) {
+        var res = [];
+        if (limit.type == null) {
+            for (var i = 0; i < limit.sum; i ++)
+                res.push(inHand[i]);
+            return res;
+        }
+        var tmp = this.getCardStructureWithoutTractor(inHand);
+        var inHandStructure = tmp[limit.type];
+        limit.limitation.sort(this.limitationDesc);
+        var len = limit.limitation.length;
+        for (var i2 = 0; i2 < len; i2 ++) {
+            var found = this.findStructure(inHandStructure, limit.limitation[i2]); //found shouldn't be null
+            for (var j = 0; j < found.content.length; j ++) {
+                for (var k = 0; k < found.multi; k ++)
+                    res.push(found.content[j]);
+            }
+        }
+
+        if (res.length < limit.sumInType) {
+            var target = limit.sumInType - res.length;
+            //随意地加一些牌进来
+            for (var i3 = 0; i3 < inHandStructure.length; i3 ++) {
+                for (var k2 = 0; k2 < inHandStructure[i3].multi; k2 ++) {
+                    res.push(inHandStructure[i3].content);
+                    if (-- target == 0)
+                        break;
+                }
+                if (target == 0)
+                    break;
+            }
+        }
+
+        if (res.length < limit.sum) {
+            var target2 = limit.sum - res.length;
+            //加一些其他花色的牌进来
+            for (var type in tmp) {
+                if (type == limit.type)
+                    continue;
+                var cur = tmp[type];
+                for (var i4 = 0; i4 < cur.length; i4 ++) {
+                    for (var k3 = 0; k3 < cur[i4].multi; k3 ++) {
+                        res.push(cur[i4].content);
+                        if (-- target2 == 0)
+                            break;
+                    }
+                    if (target2 == 0)
+                        break;
+                }
+                if (target2 == 0)
+                    break;
+            }
+        }
+        return res;
     };
 
     /**

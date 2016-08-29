@@ -58,6 +58,10 @@ function SocketClient() {
         });
     };
 
+    this.emitChatMessage = function (msg) {
+        this.socket.emit('chat', msg);
+    };
+
     this.emitCommand = function (commandType, commandContent, error) {
         switch (commandType) {
             // the 'enter' command should not exist since it's conducted through http post
@@ -78,15 +82,17 @@ function SocketClient() {
     };
 
     var _this = this;
+
+    this.socket.on('chat', function (chat) {
+        ui.displayChatContent(chat.sid, chat.content);
+    });
+
     this.socket.on('event', function (event) {
 
         if (_this.synchronizing)
             return;
 
-        if (event.eid != table.currentEventId ++) {
-            notify('似乎和后台不同步呢', 'error');
-            reSync();
-        }
+        if (event.eid != table.currentEventId ++) {reSync()}
         switch (event.type) {
             case AgentCommandType.EnterTable:
                 table.onEnterTable(event);
@@ -116,7 +122,10 @@ function SocketClient() {
     });
 
     this.socket.on('tick', function (msg) {
-        table.onTimerCountDown(msg.count);
+        updated = true;
+        if (table.currentEventId != msg.eid) {reSync()}
+        if (msg.consequence != 'idle')
+            table.onTimerCountDown(msg.count);
     });
 }
 

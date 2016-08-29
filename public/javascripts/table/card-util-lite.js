@@ -137,13 +137,9 @@ function CardUtil(majorNumber) {
                 return null;
         }
         var res = [];
-        var tmp = 0;
         for (var k = 0; k < len; k ++) {
-            if (matched[k + tmp]) {
-                res.push(src.splice(k, 1)[0]);
-                k --;
-                tmp ++;
-                len --;
+            if (matched[k]) {
+                res.push(src[k]);
             }
         }
         return res;

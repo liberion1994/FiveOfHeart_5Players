@@ -84,7 +84,7 @@ function Table(data) {
                 ui.onOfferMajorAmount(event);
                 if (this.game.currentTurn.remainedSid.length == 0) {
                     /**
-                     * 更新:下一轮的轮次信息
+                     * 更新:下一轮的轮次信息,报主者的真主
                      * 可能更新:庄家信息
                      */
                     var _this = this;
@@ -132,12 +132,11 @@ function Table(data) {
                 break;
             case GameStatus.RESERVE_CARDS:
                 if (event.sid == this.agentSid) {
+                    if (event.force)
+                        return reSync();
                     //移除所有的底牌
                     var res = this.cardUtil.popCards(this.game.cards, this.game.reservedCards);
-                    if (!res) {
-                        notify('未知错误', 'error');
-                        reSync();
-                    }
+                    if (!res) {reSync()}
                 }
                 ui.onReserveCards(event);
                 var _this3 = this;
@@ -160,15 +159,15 @@ function Table(data) {
             case GameStatus.PLAY_CARDS:
                 //不能先放动画再删除,放动画的时候会标注id
                 if (event.sid == this.agentSid) {
-                    if (event.content.partRejected) {
+                    if (event.force) {
+                        this.playedCardsPicked = this.cardUtil.getCardsSameContent(
+                            this.game.cards, event.content.cards);
+                    } else if (event.content.original) {
                         this.playedCardsPicked = this.cardUtil.getCardsSameContent(
                             this.playedCardsPicked, event.content.cards);
                     }
                     var res2 = this.cardUtil.popCards(this.game.cards, this.playedCardsPicked);
-                    if (!res2) {
-                        notify('未知错误', 'error');
-                        reSync();
-                    }
+                    if (!res2) {reSync()}
                 }
                 if (event.content.subMasterSid != null) {
                     this.game.subMasterSid = event.content.subMasterSid;
@@ -189,7 +188,7 @@ function Table(data) {
                             _this5.game.caught5Heart = event.content.updated.caught5Heart;
                             ui.drawNextTurn(event, _this5.game.currentTurn.status);
 
-                        }, 1000);
+                        }, 2000);
                     } else {
                         setTimeout(function () {ui.showResult(event.content.updated.result)}, 2000);
                     }

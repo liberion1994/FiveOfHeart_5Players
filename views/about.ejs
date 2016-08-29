@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+    <link rel='stylesheet' href='/stylesheets/animate.min.css' />
+
+    <script src="/javascripts/jquery-1.12.4.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <style type="text/css">
+        dd { text-indent:1em }
+        p { text-indent:1em }
+        div { margin: 20px; margin-top: 50px; }
+        a { float: right; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div>
+        <h2>说明</h2>
+        <p>本系统为一个简单的五人红五游戏Web应用,源码发布在Github上,链接:</p>
+        <a href="https://github.com/liberion1994/FiveOfHeart_5Players">https://github.com/liberion1994/FiveOfHeart_5Players</a>
+
+        <h2>鸣谢</h2>
+        <p>感谢杭州市第二中学2012届13班的全体同学们,虽然也只有你们会看到这个了ˊ_>ˋ</p>
+        <p>希望本系统可以一直更新和使用下去。</p>
+
+        <h2>TODO</h2>
+        <p>继续与Bug斗争</p>
+        <p>积分系统与奖惩机制</p>
+        <p>语音包与表情包</p>
+        <p>UI优化(PC端可以单独再做一套)</p>
+        <p>更多的游戏(谁是卧底?等)</p>
+        <p>代码重构(其实我一点也不想)</p>
+        <p>创建Cordova应用,本地化</p>
+
+        <h2>更新日志</h2>
+        <h3>V0.2</h3>
+        <dl>
+            <dt>增加了计时器功能</dt>
+            <dd>玩家处于未准备状态超过1分钟后将被踢出所在桌子</dd>
+            <dd>桌子处于满员等待开始游戏状态超过10秒后,所有未准备玩家会被踢出桌子;由于游戏结束时玩家需要查看游戏结果,这一时间被延长至30秒</dd>
+            <dd>游戏中玩家的每一次操作时限为1分钟,超时会由系统自动操作该回合</dd>
+            <dd></dd>
+        </dl>
+        <dl>
+            <dt>实现了简单AI</dt>
+            <dd>该AI无法作为独立玩家,只用于超时后的自动操作</dd>
+            <dd>在报主阶段,AI将自动选择等于玩家真主数量的数字</dd>
+            <dd>在叫主阶段,AI将自动选择<strong>红桃</strong>花色</dd>
+            <dd>在埋底阶段,AI将自动选择手牌<strong>末尾</strong>的7张牌</dd>
+            <dd>在叫A阶段,AI将自动选择<strong>草花</strong>花色</dd>
+            <dd>在出牌阶段,若是当前轮第一个出牌,AI将自动选择手牌<strong>前端</strong>的第1张牌</dd>
+            <dd>在出牌阶段,若非当前轮第一个出牌,AI将自动选择手牌中<strong>符合规则的最大</strong>跟牌牌组</dd>
+            <dd></dd>
+        </dl>
+        <dl>
+            <dt>实现了基本发言功能</dt>
+            <dd>游戏界面下端的<strong>发言</strong>区域已经可以使用</dd>
+            <dd>发言的内容会在桌面中以PopOver的形式显示,持续1.5秒,同时可以在下方发言区域内找到发言记录</dd>
+            <dd>两次发言的最短间隔为5秒</dd>
+            <dd></dd>
+        </dl>
+        <dl>
+            <dt>游戏机制</dt>
+            <dd>
+                现在游戏中得到红五(不论红五的出牌者与得分者为同队、不同队或不确定关系)均以5分计算,在结束后结算时,
+                闲家每抓到一个庄家(含副庄家)的红五在闲家得分中增加55分,庄家(含副庄家)每抓到一个闲家的红五在闲家得分中减去60分。
+                从结果上看这与规则一致,但在游戏过程中观察到的得分情况可能与玩家预想有出入,还请多加注意。
+            </dd>
+            <dd>
+                在报主阶段,若有多位玩家报出的真主数量相同且最大,则最先报主的玩家成为叫主者。
+            </dd>
+            <dd>
+                在报主阶段确定叫主者后,将会显示叫主者的真主,若叫主者报出的真主数量n小于真实数量,将会显示<strong>最大的</strong>n张真主。
+            </dd>
+            <dd>
+                甩牌失败时,将会先显示<strong>全部试图甩出的牌</strong>,持续2秒后显示实际打出的牌。
+            </dd>
+        </dl>
+        <dl>
+            <dt>修复Bug</dt>
+            <dd>修复了游戏结束时底牌算分倍数错误的Bug</dd>
+        </dl>
+        <dl>
+            <dt>鲁棒性增强</dt>
+            <dd>现在当超过3秒没有收到服务器的时钟Tick后会自动与服务器进行同步</dd>
+        </dl>
+        <dl>
+            <dt>杂项</dt>
+            <dd>现在位于桌内的玩家需要先离开桌子后方可登出</dd>
+            <dd>出牌阶段每轮结束后的持续显示时间从1秒提升到2秒</dd>
+            <dd>桌子编号从1开始</dd>
+            <dd>稍稍改进了日志系统</dd>
+            <dd>完成了本页面</dd>
+        </dl>
+        <a href="javascript:window.opener=null;window.open('','_self');window.close();">关闭本页面</a>
+    </div>
+</body>
+</html>

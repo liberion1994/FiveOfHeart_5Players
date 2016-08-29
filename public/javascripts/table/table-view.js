@@ -36,6 +36,9 @@ var TableArea = function (targetDiv) {
         }
         this.updateGameInfo();
         this.drawCurrentTurn();
+
+        //draw timer
+        this.updateTimerCount();
     };
 
     this.updateGameInfo = function () {
@@ -83,6 +86,22 @@ var TableArea = function (targetDiv) {
         }
     };
 
+    this.updateTimerCount = function () {
+        if (table.timerCount == -1)
+            return;
+        var new_count1 = parseInt(table.timerCount / 10),
+            new_count2 = table.timerCount % 10;
+        $('#counter').html(new_count1 + '' + new_count2);
+    };
+
+    this.displayChatContent = function (sid, content) {
+        var index = (sid - table.agentSid + 5) % 5;
+        var tmp = $('#seat' + index)
+            .attr('data-content', content)
+            .popover('show');
+        setTimeout(function() {tmp.popover('destroy')}, 1500);
+    };
+
     this.updateSeat = function (sid) {
         var index = (sid - table.agentSid + 5) % 5;
         var seat = table.seats[sid];
@@ -120,35 +139,41 @@ var TableArea = function (targetDiv) {
      * @param cards
      * @param index 不是sid,是相对位置
      */
-    this.onNewCardsPlayed = function (cards, index) {
-        var len = cards.length;
+    this.onNewCardsPlayed = function (cards, index, original) {
+        var tmp = original ? original : cards;
+        var len = original ? original.length : cards.length;
+        var _this = this;
+        if (original)
+            setTimeout(function () {
+                _this.drawCurrentTurn();
+            }, 2000);
         switch (index) {
             case 4:
                 for (var i = 0; i < len; i ++)
-                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                    drawCard(tmp[i], i, cardWidthInTable, cardHeightInTable, this.div,
                         10 + cardHeightInTable, this.height - 30 - cardWidthInTable - (len - i - 1) * 15,
                         90, 0, 0, function () {});
                 break;
             case 3:
                 for (var i = 0; i < len; i ++)
-                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                    drawCard(tmp[i], i, cardWidthInTable, cardHeightInTable, this.div,
                         10 + i * 15, 30, 0, 0, 0, function () {});
                 break;
             case 2:
                 for (var i = 0; i < len; i ++)
-                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                    drawCard(tmp[i], i, cardWidthInTable, cardHeightInTable, this.div,
                         this.width - 10 - cardWidthInTable - (len - 1 - i) * 15, 30, 0, 0, 0,
                         function () {});
                 break;
             case 1:
                 for (var i = 0; i < len; i ++)
-                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                    drawCard(tmp[i], i, cardWidthInTable, cardHeightInTable, this.div,
                         this.width - 10 - cardHeightInTable, this.height - 30 - i * 15,
                         -90, 0, 0, function () {});
                 break;
             case 0:
                 for (var i = 0; i < len; i ++)
-                    drawCard(cards[i], i, cardWidthInTable, cardHeightInTable, this.div,
+                    drawCard(tmp[i], i, cardWidthInTable, cardHeightInTable, this.div,
                         (this.width - cardWidthInTable) / 2 + (i - (len - 1) / 2) * 15, this.height - cardHeightInTable - 30, 0, 0, 0,
                         function () {});
         }
@@ -179,13 +204,6 @@ var OperationArea = function (targetDiv) {
                 this.inGamePane();
                 break;
         }
-
-        //draw timer
-        $("<div id='counter'>")
-            .append($("<div class='count' id='count1'>").html(table.timerCount == -1 ? 0 : parseInt(table.timer / 10)))
-            .append($("<div class='count' id='count2'>").html(table.timerCount == -1 ? 0 : table.timer % 10))
-            .appendTo(this.div);
-        this.updateTimerCount();
 
     };
 
@@ -498,15 +516,6 @@ var OperationArea = function (targetDiv) {
         }
     };
 
-    this.updateTimerCount = function () {
-        if (table.timerCount == -1)
-            return;
-        var new_count1 = parseInt(table.timerCount / 10),
-            new_count2 = table.timerCount % 10;
-        $('#count2').html(new_count2);
-        $('#count1').html(new_count1);
-    };
-
     /**
      * 调整手牌,并播放动画
      */
@@ -671,6 +680,8 @@ var UI = function () {
         $('#chat-area')
             .css('width', this.operationAreaProperty.width + 'px')
             .css('height', this.operationAreaProperty.height + 'px');
+        $('#chat-display')
+            .css('height', this.operationAreaProperty.height - 40 + 'px');
         var bottom_area = $('#bottom-area')
             .css('width', windowWidth + 'px')
             .css('margin-left', margin_left + 'px');
@@ -734,7 +745,7 @@ var UI = function () {
                         txt += '选择了' + cardColorWithColor(event.content.color) + '为A的花色';
                         break;
                     case GameStatus.PLAY_CARDS:
-                        if (event.content.partRejected)
+                        if (event.content.original)
                             txt += '甩牌失败,';
                         txt += '打出了:[';
                         var len = event.content.cards.length;
@@ -745,13 +756,29 @@ var UI = function () {
                                 txt += "<span style='color:red;'>" + cardToText(event.content.cards[i], '') + "</span>";
                         }
                         txt += ']';
+                        if (event.content.original) {
+                            txt += ',原牌:[';
+                            var len2 = event.content.original.length;
+                            for (var i2 = 0; i2 < len2; i2++) {
+                                if (isBlack(event.content.original[i2]))
+                                    txt += cardToText(event.content.original[i2], '');
+                                else
+                                    txt += "<span style='color:red;'>" + cardToText(event.content.original[i2], '') + "</span>";
+                            }
+                            txt += ']';
+                        }
                         break;
                 }
+                if (event.force)
+                    txt += '(超时自动操作)';
                 break;
         }
+        var par = $('#history-area');
         $('<div>')
             .html(txt)
-            .appendTo($('#history-area'));
+            .prependTo(par);
+        if (par.children('div').size() > 50)
+            par.children('div:last').remove();
     };
 
     this.showResult = function (result) {
@@ -779,15 +806,18 @@ var UI = function () {
     };
 
     this.logSystemEvent = function (txt) {
+        var par = $('#history-area');
         $('<div>')
             .css('color', 'blue')
             .html(txt)
-            .appendTo($('#history-area'));
+            .prependTo(par);
+        if (par.children('div').size() > 50)
+            par.children('div:last').remove();
         notify(txt, 'alert');
     };
 
     this.onTimerCountDown = function () {
-        this.operationArea.updateTimerCount();
+        this.tableArea.updateTimerCount();
     };
 
     this.onEnterTable = function (event) {
@@ -861,7 +891,7 @@ var UI = function () {
     this.onPlayCards = function (event) {
 
         this.operationArea.drawControls();
-        this.tableArea.onNewCardsPlayed(event.content.cards, (event.sid - table.agentSid + 5) % 5);
+        this.tableArea.onNewCardsPlayed(event.content.cards, (event.sid - table.agentSid + 5) % 5, event.content.original);
         this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         if (event.sid == table.agentSid)
             this.operationArea.moveOutCards(table.playedCardsPicked);
@@ -879,11 +909,24 @@ var UI = function () {
         var txt = '[' + table.seats[table.game.currentTurn.startSid].user + ']';
         switch (newStatus) {
             case GameStatus.CHOOSE_MAJOR_COLOR:
+                var _this = this;
+                this.tableArea.onNewCardsPlayed(event.content.updated.cards, (table.game.currentTurn.startSid - table.agentSid + 5) % 5);
+                setTimeout(function () {
+                    _this.tableArea.drawCurrentTurn();
+                }, 3000);
                 if (extraUpdated.masterSid != null) {
                     this.tableArea.updateSeat(extraUpdated.masterSid);
                     this.logSystemEvent(txt + '成为了庄家');
                 }
-                this.logSystemEvent(txt + '正在选择主花色');
+                txt += '正在选择主花色,真主[';
+                var len3 = event.content.updated.cards.length;
+                for (var i2 = 0; i2 < len3; i2 ++) {
+                    if (isBlack(event.content.updated.cards[i2]))
+                        txt += "<span style='color:black;'>" + cardToText(event.content.updated.cards[i2], '') + "</span>";
+                    else
+                        txt += "<span style='color:red;'>" + cardToText(event.content.updated.cards[i2], '') + "</span>";
+                }
+                this.logSystemEvent(txt + ']');
                 break;
             case GameStatus.RESERVE_CARDS:
                 this.logSystemEvent(txt + '正在埋底牌');
@@ -914,5 +957,15 @@ var UI = function () {
                 }
                 break;
         }
+    };
+
+    this.displayChatContent = function (sid, content) {
+        this.tableArea.displayChatContent(sid, content);
+        var par = $('#chat-display');
+        $('<div>')
+            .html('[' + table.seats[sid].user + ']:' + content)
+            .prependTo(par);
+        if (par.children('div').size() > 50)
+            par.children('div:last').remove();
     };
 };

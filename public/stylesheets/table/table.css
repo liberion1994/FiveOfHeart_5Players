@@ -36,7 +36,7 @@ a {
 }
 
 #chat-area {
-    overflow: scroll;
+    position: relative;
 }
 
 #history-area {
@@ -69,20 +69,20 @@ a {
 
 #counter {
     position: absolute;
+    height: 50px;
     left: 0;
     right: 0;
-    top: 10px;
+    top: 50%;
+    margin-top: -25px;
+    line-height: 50px;
+    font-size: 48px;
     text-align: center;
-}
-
-.count {
-    margin: 2px;
-    display: inline;
+    color: gray;
 }
 
 #seat-top {
     position: absolute;
-    top: 10px;
+    top: 0;
     left: 0;
     right: 0;
     margin: 0 auto;
@@ -133,6 +133,27 @@ a {
     top: 10px;
 }
 
+#chat-display {
+    padding: 5px;
+    overflow: scroll;
+}
+
+#chat-bottom {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+}
+
+#chat-text {
+    flex:6;
+}
+
+#chat-submit {
+    flex:1;
+ }
+
 .card {
     background: white;
     position: absolute;
@@ -140,6 +161,7 @@ a {
     -webkit-border-radius: 5px;
     border-radius:5px;
     box-shadow:1px 1px 3px #aaaaaa;
+    cursor: pointer;
 }
 
 .card-top {

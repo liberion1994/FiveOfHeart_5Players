@@ -7,7 +7,7 @@ var Property = require("../properties/property");
 
 var TableRepo = {
     tables: [],
-    currentId: 0
+    currentId: 1
 };
 
 TableRepo.createTable = function () {
