@@ -18,6 +18,13 @@ var Agent = function (username) {
     this.status = AgentStatus.HALL;
     this.currentTable = null;
 
+    this.info = function () {
+        return {
+            username: this.username,
+            status: this.status
+        };
+    };
+
     this.prepareTimer = {
         currentCount: -1,
         restart: function (initCount, onCountDown, onTimeOut) {

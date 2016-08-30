@@ -13,9 +13,26 @@ router.get('/',
     function(req, res) {
         var agent = req.user.agent;
         if (agent.currentTable == null)
-            res.render('tableList', {tables: TableRepo.getAllTables(), username: agent.username});
+            res.render('tableList', {tables: TableRepo.getAllTablesInfo(), username: agent.username});
         else
             res.redirect('/tables/' + agent.currentTable.id);
+    }
+);
+
+router.get('/simple_info',
+    passport.isAuthenticated,
+    function(req, res) {
+        var agent = req.user.agent;
+        if (agent.currentTable == null)
+            res.end( {
+                success: true,
+                tables: TableRepo.getAllTablesInfo()
+            });
+        else
+            res.end( {
+                success: false,
+                reason: 'in_game'
+            });
     }
 );
 

@@ -68,6 +68,17 @@ function Table(id) {
         }
     };
 
+    this.simpleInfo = function () {
+        var agentsInfo = new Array(Property.GamePlayers);
+        for (var i = 0; i < Property.GamePlayers; i ++)
+            agentsInfo[i] = this.agents[i] ? this.agents[i].info : null;
+        return {
+            id: this.id,
+            agents: agentsInfo,
+            inGame: this.game ? true : false
+        };
+    };
+
     this.tableInfo = function (agent) {
         var sid = this.agentToSid(agent);
         return {

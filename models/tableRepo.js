@@ -25,6 +25,14 @@ TableRepo.findTableById = function (id) {
     return null;
 };
 
+TableRepo.getAllTablesInfo = function () {
+    var ret = [];
+    var len = TableRepo.tables.length;
+    for (var i = 0; i < len; i ++)
+        ret.push(TableRepo.tables[i].simpleInfo());
+    return ret;
+};
+
 TableRepo.getAllTables = function () {
     return TableRepo.tables;
 };
