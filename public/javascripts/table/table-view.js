@@ -87,7 +87,7 @@ var TableArea = function (targetDiv) {
     };
 
     this.updateTimerCount = function () {
-        if (table.timerCount == -1)
+        if (table.timerCount < 0)
             return;
         var new_count1 = parseInt(table.timerCount / 10),
             new_count2 = table.timerCount % 10;

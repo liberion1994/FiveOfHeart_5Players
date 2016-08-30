@@ -686,11 +686,24 @@ function CardUtil(majorNumber) {
         }
         if (size != 1)
             return false;
+        //now played should be only one color
         var preMaxStructureWithoutTractor = this.getCardStructureWithoutTractor(preMax);
         if (preMaxStructureWithoutTractor['M'] != null && playedStructureWithoutTractor['M'] == null)
             return false;
-        if (preMaxStructureWithoutTractor['M'] == null && playedStructureWithoutTractor['M'] != null)
+        if (preMaxStructureWithoutTractor['M'] == null && playedStructureWithoutTractor['M'] != null) {
+            preMaxStructureWithoutTractor = preMaxStructureWithoutTractor[type];
+            playedStructureWithoutTractor = playedStructureWithoutTractor['M'];
+            for (var j = 0; j < firstPlayedStrucLen; j ++) {
+                var limit = this.structureToLimitation(firstPlayedStructure[j]);
+                var matched1 = this.findStructure(preMaxStructureWithoutTractor, limit);
+                var matched2 = this.findStructure(playedStructureWithoutTractor, limit);
+                if (matched2 == null)
+                    return false;
+                if (limit.multi == 1)
+                    break;
+            }
             return true;
+        }
         if (preMaxStructureWithoutTractor['M'] == null && playedStructureWithoutTractor['M'] == null) {
             if (playedStructureWithoutTractor[type] == null)
                 return false;

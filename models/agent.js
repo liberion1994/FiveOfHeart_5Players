@@ -26,7 +26,8 @@ var Agent = function (username) {
             this.currentCount = initCount;
             var _this = this;
             this.timer = setInterval(function () {
-                _this.currentCount --;
+                if (_this.currentCount > 0)
+                    _this.currentCount --;
                 onCountDown();
                 if (_this.currentCount == 0) {
                     clearInterval(_this.timer);

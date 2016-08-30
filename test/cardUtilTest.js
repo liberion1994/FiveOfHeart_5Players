@@ -1585,6 +1585,19 @@ describe("Card group comparison", function() {
         cardUtil.cardGroupLargerThan(firstPlayed, preMax, playedFailed).should.eql(false);
     });
 
+    it("Another case", function () {
+        var firstPlayed = [
+            {number: 10, color: '♠', type: 0},
+            {number: 10, color: '♠', type: 0}
+        ];
+
+        var played = [
+            {number: 10, color: '♥', type: 1},
+            {number: 5, color: '♥', type: 1}
+        ];
+        cardUtil.majorColor = '♥';
+        cardUtil.cardGroupLargerThan(firstPlayed, firstPlayed, played).should.eql(false);
+    });
 });
 
 describe("Check Multiple", function() {
