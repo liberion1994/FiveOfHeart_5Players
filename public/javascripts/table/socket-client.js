@@ -94,6 +94,10 @@ function SocketClient() {
 
         if (event.eid != table.currentEventId ++) {reSync()}
         switch (event.type) {
+            case AgentCommandType.IntoTable:
+            case AgentCommandType.Disconnect:
+                ui.logEvent(event);
+                break;
             case AgentCommandType.EnterTable:
                 table.onEnterTable(event);
                 break;

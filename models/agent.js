@@ -18,28 +18,21 @@ var Agent = function (username) {
     this.status = AgentStatus.HALL;
     this.currentTable = null;
 
-    this.info = function () {
-        return {
-            username: this.username,
-            status: this.status
-        };
-    };
+    var ref = this;
 
-    this.prepareTimer = {
+    this.leaveTimer = {
         currentCount: -1,
-        restart: function (initCount, onCountDown, onTimeOut) {
+        restart: function () {
             if (this.timer)
                 clearInterval(this.timer);
-            this.currentCount = initCount;
+            this.currentCount = Property.NoValidActionOutTime;
             var _this = this;
             this.timer = setInterval(function () {
                 if (_this.currentCount > 0)
                     _this.currentCount --;
-                onCountDown();
                 if (_this.currentCount == 0) {
                     clearInterval(_this.timer);
-                    if (onTimeOut)
-                        onTimeOut();
+                    socket_io.io.onLeaveTable(ref, true);
                 }
             }, 1000);
         },
@@ -50,6 +43,36 @@ var Agent = function (username) {
         }
     };
 
+    this.prepareTimer = {
+        currentCount: -1,
+        restart: function () {
+            if (this.timer)
+                clearInterval(this.timer);
+            this.currentCount = Property.NotPrepareOutTime;
+            var _this = this;
+            this.timer = setInterval(function () {
+                if (_this.currentCount > 0)
+                    _this.currentCount --;
+                if (_this.currentCount == 0) {
+                    clearInterval(_this.timer);
+                    socket_io.io.onLeaveTable(ref, true);
+                }
+            }, 1000);
+        },
+        stop: function () {
+            if (this.timer)
+                clearInterval(this.timer);
+            this.currentCount = -1;
+        }
+    };
+
+    this.info = function () {
+        return {
+            username: this.username,
+            status: this.status
+        };
+    };
+
     this.enterTable = function (tid, sid, err, callback) {
         if (this.status != AgentStatus.HALL)
             return err('你已经坐在哪张桌子了吧,刷新试试');
@@ -58,8 +81,8 @@ var Agent = function (username) {
             return err('找不到这张桌子唉');
         var _this = this;
         table.enterAgent(this, sid, err, function () {
-            _this.prepareTimer.restart(Property.NotPrepareOutTime, function () {},
-                function () {socket_io.io.onLeaveTable(_this, true)});
+            _this.prepareTimer.restart();
+            _this.leaveTimer.restart();
             _this.status = AgentStatus.UNPREPARED;
             _this.currentTable = table;
             callback();
@@ -75,6 +98,7 @@ var Agent = function (username) {
         var _this = this;
         table.leaveAgent(this, err, function () {
             _this.prepareTimer.stop();
+            _this.leaveTimer.stop();
             _this.status = AgentStatus.HALL;
             _this.currentTable = null;
             callback();
@@ -89,6 +113,7 @@ var Agent = function (username) {
             return err('找不到这张桌子唉');
         this.status = AgentStatus.PREPARED;
         this.prepareTimer.stop();
+        this.leaveTimer.restart();
         table.checkGameStart(err, function () {
             callback();
         });
@@ -102,8 +127,8 @@ var Agent = function (username) {
             return err('找不到这张桌子唉');
         this.status = AgentStatus.UNPREPARED;
         var _this = this;
-        this.prepareTimer.restart(Property.NotPrepareOutTime, function () {},
-            function () {socket_io.io.onLeaveTable(_this, true)});
+        this.prepareTimer.restart();
+        this.leaveTimer.restart();
         callback();
     };
 
@@ -113,7 +138,9 @@ var Agent = function (username) {
         var table = this.currentTable;
         if (table == null)
             return err('现在这个状态没法准备呀');
+        var _this = this;
         table.inGameOperation(this, actionType, content, err, function (action) {
+            _this.leaveTimer.restart();
             callback(action);
         });
     };

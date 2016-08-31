@@ -14,6 +14,7 @@ exports.NotPrepareOutTime = 60;
 exports.NotPrepareOutTimeTableFull = 10;
 exports.NotPrepareOutTimeTableFullWithLastGameEnd = 30;
 exports.InGameTime = 60;
+exports.NoValidActionOutTime = 30 * 60;
 
 exports.ChatContentLength = 30;
 exports.ChatMinInterval = 5000;

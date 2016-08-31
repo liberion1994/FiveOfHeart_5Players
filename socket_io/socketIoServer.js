@@ -123,6 +123,17 @@ socket_io.init = function (server) {
     socket_io.io.onIntoTable = function (agent, socket) {
         //打开了网页
         socket.join('table_' + agent.currentTable.id);
+
+        var group = 'table_' + agent.currentTable.id;
+        socket_io.io.in(group)
+            .emit('event', {
+                type: AgentCommandType.IntoTable,
+                sid: agent.currentTable.agentToSid(agent),
+                username: agent.username,
+                eid: agent.currentTable.currentEventId ++
+            });
+
+        logger.trace('Response: Connect');
     };
 
     socket_io.io.onLeaveTable = function (agent, force, err, fail) {

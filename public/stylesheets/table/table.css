@@ -67,15 +67,27 @@ a {
     top: 50px;
 }
 
-#counter {
+#center {
     position: absolute;
     height: 50px;
     left: 0;
     right: 0;
     top: 50%;
     margin-top: -25px;
-    line-height: 50px;
-    font-size: 48px;
+    text-align: center;
+    color: gray;
+}
+
+#status {
+    line-height: 24px;
+    font-size: 20px;
+    text-align: center;
+    color: gray;
+}
+
+#counter {
+    line-height: 24px;
+    font-size: 20px;
     text-align: center;
     color: gray;
 }
@@ -111,8 +123,22 @@ a {
     text-decoration: none;
 }
 
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+
 .seat[active-seat = true] {
     color: limegreen;
+    animation:fade 2000ms infinite;
+    -webkit-animation:fade 2000ms infinite;
 }
 
 #seat4, #seat3 {
@@ -153,6 +179,13 @@ a {
 #chat-submit {
     flex:1;
  }
+
+.amount-display {
+    position: absolute;
+    height: 20px;
+    font-size: 18px;
+    text-align: center;
+}
 
 .card {
     background: white;
@@ -219,8 +252,8 @@ a {
     position: absolute;
     left: 0;
     top: 10px;
-    background: #f8f8f8;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .option-chosen {

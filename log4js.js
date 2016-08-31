@@ -10,6 +10,12 @@ log4js.configure({
             category: 'socket_server',
             pattern: "-yyyy-MM-dd",
             alwaysIncludePattern: false
+        }, {
+            type: 'dateFile',
+            filename: __dirname + '/logs/mem_watch.log',
+            category: 'mem_watch',
+            pattern: "-yyyy-MM-dd",
+            alwaysIncludePattern: false
         }
     ]
 });

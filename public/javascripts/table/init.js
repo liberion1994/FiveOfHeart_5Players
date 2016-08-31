@@ -54,6 +54,7 @@ function bootstrapInit() {
 }
 
 function reSync() {
+    console.log('resync');
     socketClient.getAllInfo(
         function () { location.href='/tables' },
         function (res) {

@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var memwatch = require('memwatch-next');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -12,6 +13,7 @@ var TableRepo = require('./models/tableRepo');
 var passport = require('./passport');
 var sessionMiddleware = require('./middleware');
 var IoServer = require('./socket_io/socketIoServer');
+var logger = require("./log4js").getLogger('mem_watch');
 
 var app = express();
 
@@ -68,6 +70,15 @@ app.use(function(err, req, res, next) {
 app.ready = function (server) {
     IoServer.init(server);
     TableRepo.init();
+    var hd;
+    memwatch.on('stats', function(stats) {
+        if (!hd) {
+            hd = new memwatch.HeapDiff();
+        } else {
+            var diff = hd.end();
+            logger.info(JSON.stringify(diff));
+        }
+    });
 };
 
 module.exports = app;

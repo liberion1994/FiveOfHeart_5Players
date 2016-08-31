@@ -37,8 +37,35 @@ var TableArea = function (targetDiv) {
         this.updateGameInfo();
         this.drawCurrentTurn();
 
+        this.updateGameStatus();
         //draw timer
         this.updateTimerCount();
+    };
+
+    this.updateGameStatus = function () {
+        var div = $('#status');
+        if (!table.game) {
+            div.html('尚未开始');
+        } else {
+            switch (table.game.currentTurn.status) {
+                case GameStatus.OFFER_MAJOR_AMOUNT:
+                    div.html('报主阶段');
+                    break;
+                case GameStatus.CHOOSE_MAJOR_COLOR:
+                    div.html('叫主阶段');
+                    break;
+                case GameStatus.RESERVE_CARDS:
+                    div.html('埋底阶段');
+                    break;
+                case GameStatus.CHOOSE_A_COLOR:
+                    div.html('叫A阶段');
+                    break;
+                case GameStatus.PLAY_CARDS:
+                    div.html('出牌阶段');
+                    break;
+            }
+        }
+
     };
 
     this.updateGameInfo = function () {
@@ -72,7 +99,7 @@ var TableArea = function (targetDiv) {
 
     this.drawCurrentTurn = function () {
         //目前只会画card,所以只remove了card
-        this.div.children('.card').remove();
+        this.div.children('.card, .amount-display').remove();
         if (!table.game)
             return;
         if (!table.game.currentTurn)
@@ -83,6 +110,13 @@ var TableArea = function (targetDiv) {
                 for (var i = 0; i < len; i ++)
                     this.onNewCardsPlayed(table.game.currentTurn.done[i].cards,
                         (table.game.currentTurn.done[i].sid - table.agentSid + 5 ) % 5);
+                break;
+            case GameStatus.OFFER_MAJOR_AMOUNT:
+                var len = table.game.currentTurn.done.length;
+                for (var i = 0; i < len; i ++)
+                    this.onNewAmountOffered(table.game.currentTurn.done[i].amount,
+                        (table.game.currentTurn.done[i].sid - table.agentSid + 5 ) % 5);
+                break;
         }
     };
 
@@ -99,7 +133,7 @@ var TableArea = function (targetDiv) {
         var tmp = $('#seat' + index)
             .attr('data-content', content)
             .popover('show');
-        setTimeout(function() {tmp.popover('destroy')}, 1500);
+        setTimeout(function() {tmp.popover('destroy')}, 2500);
     };
 
     this.updateSeat = function (sid) {
@@ -138,12 +172,13 @@ var TableArea = function (targetDiv) {
      *
      * @param cards
      * @param index 不是sid,是相对位置
+     * @param orin
      */
-    this.onNewCardsPlayed = function (cards, index, original) {
-        var tmp = original ? original : cards;
-        var len = original ? original.length : cards.length;
+    this.onNewCardsPlayed = function (cards, index, orin) {
+        var tmp = orin ? orin : cards;
+        var len = orin ? orin.length : cards.length;
         var _this = this;
-        if (original)
+        if (orin)
             setTimeout(function () {
                 _this.drawCurrentTurn();
             }, 2000);
@@ -176,8 +211,38 @@ var TableArea = function (targetDiv) {
                     drawCard(tmp[i], i, cardWidthInTable, cardHeightInTable, this.div,
                         (this.width - cardWidthInTable) / 2 + (i - (len - 1) / 2) * 15, this.height - cardHeightInTable - 30, 0, 0, 0,
                         function () {});
+                break;
         }
     };
+
+    this.onNewAmountOffered = function (amount, index) {
+        var div = $('<div class="amount-display">')
+            .html(amount + '张');
+        if (amount < 4)
+            div.css('color', 'gray');
+        else if (amount < 6)
+            div.css('color', 'green');
+        else
+            div.css('color', 'gold');
+        switch (index) {
+            case 4:
+                div.css('left', 10).css('bottom', 30);
+                break;
+            case 3:
+                div.css('left', 10).css('top', 30);
+                break;
+            case 2:
+                div.css('right', 10).css('top', 30);
+                break;
+            case 1:
+                div.css('right', 10).css('bottom', 30);
+                break;
+            case 0:
+                div.css('width', 60).css('left', (this.width - 60) / 2).css('bottom', 30);
+                break;
+        }
+        div.appendTo(this.div);
+    }
 };
 
 var OperationArea = function (targetDiv) {
@@ -712,6 +777,9 @@ var UI = function () {
     this.logEvent = function (event) {
         var txt = '[' + event.username + ']';
         switch (event.type) {
+            case AgentCommandType.IntoTable:
+                txt += '连入了游戏';
+                break;
             case AgentCommandType.Disconnect:
                 txt += '掉线了';
                 break;
@@ -862,6 +930,7 @@ var UI = function () {
 
     this.onOfferMajorAmount = function(event) {
         this.operationArea.drawControls();
+        this.tableArea.onNewAmountOffered(event.content.amount, (event.sid - table.agentSid + 5) % 5);
         this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         this.logEvent(event);
     };
@@ -905,6 +974,7 @@ var UI = function () {
 
     this.drawNextTurn = function (event, newStatus, extraUpdated) {
         this.operationArea.drawControls();
+        this.tableArea.updateGameStatus();
         this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
         var txt = '[' + table.seats[table.game.currentTurn.startSid].user + ']';
         switch (newStatus) {

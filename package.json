@@ -19,6 +19,7 @@
     "express-session": "latest",
     "connect-mongo": "latest",
     "should": "latest",
-    "log4js": "latest"
+    "log4js": "latest",
+    "memwatch-next": "latest"
   }
 }

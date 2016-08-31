@@ -56,7 +56,6 @@ function AutoPlayer(game) {
         } else {
             res = this.game.cardUtil.getCardsWithLimitation(cards,
                 this.game.cardUtil.getLimitation(this.game.currentTurn.done[0].cards, cards));
-            console.log(res);
             return {cards: res};
         }
     };
