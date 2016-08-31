@@ -75,8 +75,9 @@ app.ready = function (server) {
         if (!hd) {
             hd = new memwatch.HeapDiff();
         } else {
-            var diff = hd.end();
+            var diff = null;
             logger.info(JSON.stringify(diff));
+            hd = null;
         }
     });
 };
