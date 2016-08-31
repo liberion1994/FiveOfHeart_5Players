@@ -70,16 +70,16 @@ app.use(function(err, req, res, next) {
 app.ready = function (server) {
     IoServer.init(server);
     TableRepo.init();
-    var hd;
-    memwatch.on('stats', function(stats) {
-        if (!hd) {
-            hd = new memwatch.HeapDiff();
-        } else {
-            var diff = null;
-            logger.info(JSON.stringify(diff));
-            hd = null;
-        }
-    });
+    // var hd;
+    // memwatch.on('stats', function(stats) {
+    //     if (!hd) {
+    //         hd = new memwatch.HeapDiff();
+    //     } else {
+    //         var diff = hd.end();
+    //         logger.info(JSON.stringify(diff));
+    //         hd = null;
+    //     }
+    // });
 };
 
 module.exports = app;
