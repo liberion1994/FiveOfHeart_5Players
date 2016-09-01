@@ -8,6 +8,7 @@ var memwatch = require('memwatch-next');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var tables = require('./routes/tables');
+var wechat = require('./routes/wechat');
 
 var TableRepo = require('./models/tableRepo');
 var passport = require('./passport');
@@ -35,6 +36,7 @@ app.use(passport.session());
 app.use('/', routes);
 app.use('/users', users);
 app.use('/tables', tables);
+app.use('/wechat', wechat);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

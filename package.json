@@ -20,6 +20,7 @@
     "connect-mongo": "latest",
     "should": "latest",
     "log4js": "latest",
-    "memwatch-next": "latest"
+    "memwatch-next": "latest",
+    "crypto": "latest"
   }
 }
