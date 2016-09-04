@@ -2,6 +2,10 @@
  * Created by liboyuan on 16/8/17.
  */
 
+var seatsName = [
+    '甲', '乙', '丙', '丁', '戊'
+];
+
 $(document).ready(function () {
 
     var divs = $('.table');
@@ -16,7 +20,7 @@ $(document).ready(function () {
                 $('<h3>').html('加入第' + tid + '桌').appendTo(header);
                 var len = seats.length;
                 for (var i = 0; i < len; i ++) {
-                    var inner = '座位' + i + ':';
+                    var inner = '座位' + seatsName[i] + ':';
                     if (seats[i].user == null) {
                         $('<p>').html(inner + '<a class="enterBtn" table-id=' + tid + ' seat-id=' + i + '>加入</a>').appendTo(body);
                     } else {

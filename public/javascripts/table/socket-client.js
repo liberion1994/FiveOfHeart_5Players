@@ -77,7 +77,6 @@ function SocketClient() {
             default:
                 error('未知的指令类型!');
                 break;
-
         }
     };
 
@@ -92,6 +91,9 @@ function SocketClient() {
         if (_this.synchronizing)
             return;
 
+        if (event.audioSrc) {
+            playAudio(event.audioSrc);
+        }
         if (event.eid != table.currentEventId ++) {reSync()}
         switch (event.type) {
             case AgentCommandType.IntoTable:

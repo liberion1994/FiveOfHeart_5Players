@@ -9,6 +9,9 @@
  * 假设最大张开到30度,则根据计算总共多出0.6倍宽度
  */
 
+var seatsName = [
+    '甲', '乙', '丙', '丁', '戊'
+];
 
 var cardWidth = 60;
 var cardHeight = cardWidth * 1.5;
@@ -784,7 +787,7 @@ var UI = function () {
                 txt += '掉线了';
                 break;
             case AgentCommandType.EnterTable:
-                txt += '加入了' + event.sid + '号座位';
+                txt += '加入了座位' + seatsName[event.sid];
                 break;
             case AgentCommandType.Prepare:
                 txt += '准备好了';
@@ -794,9 +797,9 @@ var UI = function () {
                 break;
             case AgentCommandType.LeaveTable:
                 if (event.force)
-                    txt += '被系统踢出了' + event.sid + '号座位';
+                    txt += '被系统踢出了座位' + seatsName[event.sid];
                 else
-                    txt += '离开了' + event.sid + '号座位';
+                    txt += '离开了座位' + seatsName[event.sid];
                 break;
             case AgentCommandType.InGame:
                 switch (event.content.actionType) {
@@ -923,6 +926,7 @@ var UI = function () {
             location.href = '/tables';
         else {
             this.tableArea.updateSeat(sid);
+            this.tableArea.updateActiveSeat(0);
             this.tableArea.updateGameInfo();
             this.logEvent(event);
         }

@@ -91,7 +91,7 @@ var Agent = function (username) {
 
     this.leaveTable = function (err, callback) {
         if (this.status == AgentStatus.HALL)
-            return err('你已经坐在哪张桌子了吧,刷新试试');
+            return err('你现在没有在桌子上吧');
         var table = this.currentTable;
         if (table == null)
             return err('找不到这张桌子唉');

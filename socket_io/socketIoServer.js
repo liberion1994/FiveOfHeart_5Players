@@ -4,6 +4,7 @@
 var socket_io = require('socket.io');
 var sessionMiddleware = require('../middleware');
 var Property = require("../properties/property.js");
+var audioGenerator = require('../utils/audioGenerator');
 var Agent = require("../models/agent.js");
 var logger = require("../log4js").getLogger('socket_server');
 
@@ -108,13 +109,15 @@ socket_io.init = function (server) {
     };
 
     socket_io.io.onEnterTable = function (agent) {
+        var sid = agent.currentTable.agentToSid(agent);
         var group = 'table_' + agent.currentTable.id;
         socket_io.io.in(group)
             .emit('event', {
                 type: AgentCommandType.EnterTable,
-                sid: agent.currentTable.agentToSid(agent),
+                sid: sid,
                 username: agent.username,
-                eid: agent.currentTable.currentEventId ++
+                eid: agent.currentTable.currentEventId ++,
+                audioSrc: audioGenerator.getEnterAudio(sid)
             });
 
         logger.trace('Response: EnterTable');
@@ -137,13 +140,17 @@ socket_io.init = function (server) {
     };
 
     socket_io.io.onLeaveTable = function (agent, force, err, fail) {
-        var group = 'table_' + agent.currentTable.id;
         var table = agent.currentTable;
+        if (!table)
+            return err('找不到这张桌子唉');
+        var group = 'table_' + table.id;
+        var sid = table.agentToSid(agent);
         var ret = {
             type: AgentCommandType.LeaveTable,
-            sid: table.agentToSid(agent),
+            sid: sid,
             username: agent.username,
-            force: force
+            force: force,
+            audioSrc: audioGenerator.getLeaveAudio(sid)
         };
 
         agent.leaveTable(fail, function () {
@@ -160,26 +167,30 @@ socket_io.init = function (server) {
 
     socket_io.io.onPrepare = function (agent, err, fail) {
         var group = 'table_' + agent.currentTable.id;
+        var sid = agent.currentTable.agentToSid(agent);
         agent.prepareForGame(fail, function () {
             socket_io.io.in(group)
                 .emit('event', {
                     type: AgentCommandType.Prepare,
-                    sid: agent.currentTable.agentToSid(agent),
+                    sid: sid,
                     username: agent.username,
-                    eid: agent.currentTable.currentEventId ++
+                    eid: agent.currentTable.currentEventId ++,
+                    audioSrc: audioGenerator.getPrepareAudio(sid)
                 });
             logger.trace('Response: Prepare');
         });
     };
 
     socket_io.io.onUnPrepare = function(agent, err, fail) {
+        var sid = agent.currentTable.agentToSid(agent);
         agent.unPrepareForGame(fail, function () {
             socket_io.io.in('table_' + agent.currentTable.id)
                 .emit('event', {
                     type: AgentCommandType.UnPrepare,
-                    sid: agent.currentTable.agentToSid(agent),
+                    sid: sid,
                     username: agent.username,
-                    eid: agent.currentTable.currentEventId ++
+                    eid: agent.currentTable.currentEventId ++,
+                    audioSrc: audioGenerator.getUnPrepareAudio(sid)
                 });
             logger.trace('Response: UnPrepare');
         });

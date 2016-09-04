@@ -1598,6 +1598,18 @@ describe("Card group comparison", function() {
         cardUtil.majorColor = '♥';
         cardUtil.cardGroupLargerThan(firstPlayed, firstPlayed, played).should.eql(false);
     });
+
+    it("SubMajor case", function () {
+        var firstPlayed = [
+            {number: 2, color: '♠', type: 2}
+        ];
+
+        var played = [
+            {number: 2, color: '♦', type: 2}
+        ];
+        cardUtil.majorColor = '♥';
+        cardUtil.cardGroupLargerThan(firstPlayed, firstPlayed, played).should.eql(false);
+    });
 });
 
 describe("Check Multiple", function() {
