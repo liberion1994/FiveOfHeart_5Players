@@ -77,8 +77,6 @@ function initCtrl() {
             .on('shown.bs.modal', function () {
                 $('#chat-text').focus();
             }).modal();
-        //TODO test here
-        playAudio('/assets/audios/default/t1g1_1');
     });
 
     $('.send-built-in').click(function () {
@@ -86,6 +84,10 @@ function initCtrl() {
         socketClient.emitBuiltInMessage(type);
     });
 
+    $(document).click(function () {
+        playAudio('');
+        $(this).off('click');
+    });
 }
 
 function reSync() {
