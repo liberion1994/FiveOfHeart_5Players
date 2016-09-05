@@ -5,6 +5,10 @@ body {
     left: 0;
     right: 0;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 a {
@@ -162,19 +166,6 @@ a {
 #chat-display {
     padding: 5px;
     overflow: scroll;
-}
-
-#chat-modal-body {
-    display: flex;
-}
-
-#chat-text {
-    flex: 6;
-}
-
-#chat-submit {
-    margin-left: 5px;
-    flex: 1;
 }
 
 #pick-chat {
