@@ -2,12 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log-2016-08-31" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log-2016-09-01" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log-2016-09-04" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log-2016-08-29" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log-2016-08-31" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log-2016-09-04" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/mem_watch.log" afterPath="$PROJECT_DIR$/logs/mem_watch.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/socket_server.log" afterPath="$PROJECT_DIR$/logs/socket_server.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/table/table.css" afterPath="$PROJECT_DIR$/public/stylesheets/table/table.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/table.ejs" afterPath="$PROJECT_DIR$/views/table.ejs" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,11 +138,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="table.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="112">
               <caret line="168" column="1" selection-start-line="168" selection-start-column="1" selection-end-line="168" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -229,9 +243,9 @@
         <option value="$PROJECT_DIR$/socket_io/socketIoServer.js" />
         <option value="$PROJECT_DIR$/views/about.ejs" />
         <option value="$PROJECT_DIR$/.git/info/exclude" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/views/table.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/table/table.css" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -603,6 +617,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="true" />
+    <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -765,7 +780,7 @@
       <workItem from="1472982408923" duration="6013000" />
       <workItem from="1473038323470" duration="6189000" />
       <workItem from="1473047517579" duration="5337000" />
-      <workItem from="1473054705581" duration="990000" />
+      <workItem from="1473054705581" duration="1249000" />
     </task>
     <task id="LOCAL-00001" summary="none">
       <created>1471100550361</created>
@@ -970,7 +985,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473055121859</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="v0.3&#10;audio system and some optimization">
+      <created>1473055908270</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1473055908270</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1006,7 +1028,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="512806000" />
+    <option name="totallyTimeSpent" value="513065000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1019,17 +1041,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18416801" sideWeight="0.45773196" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3051576" sideWeight="0.5060423" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.54226804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3982808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1409,14 +1431,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/about.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
@@ -1437,6 +1451,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
           <caret line="168" column="1" selection-start-line="168" selection-start-column="1" selection-end-line="168" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
           <folding />
         </state>
       </provider>
