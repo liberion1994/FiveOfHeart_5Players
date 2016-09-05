@@ -10,7 +10,6 @@
     <link rel='stylesheet' href='/stylesheets/animate.min.css' />
 
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
-    <script src="/javascripts/jquery.jplayer.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
     <script src="/javascripts/bootstrap-notify.min.js"></script>
     <script src="/javascripts/navi-bar.js"></script>
@@ -42,12 +41,11 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse"
-                 id="navbar-collapse">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">游戏</a></li>
-                    <li><a href="#" id="settings-btn">设置</a></li>
-                    <li><a href="/about" target="_blank">关于</a></li>
+                    <li class="active"><a href="#">游戏</a></li>
+                    <li><a href="/users/settings_page">设置</a></li>
+                    <li><a href="/about">关于</a></li>
                     <li><a href="#" id="logout-btn">登出</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -141,7 +139,7 @@
             <div role="tabpanel" class="tab-pane" id="history-area"></div>
         </div>
     </div>
-    <div id="jplayer"></div>
+    <audio id="audio-player"></audio>
 
 </body>
 </html>

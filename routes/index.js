@@ -13,7 +13,8 @@ router.get('/',
 router.get('/about',
     passport.isAuthenticatedBackToLogin,
     function(req, res) {
-        res.render('about');
+        var agent = req.user.agent;
+        res.render('about', {username: agent.username});
     }
 );
 

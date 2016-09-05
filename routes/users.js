@@ -68,4 +68,30 @@ router.get('/settings',
     }
 );
 
+router.post('/settings',
+    passport.isAuthenticated,
+    function(req, res) {
+        var agent = req.user.agent;
+        var settings = req.user.settings;
+        settings.soundtrack = req.body.soundtrack;
+
+        var conditions = { username: agent.username }
+            , update = { $set: { settings: settings }}
+            , options = { multi: false };
+
+        User.update(conditions, update, options, function () {
+            res.render('settings', {username: agent.username, settings: settings});
+        });
+    }
+);
+
+router.get('/settings_page',
+    passport.isAuthenticatedBackToLogin,
+    function(req, res) {
+        var agent = req.user.agent;
+        var settings = req.user.settings;
+        res.render('settings', {username: agent.username, settings: settings});
+    }
+);
+
 module.exports = router;

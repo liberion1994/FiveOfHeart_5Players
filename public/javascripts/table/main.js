@@ -7,8 +7,8 @@ $(document).ready(function () {
     socketClient = new SocketClient();
     socketClient.loadSettings(
         function () { location.href='/tables' },
-        function (res) {
-            settings = res;
+        function (res0) {
+            settings = res0;
             socketClient.getAllInfo(
                 function () { location.href='/tables' },
                 function (res) {
@@ -41,14 +41,6 @@ $(document).ready(function () {
         }
         updated = false;
     }, 3000);
-
-    jplayer = $('#jplayer').jPlayer({
-        ready: function() {},
-        swfPath: "/javascripts",
-        supplied: "mp3",
-        solution: "html",
-        loop: false
-    });
 
     initCtrl();
 });

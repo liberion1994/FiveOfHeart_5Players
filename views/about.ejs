@@ -10,15 +10,44 @@
 
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/navi-bar.js"></script>
+
     <style type="text/css">
         dd { text-indent:1em }
         p { text-indent:1em }
-        div { margin: 20px; margin-top: 50px; }
+        body { position: absolute; top: 50px; bottom: 0; left: 0; right: 0; padding: 20px; }
         a { word-break: break-all; word-wrap:break-word; }
         a.right { float: right; margin-bottom: 20px; }
     </style>
 </head>
 <body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a type="button" class="navbar-toggle collapsed"
+               data-toggle="collapse"
+               data-target="#navbar-collapse"
+               aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="navbar-brand" href="#"><%= username %></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/tables">游戏</a></li>
+                <li><a href="/users/settings_page">设置</a></li>
+                <li class="active"><a href="#">关于</a></li>
+                <li><a href="#" id="logout-btn">登出</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
     <div>
         <h2>说明</h2>
         <p>本系统为一个简单的五人红五游戏Web应用,源码发布在Github上,链接:
@@ -133,7 +162,6 @@
             <dd>稍稍改进了日志系统</dd>
             <dd>完成了本页面</dd>
         </dl>
-        <a class="right" href="javascript:window.opener=null;window.open('','_self');window.close();">关闭本页面</a>
     </div>
 </body>
 </html>

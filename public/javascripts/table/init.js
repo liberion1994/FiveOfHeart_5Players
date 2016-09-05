@@ -34,7 +34,6 @@ var table;
 var updated = false;
 var keyboardUp = false;
 var timer;
-var jplayer;
 var settings;
 
 function agentStatusToText(status) {
@@ -78,6 +77,8 @@ function initCtrl() {
             .on('shown.bs.modal', function () {
                 $('#chat-text').focus();
             }).modal();
+        //TODO test here
+        playAudio('/assets/audios/default/t1g1_1');
     });
 
     $('.send-built-in').click(function () {
@@ -149,5 +150,7 @@ function wrappedAlert(msg) {
 }
 
 function playAudio(src) {
-    jplayer.jPlayer("setMedia", {mp3: src}).jPlayer("play");
+    var div = $('#audio-player')
+        .attr('src', src);
+    div[0].play();
 }
