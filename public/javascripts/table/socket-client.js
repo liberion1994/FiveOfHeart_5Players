@@ -93,7 +93,7 @@ function SocketClient() {
             return;
 
         if (event.audioSrc) {
-            playAudio("http://liberion.space/assets/audios/default/" + event.audioSrc);
+            playAudio("/assets/audios/default/" + event.audioSrc);
         }
         if (event.eid != table.currentEventId ++) {reSync()}
         switch (event.type) {
