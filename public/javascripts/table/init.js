@@ -34,6 +34,7 @@ var table;
 var updated = false;
 var keyboardUp = false;
 var timer;
+var jplayer;
 
 function agentStatusToText(status) {
     switch (status) {
@@ -51,6 +52,26 @@ function bootstrapInit() {
     $('[data-toggle="popover"]').popover();
     $(".nav li.disabled a").click(function() {return false});
     $(".seat").popover('destroy');
+}
+
+function initCtrl() {
+
+    $('#chat-submit').click(function () {
+        var div = $('#chat-text');
+        var txt = div.val();
+        if (txt == '')
+            return notify('请告诉我你要说什么呀', 'error');
+        socketClient.emitChatMessage(txt);
+        div.val('');
+    });
+
+    $('#chat-text').keyup(function(event){
+        if(event.keyCode ==13){
+            $("#chat-submit").click();
+        }
+    });
+
+
 }
 
 function reSync() {
@@ -115,15 +136,5 @@ function wrappedAlert(msg) {
 }
 
 function playAudio(src) {
-    $('.audio').remove();
-    var div = $('<div class="audio">').appendTo($('body'));
-    div.jPlayer({
-        ready: function() {
-            $(this).jPlayer("setMedia", {
-                mp3: "http://localhost:3000/assets/audios/default/" + src
-            }).jPlayer("play");
-        },
-        swfPath: "/javascripts",
-        loop: false
-    });
+    jplayer.jPlayer("setMedia", {mp3: src}).jPlayer("play");
 }

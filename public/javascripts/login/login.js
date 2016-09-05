@@ -71,4 +71,16 @@ $(document).ready(function () {
     $('#submitBtnR').click(function () {
         submitRegister($('#usernameR'), $('#passwordR'), $('#repeatPasswordR'));
     });
+
+    $('#login').keyup(function(event){
+        if(event.keyCode ==13){
+            $("#submitBtn").click();
+        }
+    });
+
+    $('#register').keyup(function(event){
+        if(event.keyCode ==13){
+            $("#submitBtnR").click();
+        }
+    });
 });

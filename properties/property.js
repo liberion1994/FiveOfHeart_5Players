@@ -17,4 +17,4 @@ exports.InGameTime = 60;
 exports.NoValidActionOutTime = 30 * 60;
 
 exports.ChatContentLength = 30;
-exports.ChatMinInterval = 5000;
+exports.ChatMinInterval = 3000;

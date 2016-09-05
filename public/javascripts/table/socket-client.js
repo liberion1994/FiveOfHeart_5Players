@@ -83,6 +83,7 @@ function SocketClient() {
     var _this = this;
 
     this.socket.on('chat', function (chat) {
+        playAudio('http://tts.baidu.com/text2audio?lan=zh&pid=101&ie=UTF-8&text=' + chat.content);
         ui.displayChatContent(chat.sid, chat.content);
     });
 
@@ -92,7 +93,7 @@ function SocketClient() {
             return;
 
         if (event.audioSrc) {
-            playAudio(event.audioSrc);
+            playAudio("http://localhost:3000/assets/audios/default/" + event.audioSrc);
         }
         if (event.eid != table.currentEventId ++) {reSync()}
         switch (event.type) {

@@ -160,15 +160,9 @@ var TableArea = function (targetDiv) {
     };
 
     this.updateActiveSeat = function (sid) {
-        if (sid == this.activeSeat)
-            return;
-        if (this.activeSeat != null) {
-            var index = (this.activeSeat - table.agentSid + 5) % 5;
-            $('#seat' + index).removeAttr('active-seat');
-        }
+        $('.seat[active-seat=true]').removeAttr('active-seat');
         var index2 = (sid - table.agentSid + 5) % 5;
         $('#seat' + index2).attr('active-seat', true);
-        this.activeSeat = sid;
     };
 
     /**

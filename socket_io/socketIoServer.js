@@ -209,7 +209,8 @@ socket_io.init = function (server) {
                     sid: table.agentToSid(agent),
                     username: agent.username,
                     force: force,
-                    eid: table.currentEventId ++
+                    eid: table.currentEventId ++,
+                    audioSrc: audioGenerator.getInGameAudio(event, table.game)
                 });
 
             logger.trace('Response: InGame');
