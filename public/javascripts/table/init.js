@@ -35,6 +35,8 @@ var updated = false;
 var keyboardUp = false;
 var timer;
 var settings;
+var playerInited = false;
+
 
 function agentStatusToText(status) {
     switch (status) {
@@ -85,8 +87,10 @@ function initCtrl() {
     });
 
     $(document).click(function () {
+        if (playerInited)
+            return;
         playAudio('');
-        $(this).off('click');
+        playerInited = true;
     });
 }
 
