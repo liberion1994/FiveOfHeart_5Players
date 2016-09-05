@@ -164,21 +164,28 @@ a {
     overflow: scroll;
 }
 
-#chat-bottom {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+#chat-modal-body {
     display: flex;
 }
 
 #chat-text {
-    flex:6;
+    flex: 6;
 }
 
 #chat-submit {
-    flex:1;
+    margin-left: 5px;
+    flex: 1;
+}
+
+#pick-chat {
+    border-radius: 17px;
  }
+
+#pick-dropup {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
 
 .amount-display {
     position: absolute;

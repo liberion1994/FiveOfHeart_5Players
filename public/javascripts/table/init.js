@@ -63,6 +63,7 @@ function initCtrl() {
             return notify('请告诉我你要说什么呀', 'error');
         socketClient.emitChatMessage(txt);
         div.val('');
+        $('#chat-modal').modal('hide');
     });
 
     $('#chat-text').keyup(function(event){
@@ -71,6 +72,17 @@ function initCtrl() {
         }
     });
 
+    $('#chat').click(function () {
+        $('#chat-modal')
+            .on('shown.bs.modal', function () {
+                $('#chat-text').focus();
+            }).modal();
+    });
+
+    $('.send-built-in').click(function () {
+        var type = $(this).attr('id');
+        socketClient.emitBuiltInMessage(type);
+    });
 
 }
 

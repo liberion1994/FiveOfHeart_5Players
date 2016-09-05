@@ -18,3 +18,11 @@ exports.NoValidActionOutTime = 30 * 60;
 
 exports.ChatContentLength = 30;
 exports.ChatMinInterval = 3000;
+
+exports.BuiltInMessageMinInterval = 5000;
+exports.BuiltInMessageTypes = {
+    'praise': 5,
+    'surprise': 6,
+    'taunt': 3,
+    'surrender': 5
+};

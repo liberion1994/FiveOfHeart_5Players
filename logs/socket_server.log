@@ -1056,3 +1056,409 @@
 [2016-09-05 10:53:03.577] [INFO] socket_server - { cards: [ Card { number: 0, color: 'J', type: 6 } ],
   sid: 3,
   actionType: 5 }
+[2016-09-05 11:58:05.012] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 11:58:05.452] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 11:58:05.644] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 11:58:05.644] [INFO] socket_server - { type: 0 }
+[2016-09-05 11:58:05.665] [TRACE] socket_server - Response: Connect
+[2016-09-05 11:58:06.486] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 11:58:06.486] [INFO] socket_server - { type: 3 }
+[2016-09-05 11:58:06.490] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:05:43.768] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:05:46.066] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:05:46.692] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:05:46.822] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:05:46.822] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:05:46.851] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:06:06.826] [TRACE] socket_server - Response: Disconnect
+[2016-09-05 12:06:07.395] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:06:07.539] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:06:07.539] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:06:07.540] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:06:29.226] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:06:29.857] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:06:30.006] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:06:30.006] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:06:30.031] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:06:48.494] [ERROR] socket_server - 找不到您所在的桌子!
+[2016-09-05 12:06:50.791] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:06:51.400] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:06:51.532] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:06:51.532] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:06:51.563] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:07:15.088] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:07:17.514] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:07:18.142] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:07:18.276] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:07:18.276] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:07:18.301] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:08:17.750] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:12:21.372] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:12:22.096] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:12:22.222] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:12:22.222] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:12:22.251] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:12:40.393] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:12:43.052] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:12:43.643] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:12:43.778] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:12:43.778] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:12:43.802] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:13:23.437] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:13:25.808] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:13:26.367] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:13:26.497] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:13:26.497] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:13:26.522] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:14:06.954] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:14:09.187] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:14:09.817] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:14:09.949] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:14:09.949] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:14:09.971] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:14:23.377] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:14:25.756] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:14:26.377] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:14:26.511] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:14:26.511] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:14:26.540] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:14:34.139] [TRACE] socket_server - Response: Disconnect
+[2016-09-05 12:14:34.670] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:14:34.790] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:14:34.791] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:14:34.791] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:15:26.022] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:18:31.907] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:18:32.566] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:18:32.693] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:18:32.694] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:18:32.724] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:19:32.159] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:20:32.779] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:20:33.480] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:20:33.601] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:20:33.602] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:20:33.634] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:21:32.998] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:22:43.180] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:22:43.869] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:22:44.023] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:22:44.025] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:22:44.050] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:23:43.426] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:25:50.476] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:25:51.160] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:25:51.296] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:25:51.296] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:25:51.325] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:26:50.705] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:27:32.300] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:27:32.942] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:27:33.075] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:27:33.075] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:27:33.106] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:28:25.329] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:28:28.139] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:28:28.716] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:28:28.854] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:28:28.854] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:28:28.878] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:29:28.366] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:34:57.844] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:34:58.532] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:34:58.664] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:34:58.664] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:34:58.692] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:35:54.662] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:35:57.100] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:35:57.696] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:35:57.822] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:35:57.822] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:35:57.843] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:36:15.902] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:36:18.188] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:36:18.860] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:36:18.992] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:36:18.992] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:36:19.015] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:37:18.405] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:38:53.160] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:38:53.778] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:38:53.931] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:38:53.932] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:38:53.957] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:39:53.389] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:40:30.494] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:40:31.148] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:40:31.290] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:40:31.290] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:40:31.315] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:41:05.527] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:41:07.853] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:41:08.408] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:41:08.546] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:41:08.547] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:41:08.575] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:42:08.084] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:44:21.090] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:44:21.771] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:44:21.920] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:44:21.921] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:44:21.946] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:45:21.337] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:45:29.251] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:45:29.813] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:45:29.950] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:45:29.950] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:45:29.951] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:45:31.236] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:45:31.236] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:45:31.237] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:46:58.538] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:47:00.784] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:47:01.366] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:47:01.511] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:47:01.512] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:47:01.536] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:48:01.003] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:48:14.663] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:48:15.303] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:48:15.437] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:48:15.437] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:48:15.468] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:49:14.920] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:49:18.574] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:49:19.156] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:49:19.285] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:49:19.285] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:49:19.286] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:49:20.669] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:49:20.669] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:49:20.671] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:52:56.540] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:52:59.076] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:52:59.646] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:52:59.783] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:52:59.783] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:52:59.807] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:53:59.315] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 12:54:02.684] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:54:03.278] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:54:03.415] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:54:03.415] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:54:03.416] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:54:04.404] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:54:04.404] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:54:04.405] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:54:54.257] [TRACE] socket_server - Response: Disconnect
+[2016-09-05 12:54:54.875] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:54:55.013] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:54:55.013] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:54:55.014] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:56:15.494] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:56:16.148] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:56:16.294] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:56:16.294] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:56:16.320] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:57:10.067] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:57:10.250] [TRACE] socket_server - Receive socket from 测试用户4 in table 1
+[2016-09-05 12:57:10.435] [TRACE] socket_server - Receive command from 测试用户4
+[2016-09-05 12:57:10.435] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:57:10.436] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:57:13.119] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:57:13.119] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:57:13.121] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:57:15.336] [TRACE] socket_server - Receive command from 测试用户4
+[2016-09-05 12:57:15.336] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:57:15.337] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:57:15.359] [TRACE] socket_server - Receive command from 测试用户4
+[2016-09-05 12:57:15.360] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:57:15.360] [ERROR] socket_server - 现在这个状态没法准备呀
+[2016-09-05 12:57:26.543] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:57:26.784] [TRACE] socket_server - Receive socket from 测试用户 in table 1
+[2016-09-05 12:57:26.917] [TRACE] socket_server - Receive command from 测试用户
+[2016-09-05 12:57:26.918] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:57:26.919] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:57:28.064] [TRACE] socket_server - Receive command from 测试用户
+[2016-09-05 12:57:28.065] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:57:28.066] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:57:43.460] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:57:43.641] [TRACE] socket_server - Receive socket from 测试用户2 in table 1
+[2016-09-05 12:57:43.855] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:57:43.855] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:57:43.856] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:58:00.290] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:58:00.510] [TRACE] socket_server - Receive socket from 测试用户5 in table 1
+[2016-09-05 12:58:00.604] [TRACE] socket_server - Receive command from 测试用户5
+[2016-09-05 12:58:00.604] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:58:00.609] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:58:02.090] [TRACE] socket_server - Receive command from 测试用户5
+[2016-09-05 12:58:02.090] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:58:02.093] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:58:06.323] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:58:06.323] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:58:06.348] [TRACE] socket_server - Response: Prepare
+[2016-09-05 12:58:06.349] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:58:06.349] [INFO] socket_server - { type: 3 }
+[2016-09-05 12:58:06.351] [ERROR] socket_server - 现在这个状态没法准备呀
+[2016-09-05 12:58:12.283] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:58:12.284] [INFO] socket_server - { type: 5,
+  content: { actionType: 1, actionContent: { amount: '0' } } }
+[2016-09-05 12:58:12.294] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:12.294] [INFO] socket_server - { amount: '0', sid: 0, actionType: 1 }
+[2016-09-05 12:58:15.343] [TRACE] socket_server - Receive command from 测试用户4
+[2016-09-05 12:58:15.343] [INFO] socket_server - { type: 5,
+  content: { actionType: 1, actionContent: { amount: '2' } } }
+[2016-09-05 12:58:15.350] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:15.350] [INFO] socket_server - { amount: '2', sid: 1, actionType: 1 }
+[2016-09-05 12:58:18.842] [TRACE] socket_server - Receive command from 测试用户
+[2016-09-05 12:58:18.843] [INFO] socket_server - { type: 5,
+  content: { actionType: 1, actionContent: { amount: '4' } } }
+[2016-09-05 12:58:18.847] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:18.847] [INFO] socket_server - { amount: '4', sid: 2, actionType: 1 }
+[2016-09-05 12:58:21.989] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:58:21.989] [INFO] socket_server - { type: 5,
+  content: { actionType: 1, actionContent: { amount: '8' } } }
+[2016-09-05 12:58:21.990] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:21.990] [INFO] socket_server - { amount: '8', sid: 3, actionType: 1 }
+[2016-09-05 12:58:26.348] [TRACE] socket_server - Receive command from 测试用户5
+[2016-09-05 12:58:26.348] [INFO] socket_server - { type: 5,
+  content: { actionType: 1, actionContent: { amount: '0' } } }
+[2016-09-05 12:58:26.354] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:26.355] [INFO] socket_server - { amount: '0',
+  sid: 4,
+  actionType: 1,
+  updated: 
+   { currentTurn: 
+      { status: 2,
+        startSid: 3,
+        remainedSid: [Object],
+        done: [],
+        maxSid: null },
+     cards: 
+      [ [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object],
+        [Object] ],
+     masterSid: 3 } }
+[2016-09-05 12:58:30.715] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:58:30.715] [INFO] socket_server - { type: 5,
+  content: { actionType: 2, actionContent: { color: '♦' } } }
+[2016-09-05 12:58:30.719] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:30.719] [INFO] socket_server - { color: '♦',
+  sid: 3,
+  actionType: 2,
+  updated: 
+   { currentTurn: 
+      { status: 3,
+        startSid: 3,
+        remainedSid: [Object],
+        done: [],
+        maxSid: null } } }
+[2016-09-05 12:58:38.285] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:58:38.285] [INFO] socket_server - { type: 5,
+  content: { actionType: 3, actionContent: { cards: [Object] } } }
+[2016-09-05 12:58:38.289] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:38.289] [INFO] socket_server - { sid: 3,
+  actionType: 3,
+  updated: 
+   { currentTurn: 
+      { status: 4,
+        startSid: 3,
+        remainedSid: [Object],
+        done: [],
+        maxSid: null } } }
+[2016-09-05 12:58:41.406] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:58:41.406] [INFO] socket_server - { type: 5,
+  content: { actionType: 4, actionContent: { color: '♦' } } }
+[2016-09-05 12:58:41.408] [TRACE] socket_server - Response: InGame
+[2016-09-05 12:58:41.409] [INFO] socket_server - { color: '♦',
+  sid: 3,
+  actionType: 4,
+  updated: 
+   { currentTurn: 
+      { status: 5,
+        startSid: 3,
+        remainedSid: [Object],
+        done: [],
+        maxSid: null } } }
+[2016-09-05 12:59:12.636] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:59:12.656] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:59:12.670] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:59:12.702] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 12:59:15.406] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:59:15.480] [TRACE] socket_server - Receive socket from 测试用户2 in table 1
+[2016-09-05 12:59:15.529] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 12:59:15.530] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:59:15.548] [TRACE] socket_server - Response: Connect
+[2016-09-05 12:59:52.738] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 12:59:53.222] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 12:59:53.335] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 12:59:53.335] [INFO] socket_server - { type: 0 }
+[2016-09-05 12:59:53.336] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:00:15.635] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 13:00:34.464] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 13:00:35.300] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:00:35.385] [TRACE] socket_server - Receive socket from 测试用户2 in table 1
+[2016-09-05 13:00:35.443] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 13:00:35.443] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:00:35.462] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:00:48.567] [ERROR] socket_server - 找不到您的代理!
+[2016-09-05 13:00:50.589] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:00:50.681] [TRACE] socket_server - Receive socket from 测试用户2 in table 1
+[2016-09-05 13:00:50.724] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 13:00:50.724] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:00:50.741] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:00:51.554] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 13:00:51.554] [INFO] socket_server - { type: 3 }
+[2016-09-05 13:00:51.555] [TRACE] socket_server - Response: Prepare
+[2016-09-05 13:00:52.570] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 13:00:52.570] [INFO] socket_server - { type: 4 }
+[2016-09-05 13:00:52.572] [TRACE] socket_server - Response: UnPrepare
+[2016-09-05 13:00:54.241] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 13:00:54.242] [INFO] socket_server - { type: 3 }
+[2016-09-05 13:00:54.242] [TRACE] socket_server - Response: Prepare
+[2016-09-05 13:01:09.610] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:01:09.704] [TRACE] socket_server - Receive socket from 测试用户2 in table 1
+[2016-09-05 13:01:09.835] [TRACE] socket_server - Receive command from 测试用户2
+[2016-09-05 13:01:09.835] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:01:09.853] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:01:16.697] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:01:17.199] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 13:01:17.309] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 13:01:17.309] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:01:17.310] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:02:09.840] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 13:02:16.905] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 13:25:55.467] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:25:56.221] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 13:25:56.346] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 13:25:56.346] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:25:56.368] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:26:55.721] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 13:44:19.284] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:44:20.039] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 13:44:20.150] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 13:44:20.150] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:44:20.175] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:44:28.045] [ERROR] socket_server - 发送得太频繁了啦
+[2016-09-05 13:44:49.170] [ERROR] socket_server - 发送得太频繁了啦
+[2016-09-05 13:45:19.522] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 13:47:11.352] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:47:11.924] [TRACE] socket_server - Receive socket from 测试用户3 in table 1
+[2016-09-05 13:47:12.072] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 13:47:12.072] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:47:12.073] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:47:45.304] [TRACE] socket_server - Response: EnterTable
+[2016-09-05 13:47:45.516] [TRACE] socket_server - Receive socket from 测试用户4 in table 1
+[2016-09-05 13:47:45.629] [TRACE] socket_server - Receive command from 测试用户4
+[2016-09-05 13:47:45.629] [INFO] socket_server - { type: 0 }
+[2016-09-05 13:47:45.630] [TRACE] socket_server - Response: Connect
+[2016-09-05 13:48:03.332] [TRACE] socket_server - Receive command from 测试用户3
+[2016-09-05 13:48:03.333] [INFO] socket_server - { type: 2 }
+[2016-09-05 13:48:03.334] [TRACE] socket_server - Response: LeaveTable
+[2016-09-05 13:48:45.525] [TRACE] socket_server - Response: LeaveTable

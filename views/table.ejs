@@ -71,6 +71,18 @@
         </div>
     </div>
 
+    <div id="chat-modal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">说点什么</div>
+                <div class="modal-body" id="chat-modal-body">
+                    <input type="text" class="form-control" id="chat-text">
+                    <a type="button" class="btn btn-default" id="chat-submit">确定</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="table-area">
         <div id="seat-top">
             <a id="seat3" class="seat" data-container="body" data-toggle="popover"
@@ -108,9 +120,18 @@
             <div role="tabpanel" class="tab-pane active" id="operation-area"></div>
             <div role="tabpanel" class="tab-pane" id="chat-area">
                 <div id="chat-display"></div>
-                <div id="chat-bottom">
-                    <input type="text" class="form-control" id="chat-text">
-                    <a type="button" class="btn btn-default" id="chat-submit"><i class="icon-envelope-alt"></i></a>
+                <div class="dropup" id="pick-dropup">
+                    <a type="button" class="btn btn-default" id="pick-chat" data-target="#"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-envelope-alt"></i>
+                    </a>
+                    <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="pick-chat">
+                        <li><a href="#" class="send-built-in" id="praise">赞扬</a></li>
+                        <li><a href="#" class="send-built-in" id="surprise">惊愕</a></li>
+                        <li><a href="#" class="send-built-in" id="taunt">嘲讽</a></li>
+                        <li><a href="#" class="send-built-in" id="surrender">投降</a></li>
+                        <li><a href="#" id="chat">发言</a></li>
+                    </ul>
                 </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="history-area"></div>

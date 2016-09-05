@@ -3,7 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/mem_watch.log" afterPath="$PROJECT_DIR$/logs/mem_watch.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/socket_server.log" afterPath="$PROJECT_DIR$/logs/socket_server.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/cardUtil.js" afterPath="$PROJECT_DIR$/models/cardUtil.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/properties/property.js" afterPath="$PROJECT_DIR$/properties/property.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/init.js" afterPath="$PROJECT_DIR$/public/javascripts/table/init.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" afterPath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/table/table.css" afterPath="$PROJECT_DIR$/public/stylesheets/table/table.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socket_io/socketIoServer.js" afterPath="$PROJECT_DIR$/socket_io/socketIoServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about.ejs" afterPath="$PROJECT_DIR$/views/about.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/table.ejs" afterPath="$PROJECT_DIR$/views/table.ejs" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,8 +38,18 @@
       <file leaf-file-name="socketIoServer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="212" column="77" selection-start-line="212" selection-start-column="77" selection-end-line="212" selection-end-column="77" />
+            <state relative-caret-position="315">
+              <caret line="109" column="63" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cardUtil.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="106">
+              <caret line="351" column="41" selection-start-line="351" selection-start-column="41" selection-end-line="351" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -39,8 +58,8 @@
       <file leaf-file-name="table-view.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+            <state relative-caret-position="181">
+              <caret line="868" column="14" selection-start-line="865" selection-start-column="8" selection-end-line="868" selection-end-column="14" />
               <folding>
                 <element signature="e#1859#3249#0" expanded="false" />
                 <element signature="e#3291#4249#0" expanded="false" />
@@ -65,7 +84,6 @@
                 <element signature="e#25117#25962#0" expanded="false" />
                 <element signature="e#26005#26247#0" expanded="false" />
                 <element signature="e#28696#28798#0" expanded="false" />
-                <element signature="e#32121#32978#0" expanded="false" />
                 <element signature="e#33555#33739#0" expanded="false" />
                 <element signature="e#34030#34213#0" expanded="false" />
                 <element signature="e#34924#35167#0" expanded="false" />
@@ -89,18 +107,53 @@
       <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/game.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
+            <state relative-caret-position="180">
               <caret line="506" column="12" selection-start-line="506" selection-start-column="12" selection-end-line="506" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socket-client.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="socket-client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="95" column="23" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
+            <state relative-caret-position="-240">
+              <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+              <folding>
+                <element signature="n#!!block;n#agentStatusToText#0" expanded="false" />
+                <element signature="n#!!block;n#bootstrapInit#0" expanded="false" />
+                <element signature="n#!!block;n#notify#0" expanded="false" />
+                <element signature="n#!!block;n#wrappedAlert#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/table.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="131" column="75" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="about.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/about.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -109,40 +162,8 @@
       <file leaf-file-name="property.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/properties/property.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="audioGenerator.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#41#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cardUtilTest.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/cardUtilTest.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3135">
-              <caret line="808" column="38" selection-start-line="808" selection-start-column="27" selection-end-line="808" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/about.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-717">
-              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+            <state relative-caret-position="315">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -182,12 +203,10 @@
         <option value="$PROJECT_DIR$/public/javascripts/table/card-util-lite.js" />
         <option value="$PROJECT_DIR$/views/tableList.ejs" />
         <option value="$PROJECT_DIR$/routes/users.js" />
-        <option value="$PROJECT_DIR$/models/cardUtil.js" />
         <option value="$PROJECT_DIR$/models/table.js" />
         <option value="$PROJECT_DIR$/models/tableRepo.js" />
         <option value="$PROJECT_DIR$/routes/tables.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/table-model.js" />
-        <option value="$PROJECT_DIR$/public/stylesheets/table/table.css" />
         <option value="$PROJECT_DIR$/ai/autoPlayer.js" />
         <option value="$PROJECT_DIR$/log4js.js" />
         <option value="$PROJECT_DIR$/public/javascripts/new-ui/table.js" />
@@ -207,15 +226,17 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
         <option value="$PROJECT_DIR$/public/javascripts/login/login.js" />
-        <option value="$PROJECT_DIR$/views/table.ejs" />
         <option value="$PROJECT_DIR$/public/javascripts/table/main.js" />
-        <option value="$PROJECT_DIR$/properties/property.js" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/init.js" />
-        <option value="$PROJECT_DIR$/socket_io/socketIoServer.js" />
         <option value="$PROJECT_DIR$/utils/audioGenerator.js" />
-        <option value="$PROJECT_DIR$/views/about.ejs" />
+        <option value="$PROJECT_DIR$/public/stylesheets/table/table.css" />
+        <option value="$PROJECT_DIR$/views/table.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/init.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
+        <option value="$PROJECT_DIR$/properties/property.js" />
+        <option value="$PROJECT_DIR$/models/cardUtil.js" />
+        <option value="$PROJECT_DIR$/socket_io/socketIoServer.js" />
+        <option value="$PROJECT_DIR$/views/about.ejs" />
       </list>
     </option>
   </component>
@@ -284,6 +305,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -385,6 +408,32 @@
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socket_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="socket_server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="table" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -483,36 +532,6 @@
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="font" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="audios" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="default" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -572,8 +591,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -586,7 +603,7 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="$USER_HOME$/node_modules/mocha" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
+    <property name="SearchEverywhereHistoryKey" value="car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -751,7 +768,8 @@
       <workItem from="1472481827222" duration="13679000" />
       <workItem from="1472617579859" duration="15829000" />
       <workItem from="1472982408923" duration="6013000" />
-      <workItem from="1473038323470" duration="5441000" />
+      <workItem from="1473038323470" duration="6189000" />
+      <workItem from="1473047517579" duration="5221000" />
     </task>
     <task id="LOCAL-00001" summary="none">
       <created>1471100550361</created>
@@ -921,7 +939,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473044447315</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="v0.3&#10;audio system and some optimization">
+      <created>1473044561117</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1473044561117</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -957,7 +982,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="505731000" />
+    <option name="totallyTimeSpent" value="511700000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -977,7 +1002,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3051576" sideWeight="0.5060423" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.54226804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1066,14 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="255" column="20" selection-start-line="255" selection-start-column="20" selection-end-line="255" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ai/autoPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1086,7 +1103,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-258">
           <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1165,7 +1181,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1219,7 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1740">
           <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,14 +1268,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/table.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="111" column="75" selection-start-line="111" selection-start-column="75" selection-end-line="111" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1280,41 +1286,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="81" column="35" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
-          <folding>
-            <element signature="n#!!block;n#agentStatusToText#0" expanded="false" />
-            <element signature="n#!!block;n#bootstrapInit#0" expanded="false" />
-            <element signature="n#!!block;n#notify#0" expanded="false" />
-            <element signature="n#!!block;n#wrappedAlert#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/login.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#p#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
+    <entry file="file://$PROJECT_DIR$/test/cardUtilTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-165">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="6" />
+        <state relative-caret-position="12120">
+          <caret line="808" column="38" selection-start-line="808" selection-start-column="27" selection-end-line="808" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="506" column="12" selection-start-line="506" selection-start-column="12" selection-end-line="506" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="72" column="0" selection-start-line="72" selection-start-column="0" selection-end-line="72" selection-end-column="0" />
+        <state relative-caret-position="181">
+          <caret line="868" column="14" selection-start-line="865" selection-start-column="8" selection-end-line="868" selection-end-column="14" />
           <folding>
             <element signature="e#1859#3249#0" expanded="false" />
             <element signature="e#3291#4249#0" expanded="false" />
@@ -1339,7 +1347,6 @@
             <element signature="e#25117#25962#0" expanded="false" />
             <element signature="e#26005#26247#0" expanded="false" />
             <element signature="e#28696#28798#0" expanded="false" />
-            <element signature="e#32121#32978#0" expanded="false" />
             <element signature="e#33555#33739#0" expanded="false" />
             <element signature="e#34030#34213#0" expanded="false" />
             <element signature="e#34924#35167#0" expanded="false" />
@@ -1359,60 +1366,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="212" column="77" selection-start-line="212" selection-start-column="77" selection-end-line="212" selection-end-column="77" />
+        <state relative-caret-position="218">
+          <caret line="172" column="1" selection-start-line="172" selection-start-column="1" selection-end-line="172" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+          <folding>
+            <element signature="n#!!block;n#agentStatusToText#0" expanded="false" />
+            <element signature="n#!!block;n#bootstrapInit#0" expanded="false" />
+            <element signature="n#!!block;n#notify#0" expanded="false" />
+            <element signature="n#!!block;n#wrappedAlert#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/table.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="131" column="75" selection-start-line="131" selection-start-column="66" selection-end-line="131" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/properties/property.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="506" column="12" selection-start-line="506" selection-start-column="12" selection-end-line="506" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/about.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-717">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/cardUtilTest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3135">
-          <caret line="808" column="38" selection-start-line="808" selection-start-column="27" selection-end-line="808" selection-end-column="38" />
+        <state relative-caret-position="315">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="95" column="23" selection-start-line="95" selection-start-column="23" selection-end-line="95" selection-end-column="23" />
+        <state relative-caret-position="-240">
+          <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="109" column="63" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="351" column="41" selection-start-line="351" selection-start-column="41" selection-end-line="351" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/about.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="55" column="33" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
           <folding />
         </state>
       </provider>

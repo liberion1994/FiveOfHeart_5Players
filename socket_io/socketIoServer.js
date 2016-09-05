@@ -88,7 +88,30 @@ socket_io.init = function (server) {
                         sid: sid,
                         content: content
                     });
-            })
+            });
+
+            socket.on('built-in-message', function (content) {
+                var sum = -1;
+                for (var type in Property.BuiltInMessageTypes) {
+                    if (type == content) {
+                        sum = Property.BuiltInMessageTypes[type];
+                        break;
+                    }
+                }
+                if (sum == -1)
+                    return emitFail('未知的内置指令呢');
+                var cur = new Date();
+                if (agent.lastBuiltInMessageDate && cur - agent.lastBuiltInMessageDate <= Property.BuiltInMessageMinInterval)
+                    return emitFail('发送得太频繁了啦');
+                agent.lastBuiltInMessageDate = cur;
+
+                var id = Math.floor(Math.random() * sum + 1);
+
+                var sid = agent.currentTable.agentToSid(agent);
+                var group = 'table_' + agent.currentTable.id;
+                socket_io.io.in(group)
+                    .emit('audio', { src: content + '_' + id });
+            });
         });
 
     socket_io.io.onDisconnect = function (agent, socket) {

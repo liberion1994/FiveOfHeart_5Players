@@ -352,7 +352,7 @@ function CardUtil(majorNumber) {
             cards.push(new Card(1, 'J'));
         }
         var cardSum = cards.length;
-        var shuffleTimes = Math.floor(Math.random() * 15 + 5);
+        var shuffleTimes = Math.floor(Math.random() * 15 + 10);
         for (var k = 0; k < shuffleTimes; k ++) {
             for (var m = 0; m < cardSum - 1; m ++) {
                 var pos = Math.floor(Math.random() * cardSum - m);

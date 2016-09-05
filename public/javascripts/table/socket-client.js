@@ -62,6 +62,10 @@ function SocketClient() {
         this.socket.emit('chat', msg);
     };
 
+    this.emitBuiltInMessage = function (type) {
+        this.socket.emit('built-in-message', type);
+    };
+
     this.emitCommand = function (commandType, commandContent, error) {
         switch (commandType) {
             // the 'enter' command should not exist since it's conducted through http post
@@ -85,6 +89,10 @@ function SocketClient() {
     this.socket.on('chat', function (chat) {
         playAudio('http://tts.baidu.com/text2audio?lan=zh&pid=101&ie=UTF-8&text=' + chat.content);
         ui.displayChatContent(chat.sid, chat.content);
+    });
+
+    this.socket.on('audio', function (res) {
+        playAudio("/assets/audios/default/" + res.src);
     });
 
     this.socket.on('event', function (event) {
