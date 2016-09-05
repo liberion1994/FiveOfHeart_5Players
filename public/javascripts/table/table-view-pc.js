@@ -1,8 +1,9 @@
 /**
  * 绘制ui界面
- * 手机
- * Created by liboyuan on 16/8/13.
+ * pc
+ * Created by liboyuan on 16/9/5.
  */
+
 
 
 /**
@@ -243,7 +244,7 @@ var TableArea = function (targetDiv) {
 };
 
 var OperationArea = function (targetDiv) {
-    
+
     this.div = targetDiv;
 
     this.repaint = function () {
@@ -716,14 +717,10 @@ var UI = function () {
     this.tableArea = new TableArea($('#table-area'));
 
     this.resize = function () {
-        var windowHeight = $(document.body).height();
-        var windowWidth = $(document.body).width();
-        var margin_left = 0;
+        var div = $('#left-area');
+        var windowHeight = div.height();
+        var windowWidth = div.width();
 
-        if (windowWidth > windowHeight * 0.75) {
-            margin_left = (windowWidth - windowHeight * 0.75) / 2;
-            windowWidth = windowHeight * 0.75;
-        }
 
         cardWidth = windowWidth / 7;
         cardHeight = cardWidth * 1.5;
@@ -736,17 +733,16 @@ var UI = function () {
         $('#operation-area')
             .css('width', this.operationAreaProperty.width + 'px')
             .css('height', this.operationAreaProperty.height + 'px');
-        $('#history-area')
-            .css('width', this.operationAreaProperty.width + 'px')
-            .css('height', this.operationAreaProperty.height + 'px');
         $('#chat-area')
-            .css('width', this.operationAreaProperty.width + 'px')
-            .css('height', this.operationAreaProperty.height + 'px');
+            .css('margin-top', 80)
+            .css('height', windowHeight - 80);
+        $('#history-area')
+            .css('margin-top', 80)
+            .css('height', windowHeight - 80);
         $('#chat-display')
-            .css('height', this.operationAreaProperty.height + 'px');
+            .css('height', windowHeight - 80);
         var bottom_area = $('#bottom-area')
-            .css('width', windowWidth + 'px')
-            .css('margin-left', margin_left + 'px');
+            .css('width', windowWidth + 'px');
         this.tableProperty = {
             width: windowWidth - 20,
             height: windowHeight - bottom_area.height() - 30
@@ -761,8 +757,7 @@ var UI = function () {
 
         $('#table-area')
             .css('width', this.tableProperty.width + 'px')
-            .css('height', this.tableProperty.height + 'px')
-            .css('left', margin_left + 'px');
+            .css('height', this.tableProperty.height + 'px');
     };
 
     this.repaint = function () {

@@ -39,12 +39,17 @@ router.get('/simple_info',
 router.get('/:id',
     passport.isAuthenticatedBackToLogin,
     function(req, res) {
+        var ua = req.headers['user-agent'];
         var agent = req.user.agent;
         var tid = req.params.id;
-        if (agent.currentTable == null || agent.currentTable.id != tid) {
-            res.redirect('/');
+        if (!agent.currentTable || agent.currentTable.id != tid) {
+            res.redirect('/tables');
         } else {
-            res.render('table', {tableId: tid});
+            if (/mobile/i.test(ua)) {
+                res.render('table', {tableId: tid});
+            } else {
+                res.render('table-pc', {tableId: tid});
+            }
         }
     }
 );

@@ -258,3 +258,10 @@ a {
 .option-chosen {
     box-shadow: inset 1px 1px 2px #888888;
 }
+
+.popover-inner {
+    padding: 1px;
+    overflow: scroll;
+    border-radius: 6px;
+    box-shadow:1px 1px 3px #aaaaaa;
+}

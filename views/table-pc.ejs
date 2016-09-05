@@ -19,11 +19,18 @@
     <script src="/javascripts/table/table-model.js"></script>
     <script src="/javascripts/table/socket-client.js"></script>
     <script src="/javascripts/table/ui-util.js"></script>
-    <script src="/javascripts/table/table-view.js"></script>
+    <script src="/javascripts/table/table-view-pc.js"></script>
     <script src="/javascripts/table/main.js"></script>
 
+    <style type="text/css">
+        .row, #left-area, #center-area, #right-area {height: 100%; padding: 5px 0;}
+        #left-area, #center-area {border-right: solid 2px #f8f8f8}
+        .container {margin: 0}
+        h2 {position: absolute; left: 10px; top: 10px;}
+    </style>
+
 </head>
-<body>
+<body class="container">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -85,42 +92,37 @@
         </div>
     </div>
 
-    <div id="table-area">
-        <div id="seat-top">
-            <a id="seat3" class="seat" data-container="body" data-toggle="popover"
-               data-placement="auto" data-content="点我干嘛"></a>
-            <a id="game-info" class="seat">游戏信息</a>
-            <a id="seat2" class="seat" data-container="body" data-toggle="popover"
-               data-placement="auto" data-content="点我干嘛"></a>
+    <div class="row">
+        <div id="left-area" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div id="table-area">
+                <div id="seat-top">
+                    <a id="seat3" class="seat" data-container="body" data-toggle="popover"
+                       data-placement="auto" data-content="点我干嘛"></a>
+                    <a id="game-info" class="seat">游戏信息</a>
+                    <a id="seat2" class="seat" data-container="body" data-toggle="popover"
+                       data-placement="auto" data-content="点我干嘛"></a>
+                </div>
+                <div id="center">
+                    <div id="status"></div>
+                    <div id="counter">00</div>
+                </div>
+                <div id="seat-bottom">
+                    <a id="seat4" class="seat" data-container="body" data-toggle="popover"
+                       data-placement="auto" data-content="点我干嘛"></a>
+                    <a id="seat0" class="seat" data-container="body" data-toggle="popover"
+                       data-placement="auto" data-content="点我干嘛"></a>
+                    <a id="seat1" class="seat" data-container="body" data-toggle="popover"
+                       data-placement="auto" data-content="点我干嘛"></a>
+                </div>
+            </div>
+            <div id="bottom-area">
+                <div id="operation-area"></div>
+            </div>
         </div>
-        <div id="center">
-            <div id="status"></div>
-            <div id="counter">00</div>
-        </div>
-        <div id="seat-bottom">
-            <a id="seat4" class="seat" data-container="body" data-toggle="popover"
-               data-placement="auto" data-content="点我干嘛"></a>
-            <a id="seat0" class="seat" data-container="body" data-toggle="popover"
-               data-placement="auto" data-content="点我干嘛"></a>
-            <a id="seat1" class="seat" data-container="body" data-toggle="popover"
-               data-placement="auto" data-content="点我干嘛"></a>
-        </div>
-    </div>
-    <div id="bottom-area">
-        <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="tab-li active">
-                <a href="#operation-area" aria-controls="operation-area" role="tab" data-toggle="tab">操作</a>
-            </li>
-            <li role="presentation" class="tab-li">
-                <a href="#chat-area" aria-controls="chat-area" role="tab" data-toggle="tab">发言</a>
-            </li>
-            <li role="presentation" class="tab-li">
-                <a href="#history-area" aria-controls="history-area" role="tab" data-toggle="tab">历史</a>
-            </li>
-        </ul>
-        <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="operation-area"></div>
-            <div role="tabpanel" class="tab-pane" id="chat-area">
+
+        <div id="center-area" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2>发言</h2>
+            <div id="chat-area">
                 <div id="chat-display"></div>
                 <div class="dropup" id="pick-dropup">
                     <a type="button" class="btn btn-default" id="pick-chat" data-target="#"
@@ -136,7 +138,10 @@
                     </ul>
                 </div>
             </div>
-            <div role="tabpanel" class="tab-pane" id="history-area"></div>
+        </div>
+        <div id="right-area" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <h2>历史</h2>
+            <div id="history-area"></div>
         </div>
     </div>
     <audio id="audio-player"></audio>
