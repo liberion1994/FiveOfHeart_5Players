@@ -7,6 +7,19 @@ function SocketClient() {
 
     this.synchronizing = false;
 
+    this.loadSettings = function (err, succ) {
+        $.ajax({
+            type: 'GET',
+            url: '/users/settings',
+            success: function (res) {
+                succ(res);
+            },
+            error: function (msg) {
+                err(msg);
+            }
+        });
+    };
+
     this.getAllInfo = function (err, succ) {
         this.synchronizing = true;
         var _this = this;
@@ -87,12 +100,15 @@ function SocketClient() {
     var _this = this;
 
     this.socket.on('chat', function (chat) {
-        playAudio('http://tts.baidu.com/text2audio?lan=zh&pid=101&ie=UTF-8&text=' + chat.content);
+        if (settings.soundtrack != "none")
+            playAudio('http://tts.baidu.com/text2audio?lan=zh&pid=101&ie=UTF-8&text=' + chat.content);
         ui.displayChatContent(chat.sid, chat.content);
     });
 
     this.socket.on('audio', function (res) {
-        playAudio("/assets/audios/default/" + res.src);
+        if (settings.soundtrack == "none")
+            return;
+        playAudio("/assets/audios/" + settings.soundtrack + "/" + res.src);
     });
 
     this.socket.on('event', function (event) {
@@ -100,8 +116,8 @@ function SocketClient() {
         if (_this.synchronizing)
             return;
 
-        if (event.audioSrc) {
-            playAudio("/assets/audios/default/" + event.audioSrc);
+        if (event.audioSrc && settings.soundtrack != "none") {
+            playAudio("/assets/audios/" + settings.soundtrack + "/" + event.audioSrc);
         }
         if (event.eid != table.currentEventId ++) {reSync()}
         switch (event.type) {

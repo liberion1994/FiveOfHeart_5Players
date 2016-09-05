@@ -60,5 +60,12 @@ router.post('/register',
     }
 );
 
+router.get('/settings',
+    passport.isAuthenticated,
+    function(req, res) {
+        var settings = req.user.settings;
+        res.send(settings);
+    }
+);
 
 module.exports = router;

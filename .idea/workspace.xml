@@ -2,16 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log-2016-08-31" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log-2016-09-01" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/mem_watch.log-2016-09-04" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log-2016-08-29" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log-2016-08-31" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/logs/socket_server.log-2016-09-04" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daos/userDAO.js" afterPath="$PROJECT_DIR$/daos/userDAO.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/init.js" afterPath="$PROJECT_DIR$/public/javascripts/table/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/main.js" afterPath="$PROJECT_DIR$/public/javascripts/table/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" afterPath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users.js" afterPath="$PROJECT_DIR$/routes/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/table.ejs" afterPath="$PROJECT_DIR$/views/table.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tableList.ejs" afterPath="$PROJECT_DIR$/views/tableList.ejs" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,21 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cardUtil.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5265">
-              <caret line="351" column="41" selection-start-line="351" selection-start-column="41" selection-end-line="351" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="table-view.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4935">
-              <caret line="868" column="14" selection-start-line="865" selection-start-column="8" selection-end-line="868" selection-end-column="14" />
+            <state relative-caret-position="3150">
+              <caret line="745" column="28" selection-start-line="745" selection-start-column="28" selection-end-line="745" selection-end-column="28" />
               <folding>
                 <element signature="e#1859#3249#0" expanded="false" />
                 <element signature="e#3291#4249#0" expanded="false" />
@@ -82,23 +71,43 @@
                 <element signature="e#23693#25074#0" expanded="false" />
                 <element signature="e#25117#25962#0" expanded="false" />
                 <element signature="e#26005#26247#0" expanded="false" />
-                <element signature="e#28696#28798#0" expanded="false" />
-                <element signature="e#33555#33739#0" expanded="false" />
-                <element signature="e#34030#34213#0" expanded="false" />
-                <element signature="e#34924#35167#0" expanded="false" />
-                <element signature="e#35212#35439#0" expanded="false" />
-                <element signature="e#35484#35685#0" expanded="false" />
-                <marker date="1473038688000" expanded="true" signature="2425:2435" ph="..." />
-                <marker date="1473038688000" expanded="true" signature="2668:2715" ph="..." />
-                <marker date="1473038688000" expanded="true" signature="2685:2714" ph="..." />
-                <marker date="1473038688000" expanded="true" signature="3000:3010" ph="..." />
-                <marker date="1473038688000" expanded="true" signature="3184:3190" ph=" " />
-                <marker date="1473038688000" expanded="true" signature="30934:30944" ph="..." />
-                <marker date="1473038688000" expanded="true" signature="31550:31560" ph="..." />
-                <marker date="1473038688000" expanded="true" signature="32402:32408" ph=" " />
-                <marker date="1473038688000" expanded="true" signature="37545:37557" ph="..." />
-                <marker date="1473038688000" expanded="true" signature="37694:37704" ph="..." />
+                <element signature="e#28691#28793#0" expanded="false" />
+                <element signature="e#33550#33734#0" expanded="false" />
+                <element signature="e#34025#34208#0" expanded="false" />
+                <element signature="e#34919#35162#0" expanded="false" />
+                <element signature="e#35207#35434#0" expanded="false" />
+                <element signature="e#35479#35680#0" expanded="false" />
+                <marker date="1473058567000" expanded="true" signature="2425:2435" ph="..." />
+                <marker date="1473058567000" expanded="true" signature="2668:2715" ph="..." />
+                <marker date="1473058567000" expanded="true" signature="2685:2714" ph="..." />
+                <marker date="1473058567000" expanded="true" signature="3000:3010" ph="..." />
+                <marker date="1473058567000" expanded="true" signature="3184:3190" ph=" " />
+                <marker date="1473058567000" expanded="true" signature="30929:30939" ph="..." />
+                <marker date="1473058567000" expanded="true" signature="31545:31555" ph="..." />
+                <marker date="1473058567000" expanded="true" signature="32397:32403" ph=" " />
+                <marker date="1473058567000" expanded="true" signature="37540:37552" ph="..." />
+                <marker date="1473058567000" expanded="true" signature="37689:37699" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2460">
+              <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tables.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/tables.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1740">
+              <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -106,8 +115,40 @@
       <file leaf-file-name="socket-client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="975">
-              <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
+            <state relative-caret-position="225">
+              <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+              <folding>
+                <element signature="e#0#42#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/table.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1095">
+              <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tableList.ejs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/tableList.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -116,8 +157,8 @@
       <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+            <state relative-caret-position="360">
+              <caret line="150" column="21" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
               <folding>
                 <element signature="n#!!block;n#agentStatusToText#0" expanded="false" />
                 <element signature="n#!!block;n#bootstrapInit#0" expanded="false" />
@@ -128,51 +169,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/table.ejs">
+      <file leaf-file-name="userDAO.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="123">
-              <caret line="77" column="61" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="112">
-              <caret line="168" column="1" selection-start-line="168" selection-start-column="1" selection-end-line="168" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="about.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/about.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1200">
-              <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="property.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/properties/property.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+            <state relative-caret-position="180">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -195,7 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/javascripts/table/app.js" />
         <option value="$PROJECT_DIR$/public/javascripts/noty-theme.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/test-main.js" />
         <option value="$PROJECT_DIR$/utils/validator.js" />
@@ -208,8 +208,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/navi-bar.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/tableList/tableList.css" />
         <option value="$PROJECT_DIR$/public/javascripts/table/card-util-lite.js" />
-        <option value="$PROJECT_DIR$/views/tableList.ejs" />
-        <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/models/table.js" />
         <option value="$PROJECT_DIR$/models/tableRepo.js" />
         <option value="$PROJECT_DIR$/routes/tables.js" />
@@ -231,21 +229,24 @@
         <option value="$PROJECT_DIR$/models/agent.js" />
         <option value="$PROJECT_DIR$/public/javascripts/tableList/tableList.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
         <option value="$PROJECT_DIR$/public/javascripts/login/login.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/main.js" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/utils/audioGenerator.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/init.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
         <option value="$PROJECT_DIR$/properties/property.js" />
         <option value="$PROJECT_DIR$/models/cardUtil.js" />
         <option value="$PROJECT_DIR$/socket_io/socketIoServer.js" />
         <option value="$PROJECT_DIR$/views/about.ejs" />
         <option value="$PROJECT_DIR$/.git/info/exclude" />
-        <option value="$PROJECT_DIR$/views/table.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/table/table.css" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/routes/users.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
+        <option value="$PROJECT_DIR$/daos/userDAO.js" />
+        <option value="$PROJECT_DIR$/views/tableList.ejs" />
+        <option value="$PROJECT_DIR$/views/table.ejs" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/init.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/main.js" />
       </list>
     </option>
   </component>
@@ -314,6 +315,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -598,7 +600,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -612,7 +613,7 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="$USER_HOME$/node_modules/mocha" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
+    <property name="SearchEverywhereHistoryKey" value="table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -780,7 +781,8 @@
       <workItem from="1472982408923" duration="6013000" />
       <workItem from="1473038323470" duration="6189000" />
       <workItem from="1473047517579" duration="5337000" />
-      <workItem from="1473054705581" duration="1249000" />
+      <workItem from="1473054705581" duration="4346000" />
+      <workItem from="1473062016858" duration="886000" />
     </task>
     <task id="LOCAL-00001" summary="none">
       <created>1471100550361</created>
@@ -992,7 +994,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473055908270</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="v0.3&#10;audio system and some optimization">
+      <created>1473056216322</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1473056216322</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1028,7 +1037,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="513065000" />
+    <option name="totallyTimeSpent" value="517048000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1041,17 +1050,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18416801" sideWeight="0.45773196" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3051576" sideWeight="0.5060423" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.54226804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18416801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3982808" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1122,27 +1131,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ai/autoPlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="52" column="52" selection-start-line="52" selection-start-column="52" selection-end-line="52" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bin/www">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-258">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/jquery.mobile-1.4.5.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/new-ui/table.js" />
     <entry file="file://$PROJECT_DIR$/log4js.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1189,13 +1177,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/wechat.js" />
     <entry file="file://$PROJECT_DIR$/routes/assets.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -1211,13 +1192,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/tableList.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/agentRepo.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-285">
@@ -1229,6 +1203,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="164" column="53" selection-start-line="164" selection-start-column="53" selection-end-line="164" selection-end-column="53" />
+          <folding>
+            <element signature="n#!!doc;n#Table#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1253,13 +1230,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/tables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1740">
-          <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/tableList/tableList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1271,6 +1241,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,13 +1256,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="38" column="27" selection-start-line="38" selection-start-column="27" selection-end-line="38" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,13 +1274,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/cardUtilTest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12120">
@@ -1327,14 +1285,79 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7590">
           <caret line="506" column="12" selection-start-line="506" selection-start-column="12" selection-end-line="506" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/property.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.git/info/exclude">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/middleware.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/passport.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-330">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/about.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5265">
+          <caret line="351" column="41" selection-start-line="351" selection-start-column="41" selection-end-line="351" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="57" column="11" selection-start-line="57" selection-start-column="11" selection-end-line="57" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1635">
+          <caret line="109" column="63" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4935">
-          <caret line="868" column="14" selection-start-line="865" selection-start-column="8" selection-end-line="868" selection-end-column="14" />
+        <state relative-caret-position="3150">
+          <caret line="745" column="28" selection-start-line="745" selection-start-column="28" selection-end-line="745" selection-end-column="28" />
           <folding>
             <element signature="e#1859#3249#0" expanded="false" />
             <element signature="e#3291#4249#0" expanded="false" />
@@ -1358,30 +1381,69 @@
             <element signature="e#23693#25074#0" expanded="false" />
             <element signature="e#25117#25962#0" expanded="false" />
             <element signature="e#26005#26247#0" expanded="false" />
-            <element signature="e#28696#28798#0" expanded="false" />
-            <element signature="e#33555#33739#0" expanded="false" />
-            <element signature="e#34030#34213#0" expanded="false" />
-            <element signature="e#34924#35167#0" expanded="false" />
-            <element signature="e#35212#35439#0" expanded="false" />
-            <element signature="e#35484#35685#0" expanded="false" />
-            <marker date="1473038688000" expanded="true" signature="2425:2435" ph="..." />
-            <marker date="1473038688000" expanded="true" signature="2668:2715" ph="..." />
-            <marker date="1473038688000" expanded="true" signature="2685:2714" ph="..." />
-            <marker date="1473038688000" expanded="true" signature="3000:3010" ph="..." />
-            <marker date="1473038688000" expanded="true" signature="3184:3190" ph=" " />
-            <marker date="1473038688000" expanded="true" signature="30934:30944" ph="..." />
-            <marker date="1473038688000" expanded="true" signature="31550:31560" ph="..." />
-            <marker date="1473038688000" expanded="true" signature="32402:32408" ph=" " />
-            <marker date="1473038688000" expanded="true" signature="37545:37557" ph="..." />
-            <marker date="1473038688000" expanded="true" signature="37694:37704" ph="..." />
+            <element signature="e#28691#28793#0" expanded="false" />
+            <element signature="e#33550#33734#0" expanded="false" />
+            <element signature="e#34025#34208#0" expanded="false" />
+            <element signature="e#34919#35162#0" expanded="false" />
+            <element signature="e#35207#35434#0" expanded="false" />
+            <element signature="e#35479#35680#0" expanded="false" />
+            <marker date="1473058567000" expanded="true" signature="2425:2435" ph="..." />
+            <marker date="1473058567000" expanded="true" signature="2668:2715" ph="..." />
+            <marker date="1473058567000" expanded="true" signature="2685:2714" ph="..." />
+            <marker date="1473058567000" expanded="true" signature="3000:3010" ph="..." />
+            <marker date="1473058567000" expanded="true" signature="3184:3190" ph=" " />
+            <marker date="1473058567000" expanded="true" signature="30929:30939" ph="..." />
+            <marker date="1473058567000" expanded="true" signature="31545:31555" ph="..." />
+            <marker date="1473058567000" expanded="true" signature="32397:32403" ph=" " />
+            <marker date="1473058567000" expanded="true" signature="37540:37552" ph="..." />
+            <marker date="1473058567000" expanded="true" signature="37689:37699" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2460">
+          <caret line="164" column="0" selection-start-line="164" selection-start-column="0" selection-end-line="164" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-30">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1740">
+          <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="83" column="46" selection-start-line="83" selection-start-column="46" selection-end-line="83" selection-end-column="46" />
+        <state relative-caret-position="360">
+          <caret line="150" column="21" selection-start-line="150" selection-start-column="21" selection-end-line="150" selection-end-column="21" />
           <folding>
             <element signature="n#!!block;n#agentStatusToText#0" expanded="false" />
             <element signature="n#!!block;n#bootstrapInit#0" expanded="false" />
@@ -1391,75 +1453,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/properties/property.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="975">
-          <caret line="65" column="49" selection-start-line="65" selection-start-column="49" selection-end-line="65" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="109" column="63" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5265">
-          <caret line="351" column="41" selection-start-line="351" selection-start-column="41" selection-end-line="351" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.git/info/exclude">
+    <entry file="file://$PROJECT_DIR$/views/tableList.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="5" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/about.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="84" column="21" selection-start-line="84" selection-start-column="21" selection-end-line="84" selection-end-column="21" />
+          <caret line="24" column="46" selection-start-line="24" selection-start-column="46" selection-end-line="24" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/table.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="77" column="61" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
+        <state relative-caret-position="-1095">
+          <caret line="46" column="56" selection-start-line="46" selection-start-column="56" selection-end-line="46" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="168" column="1" selection-start-line="168" selection-start-column="1" selection-end-line="168" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="10" selection-start-line="3" selection-start-column="10" selection-end-line="3" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="35" column="7" selection-start-line="35" selection-start-column="7" selection-end-line="35" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#42#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

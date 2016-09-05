@@ -743,7 +743,7 @@ var UI = function () {
             .css('width', this.operationAreaProperty.width + 'px')
             .css('height', this.operationAreaProperty.height + 'px');
         $('#chat-display')
-            .css('height', this.operationAreaProperty.height - 40 + 'px');
+            .css('height', this.operationAreaProperty.height + 'px');
         var bottom_area = $('#bottom-area')
             .css('width', windowWidth + 'px')
             .css('margin-left', margin_left + 'px');

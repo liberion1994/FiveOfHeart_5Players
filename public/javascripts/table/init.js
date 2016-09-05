@@ -35,6 +35,7 @@ var updated = false;
 var keyboardUp = false;
 var timer;
 var jplayer;
+var settings;
 
 function agentStatusToText(status) {
     switch (status) {

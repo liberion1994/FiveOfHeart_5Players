@@ -5,15 +5,22 @@
 $(document).ready(function () {
 
     socketClient = new SocketClient();
-    socketClient.getAllInfo(
+    socketClient.loadSettings(
         function () { location.href='/tables' },
         function (res) {
-            table = new Table(res);
-            ui = new UI();
-            ui.repaint();
-            bootstrapInit();
-            socketClient.emitCommand(AgentCommandType.IntoTable, null, function () {});
-        });
+            settings = res;
+            socketClient.getAllInfo(
+                function () { location.href='/tables' },
+                function (res) {
+                    table = new Table(res);
+                    ui = new UI();
+                    ui.repaint();
+                    bootstrapInit();
+                    socketClient.emitCommand(AgentCommandType.IntoTable, null, function () {});
+                }
+            );
+        }
+    );
 
     $(document)
         .on('focus', 'input', function() {
@@ -38,6 +45,8 @@ $(document).ready(function () {
     jplayer = $('#jplayer').jPlayer({
         ready: function() {},
         swfPath: "/javascripts",
+        supplied: "mp3",
+        solution: "html",
         loop: false
     });
 
