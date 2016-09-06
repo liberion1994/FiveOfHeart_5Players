@@ -30,7 +30,7 @@ passport.serializeUser(function (user, done) {
 passport.deserializeUser(function (username, done) {
     // get passport.user
     User.findOne({ username: username }, function(err, user) {
-        user.agent = AgentRepo.findOrCreateAgentByUsername(user.username);
+        user.agent = AgentRepo.findOrCreateAgentByUser(user);
         done(err, user);
     });
 });

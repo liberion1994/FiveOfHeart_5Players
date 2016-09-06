@@ -58,7 +58,6 @@ function Table(id) {
         }, function () {});
         var noLeft = true;
         for (var i = 0; i < Property.GamePlayers; i ++) {
-            this.majorNumbersInGame[i] = Property.StartMajorNumber;
             if (this.agents[i])
                 noLeft = false;
         }
@@ -100,11 +99,7 @@ function Table(id) {
             if (this.agents[i] == null) {
                 res[i] = null;
             } else {
-                res[i] = {
-                    user: this.agents[i].username,
-                    majorNumberInGame: this.majorNumbersInGame[i],
-                    status: this.agents[i].status
-                };
+                res[i] = this.agents[i].info();
             }
         }
         return res;
@@ -185,7 +180,7 @@ function Table(id) {
         }
         var majorNum = Property.StartMajorNumber;
         if (this.masterInGame != null)
-            majorNum = this.majorNumbersInGame[this.masterInGame];
+            majorNum = this.agents[this.masterInGame].majorNumber;
         this.game = new Game.Game(this.masterInGame, majorNum);
         for (var j = 0; j < Property.GamePlayers; j ++)
             this.agents[j].status = Agent.AgentStatus.IN_GAME;
@@ -302,11 +297,11 @@ function Table(id) {
     
     this.levelUp = function (sid, up) {
         for (var i = 0; i < up; i ++) {
-            this.majorNumbersInGame[sid] ++;
-            if (this.majorNumbersInGame[sid] == 3 || this.majorNumbersInGame[sid] == 5)
-                this.majorNumbersInGame[sid] ++;
-            if (this.majorNumbersInGame[sid] > 14)
-                this.majorNumbersInGame[sid] -= 13;
+            this.agents[sid].majorNumber ++;
+            if (this.agents[sid].majorNumber == 3 || this.agents[sid].majorNumber == 5)
+                this.agents[sid].majorNumber ++;
+            if (this.agents[sid].majorNumber > 14)
+                this.agents[sid].majorNumber -= 13;
         }
     }
 }

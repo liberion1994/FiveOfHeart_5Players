@@ -8,9 +8,9 @@ mongoose.connect('mongodb://localhost/users');
 var UserSchema = mongoose.Schema({
     username: String,
     password: String,
+    majorNumber: {type : Number, default: 2},
     settings: {
         soundtrack: {type : String, default: "default"}
-
     }
 });
 

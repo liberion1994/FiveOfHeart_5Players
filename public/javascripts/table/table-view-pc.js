@@ -75,7 +75,7 @@ var TableArea = function (targetDiv) {
     this.updateGameInfo = function () {
         if (!table.game) {
             $('#game-info').html("<i class='icon-star'></i>" +
-                (table.masterInGame == null ? "待定" : table.seats[table.masterInGame].user));
+                (table.masterInGame == null ? "待定" : table.seats[table.masterInGame].username));
         } else {
             var majorColor = table.game.majorNumber;
             var aColor = 'A';
@@ -145,14 +145,14 @@ var TableArea = function (targetDiv) {
         var seat = table.seats[sid];
         if (seat) {
             if (seat.status != AgentStatus.IN_GAME)
-                $('#seat' + index).html(agentStatusToText(seat.status) + seat.user);
+                $('#seat' + index).html(agentStatusToText(seat.status) + seat.username);
             else {
                 var inGameStatus = '<i class="icon-group"></i>';
                 if (table.game.masterSid == sid)
                     inGameStatus = '<i class="icon-star"></i>';
                 else if (table.game.subMasterSid == sid)
                     inGameStatus = '<i class="icon-star-empty"></i>';
-                $('#seat' + index).html(inGameStatus + seat.user + '&nbsp;' + table.game.points[sid]);
+                $('#seat' + index).html(inGameStatus + seat.username + '&nbsp;' + table.game.points[sid]);
             }
         } else {
             $('#seat' + index).html('<i class="icon-circle-blank"></i>空座位');
@@ -893,7 +893,7 @@ var UI = function () {
         this.repaint();
         this.logEvent(event);
         this.logSystemEvent('游戏开始');
-        this.logSystemEvent('[' + table.seats[table.game.currentTurn.startSid].user + ']先报真主数');
+        this.logSystemEvent('[' + table.seats[table.game.currentTurn.startSid].username + ']先报真主数');
     };
 
     this.onUnPrepare = function (event) {
@@ -956,7 +956,7 @@ var UI = function () {
         if (event.content.subMasterSid != null) {
             this.tableArea.updateSeat(event.content.subMasterSid);
             this.tableArea.updateGameInfo();
-            this.logSystemEvent('[' + table.seats[event.content.subMasterSid].user + ']成为了副庄');
+            this.logSystemEvent('[' + table.seats[event.content.subMasterSid].username + ']成为了副庄');
         }
     };
 
@@ -964,7 +964,7 @@ var UI = function () {
         this.operationArea.drawControls();
         this.tableArea.updateGameStatus();
         this.tableArea.updateActiveSeat(table.game.currentTurn.remainedSid[0]);
-        var txt = '[' + table.seats[table.game.currentTurn.startSid].user + ']';
+        var txt = '[' + table.seats[table.game.currentTurn.startSid].username + ']';
         switch (newStatus) {
             case GameStatus.CHOOSE_MAJOR_COLOR:
                 var _this = this;
@@ -1021,7 +1021,7 @@ var UI = function () {
         this.tableArea.displayChatContent(sid, content);
         var par = $('#chat-display');
         $('<div>')
-            .html('[' + table.seats[sid].user + ']:' + content)
+            .html('[' + table.seats[sid].username + ']:' + content)
             .prependTo(par);
         if (par.children('div').size() > 50)
             par.children('div:last').remove();

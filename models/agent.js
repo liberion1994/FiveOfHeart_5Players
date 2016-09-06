@@ -5,6 +5,7 @@
 var tableRepo = require('./tableRepo');
 var Property = require("../properties/property");
 var socket_io = require("../socket_io/socketIoServer");
+var User = require('../daos/userDAO');
 
 var AgentStatus = {
     HALL        : 1,
@@ -13,8 +14,9 @@ var AgentStatus = {
     IN_GAME     : 4
 };
 
-var Agent = function (username) {
-    this.username = username;
+var Agent = function (user) {
+    this.username = user.username;
+    this.majorNumber = user.majorNumber;
     this.status = AgentStatus.HALL;
     this.currentTable = null;
 
@@ -69,7 +71,8 @@ var Agent = function (username) {
     this.info = function () {
         return {
             username: this.username,
-            status: this.status
+            status: this.status,
+            majorNumber: this.majorNumber
         };
     };
 
@@ -101,7 +104,14 @@ var Agent = function (username) {
             _this.leaveTimer.stop();
             _this.status = AgentStatus.HALL;
             _this.currentTable = null;
-            callback();
+            //save back should be conducted here
+            var conditions = { username: _this.username }
+                , update = { $set: { majorNumber: _this.majorNumber }}
+                , options = { multi: false };
+            User.update(conditions, update, options, function () {
+                callback();
+            });
+
         });
     };
 

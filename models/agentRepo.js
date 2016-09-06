@@ -8,8 +8,8 @@ var AgentRepo = {
     agents: []
 };
 
-AgentRepo.createAgent = function (userId) {
-    var ret = new Agent.Agent(userId);
+AgentRepo.createAgent = function (user) {
+    var ret = new Agent.Agent(user);
     AgentRepo.agents.push(ret);
     return ret;
 };
@@ -34,13 +34,13 @@ AgentRepo.deleteAgentByUsername = function (username) {
 };
 
 
-AgentRepo.findOrCreateAgentByUsername = function (username) {
+AgentRepo.findOrCreateAgentByUser = function (user) {
     var len = AgentRepo.agents.length;
     for (var i = 0; i < len; i ++) {
-        if (AgentRepo.agents[i].username == username)
+        if (AgentRepo.agents[i].username == user.username)
             return AgentRepo.agents[i];
     }
-    return this.createAgent(username);
+    return this.createAgent(user);
 };
 
 module.exports = AgentRepo;
