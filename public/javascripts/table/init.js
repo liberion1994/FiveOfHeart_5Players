@@ -82,7 +82,7 @@ function initCtrl() {
     });
 
     $('.send-built-in').click(function () {
-        var type = $(this).attr('id');
+        var type = $(this).html();
         socketClient.emitBuiltInMessage(type);
     });
 

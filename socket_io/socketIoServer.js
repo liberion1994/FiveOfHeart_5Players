@@ -91,26 +91,29 @@ socket_io.init = function (server) {
             });
 
             socket.on('built-in-message', function (content) {
-                var sum = -1;
-                for (var type in Property.BuiltInMessageTypes) {
-                    if (type == content) {
-                        sum = Property.BuiltInMessageTypes[type];
+                var found = false;
+                var len = Property.BuiltInMessageTypes.length;
+                for (var i = 0; i < len; i ++) {
+                    if (content == Property.BuiltInMessageTypes[i]) {
+                        found = true;
                         break;
                     }
                 }
-                if (sum == -1)
+
+                if (!found)
                     return emitFail('未知的内置指令呢');
                 var cur = new Date();
                 if (agent.lastBuiltInMessageDate && cur - agent.lastBuiltInMessageDate <= Property.BuiltInMessageMinInterval)
                     return emitFail('发送得太频繁了啦');
                 agent.lastBuiltInMessageDate = cur;
 
-                var id = Math.floor(Math.random() * sum + 1);
-
                 var sid = agent.currentTable.agentToSid(agent);
                 var group = 'table_' + agent.currentTable.id;
                 socket_io.io.in(group)
-                    .emit('audio', { src: content + '_' + id });
+                    .emit('built_in_message', {
+                        sid: sid,
+                        type: content
+                    });
             });
         });
 
@@ -140,7 +143,7 @@ socket_io.init = function (server) {
                 sid: sid,
                 username: agent.username,
                 eid: agent.currentTable.currentEventId ++,
-                audioSrc: audioGenerator.getEnterAudio(sid)
+                audioSrc: audioGenerator.getEnterAudio()
             });
 
         logger.trace('Response: EnterTable');
@@ -173,7 +176,7 @@ socket_io.init = function (server) {
             sid: sid,
             username: agent.username,
             force: force,
-            audioSrc: audioGenerator.getLeaveAudio(sid)
+            audioSrc: audioGenerator.getLeaveAudio()
         };
 
         agent.leaveTable(fail, function () {
@@ -198,7 +201,7 @@ socket_io.init = function (server) {
                     sid: sid,
                     username: agent.username,
                     eid: agent.currentTable.currentEventId ++,
-                    audioSrc: audioGenerator.getPrepareAudio(sid)
+                    audioSrc: audioGenerator.getPrepareAudio()
                 });
             logger.trace('Response: Prepare');
         });
@@ -213,7 +216,7 @@ socket_io.init = function (server) {
                     sid: sid,
                     username: agent.username,
                     eid: agent.currentTable.currentEventId ++,
-                    audioSrc: audioGenerator.getUnPrepareAudio(sid)
+                    audioSrc: audioGenerator.getUnPrepareAudio()
                 });
             logger.trace('Response: UnPrepare');
         });

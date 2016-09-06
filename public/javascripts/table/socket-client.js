@@ -105,10 +105,10 @@ function SocketClient() {
         ui.displayChatContent(chat.sid, chat.content);
     });
 
-    this.socket.on('audio', function (res) {
+    this.socket.on('built_in_message', function (res) {
         if (settings.soundtrack == "none")
             return;
-        playAudio("/assets/audios/" + settings.soundtrack + "/" + res.src);
+        playAudio("/assets/audios/" + settings.soundtrack + "/built_in_message/" + res.type);
     });
 
     this.socket.on('event', function (event) {

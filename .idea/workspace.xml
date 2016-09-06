@@ -2,8 +2,144 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/嘲讽1.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/嘲讽2.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/嘲讽3.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/惊愕1.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/惊愕2.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/惊愕3.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/惊愕4.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/惊愕5.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/惊愕6.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/投降1.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/投降2.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/投降3.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/投降4.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/投降5.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/赞扬1.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/赞扬2.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/赞扬3.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/赞扬4.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/赞扬5.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount0.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount1.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount10.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount11.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount12.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount13.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount14.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount15.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount16.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount17.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount18.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount19.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount2.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount20.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount21.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount3.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount4.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount5.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount6.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount7.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount8.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/amount9.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/enter.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/game_over.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/kill.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/leave.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/offer_points.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points0.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points10.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points15.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points20.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points25.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points30.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points35.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points5.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/points_plenty.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/prepare.mp3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/unprepare.mp3" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/praise_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/praise_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/praise_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/praise_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/praise_5.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surprise_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surprise_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surprise_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surprise_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surprise_5.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surprise_6.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surrender_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surrender_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surrender_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surrender_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/surrender_5.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/taunt_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/taunt_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/built_in_message/taunt_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0enter_0.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0enter_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0enter_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0enter_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0enter_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0leave_0.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0leave_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0leave_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0leave_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0leave_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0prepare_0.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0prepare_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0prepare_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0prepare_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0prepare_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0unprepare_0.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0unprepare_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0unprepare_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0unprepare_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t0unprepare_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_0.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_1.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_10.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_11.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_12.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_13.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_14.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_15.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_16.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_17.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_18.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_19.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_2.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_20.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_21.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_3.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_4.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_5.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_6.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_7.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_8.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/assets/audios/default/t1g1_9.mp3" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/J.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/J.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/double.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/double.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/larger.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/larger.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/multi_group.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/multi_group.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/multi_group_fail.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/multi_group_fail.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/smaller.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/smaller.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/tractor.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/tractor.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/triple.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/triple.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/♠.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/♠.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/♣.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/♣.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/♥.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/♥.mp3" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/assets/audios/default/♦.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/♦.mp3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/table-pc.ejs" afterPath="$PROJECT_DIR$/views/table-pc.ejs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/properties/property.js" afterPath="$PROJECT_DIR$/properties/property.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/init.js" afterPath="$PROJECT_DIR$/public/javascripts/table/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" afterPath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/assets.js" afterPath="$PROJECT_DIR$/routes/assets.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socket_io/socketIoServer.js" afterPath="$PROJECT_DIR$/socket_io/socketIoServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/audioGenerator.js" afterPath="$PROJECT_DIR$/utils/audioGenerator.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,28 +165,68 @@
       <file leaf-file-name="tables.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/tables.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="15">
               <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
+      <file leaf-file-name="property.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/properties/property.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="147" column="14" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="14" />
+            <state relative-caret-position="330">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+      <file leaf-file-name="audioGenerator.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+            <state relative-caret-position="285">
+              <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="socketIoServer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="218" column="63" selection-start-line="218" selection-start-column="63" selection-end-line="218" selection-end-column="63" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/game.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="287" column="40" selection-start-line="287" selection-start-column="40" selection-end-line="287" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="assets.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/assets.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cardUtil.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="354" column="63" selection-start-line="354" selection-start-column="27" selection-end-line="354" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -59,148 +235,28 @@
       <file leaf-file-name="socket-client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="110" column="14" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
+            <state relative-caret-position="1650">
+              <caret line="110" column="79" selection-start-line="110" selection-start-column="79" selection-end-line="110" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/table.ejs">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1245">
-              <caret line="138" column="50" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
+            <state relative-caret-position="645">
+              <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/about.ejs">
+      <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table-view.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3000">
-              <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
-              <folding>
-                <element signature="e#1849#3239#0" expanded="false" />
-                <element signature="e#3281#4239#0" expanded="false" />
-                <element signature="e#4282#4507#0" expanded="false" />
-                <element signature="e#4564#4796#0" expanded="false" />
-                <element signature="e#4836#5635#0" expanded="false" />
-                <element signature="e#6015#7853#0" expanded="false" />
-                <element signature="e#7911#8773#0" expanded="false" />
-                <element signature="e#8884#9388#0" expanded="false" />
-                <element signature="e#9435#9535#0" expanded="false" />
-                <element signature="e#10614#10682#0" expanded="false" />
-                <element signature="e#10753#11798#0" expanded="false" />
-                <element signature="e#11847#13597#0" expanded="false" />
-                <element signature="e#13645#15454#0" expanded="false" />
-                <element signature="e#15500#16437#0" expanded="false" />
-                <element signature="e#16481#18242#0" expanded="false" />
-                <element signature="e#18285#19219#0" expanded="false" />
-                <element signature="e#19257#20152#0" expanded="false" />
-                <element signature="e#20331#21952#0" expanded="false" />
-                <element signature="e#22024#23645#0" expanded="false" />
-                <element signature="e#23683#25064#0" expanded="false" />
-                <element signature="e#25107#25952#0" expanded="false" />
-                <element signature="e#25995#26237#0" expanded="false" />
-                <element signature="e#28681#28783#0" expanded="false" />
-                <element signature="e#28823#32063#0" expanded="false" />
-                <element signature="e#33540#33724#0" expanded="false" />
-                <element signature="e#34015#34198#0" expanded="false" />
-                <element signature="e#34909#35152#0" expanded="false" />
-                <element signature="e#35197#35424#0" expanded="false" />
-                <element signature="e#35469#35670#0" expanded="false" />
-                <marker date="1473077471000" expanded="true" signature="2415:2425" ph="..." />
-                <marker date="1473077471000" expanded="true" signature="2658:2705" ph="..." />
-                <marker date="1473077471000" expanded="true" signature="2675:2704" ph="..." />
-                <marker date="1473077471000" expanded="true" signature="2990:3000" ph="..." />
-                <marker date="1473077471000" expanded="true" signature="3174:3180" ph=" " />
-                <marker date="1473077471000" expanded="true" signature="30919:30929" ph="..." />
-                <marker date="1473077471000" expanded="true" signature="31535:31545" ph="..." />
-                <marker date="1473077471000" expanded="true" signature="32387:32393" ph=" " />
-                <marker date="1473077471000" expanded="true" signature="37530:37542" ph="..." />
-                <marker date="1473077471000" expanded="true" signature="37679:37689" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table-view-pc.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view-pc.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="742" column="27" selection-start-line="742" selection-start-column="27" selection-end-line="742" selection-end-column="27" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="e#1849#3239#0" expanded="false" />
-                <element signature="e#3281#4239#0" expanded="false" />
-                <element signature="e#4282#4507#0" expanded="false" />
-                <element signature="e#4564#4796#0" expanded="false" />
-                <element signature="e#4836#5635#0" expanded="false" />
-                <element signature="e#6015#7853#0" expanded="false" />
-                <element signature="e#7911#8773#0" expanded="false" />
-                <element signature="e#8880#9384#0" expanded="false" />
-                <element signature="e#9431#9531#0" expanded="false" />
-                <element signature="e#10610#10678#0" expanded="false" />
-                <element signature="e#10749#11794#0" expanded="false" />
-                <element signature="e#11843#13593#0" expanded="false" />
-                <element signature="e#13641#15450#0" expanded="false" />
-                <element signature="e#15496#16433#0" expanded="false" />
-                <element signature="e#16477#18238#0" expanded="false" />
-                <element signature="e#18281#19215#0" expanded="false" />
-                <element signature="e#19253#20148#0" expanded="false" />
-                <element signature="e#20327#21948#0" expanded="false" />
-                <element signature="e#22020#23641#0" expanded="false" />
-                <element signature="e#23679#25060#0" expanded="false" />
-                <element signature="e#25103#25948#0" expanded="false" />
-                <element signature="e#25991#26233#0" expanded="false" />
-                <element signature="e#28254#28356#0" expanded="false" />
-                <element signature="e#28396#31636#0" expanded="false" />
-                <element signature="e#33113#33297#0" expanded="false" />
-                <element signature="e#33588#33771#0" expanded="false" />
-                <element signature="e#34482#34725#0" expanded="false" />
-                <element signature="e#34770#34997#0" expanded="false" />
-                <element signature="e#35042#35243#0" expanded="false" />
-                <marker date="1473078840000" expanded="true" signature="2415:2425" ph="..." />
-                <marker date="1473078840000" expanded="true" signature="2658:2705" ph="..." />
-                <marker date="1473078840000" expanded="true" signature="2990:3000" ph="..." />
-                <marker date="1473078840000" expanded="true" signature="3174:3180" ph=" " />
-                <marker date="1473078840000" expanded="true" signature="30492:30502" ph="..." />
-                <marker date="1473078840000" expanded="true" signature="31108:31118" ph="..." />
-                <marker date="1473078840000" expanded="true" signature="31960:31966" ph=" " />
-                <marker date="1473078840000" expanded="true" signature="37103:37115" ph="..." />
-                <marker date="1473078840000" expanded="true" signature="37252:37262" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="table-pc.ejs" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/table-pc.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/settings.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+            <state relative-caret-position="1155">
+              <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -246,18 +302,13 @@
         <option value="$PROJECT_DIR$/models/game.js" />
         <option value="$PROJECT_DIR$/test/cardUtilTest.js" />
         <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/routes/assets.js" />
         <option value="$PROJECT_DIR$/models/agent.js" />
         <option value="$PROJECT_DIR$/public/javascripts/tableList/tableList.js" />
         <option value="$PROJECT_DIR$/public/javascripts/login/login.js" />
         <option value="$PROJECT_DIR$/views/login.ejs" />
-        <option value="$PROJECT_DIR$/utils/audioGenerator.js" />
-        <option value="$PROJECT_DIR$/properties/property.js" />
         <option value="$PROJECT_DIR$/models/cardUtil.js" />
-        <option value="$PROJECT_DIR$/socket_io/socketIoServer.js" />
         <option value="$PROJECT_DIR$/.git/info/exclude" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
         <option value="$PROJECT_DIR$/daos/userDAO.js" />
         <option value="$PROJECT_DIR$/views/tableList.ejs" />
         <option value="$PROJECT_DIR$/routes/index.js" />
@@ -265,15 +316,20 @@
         <option value="$PROJECT_DIR$/public/javascripts/table/main.js" />
         <option value="$PROJECT_DIR$/views/settings.ejs" />
         <option value="$PROJECT_DIR$/routes/users.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/init.js" />
         <option value="$PROJECT_DIR$/views/table.ejs" />
         <option value="$PROJECT_DIR$/public/stylesheets/table/table.css" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/routes/tables.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
         <option value="$PROJECT_DIR$/views/about.ejs" />
         <option value="$PROJECT_DIR$/views/table-pc.ejs" />
+        <option value="$PROJECT_DIR$/routes/tables.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/init.js" />
+        <option value="$PROJECT_DIR$/properties/property.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
+        <option value="$PROJECT_DIR$/socket_io/socketIoServer.js" />
+        <option value="$PROJECT_DIR$/utils/audioGenerator.js" />
+        <option value="$PROJECT_DIR$/routes/assets.js" />
       </list>
     </option>
   </component>
@@ -342,8 +398,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -372,201 +428,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="routes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stylesheets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="table" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tableList" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="table" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="login" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -598,34 +460,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="daos" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="socket_server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ai" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -640,7 +474,7 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="$USER_HOME$/node_modules/mocha" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;findOne&#9;null&#9;null&#10;findO&#9;null&#9;null&#10;table.e&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
+    <property name="SearchEverywhereHistoryKey" value="ini&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;ma&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;so&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;findOne&#9;null&#9;null&#10;findO&#9;null&#9;null&#10;table.e&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -648,19 +482,19 @@
     <property name="prop_add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/assets/audios/default/in_game" />
+      <recent name="$PROJECT_DIR$/public/assets/audios/default/built_in_message" />
+      <recent name="$PROJECT_DIR$/public/assets/audios/default" />
+      <recent name="$PROJECT_DIR$/public" />
+      <recent name="$PROJECT_DIR$/public/fonts" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/javascripts/table" />
       <recent name="$PROJECT_DIR$/views" />
       <recent name="$PROJECT_DIR$/public/javascripts" />
       <recent name="$PROJECT_DIR$/public/font" />
       <recent name="$PROJECT_DIR$/public/stylesheets/fonts" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/assets/audios/default" />
-      <recent name="$PROJECT_DIR$/public" />
-      <recent name="$PROJECT_DIR$/public/fonts" />
-      <recent name="$PROJECT_DIR$/public/stylesheets" />
-      <recent name="$PROJECT_DIR$/public/javascripts/table" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.bin/www">
@@ -810,7 +644,11 @@
       <workItem from="1473047517579" duration="5337000" />
       <workItem from="1473054705581" duration="4346000" />
       <workItem from="1473062016858" duration="3466000" />
-      <workItem from="1473069971325" duration="7612000" />
+      <workItem from="1473069971325" duration="7760000" />
+      <workItem from="1473128256730" duration="1928000" />
+      <workItem from="1473136016988" duration="11000" />
+      <workItem from="1473136057431" duration="2264000" />
+      <workItem from="1473159680480" duration="2035000" />
     </task>
     <task id="LOCAL-00001" summary="none">
       <created>1471100550361</created>
@@ -1064,7 +902,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473079247400</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="v0.3.1&#10;settings and pc ui">
+      <created>1473079643812</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1473079643812</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1100,7 +945,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="527240000" />
+    <option name="totallyTimeSpent" value="533626000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1118,6 +963,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18416801" sideWeight="0.45773196" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3051576" sideWeight="0.5060423" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.54226804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
@@ -1133,7 +979,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3538682" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -1221,32 +1066,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/wechat.js" />
-    <entry file="file://$PROJECT_DIR$/routes/assets.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="79" selection-start-line="12" selection-start-column="79" selection-end-line="12" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/jquery.jplayer.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/jquery.jplayer.min.js" />
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="164" column="53" selection-start-line="164" selection-start-column="53" selection-end-line="164" selection-end-column="53" />
-          <folding>
-            <element signature="n#!!doc;n#Table#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1275,7 +1103,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="71" column="31" selection-start-line="71" selection-start-column="31" selection-end-line="71" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1283,7 +1110,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="73" column="0" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1291,7 +1117,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1306,20 +1131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12120">
           <caret line="808" column="38" selection-start-line="808" selection-start-column="27" selection-end-line="808" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/game.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7590">
-          <caret line="506" column="12" selection-start-line="506" selection-start-column="12" selection-end-line="506" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/properties/property.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -1345,33 +1156,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5265">
-          <caret line="351" column="41" selection-start-line="351" selection-start-column="41" selection-end-line="351" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="109" column="63" selection-start-line="109" selection-start-column="63" selection-end-line="109" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-30">
-          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1380,7 +1168,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="31" selection-start-line="13" selection-start-column="31" selection-end-line="13" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1388,7 +1175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1396,17 +1182,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
           <caret line="149" column="0" selection-start-line="149" selection-start-column="0" selection-end-line="149" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1414,7 +1189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-390">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1422,28 +1196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="82" column="83" selection-start-line="82" selection-start-column="83" selection-end-line="82" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
-          <folding>
-            <element signature="n#!!block;n#agentStatusToText#0" expanded="false" />
-            <element signature="n#!!block;n#bootstrapInit#0" expanded="false" />
-            <element signature="n#!!block;n#notify#0" expanded="false" />
-            <element signature="n#!!block;n#wrappedAlert#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="110" column="14" selection-start-line="110" selection-start-column="14" selection-end-line="110" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1451,23 +1203,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/tables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
+        <state relative-caret-position="2205">
           <caret line="147" column="14" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1475,13 +1217,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-15">
           <caret line="38" column="40" selection-start-line="38" selection-start-column="40" selection-end-line="38" selection-end-column="40" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/settings.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/about.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1110">
+          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/table-pc.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="81" selection-start-line="25" selection-start-column="81" selection-end-line="25" selection-end-column="81" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3000">
+        <state relative-caret-position="30">
           <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
           <folding>
             <element signature="e#1849#3239#0" expanded="false" />
@@ -1527,82 +1289,107 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/table.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="133" column="79" selection-start-line="133" selection-start-column="77" selection-end-line="133" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view-pc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="742" column="27" selection-start-line="742" selection-start-column="27" selection-end-line="742" selection-end-column="27" />
+        <state relative-caret-position="541">
+          <caret line="633" column="0" selection-start-line="633" selection-start-column="0" selection-end-line="633" selection-end-column="0" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#1849#3239#0" expanded="false" />
-            <element signature="e#3281#4239#0" expanded="false" />
-            <element signature="e#4282#4507#0" expanded="false" />
-            <element signature="e#4564#4796#0" expanded="false" />
-            <element signature="e#4836#5635#0" expanded="false" />
-            <element signature="e#6015#7853#0" expanded="false" />
-            <element signature="e#7911#8773#0" expanded="false" />
-            <element signature="e#8880#9384#0" expanded="false" />
-            <element signature="e#9431#9531#0" expanded="false" />
-            <element signature="e#10610#10678#0" expanded="false" />
-            <element signature="e#10749#11794#0" expanded="false" />
-            <element signature="e#11843#13593#0" expanded="false" />
-            <element signature="e#13641#15450#0" expanded="false" />
-            <element signature="e#15496#16433#0" expanded="false" />
-            <element signature="e#16477#18238#0" expanded="false" />
-            <element signature="e#18281#19215#0" expanded="false" />
-            <element signature="e#19253#20148#0" expanded="false" />
-            <element signature="e#20327#21948#0" expanded="false" />
-            <element signature="e#22020#23641#0" expanded="false" />
-            <element signature="e#23679#25060#0" expanded="false" />
-            <element signature="e#25103#25948#0" expanded="false" />
-            <element signature="e#25991#26233#0" expanded="false" />
-            <element signature="e#28254#28356#0" expanded="false" />
-            <element signature="e#28396#31636#0" expanded="false" />
-            <element signature="e#33113#33297#0" expanded="false" />
-            <element signature="e#33588#33771#0" expanded="false" />
-            <element signature="e#34482#34725#0" expanded="false" />
-            <element signature="e#34770#34997#0" expanded="false" />
-            <element signature="e#35042#35243#0" expanded="false" />
-            <marker date="1473078840000" expanded="true" signature="2415:2425" ph="..." />
-            <marker date="1473078840000" expanded="true" signature="2658:2705" ph="..." />
-            <marker date="1473078840000" expanded="true" signature="2990:3000" ph="..." />
-            <marker date="1473078840000" expanded="true" signature="3174:3180" ph=" " />
-            <marker date="1473078840000" expanded="true" signature="30492:30502" ph="..." />
-            <marker date="1473078840000" expanded="true" signature="31108:31118" ph="..." />
-            <marker date="1473078840000" expanded="true" signature="31960:31966" ph=" " />
-            <marker date="1473078840000" expanded="true" signature="37103:37115" ph="..." />
-            <marker date="1473078840000" expanded="true" signature="37252:37262" ph="..." />
+            <marker date="1473138806000" expanded="true" signature="2415:2425" ph="..." />
+            <marker date="1473138806000" expanded="true" signature="2658:2705" ph="..." />
+            <marker date="1473138806000" expanded="true" signature="2990:3000" ph="..." />
+            <marker date="1473138806000" expanded="true" signature="3174:3180" ph=" " />
+            <marker date="1473138806000" expanded="true" signature="30323:30333" ph="..." />
+            <marker date="1473138806000" expanded="true" signature="30939:30949" ph="..." />
+            <marker date="1473138806000" expanded="true" signature="31791:31797" ph=" " />
+            <marker date="1473138806000" expanded="true" signature="36934:36946" ph="..." />
+            <marker date="1473138806000" expanded="true" signature="37083:37093" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/settings.ejs">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/socket-client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="72" column="23" selection-start-line="72" selection-start-column="23" selection-end-line="72" selection-end-column="23" />
+        <state relative-caret-position="1650">
+          <caret line="110" column="79" selection-start-line="110" selection-start-column="79" selection-end-line="110" selection-end-column="79" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/about.ejs">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="74" column="13" selection-start-line="74" selection-start-column="13" selection-end-line="74" selection-end-column="13" />
+        <state relative-caret-position="645">
+          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/table.ejs">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="138" column="50" selection-start-line="138" selection-start-column="50" selection-end-line="138" selection-end-column="50" />
+        <state relative-caret-position="1155">
+          <caret line="77" column="24" selection-start-line="77" selection-start-column="24" selection-end-line="77" selection-end-column="24" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/table-pc.ejs">
+    <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="27" column="43" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="540">
+          <caret line="218" column="63" selection-start-line="218" selection-start-column="63" selection-end-line="218" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/tables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="50" column="36" selection-start-line="50" selection-start-column="36" selection-end-line="50" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/property.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/game.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="287" column="40" selection-start-line="287" selection-start-column="40" selection-end-line="287" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="354" column="63" selection-start-line="354" selection-start-column="27" selection-end-line="354" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/assets.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
           <folding />
         </state>
       </provider>

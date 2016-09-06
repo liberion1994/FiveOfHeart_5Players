@@ -20,9 +20,4 @@ exports.ChatContentLength = 30;
 exports.ChatMinInterval = 3000;
 
 exports.BuiltInMessageMinInterval = 5000;
-exports.BuiltInMessageTypes = {
-    'praise': 5,
-    'surprise': 6,
-    'taunt': 3,
-    'surrender': 5
-};
+exports.BuiltInMessageTypes = ['赞扬', '惊愕', '嘲讽', '投降'];

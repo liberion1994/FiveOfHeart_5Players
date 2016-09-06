@@ -632,11 +632,6 @@ var OperationArea = function (targetDiv) {
         var endCount = len;
         var _this = this;
 
-        if (!$("#operation-area").hasClass("active")) {
-            //如果不是active的pane,动画会无法播放,因此要直接画出来
-            this.drawCardsInHand();
-            return;
-        }
         for (var i = 0; i < len; i ++) {
             if (!cards[i].view) {
                 endCount --;

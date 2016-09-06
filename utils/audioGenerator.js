@@ -4,59 +4,70 @@
 
 var GameStatus = require('../models/game').GameStatus;
 
-exports.getEnterAudio = function (sid) {
-    return 't0enter_' + sid;
+exports.getEnterAudio = function () {
+    return 'in_game/enter';
 };
 
-exports.getLeaveAudio = function (sid) {
-    return 't0leave_' + sid;
+exports.getLeaveAudio = function () {
+    return 'in_game/leave';
 };
 
-exports.getPrepareAudio = function (sid) {
-    return 't0prepare_' + sid;
+exports.getPrepareAudio = function () {
+    return 'in_game/prepare';
 };
 
-exports.getUnPrepareAudio = function (sid) {
-    return 't0unprepare_' + sid;
+exports.getUnPrepareAudio = function () {
+    return 'in_game/unprepare';
 };
 
 exports.getInGameAudio = function (content, game) {
     switch (content.actionType) {
         case GameStatus.OFFER_MAJOR_AMOUNT:
-            return 't1g1_' + content.amount;
+            return 'in_game/amount' + content.amount;
         case GameStatus.CHOOSE_MAJOR_COLOR:
         case GameStatus.CHOOSE_A_COLOR:
             return content.color;
         case GameStatus.PLAY_CARDS:
             if (content.original)
-                return 'multi_group_fail';
-            if (game.currentTurn.done.length == 1) {
+                return 'in_game/multi_group_fail';
+            if (!game) {
+                //last round's last play
+                return 'in_game/game_over';
+            }
+            if (game.currentTurn.done.length == 0) {
+                //means last play
+                if (game.currentTurn.startSid == content.sid)
+                    return 'in_game/larger';
+                else
+                    return 'in_game/smaller';
+
+            } else if (game.currentTurn.done.length == 1) {
                 var struc = game.cardUtil.getCardStructure(content.cards);
                 var tmp;
                 for (var type2 in struc)
                     tmp = struc[type2];
                 struc = tmp;
                 if (struc.length != 1)
-                    return 'multi_group';
+                    return 'in_game/multi_group';
                 if (struc[0].type == 'tractor')
-                    return 'tractor';
+                    return 'in_game/tractor';
                 switch (struc[0].multi) {
                     case 3:
-                        return 'triple';
+                        return 'in_game/triple';
                     case 2:
-                        return 'double';
+                        return 'in_game/double';
                     case 1:
                         var type = struc[0].content[0].type;
                         if (type != 0)
-                            return 'J';
+                            return 'in_game/J';
                         else
-                            return struc[0].content[0].color;
+                            return 'in_game/' + struc[0].content[0].color;
                 }
             } else {
                 if (game.currentTurn.maxSid == content.sid)
-                    return 'larger';
+                    return 'in_game/larger';
                 else
-                    return 'smaller';
+                    return 'in_game/smaller';
             }
             break;
         default:
