@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/init.js" afterPath="$PROJECT_DIR$/public/javascripts/table/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" afterPath="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-model.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/ui-util.js" afterPath="$PROJECT_DIR$/public/javascripts/table/ui-util.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/table/table.css" afterPath="$PROJECT_DIR$/public/stylesheets/table/table.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/tableList/tableList.css" afterPath="$PROJECT_DIR$/public/stylesheets/tableList/tableList.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socket_io/socketIoServer.js" afterPath="$PROJECT_DIR$/socket_io/socketIoServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,60 +56,60 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table-view.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="table-view.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-360">
-              <caret line="78" column="51" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="51" />
+            <state relative-caret-position="120">
+              <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
                 <element signature="e#3285#4243#0" expanded="false" />
                 <element signature="e#4286#4511#0" expanded="false" />
                 <element signature="e#4568#4800#0" expanded="false" />
-                <element signature="e#6027#7865#0" expanded="false" />
-                <element signature="e#7923#8785#0" expanded="false" />
-                <element signature="e#8896#9400#0" expanded="false" />
-                <element signature="e#9447#9547#0" expanded="false" />
-                <element signature="e#10626#10694#0" expanded="false" />
-                <element signature="e#10765#11810#0" expanded="false" />
-                <element signature="e#11859#13609#0" expanded="false" />
-                <element signature="e#13657#15466#0" expanded="false" />
-                <element signature="e#15512#16449#0" expanded="false" />
-                <element signature="e#16493#18254#0" expanded="false" />
-                <element signature="e#18297#19231#0" expanded="false" />
-                <element signature="e#19269#20164#0" expanded="false" />
-                <element signature="e#20343#21964#0" expanded="false" />
-                <element signature="e#22036#23657#0" expanded="false" />
-                <element signature="e#23695#25076#0" expanded="false" />
-                <element signature="e#25119#25964#0" expanded="false" />
-                <element signature="e#26007#26249#0" expanded="false" />
-                <element signature="e#28693#28795#0" expanded="false" />
-                <element signature="e#28835#32075#0" expanded="false" />
-                <element signature="e#33552#33736#0" expanded="false" />
-                <element signature="e#34031#34214#0" expanded="false" />
-                <element signature="e#34925#35168#0" expanded="false" />
-                <element signature="e#35213#35440#0" expanded="false" />
-                <element signature="e#35485#35686#0" expanded="false" />
-                <marker date="1473166460000" expanded="true" signature="2419:2429" ph="..." />
-                <marker date="1473166460000" expanded="true" signature="2662:2709" ph="..." />
-                <marker date="1473166460000" expanded="true" signature="2679:2708" ph="..." />
-                <marker date="1473166460000" expanded="true" signature="2994:3004" ph="..." />
-                <marker date="1473166460000" expanded="true" signature="3178:3184" ph=" " />
-                <marker date="1473166460000" expanded="true" signature="30931:30941" ph="..." />
-                <marker date="1473166460000" expanded="true" signature="31547:31557" ph="..." />
-                <marker date="1473166460000" expanded="true" signature="32399:32405" ph=" " />
-                <marker date="1473166460000" expanded="true" signature="37554:37566" ph="..." />
-                <marker date="1473166460000" expanded="true" signature="37703:37713" ph="..." />
+                <element signature="e#6070#7908#0" expanded="false" />
+                <element signature="e#7966#8828#0" expanded="false" />
+                <element signature="e#8939#9443#0" expanded="false" />
+                <element signature="e#9490#9590#0" expanded="false" />
+                <element signature="e#10669#10737#0" expanded="false" />
+                <element signature="e#10808#11853#0" expanded="false" />
+                <element signature="e#11902#13652#0" expanded="false" />
+                <element signature="e#13700#15509#0" expanded="false" />
+                <element signature="e#15555#16492#0" expanded="false" />
+                <element signature="e#16536#18297#0" expanded="false" />
+                <element signature="e#18340#19274#0" expanded="false" />
+                <element signature="e#19312#20207#0" expanded="false" />
+                <element signature="e#20386#22007#0" expanded="false" />
+                <element signature="e#22079#23700#0" expanded="false" />
+                <element signature="e#23738#25119#0" expanded="false" />
+                <element signature="e#25162#26007#0" expanded="false" />
+                <element signature="e#26050#26292#0" expanded="false" />
+                <element signature="e#28736#28838#0" expanded="false" />
+                <element signature="e#28878#32118#0" expanded="false" />
+                <element signature="e#33595#33779#0" expanded="false" />
+                <element signature="e#34074#34257#0" expanded="false" />
+                <element signature="e#34968#35211#0" expanded="false" />
+                <element signature="e#35256#35483#0" expanded="false" />
+                <element signature="e#35528#35729#0" expanded="false" />
+                <marker date="1473229044000" expanded="true" signature="2419:2429" ph="..." />
+                <marker date="1473229044000" expanded="true" signature="2662:2709" ph="..." />
+                <marker date="1473229044000" expanded="true" signature="2679:2708" ph="..." />
+                <marker date="1473229044000" expanded="true" signature="2994:3004" ph="..." />
+                <marker date="1473229044000" expanded="true" signature="3178:3184" ph=" " />
+                <marker date="1473229044000" expanded="true" signature="30974:30984" ph="..." />
+                <marker date="1473229044000" expanded="true" signature="31590:31600" ph="..." />
+                <marker date="1473229044000" expanded="true" signature="32442:32448" ph=" " />
+                <marker date="1473229044000" expanded="true" signature="37597:37609" ph="..." />
+                <marker date="1473229044000" expanded="true" signature="37746:37756" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="table-view-pc.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="table-view-pc.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view-pc.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="149" column="55" selection-start-line="149" selection-start-column="55" selection-end-line="149" selection-end-column="55" />
+            <state relative-caret-position="196">
+              <caret line="147" column="130" selection-start-line="147" selection-start-column="86" selection-end-line="147" selection-end-column="130" />
               <folding>
                 <marker date="1473228861000" expanded="true" signature="2419:2429" ph="..." />
                 <marker date="1473228861000" expanded="true" signature="2662:2709" ph="..." />
@@ -128,6 +121,16 @@
                 <marker date="1473228861000" expanded="true" signature="37001:37013" ph="..." />
                 <marker date="1473228861000" expanded="true" signature="37150:37160" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -232,7 +235,6 @@
         <option value="$PROJECT_DIR$/models/agentRepo.js" />
         <option value="$PROJECT_DIR$/models/table.js" />
         <option value="$PROJECT_DIR$/models/agent.js" />
-        <option value="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
         <option value="$PROJECT_DIR$/socket_io/socketIoServer.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/table-model.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
@@ -242,6 +244,7 @@
         <option value="$PROJECT_DIR$/public/stylesheets/tableList/tableList.css" />
         <option value="$PROJECT_DIR$/public/javascripts/table/ui-util.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
       </list>
     </option>
   </component>
@@ -530,7 +533,7 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="$USER_HOME$/node_modules/mocha" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;cli&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;soc&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view-pc.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;ini&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;ma&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;so&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;findOne&#9;null&#9;null&#10;findO&#9;null&#9;null&#10;table.e&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
+    <property name="SearchEverywhereHistoryKey" value="ini&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;cli&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;soc&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view-pc.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;ma&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;so&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;findOne&#9;null&#9;null&#10;findO&#9;null&#9;null&#10;table.e&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -705,7 +708,7 @@
       <workItem from="1473136016988" duration="11000" />
       <workItem from="1473136057431" duration="2264000" />
       <workItem from="1473159680480" duration="4155000" />
-      <workItem from="1473223054165" duration="3727000" />
+      <workItem from="1473223054165" duration="3877000" />
     </task>
     <task id="LOCAL-00001" summary="none">
       <created>1471100550361</created>
@@ -980,7 +983,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473166542944</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="v0.3.2&#10;bugs fixed">
+      <created>1473228878453</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1473228878453</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1016,7 +1026,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="539473000" />
+    <option name="totallyTimeSpent" value="539623000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1037,7 +1047,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739726" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.54226804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4939577" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18416801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1373,53 +1383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-360">
-          <caret line="78" column="51" selection-start-line="78" selection-start-column="40" selection-end-line="78" selection-end-column="51" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="e#3285#4243#0" expanded="false" />
-            <element signature="e#4286#4511#0" expanded="false" />
-            <element signature="e#4568#4800#0" expanded="false" />
-            <element signature="e#6027#7865#0" expanded="false" />
-            <element signature="e#7923#8785#0" expanded="false" />
-            <element signature="e#8896#9400#0" expanded="false" />
-            <element signature="e#9447#9547#0" expanded="false" />
-            <element signature="e#10626#10694#0" expanded="false" />
-            <element signature="e#10765#11810#0" expanded="false" />
-            <element signature="e#11859#13609#0" expanded="false" />
-            <element signature="e#13657#15466#0" expanded="false" />
-            <element signature="e#15512#16449#0" expanded="false" />
-            <element signature="e#16493#18254#0" expanded="false" />
-            <element signature="e#18297#19231#0" expanded="false" />
-            <element signature="e#19269#20164#0" expanded="false" />
-            <element signature="e#20343#21964#0" expanded="false" />
-            <element signature="e#22036#23657#0" expanded="false" />
-            <element signature="e#23695#25076#0" expanded="false" />
-            <element signature="e#25119#25964#0" expanded="false" />
-            <element signature="e#26007#26249#0" expanded="false" />
-            <element signature="e#28693#28795#0" expanded="false" />
-            <element signature="e#28835#32075#0" expanded="false" />
-            <element signature="e#33552#33736#0" expanded="false" />
-            <element signature="e#34031#34214#0" expanded="false" />
-            <element signature="e#34925#35168#0" expanded="false" />
-            <element signature="e#35213#35440#0" expanded="false" />
-            <element signature="e#35485#35686#0" expanded="false" />
-            <marker date="1473166460000" expanded="true" signature="2419:2429" ph="..." />
-            <marker date="1473166460000" expanded="true" signature="2662:2709" ph="..." />
-            <marker date="1473166460000" expanded="true" signature="2679:2708" ph="..." />
-            <marker date="1473166460000" expanded="true" signature="2994:3004" ph="..." />
-            <marker date="1473166460000" expanded="true" signature="3178:3184" ph=" " />
-            <marker date="1473166460000" expanded="true" signature="30931:30941" ph="..." />
-            <marker date="1473166460000" expanded="true" signature="31547:31557" ph="..." />
-            <marker date="1473166460000" expanded="true" signature="32399:32405" ph=" " />
-            <marker date="1473166460000" expanded="true" signature="37554:37566" ph="..." />
-            <marker date="1473166460000" expanded="true" signature="37703:37713" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/stylesheets/tableList/tableList.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1444,14 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1470,10 +1425,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="40" column="9" selection-start-line="40" selection-start-column="9" selection-end-line="40" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view-pc.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="149" column="55" selection-start-line="149" selection-start-column="55" selection-end-line="149" selection-end-column="55" />
+        <state relative-caret-position="196">
+          <caret line="147" column="130" selection-start-line="147" selection-start-column="86" selection-end-line="147" selection-end-column="130" />
           <folding>
             <marker date="1473228861000" expanded="true" signature="2419:2429" ph="..." />
             <marker date="1473228861000" expanded="true" signature="2662:2709" ph="..." />
@@ -1484,6 +1447,53 @@
             <marker date="1473228861000" expanded="true" signature="31846:31852" ph=" " />
             <marker date="1473228861000" expanded="true" signature="37001:37013" ph="..." />
             <marker date="1473228861000" expanded="true" signature="37150:37160" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="143" column="36" selection-start-line="143" selection-start-column="36" selection-end-line="143" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#3285#4243#0" expanded="false" />
+            <element signature="e#4286#4511#0" expanded="false" />
+            <element signature="e#4568#4800#0" expanded="false" />
+            <element signature="e#6070#7908#0" expanded="false" />
+            <element signature="e#7966#8828#0" expanded="false" />
+            <element signature="e#8939#9443#0" expanded="false" />
+            <element signature="e#9490#9590#0" expanded="false" />
+            <element signature="e#10669#10737#0" expanded="false" />
+            <element signature="e#10808#11853#0" expanded="false" />
+            <element signature="e#11902#13652#0" expanded="false" />
+            <element signature="e#13700#15509#0" expanded="false" />
+            <element signature="e#15555#16492#0" expanded="false" />
+            <element signature="e#16536#18297#0" expanded="false" />
+            <element signature="e#18340#19274#0" expanded="false" />
+            <element signature="e#19312#20207#0" expanded="false" />
+            <element signature="e#20386#22007#0" expanded="false" />
+            <element signature="e#22079#23700#0" expanded="false" />
+            <element signature="e#23738#25119#0" expanded="false" />
+            <element signature="e#25162#26007#0" expanded="false" />
+            <element signature="e#26050#26292#0" expanded="false" />
+            <element signature="e#28736#28838#0" expanded="false" />
+            <element signature="e#28878#32118#0" expanded="false" />
+            <element signature="e#33595#33779#0" expanded="false" />
+            <element signature="e#34074#34257#0" expanded="false" />
+            <element signature="e#34968#35211#0" expanded="false" />
+            <element signature="e#35256#35483#0" expanded="false" />
+            <element signature="e#35528#35729#0" expanded="false" />
+            <marker date="1473229044000" expanded="true" signature="2419:2429" ph="..." />
+            <marker date="1473229044000" expanded="true" signature="2662:2709" ph="..." />
+            <marker date="1473229044000" expanded="true" signature="2679:2708" ph="..." />
+            <marker date="1473229044000" expanded="true" signature="2994:3004" ph="..." />
+            <marker date="1473229044000" expanded="true" signature="3178:3184" ph=" " />
+            <marker date="1473229044000" expanded="true" signature="30974:30984" ph="..." />
+            <marker date="1473229044000" expanded="true" signature="31590:31600" ph="..." />
+            <marker date="1473229044000" expanded="true" signature="32442:32448" ph=" " />
+            <marker date="1473229044000" expanded="true" signature="37597:37609" ph="..." />
+            <marker date="1473229044000" expanded="true" signature="37746:37756" ph="..." />
           </folding>
         </state>
       </provider>

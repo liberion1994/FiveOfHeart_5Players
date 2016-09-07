@@ -144,9 +144,9 @@ var TableArea = function (targetDiv) {
         var seat = table.seats[sid];
         if (seat) {
             if (seat.status != AgentStatus.IN_GAME)
-                $('#seat' + index).html(agentStatusToText(seat.status) + seat.username);
+                $('#seat' + index).html(agentStatusToText(seat.status) + seat.username + '&nbsp;' + numberToText(seat.majorNumber));
             else {
-                var inGameStatus = '<i class="icon-group"></i>';
+                var inGameStatus = '<i class="icon-user"></i>';
                 if (table.game.masterSid == sid)
                     inGameStatus = '<i class="icon-star"></i>';
                 else if (table.game.subMasterSid == sid)
