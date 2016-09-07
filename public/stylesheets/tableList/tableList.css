@@ -14,3 +14,7 @@
     color: white;
     cursor: pointer;
 }
+
+a {
+    cursor: pointer;
+}

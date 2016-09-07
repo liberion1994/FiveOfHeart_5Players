@@ -53,7 +53,7 @@ function bootstrapInit() {
     //init popovers
     $('[data-toggle="popover"]').popover();
     $(".nav li.disabled a").click(function() {return false});
-    $(".seat").popover('destroy');
+    $(".no-click").popover('destroy');
 }
 
 function initCtrl() {

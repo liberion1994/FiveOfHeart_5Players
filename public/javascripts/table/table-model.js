@@ -34,8 +34,8 @@ function Table(data) {
     this.onEnterTable = function (event) {
         if (!this.seats[event.sid]) {
             this.seats[event.sid] = {
-                user: event.username,
-                majorNumberInGame: 2,
+                username: event.username,
+                majorNumber: event.majorNumber,
                 status: AgentStatus.UNPREPARED
             };
             ui.onEnterTable(event);

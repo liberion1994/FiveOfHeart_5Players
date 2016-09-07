@@ -106,6 +106,7 @@ function SocketClient() {
     });
 
     this.socket.on('built_in_message', function (res) {
+        ui.displayChatContent(res.sid, '#' + res.type + '#');
         if (settings.soundtrack == "none")
             return;
         playAudio("/assets/audios/" + settings.soundtrack + "/built_in_message/" + res.type);

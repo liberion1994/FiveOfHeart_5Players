@@ -141,6 +141,7 @@ socket_io.init = function (server) {
             .emit('event', {
                 type: AgentCommandType.EnterTable,
                 sid: sid,
+                majorNumber: agent.majorNumber,
                 username: agent.username,
                 eid: agent.currentTable.currentEventId ++,
                 audioSrc: audioGenerator.getEnterAudio()

@@ -2,6 +2,17 @@
  * Created by liboyuan on 16/8/16.
  */
 
+function numberToText(num) {
+    switch (num) {
+        case 11: num = 'J'; break;
+        case 12: num = 'Q'; break;
+        case 13: num = 'K'; break;
+        case 14: num = 'A'; break;
+        default: break;
+    }
+    return num;
+}
+
 function cardToText(card, split) {
     var num = card.number;
     switch (num) {
