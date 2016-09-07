@@ -53,8 +53,8 @@
           </provider>
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="105">
-                <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+              <first_editor relative-caret-position="225">
+                <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -495,7 +495,7 @@
       <workItem from="1473231425179" duration="1670000" />
       <workItem from="1473236386144" duration="436000" />
       <workItem from="1473236840855" duration="1955000" />
-      <workItem from="1473240997662" duration="197000" />
+      <workItem from="1473240997662" duration="356000" />
     </task>
     <task id="LOCAL-00001" summary="none">
       <created>1471100550361</created>
@@ -812,7 +812,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473241139085</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="v0.3.2&#10;game system updated">
+      <created>1473241197502</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1473241197502</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -848,7 +855,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="544183000" />
+    <option name="totallyTimeSpent" value="544342000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1275,8 +1282,8 @@
       </provider>
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="105">
-            <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <first_editor relative-caret-position="225">
+            <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor />

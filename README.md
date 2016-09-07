@@ -13,7 +13,7 @@ A simple card game web application written with node.js.
 
 #   Structure
 *   views
-        ejs templates for rendering html files
+ejs templates for rendering html files
 *   public
         js, css, font, audio and other assets served for frontend
 *   routes
