@@ -201,6 +201,13 @@ function Game(masterSid, majorNumber) {
             if (this.currentTurn.done[i].amount > maxMajorSum) {
                 maxMajorSum = this.currentTurn.done[i].amount;
                 sid = this.currentTurn.done[i].sid;
+            } else if (this.currentTurn.done[i].amount == maxMajorSum) {
+                var curSid = this.currentTurn.done[i].sid;
+                var curMajors = this.cardUtil.getAbsoluteMajor(this.cards[curSid], maxMajorSum);
+                var preMajors = this.cardUtil.getAbsoluteMajor(this.cards[sid], maxMajorSum);
+                if (this.cardUtil.absoluteMajorLarger(curMajors, preMajors, maxMajorSum)) {
+                    sid = curSid;
+                }
             }
         }
         this.currentTurn = {

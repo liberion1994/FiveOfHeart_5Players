@@ -49,7 +49,6 @@ function Table(id) {
     };
 
     this.reset = function () {
-        this.masterInGame = null;
         var _this = this;
         var group = 'table_' + this.id;
         this.tableTimer.restart(-1, function () {
@@ -62,6 +61,7 @@ function Table(id) {
                 noLeft = false;
         }
         if (noLeft) {
+            this.masterInGame = null;
             this.currentEventId = 0;
             this.tableTimer.stop();
         }

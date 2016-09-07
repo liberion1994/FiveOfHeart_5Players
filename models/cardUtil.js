@@ -128,6 +128,20 @@ function CardUtil(majorNumber) {
         return CARD_COLORS[b.color] - CARD_COLORS[a.color];
     };
 
+    /**
+     * 同数量真主的比较
+     * @param cur
+     * @param pre
+     * @param sum
+     * @returns {boolean}
+     */
+    this.absoluteMajorLarger = function (cur, pre, sum) {
+        for (var i = 0; i < sum; i ++) {
+            if (this.numberScale(cur[i]) > this.numberScale(pre[i]))
+                return true;
+        }
+        return false;
+    };
 
     /**
      * 不同牌型的降序,优先考虑多重性,其次考虑长度,即 单3 > 2拖拉机 > 单张

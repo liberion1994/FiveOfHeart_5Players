@@ -13,11 +13,6 @@ function Table(data) {
     }
 
     this.reset = function () {
-        this.masterInGame = null;
-        for (var i = 0; i < 5; i ++) {
-            if (this.seats[i])
-                this.seats[i].majorNumberInGame = 2;
-        }
         this.onTimerCountDown(0);
     };
 
