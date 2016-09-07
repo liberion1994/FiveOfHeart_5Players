@@ -13,22 +13,22 @@ A simple card game web application written with node.js.
 
 #   Structure
 *   views<br>
-ejs templates for rendering html files
-*   public
+        ejs templates for rendering html files
+*   public<br>
         js, css, font, audio and other assets served for frontend
-*   routes
+*   routes<br>
         routers for express application
-*   socket_io
+*   socket_io<br>
         a simple socket.io server to correspond with the front end
-*   modals
+*   modals<br>
         all entities and logic for the game system
-*   utils
+*   utils<br>
         some tools for text and audio operations
-*   properties
+*   properties<br>
         some settings of the game system
-*   daos
+*   daos<br>
         mongoose persistent objects
-*   ai
+*   ai<br>
         game ai
-*   test
+*   test<br>
         test for game system
