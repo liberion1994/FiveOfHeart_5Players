@@ -9,6 +9,8 @@ A simple card game web application written with node.js.
 5.  Start mongodb service on your server
 6.  Run the "www" executable file in "bin" directory
 7.  Visit `http://localhost:3000` through your browser
+
+
 #   Structure
 *   views
         ejs templates for rendering html files
