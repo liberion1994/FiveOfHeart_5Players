@@ -69,7 +69,7 @@ function initCtrl() {
     });
 
     $('#chat-text').keyup(function(event){
-        if(event.keyCode ==13){
+        if(event.keyCode == 13){
             $("#chat-submit").click();
         }
     });
@@ -86,11 +86,16 @@ function initCtrl() {
         socketClient.emitBuiltInMessage(type);
     });
 
+
     $(document).click(function () {
         if (playerInited)
             return;
         playAudio('');
         playerInited = true;
+    }).keypress(function(event){
+        if(event.shiftKey && event.which == 13){
+            $("#chat").click();
+        }
     });
 }
 

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/animate.min.css' />
+
+    <script src="/javascripts/jquery-1.12.4.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/bootstrap-notify.min.js"></script>
+    <script src="/javascripts/navi-bar.js"></script>
+</head>
+<body style="position: absolute; bottom: 0; left: 0; right: 0; top: 50px;">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse"
+                    data-target="#navbar-collapse"
+                    aria-expanded="false">
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><%= username %></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/tables">游戏</a></li>
+                <li class="active"><a href="#">玩家</a></li>
+                <li><a href="/users/settings_page">设置</a></li>
+                <li><a href="/about">关于</a></li>
+                <li><a href="#" id="logout-btn">登出</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div style="height: 100%; position: relative;">
+    <h1 style="padding: 10px; margin: 0;">玩家列表</h1>
+    <td style="position: absolute; top: 60px; left: 0; right: 0; bottom: 0; overflow: scroll">
+        <table class="table table-striped" id="players">
+            <tr>
+                <th>用户名</th><th>状态</th><th>当前主</th><th>积分</th><th>胜率</th><th>升级/局</th>
+                <th>得分/局</th><th>抓到红五/局</th><th>被抓红五/局</th>
+            </tr>
+            <% users.forEach(function (user) { %>
+            <tr>
+                <% for (var type in user) { %>
+                <td><%= user[type] %></td>
+                <% } %>
+            </tr>
+            <% }) %>
+        </table>
+</div>
+</body>
+</html>

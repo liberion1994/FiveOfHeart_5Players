@@ -83,7 +83,7 @@ var TableArea = function (targetDiv) {
                 if (!(table.game.majorColor == '♥' || table.game.majorColor == '♦')) {
                     majorColor = table.game.majorColor + table.game.majorNumber;
                 } else {
-                    majorColor = "<span style='color:red;'>" + table.game.majorColor + table.game.majorNumber + "</span>";
+                    majorColor = "<span style='color:red;'>" + table.game.majorColor + numberToText(table.game.majorNumber) + "</span>";
                 }
             }
             if (table.game.aColor) {
@@ -102,7 +102,6 @@ var TableArea = function (targetDiv) {
     };
 
     this.drawCurrentTurn = function () {
-        //目前只会画card,所以只remove了card
         this.div.children('.card, .amount-display').remove();
         if (!table.game)
             return;
@@ -910,7 +909,6 @@ var UI = function () {
             location.href = '/tables';
         else {
             this.tableArea.updateSeat(sid);
-            this.tableArea.updateActiveSeat(0);
             this.tableArea.updateGameInfo();
             this.logEvent(event);
         }

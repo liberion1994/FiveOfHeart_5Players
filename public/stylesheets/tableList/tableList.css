@@ -6,10 +6,18 @@
     padding: 10px;
 }
 
-.table {
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius:5px;
+@media screen and (min-width: 901px) {
+    .table-wrapper {width: 10%}
+}
+@media screen and (max-width: 901px) {
+    .table-wrapper {width: 20%;}
+}
+@media screen and (max-width: 500px) {
+    .table-wrapper {width: 25%;}
+}
+
+.myTable {
+    border-radius: 15px;
     background: #33bbff;
     color: white;
     cursor: pointer;
@@ -17,4 +25,8 @@
 
 a {
     cursor: pointer;
+}
+
+h1 {
+    padding-left: 10px;
 }

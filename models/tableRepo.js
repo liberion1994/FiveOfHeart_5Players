@@ -2,7 +2,7 @@
  * Created by liboyuan on 16/8/11.
  */
 
-var Table = require('./table').Table;
+var Table = require('./table');
 var Property = require("../properties/property");
 
 var TableRepo = {

@@ -12,8 +12,10 @@ router.get('/',
     passport.isAuthenticatedBackToLogin,
     function(req, res) {
         var agent = req.user.agent;
-        if (agent.currentTable == null)
+        if (agent.currentTable == null) {
+            var ua = req.headers['user-agent'];
             res.render('tableList', {tables: TableRepo.getAllTablesInfo(), username: agent.username});
+        }
         else
             res.redirect('/tables/' + agent.currentTable.id);
     }

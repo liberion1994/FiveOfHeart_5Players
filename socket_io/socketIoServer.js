@@ -5,18 +5,8 @@ var socket_io = require('socket.io');
 var sessionMiddleware = require('../middleware');
 var Property = require("../properties/property.js");
 var audioGenerator = require('../utils/audioGenerator');
-var Agent = require("../models/agent.js");
 var logger = require("../log4js").getLogger('socket_server');
-
-var AgentCommandType = {
-    IntoTable:  0,
-    EnterTable: 1,
-    LeaveTable: 2,
-    Prepare:    3,
-    UnPrepare:  4,
-    InGame:     5,
-    Disconnect: 6
-};
+var Types = require("../properties/types");
 
 socket_io.init = function (server) {
     //require can only be here since it's just a function called
@@ -42,8 +32,9 @@ socket_io.init = function (server) {
             var agent = getAgent(socket);
             if (agent == null)
                 return emitErr('找不到您的代理!');
+
             if (agent.currentTable == null)
-                return emitErr('找不到您所在的桌子!');
+                return;
 
             logger.trace('Receive socket from ' + agent.username + ' in table ' + agent.currentTable.id);
             socket.on('disconnect', function () {
@@ -54,19 +45,19 @@ socket_io.init = function (server) {
                 logger.trace('Receive command from ' + agent.username);
                 logger.info(command);
                 switch (command.type) {
-                    case AgentCommandType.IntoTable:
+                    case Types.AgentCommandType.IntoTable:
                         socket_io.io.onIntoTable(agent, socket);
                         break;
-                    case AgentCommandType.LeaveTable:
+                    case Types.AgentCommandType.LeaveTable:
                         socket_io.io.onLeaveTable(agent, false, emitErr, emitFail);
                         break;
-                    case AgentCommandType.Prepare:
+                    case Types.AgentCommandType.Prepare:
                         socket_io.io.onPrepare(agent, emitErr, emitFail);
                         break;
-                    case AgentCommandType.UnPrepare:
+                    case Types.AgentCommandType.UnPrepare:
                         socket_io.io.onUnPrepare(agent, emitErr, emitFail);
                         break;
-                    case AgentCommandType.InGame:
+                    case Types.AgentCommandType.InGame:
                         socket_io.io.onInGame(agent, command, false, emitErr, emitFail);
                         break;
                     default:
@@ -124,7 +115,7 @@ socket_io.init = function (server) {
         var group = 'table_' + agent.currentTable.id;
         socket_io.io.in(group)
             .emit('event', {
-                type: AgentCommandType.Disconnect,
+                type: Types.AgentCommandType.Disconnect,
                 sid: agent.currentTable.agentToSid(agent),
                 username: agent.username,
                 eid: agent.currentTable.currentEventId ++
@@ -139,7 +130,7 @@ socket_io.init = function (server) {
         var group = 'table_' + agent.currentTable.id;
         socket_io.io.in(group)
             .emit('event', {
-                type: AgentCommandType.EnterTable,
+                type: Types.AgentCommandType.EnterTable,
                 sid: sid,
                 majorNumber: agent.majorNumber,
                 username: agent.username,
@@ -157,7 +148,7 @@ socket_io.init = function (server) {
         var group = 'table_' + agent.currentTable.id;
         socket_io.io.in(group)
             .emit('event', {
-                type: AgentCommandType.IntoTable,
+                type: Types.AgentCommandType.IntoTable,
                 sid: agent.currentTable.agentToSid(agent),
                 username: agent.username,
                 eid: agent.currentTable.currentEventId ++
@@ -173,7 +164,7 @@ socket_io.init = function (server) {
         var group = 'table_' + table.id;
         var sid = table.agentToSid(agent);
         var ret = {
-            type: AgentCommandType.LeaveTable,
+            type: Types.AgentCommandType.LeaveTable,
             sid: sid,
             username: agent.username,
             force: force,
@@ -185,8 +176,6 @@ socket_io.init = function (server) {
             ret.eid = table.currentEventId ++;
             socket_io.io.in(group)
                 .emit('event', ret);
-            //在大厅中的agent没有任何有用的状态信息,因此可以删除;此时当前访问还是拥有该agent的引用,所以还能找到
-            AgentRepo.deleteAgentByUsername(agent.username);
 
             logger.trace('Response: LeaveTable');
         });
@@ -198,7 +187,7 @@ socket_io.init = function (server) {
         agent.prepareForGame(fail, function () {
             socket_io.io.in(group)
                 .emit('event', {
-                    type: AgentCommandType.Prepare,
+                    type: Types.AgentCommandType.Prepare,
                     sid: sid,
                     username: agent.username,
                     eid: agent.currentTable.currentEventId ++,
@@ -213,7 +202,7 @@ socket_io.init = function (server) {
         agent.unPrepareForGame(fail, function () {
             socket_io.io.in('table_' + agent.currentTable.id)
                 .emit('event', {
-                    type: AgentCommandType.UnPrepare,
+                    type: Types.AgentCommandType.UnPrepare,
                     sid: sid,
                     username: agent.username,
                     eid: agent.currentTable.currentEventId ++,
@@ -231,7 +220,7 @@ socket_io.init = function (server) {
             var table = agent.currentTable;
             socket_io.io.in(group)
                 .emit('event', {
-                    type: AgentCommandType.InGame,
+                    type: Types.AgentCommandType.InGame,
                     content: event,
                     sid: table.agentToSid(agent),
                     username: agent.username,

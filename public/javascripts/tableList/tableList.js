@@ -2,13 +2,40 @@
  * Created by liboyuan on 16/8/17.
  */
 
+var AgentStatus = {
+    HALL        : 1,
+    UNPREPARED  : 2,
+    PREPARED    : 3,
+    IN_GAME     : 4
+};
+
 var seatsName = [
     '甲', '乙', '丙', '丁', '戊'
 ];
 
+function notify(text, type) {
+    $.notify({
+        message: text
+    }, {
+        element: 'body',
+        delay: 1000,
+        timer: 1000,
+        placement : {
+            from: 'bottom',
+            align: 'center'
+        },
+        animate: {
+            enter: 'animated fadeInUp',
+            exit: 'animated fadeOutDown'
+        },
+        allow_dismiss: false,
+        type: type || 'danger'
+    });
+}
+
 $(document).ready(function () {
 
-    var divs = $('.table');
+    var divs = $('.myTable');
     divs.click(function () {
         var tid = $(this).attr('table-id');
         $.ajax({
@@ -47,7 +74,7 @@ $(document).ready(function () {
                     });
                 });
             },
-            error: function (msg) {
+            error: function () {
                 alert('发生错误,似乎是登录会话过期,请刷新试试');
             }
         });
@@ -56,12 +83,14 @@ $(document).ready(function () {
 
     var width = divs.css('width');
     divs.css('height', width)
-        .css('line-height', width);
+        .css('line-height', width)
+        .css('border-radius', parseInt(width) / 2);
 
     $(window).resize(function () {
         var width = divs.css('width');
         divs.css('height', width)
-            .css('line-height', width);
+            .css('line-height', width)
+            .css('border-radius', parseInt(width) / 2);
     });
 
 });

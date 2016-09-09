@@ -4,8 +4,8 @@
 
 var Property = require('../properties/property');
 var Game = require('./game');
-var Agent = require('./agent');
 var socket_io = require('../socket_io/socketIoServer');
+var Types = require("../properties/types");
 
 function Table(id) {
     this.id = id;
@@ -146,7 +146,7 @@ function Table(id) {
                         {consequence: 'leave', count: _this.tableTimer.currentCount, eid: _this.currentEventId});
                 }, function () {
                     for (var i = 0; i < Property.GamePlayers; i ++) {
-                        if (_this.agents[i] && _this.agents[i].status == Agent.AgentStatus.UNPREPARED) {
+                        if (_this.agents[i] && _this.agents[i].status == Types.AgentStatus.UNPREPARED) {
                             socket_io.io.onLeaveTable(_this.agents[i], true);
                         }
                     }
@@ -175,15 +175,15 @@ function Table(id) {
         for (var i = 0; i < Property.GamePlayers; i ++) {
             if (this.agents[i] == null)
                 return callback();
-            else if (this.agents[i].status != Agent.AgentStatus.PREPARED)
+            else if (this.agents[i].status != Types.AgentStatus.PREPARED)
                 return callback();
         }
-        var majorNum = Property.StartMajorNumber;
+        var majorNum = this.agents[0].majorNumber;
         if (this.masterInGame != null)
             majorNum = this.agents[this.masterInGame].majorNumber;
         this.game = new Game.Game(this.masterInGame, majorNum);
         for (var j = 0; j < Property.GamePlayers; j ++)
-            this.agents[j].status = Agent.AgentStatus.IN_GAME;
+            this.agents[j].status = Types.AgentStatus.IN_GAME;
 
         var group = 'table_' + this.id;
         var _this = this;
@@ -245,12 +245,13 @@ function Table(id) {
     this.onGameEnd = function () {
         /**
          * 游戏结束:
-         * 1.更新每家打的点数
+         * 1.更新每家打的点数，包括其他数据
          * 2.确定下一句的庄家
-         * 3.所有玩家状态变为为准备
+         * 3.所有玩家状态变为未准备
          * 4.删除前一局游戏
          * 5.重新打开准备计时器
          */
+        this.updateStatistics();
         if (this.game.result.winners == '庄家') {
             this.levelUp(this.game.masterSid, this.game.result.levelUp);
             if (this.game.subMasterSid != null) {
@@ -272,11 +273,12 @@ function Table(id) {
                 }
             }
         }
+
         this.game = null;
         var _this = this;
         for (var j = 0; j < Property.GamePlayers; j ++) {
             //不准备的话原则上不让取消准备,所以这里这么操作
-            this.agents[j].status = Agent.AgentStatus.PREPARED;
+            this.agents[j].status = Types.AgentStatus.PREPARED;
             this.agents[j].unPrepareForGame(function () {}, function () {
                 var group = 'table_' + _this.id;
                 _this.tableTimer.restart(Property.NotPrepareOutTimeTableFullWithLastGameEnd,
@@ -285,7 +287,7 @@ function Table(id) {
                             {consequence: 'leave', count: _this.tableTimer.currentCount, eid: _this.currentEventId});
                     }, function () {
                         for (var i = 0; i < Property.GamePlayers; i++) {
-                            if (_this.agents[i] && _this.agents[i].status == Agent.AgentStatus.UNPREPARED) {
+                            if (_this.agents[i] && _this.agents[i].status == Types.AgentStatus.UNPREPARED) {
                                 socket_io.io.onLeaveTable(_this.agents[i], true);
                             }
                         }
@@ -303,7 +305,81 @@ function Table(id) {
             if (this.agents[sid].majorNumber > 14)
                 this.agents[sid].majorNumber -= 13;
         }
+    };
+
+    this.updateStatistics = function () {
+        for (var i = 0; i < Property.GamePlayers; i ++) {
+            if (i == this.game.masterSid) {
+                this.agents[i].statistics.games.major ++;
+                if (this.game.result.winners == '庄家') {
+                    this.agents[i].statistics.wins.major ++;
+                    this.agents[i].statistics.levelUps.major += this.game.result.levelUp;
+                    if (this.game.subMasterSid != null)
+                        this.agents[i].statistics.score += 3;
+                    else
+                        this.agents[i].statistics.score += 6;
+                } else {
+                    if (this.game.subMasterSid != null)
+                        this.agents[i].statistics.score -= 3;
+                    else
+                        this.agents[i].statistics.score -= 6;
+                }
+                this.agents[i].statistics.points.major += this.game.points[i] +
+                    this.game.result.fohIn[i] * 55;
+                this.agents[i].statistics.fohIn.major += this.game.result.fohIn[i];
+                this.agents[i].statistics.fohOut.major += this.game.result.fohOut[i];
+            } else if (i == this.game.subMasterSid) {
+                this.agents[i].statistics.games.subMajor ++;
+                if (this.game.result.winners == '庄家') {
+                    this.agents[i].statistics.wins.subMajor ++;
+                    this.agents[i].statistics.levelUps.subMajor += this.game.result.levelUp;
+                    this.agents[i].statistics.score += 3;
+                } else {
+                    this.agents[i].statistics.score -= 3;
+                }
+                this.agents[i].statistics.points.subMajor += this.game.points[i] +
+                    this.game.result.fohIn[i] * 55;
+                this.agents[i].statistics.fohIn.subMajor += this.game.result.fohIn[i];
+                this.agents[i].statistics.fohOut.subMajor += this.game.result.fohOut[i];
+            } else {
+                this.agents[i].statistics.games.slave ++;
+                if (this.game.result.winners == '闲家') {
+                    this.agents[i].statistics.wins.slave ++;
+                    this.agents[i].statistics.levelUps.slave += this.game.result.levelUp;
+                    this.agents[i].statistics.score += 2;
+                } else {
+                    this.agents[i].statistics.score -= 2;
+                }
+                this.agents[i].statistics.points.slave += this.game.points[i] +
+                    this.game.result.fohIn[i] * 55;
+                this.agents[i].statistics.fohIn.slave += this.game.result.fohIn[i];
+                this.agents[i].statistics.fohOut.slave += this.game.result.fohOut[i];
+            }
+            this.agents[i].statistics.score += this.game.result.fohIn[i];
+            this.agents[i].statistics.score -= this.game.result.fohOut[i];
+        }
+        if (this.game.result.winners == '庄家') {
+            this.levelUp(this.game.masterSid, this.game.result.levelUp);
+            if (this.game.subMasterSid != null) {
+                this.masterInGame = this.game.subMasterSid;
+                this.levelUp(this.game.subMasterSid, this.game.result.levelUp);
+            } else {
+                this.masterInGame = this.game.masterSid;
+            }
+        } else {
+            var matched = false;
+            for (var i = 1; i < Property.GamePlayers; i ++) {
+                var tmpId = (this.game.masterSid + i) % Property.GamePlayers;
+                if (this.game.subMasterSid != tmpId) {
+                    this.levelUp(tmpId, this.game.result.levelUp);
+                    if (!matched) {
+                        this.masterInGame = tmpId;
+                        matched = true;
+                    }
+                }
+            }
+        }
     }
 }
 
-exports.Table = Table;
+module.exports = Table;

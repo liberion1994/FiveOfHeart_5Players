@@ -41,6 +41,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/tables">游戏</a></li>
+                <li><a href="/users/user_list">玩家</a></li>
                 <li><a href="/users/settings_page">设置</a></li>
                 <li class="active"><a href="#">关于</a></li>
                 <li><a href="#" id="logout-btn">登出</a></li>
@@ -68,6 +69,26 @@
         <p>接入微信公众平台</p>
 
         <h2>更新日志</h2>
+        <h3>V0.4</h3>
+        <dl>
+            <dt>新增数据统计&玩家页面</dt>
+            <dd>现在游戏系统会统计每位玩家的数据，并在"玩家"页面中显示</dd>
+            <dd>＊玩家的数据只有在离开座位后才会得到更新</dd>
+        </dl>
+        <dl>
+            <dt>游戏机制调整</dt>
+            <dd>现在每桌第一局游戏由固定打2改为打座位甲玩家的主数字</dd>
+        </dl>
+        <dl>
+            <dt>UI微调</dt>
+            <dd>现在PC端的"大厅"页面更加友好一些</dd>
+            <dd>现在按Shift+Enter键可以直接调出消息发送框</dd>
+        </dl>
+        <dl>
+            <dt>bug修复</dt>
+            <dd>修复部分显示bug</dd>
+            <dd>优化了玩家agent的内存回收</dd>
+        </dl>
         <h3>V0.3.2</h3>
         <dl>
             <dt>游戏机制调整</dt>
@@ -114,7 +135,7 @@
         <dl>
             <dt>增加掉线判定</dt>
             <dd>游戏历史中会显示玩家掉线与连入游戏的信息</dd>
-            <dd>玩家30分钟内没有进行有效操作会被踢出桌子</dd>
+            <dd>玩家<spin style="text-decoration: line-through">30</spin>10分钟内没有进行有效操作会被踢出桌子</dd>
         </dl>
         <dl>
             <dt>杂项</dt>

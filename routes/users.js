@@ -4,7 +4,7 @@ var passport = require('../passport');
 var agentRepo = require('../models/agentRepo');
 var User = require('../daos/userDAO');
 var validator = require('../utils/validator');
-var Agent = require("../models/agent");
+var Types = require("../properties/types");
 
 router.post('/login',
     function (req, res, next) {
@@ -26,9 +26,9 @@ router.post('/logout',
     passport.isAuthenticated,
     function(req, res) {
         var agent = req.user.agent;
-        if (agent.status == Agent.AgentStatus.IN_GAME) {
+        if (agent.status == Types.AgentStatus.IN_GAME) {
             return res.status(400).send('您正在游戏中,无法登出');
-        } else if (agent.status != Agent.AgentStatus.HALL) {
+        } else if (agent.status != Types.AgentStatus.HALL) {
             return res.status(400).send('您正在房间内,请先退出房间');
         }
         req.logOut();
@@ -91,6 +91,50 @@ router.get('/settings_page',
         var agent = req.user.agent;
         var settings = req.user.settings;
         res.render('settings', {username: agent.username, settings: settings});
+    }
+);
+
+router.get('/user_list',
+    passport.isAuthenticatedBackToLogin,
+    function(req, res) {
+        User.find({}, function (err, users) {
+            if (err) {
+                res.status(400).send('无法获取用户列表');
+            } else {
+                var len = users.length;
+                var arr = [];
+                for (var i = 0; i < len; i ++) {
+                    var username = users[i].username;
+                    var agent = agentRepo.findAgentByUsername(username);
+                    var status = '离线';
+                    if (agent) {
+                        if (agent.status == Types.AgentStatus.HALL)
+                            status = '大厅';
+                        else
+                            status = '第' + agent.currentTable.id + '桌';
+                    }
+                    var info = {
+                        username: users[i].username,
+                        status: status,
+                        majorNumber: users[i].majorNumber
+                    };
+                    var sta = users[i].getStatistics();
+                    for (var type in sta)
+                        info[type] = sta[type];
+                    arr.push(info);
+                }
+                arr.sort(function (a, b) {
+                    if (a.status == '离线' && b.status != '离线')
+                        return 1;
+                    if (b.status == '离线' && a.status != '离线')
+                        return -1;
+                    return parseFloat(b.winRate) - parseFloat(a.winRate);
+                });
+                agent = req.user.agent;
+                res.render('users', {users: arr, username: agent.username});
+            }
+
+        });
     }
 );
 

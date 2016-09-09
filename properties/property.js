@@ -14,7 +14,10 @@ exports.NotPrepareOutTime = 60;
 exports.NotPrepareOutTimeTableFull = 10;
 exports.NotPrepareOutTimeTableFullWithLastGameEnd = 30;
 exports.InGameTime = 60;
-exports.NoValidActionOutTime = 30 * 60;
+exports.NoValidActionOutTime = 10 * 60;
+
+exports.AgentRepoRetrieveTime = 30 * 60 * 1000;
+exports.RetrieveTimeOut = 10 * 60 * 1000;
 
 exports.ChatContentLength = 30;
 exports.ChatMinInterval = 3000;

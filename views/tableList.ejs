@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/tableList/tableList.css' />
+    <link rel='stylesheet' href='/stylesheets/animate.min.css' />
 
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/bootstrap-notify.min.js"></script>
     <script src="/javascripts/navi-bar.js"></script>
     <script src="/javascripts/tableList/tableList.js"></script>
 </head>
-<body>
+<body style="position: absolute; bottom: 0; left: 0; right: 0; top: 50px;">
 
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -35,6 +36,7 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="#">游戏</a></li>
+                    <li><a href="/users/user_list">玩家</a></li>
                     <li><a href="/users/settings_page">设置</a></li>
                     <li><a href="/about">关于</a></li>
                     <li><a href="#" id="logout-btn">登出</a></li>
@@ -42,22 +44,20 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-
-    <div class="container">
-        <div id="table-option" class="modal fade">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header" id="table-modal-header"></div>
-                    <div class="modal-body" id="table-modal-body"><p>桌面信息</p></div>
-                </div>
+    <div id="table-option" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" id="table-modal-header"></div>
+                <div class="modal-body" id="table-modal-body"><p>桌面信息</p></div>
             </div>
         </div>
-        <h1>大厅</h1>
-        <div>
-
+    </div>
+    <div style="height: 100%; position: relative;">
+        <h1 style="padding: 10px; margin: 0;">大厅</h1>
+        <div style="position: absolute; top: 60px; left: 0; right: 0; bottom: 0; overflow: scroll">
             <% tables.forEach(function (table) { %>
                 <div class="table-wrapper">
-                    <div class="table" table-id='<%= table.id%>'>
+                    <div class="myTable" table-id='<%= table.id%>'>
                         第<%= table.id %>桌
                     </div>
                 </div>

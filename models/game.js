@@ -5,14 +5,7 @@
 var CardUtil = require('./cardUtil');
 var Property = require("../properties/property");
 var AutoPlayer = require('../ai/autoPlayer');
-
-var GameStatus = {
-    OFFER_MAJOR_AMOUNT  : 1,
-    CHOOSE_MAJOR_COLOR  : 2,
-    RESERVE_CARDS       : 3,
-    CHOOSE_A_COLOR      : 4,
-    PLAY_CARDS          : 5
-};
+var Types = require("../properties/types");
 
 
 function Game(masterSid, majorNumber) {
@@ -53,12 +46,12 @@ function Game(masterSid, majorNumber) {
             caught5Heart: this.caught5Heart,
 
             cards: this.cards[sid],
-            reservedCards: (sid == this.masterSid && this.currentTurn.status > GameStatus.CHOOSE_MAJOR_COLOR) ? this.reservedCards : null
+            reservedCards: (sid == this.masterSid && this.currentTurn.status > Types.GameStatus.CHOOSE_MAJOR_COLOR) ? this.reservedCards : null
         }
     };
 
     this.getReservedCards = function (sid) {
-        return (sid == this.masterSid && this.currentTurn.status > GameStatus.CHOOSE_MAJOR_COLOR) ? this.reservedCards : null;
+        return (sid == this.masterSid && this.currentTurn.status > Types.GameStatus.CHOOSE_MAJOR_COLOR) ? this.reservedCards : null;
     };
 
     /**
@@ -69,20 +62,27 @@ function Game(masterSid, majorNumber) {
         var slavePoints = 0;
         //刚好的话是不升级的
         var slaveUpper = 0;
+        var fohIn = [0, 0, 0, 0, 0],
+            fohOut = [0, 0, 0, 0, 0];
         for (var i = 0; i < Property.GamePlayers; i ++) {
             var tmpLen = this.caught5Heart[i].length;
             if (i != this.masterSid && i != this.subMasterSid) {
                 slavePoints += this.points[i];
                 for (var j = 0; j < tmpLen; j ++) {
                     var from = this.caught5Heart[i][j];
-                    if (from == this.masterSid || from == this.subMasterSid)
+                    if (from == this.masterSid || from == this.subMasterSid) {
                         slavePoints += 55;
+                        fohIn[i] ++;
+                        fohOut[from] ++;
+                    }
                 }
             } else {
                 for (var j2 = 0; j2 < tmpLen; j2 ++) {
                     var from2 = this.caught5Heart[i][j2];
                     if (!(from2 == this.masterSid || from2 == this.subMasterSid)) {
                         slavePoints -= 60;
+                        fohIn[i] ++;
+                        fohOut[from2] ++;
                     }
                 }
             }
@@ -110,7 +110,9 @@ function Game(masterSid, majorNumber) {
             slavePoints: slavePoints,
             reservedCards: this.reservedCards,
             winners: winners,
-            levelUp: slaveUpper
+            levelUp: slaveUpper,
+            fohIn: fohIn,
+            fohOut: fohOut
         };
     };
 
@@ -140,7 +142,7 @@ function Game(masterSid, majorNumber) {
         this.dealCards(this.cardUtil.getShuffledCards());
         var startSid = this.masterSid == null ? 0 : this.masterSid;
         this.currentTurn = {
-            status: GameStatus.OFFER_MAJOR_AMOUNT,
+            status: Types.GameStatus.OFFER_MAJOR_AMOUNT,
             startSid: startSid,
             remainedSid: [],
             done: [],
@@ -174,19 +176,19 @@ function Game(masterSid, majorNumber) {
         if (this.currentTurn.remainedSid.length != 0)
             return;
         switch (this.currentTurn.status) {
-            case GameStatus.OFFER_MAJOR_AMOUNT:
+            case Types.GameStatus.OFFER_MAJOR_AMOUNT:
                 this.waitingForChooseMajorColor(content);
                 break;
-            case GameStatus.CHOOSE_MAJOR_COLOR:
+            case Types.GameStatus.CHOOSE_MAJOR_COLOR:
                 this.waitingForReserveCards(content);
                 break;
-            case GameStatus.RESERVE_CARDS:
+            case Types.GameStatus.RESERVE_CARDS:
                 this.waitingForChooseAColor(content);
                 break;
-            case GameStatus.CHOOSE_A_COLOR:
+            case Types.GameStatus.CHOOSE_A_COLOR:
                 this.waitingForPlayCards(content);
                 break;
-            case GameStatus.PLAY_CARDS:
+            case Types.GameStatus.PLAY_CARDS:
                 this.waitingForPlayCardsNextRound(content);
                 break;
             default:
@@ -211,7 +213,7 @@ function Game(masterSid, majorNumber) {
             }
         }
         this.currentTurn = {
-            status: GameStatus.CHOOSE_MAJOR_COLOR,
+            status: Types.GameStatus.CHOOSE_MAJOR_COLOR,
             startSid: sid,
             remainedSid: [],
             done: [],
@@ -230,7 +232,7 @@ function Game(masterSid, majorNumber) {
 
     this.waitingForReserveCards = function (content) {
         this.currentTurn = {
-            status: GameStatus.RESERVE_CARDS,
+            status: Types.GameStatus.RESERVE_CARDS,
             startSid: this.masterSid,
             remainedSid: [],
             done: [],
@@ -244,7 +246,7 @@ function Game(masterSid, majorNumber) {
 
     this.waitingForChooseAColor = function (content) {
         this.currentTurn = {
-            status: GameStatus.CHOOSE_A_COLOR,
+            status: Types.GameStatus.CHOOSE_A_COLOR,
             startSid: this.masterSid,
             remainedSid: [],
             done: [],
@@ -259,7 +261,7 @@ function Game(masterSid, majorNumber) {
     this.waitingForPlayCards = function (content) {
         var sid = this.masterSid;
         this.currentTurn = {
-            status: GameStatus.PLAY_CARDS,
+            status: Types.GameStatus.PLAY_CARDS,
             startSid: sid,
             remainedSid: [],
             done: [],
@@ -300,7 +302,7 @@ function Game(masterSid, majorNumber) {
             content.updated.result = this.result;
         } else {
             this.currentTurn = {
-                status: GameStatus.PLAY_CARDS,
+                status: Types.GameStatus.PLAY_CARDS,
                 startSid: sid,
                 remainedSid: [],
                 done: [],
@@ -321,19 +323,19 @@ function Game(masterSid, majorNumber) {
         if (action != this.currentTurn.status)
             return err('现在不是做这个的时候');
         switch (this.currentTurn.status) {
-            case GameStatus.OFFER_MAJOR_AMOUNT:
+            case Types.GameStatus.OFFER_MAJOR_AMOUNT:
                 this.offerMajorAmount(sid, content, err, function (action) { callback(action) });
                 break;
-            case GameStatus.CHOOSE_MAJOR_COLOR:
+            case Types.GameStatus.CHOOSE_MAJOR_COLOR:
                 this.chooseMajorColor(sid, content, err, function (action) { callback(action) });
                 break;
-            case GameStatus.RESERVE_CARDS:
+            case Types.GameStatus.RESERVE_CARDS:
                 this.reserveCards(sid, content, err, function (action) { callback(action) });
                 break;
-            case GameStatus.CHOOSE_A_COLOR:
+            case Types.GameStatus.CHOOSE_A_COLOR:
                 this.chooseAColor(sid, content, err, function (action) { callback(action) });
                 break;
-            case GameStatus.PLAY_CARDS:
+            case Types.GameStatus.PLAY_CARDS:
                 return this.playCards(sid, content, err, function (action) { callback(action) });
                 break;
             default:
@@ -524,5 +526,4 @@ function Game(masterSid, majorNumber) {
     this.init();
 }
 
-exports.GameStatus = GameStatus;
-exports.Game = Game;
+module.exports = Game;

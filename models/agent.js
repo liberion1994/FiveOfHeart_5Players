@@ -6,22 +6,18 @@ var tableRepo = require('./tableRepo');
 var Property = require("../properties/property");
 var socket_io = require("../socket_io/socketIoServer");
 var User = require('../daos/userDAO');
-
-var AgentStatus = {
-    HALL        : 1,
-    UNPREPARED  : 2,
-    PREPARED    : 3,
-    IN_GAME     : 4
-};
+var agentRepo = require("./agentRepo");
+var Types = require("../properties/types");
 
 var Agent = function (user) {
     this.username = user.username;
     this.majorNumber = user.majorNumber;
-    this.status = AgentStatus.HALL;
+    this.status = Types.AgentStatus.HALL;
     this.currentTable = null;
+    this.activeDate = new Date();
+    this.statistics = user.statistics;
 
     var ref = this;
-
     this.leaveTimer = {
         currentCount: -1,
         restart: function () {
@@ -34,7 +30,8 @@ var Agent = function (user) {
                     _this.currentCount --;
                 if (_this.currentCount == 0) {
                     clearInterval(_this.timer);
-                    socket_io.io.onLeaveTable(ref, true);
+                    if (ref.status != Types.AgentStatus.HALL)
+                        socket_io.io.onLeaveTable(ref, true);
                 }
             }, 1000);
         },
@@ -72,12 +69,14 @@ var Agent = function (user) {
         return {
             username: this.username,
             status: this.status,
-            majorNumber: this.majorNumber
+            majorNumber: this.majorNumber,
+            tableId: this.currentTable ? this.currentTable.id : null,
+            activeDate: this.activeDate
         };
     };
 
     this.enterTable = function (tid, sid, err, callback) {
-        if (this.status != AgentStatus.HALL)
+        if (this.status != Types.AgentStatus.HALL)
             return err('你已经坐在哪张桌子了吧,刷新试试');
         var table = tableRepo.findTableById(tid);
         if (table == null)
@@ -86,14 +85,15 @@ var Agent = function (user) {
         table.enterAgent(this, sid, err, function () {
             _this.prepareTimer.restart();
             _this.leaveTimer.restart();
-            _this.status = AgentStatus.UNPREPARED;
+            _this.activeDate = new Date();
+            _this.status = Types.AgentStatus.UNPREPARED;
             _this.currentTable = table;
             callback();
         });
     };
 
     this.leaveTable = function (err, callback) {
-        if (this.status == AgentStatus.HALL)
+        if (this.status == Types.AgentStatus.HALL)
             return err('你现在没有在桌子上吧');
         var table = this.currentTable;
         if (table == null)
@@ -102,11 +102,13 @@ var Agent = function (user) {
         table.leaveAgent(this, err, function () {
             _this.prepareTimer.stop();
             _this.leaveTimer.stop();
-            _this.status = AgentStatus.HALL;
+            _this.activeDate = new Date();
+            _this.status = Types.AgentStatus.HALL;
             _this.currentTable = null;
+
             //save back should be conducted here
             var conditions = { username: _this.username }
-                , update = { $set: { majorNumber: _this.majorNumber }}
+                , update = { $set: { majorNumber: _this.majorNumber, statistics: _this.statistics }}
                 , options = { multi: false };
             User.update(conditions, update, options, function () {
                 callback();
@@ -116,34 +118,36 @@ var Agent = function (user) {
     };
 
     this.prepareForGame = function (err, callback) {
-        if (this.status != AgentStatus.UNPREPARED)
+        if (this.status != Types.AgentStatus.UNPREPARED)
             return err('现在这个状态没法准备呀');
         var table = this.currentTable;
         if (table == null)
             return err('找不到这张桌子唉');
-        this.status = AgentStatus.PREPARED;
+        this.status = Types.AgentStatus.PREPARED;
         this.prepareTimer.stop();
         this.leaveTimer.restart();
+        this.activeDate = new Date();
         table.checkGameStart(err, function () {
             callback();
         });
     };
 
     this.unPrepareForGame = function (err, callback) {
-        if (this.status != AgentStatus.PREPARED)
+        if (this.status != Types.AgentStatus.PREPARED)
             return err('现在这个状态没法准备呀');
         var table = this.currentTable;
         if (table == null)
             return err('找不到这张桌子唉');
-        this.status = AgentStatus.UNPREPARED;
+        this.status = Types.AgentStatus.UNPREPARED;
         var _this = this;
         this.prepareTimer.restart();
         this.leaveTimer.restart();
+        this.activeDate = new Date();
         callback();
     };
 
     this.operateInGame = function (actionType, content, err, callback) {
-        if (this.status != AgentStatus.IN_GAME)
+        if (this.status != Types.AgentStatus.IN_GAME)
             return err('你是不是没在游戏中呢');
         var table = this.currentTable;
         if (table == null)
@@ -151,10 +155,12 @@ var Agent = function (user) {
         var _this = this;
         table.inGameOperation(this, actionType, content, err, function (action) {
             _this.leaveTimer.restart();
+            _this.activeDate = new Date();
             callback(action);
         });
     };
+
+    this.leaveTimer.restart();
 };
 
-exports.AgentStatus = AgentStatus;
-exports.Agent = Agent;
+module.exports = Agent;

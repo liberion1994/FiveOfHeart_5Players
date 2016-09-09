@@ -16,8 +16,6 @@ function errLog(msg) {
 }
 
 
-//TODO save the test result as GameTest.pdf
-
 console.log('>>Input command here:');
 prompts.on("line", function (inp) {
     var params = inp.split(' ');

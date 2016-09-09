@@ -10,10 +10,11 @@ var users = require('./routes/users');
 var tables = require('./routes/tables');
 var assets = require('./routes/assets');
 
-var TableRepo = require('./models/tableRepo');
+var tableRepo = require('./models/tableRepo');
 var passport = require('./passport');
 var sessionMiddleware = require('./middleware');
 var IoServer = require('./socket_io/socketIoServer');
+var agentRepo = require("./models/agentRepo");
 var logger = require("./log4js").getLogger('mem_watch');
 
 var app = express();
@@ -71,7 +72,8 @@ app.use(function(err, req, res, next) {
 
 app.ready = function (server) {
     IoServer.init(server);
-    TableRepo.init();
+    tableRepo.init();
+    agentRepo.init();
     var hd;
     memwatch.on('stats', function(stats) {
         if (!hd) {
