@@ -1,34 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="v0.3.2&#10;game system updated">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/properties/types.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/utils/formatter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/views/users.ejs" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/views/ui-test.ejs" afterPath="" />
+    <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daos/userDAO.js" afterPath="$PROJECT_DIR$/daos/userDAO.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/agent.js" afterPath="$PROJECT_DIR$/models/agent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/agentRepo.js" afterPath="$PROJECT_DIR$/models/agentRepo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/game.js" afterPath="$PROJECT_DIR$/models/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/table.js" afterPath="$PROJECT_DIR$/models/table.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/tableRepo.js" afterPath="$PROJECT_DIR$/models/tableRepo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/properties/property.js" afterPath="$PROJECT_DIR$/properties/property.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/init.js" afterPath="$PROJECT_DIR$/public/javascripts/table/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/tableList/tableList.js" afterPath="$PROJECT_DIR$/public/javascripts/tableList/tableList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/tableList/tableList.css" afterPath="$PROJECT_DIR$/public/stylesheets/tableList/tableList.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tables.js" afterPath="$PROJECT_DIR$/routes/tables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users.js" afterPath="$PROJECT_DIR$/routes/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socket_io/socketIoServer.js" afterPath="$PROJECT_DIR$/socket_io/socketIoServer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/gameTest.js" afterPath="$PROJECT_DIR$/test/gameTest.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about.ejs" afterPath="$PROJECT_DIR$/views/about.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/settings.ejs" afterPath="$PROJECT_DIR$/views/settings.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/table-pc.ejs" afterPath="$PROJECT_DIR$/views/table-pc.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/table.ejs" afterPath="$PROJECT_DIR$/views/table.ejs" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/tableList.ejs" afterPath="$PROJECT_DIR$/views/tableList.ejs" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,8 +108,8 @@
       <file leaf-file-name="userDAO.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+            <state relative-caret-position="240">
+              <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -721,14 +695,7 @@
       <workItem from="1473240997662" duration="8922000" />
       <workItem from="1473256164410" duration="157000" />
       <workItem from="1473394324076" duration="21142000" />
-      <workItem from="1473426592325" duration="839000" />
-    </task>
-    <task id="LOCAL-00002" summary="backend already finished">
-      <created>1471634760542</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1471634760542</updated>
+      <workItem from="1473426592325" duration="846000" />
     </task>
     <task id="LOCAL-00003" summary="already finished">
       <created>1471943576923</created>
@@ -1066,7 +1033,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473241568535</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="v0.3.2&#10;game system updated">
+      <created>1473427437004</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1473427437005</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1102,7 +1076,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="575046000" />
+    <option name="totallyTimeSpent" value="575053000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1558,8 +1532,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
+        <state relative-caret-position="240">
+          <caret line="64" column="18" selection-start-line="64" selection-start-column="18" selection-end-line="64" selection-end-column="18" />
           <folding />
         </state>
       </provider>
