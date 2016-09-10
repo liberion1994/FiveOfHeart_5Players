@@ -2,18 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/audios/default/in_game/larger.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/larger.mp3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/audios/default/in_game/smaller.mp3" afterPath="$PROJECT_DIR$/public/assets/audios/default/in_game/smaller.mp3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daos/userDAO.js" afterPath="$PROJECT_DIR$/daos/userDAO.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/table.js" afterPath="$PROJECT_DIR$/models/table.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/table/table-view.js" afterPath="$PROJECT_DIR$/public/javascripts/table/table-view.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/table/table.css" afterPath="$PROJECT_DIR$/public/stylesheets/table/table.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/users.js" afterPath="$PROJECT_DIR$/routes/users.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/audioGenerator.js" afterPath="$PROJECT_DIR$/utils/audioGenerator.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/formatter.js" afterPath="$PROJECT_DIR$/utils/formatter.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/about.ejs" afterPath="$PROJECT_DIR$/views/about.ejs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/views/users.ejs" afterPath="$PROJECT_DIR$/views/users.ejs" />
     </list>
     <ignored path="untitled.iws" />
@@ -37,16 +26,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="table.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/table.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
-              <caret line="357" column="9" selection-start-line="357" selection-start-column="9" selection-end-line="357" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="audioGenerator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,6 +41,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
               <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="table.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/table.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="357" column="9" selection-start-line="357" selection-start-column="9" selection-end-line="357" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -129,6 +118,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="users.ejs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/users.ejs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+              <folding>
+                <element signature="n#style#0;n#spin#0;n#th#3;n#tr#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="table.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
           <provider selected="true" editor-type-id="text-editor">
@@ -139,21 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="about.ejs" pinned="false" current-in-tab="true">
+      <file leaf-file-name="about.ejs" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/about.ejs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
               <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="userDAO.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="717">
-              <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -218,7 +209,6 @@
         <option value="$PROJECT_DIR$/models/game.js" />
         <option value="$PROJECT_DIR$/logs/game.log" />
         <option value="$PROJECT_DIR$/daos/userDAO.js" />
-        <option value="$PROJECT_DIR$/views/users.ejs" />
         <option value="$PROJECT_DIR$/utils/formatter.js" />
         <option value="$PROJECT_DIR$/routes/users.js" />
         <option value="$PROJECT_DIR$/models/table.js" />
@@ -227,6 +217,7 @@
         <option value="$PROJECT_DIR$/public/javascripts/table/table-view-pc.js" />
         <option value="$PROJECT_DIR$/public/stylesheets/table/table.css" />
         <option value="$PROJECT_DIR$/views/about.ejs" />
+        <option value="$PROJECT_DIR$/views/users.ejs" />
       </list>
     </option>
   </component>
@@ -627,7 +618,7 @@
     <property name="nodejs.mocha.mocha_node_package_dir" value="$USER_HOME$/node_modules/mocha" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;ini&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;cli&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;soc&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view-pc.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;ma&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;so&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;findOne&#9;null&#9;null&#10;findO&#9;null&#9;null&#10;table.e&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
+    <property name="SearchEverywhereHistoryKey" value="ini&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;init&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/init.js&#10;main&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;clie&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;cli&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;soc&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;table-v&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view-pc.js&#10;table-vi&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;ma&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/main.js&#10;so&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-view.js&#10;findOne&#9;null&#9;null&#10;findO&#9;null&#9;null&#10;table.e&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;car&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;cardU&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/cardUtil.js&#10;socket&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/socket_io/socketIoServer.js&#10;Pro&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/properties/property.js&#10;card&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/test/cardUtilTest.js&#10;GAME&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/game.js&#10;table.ej&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/views/table.ejs&#10;tableList.&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/tableList/tableList.js&#10;table.js&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/table.js&#10;app&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/app.js&#10;Mater&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/stylesheets/nativedroid/material-design-iconic-font.min.css&#10;console.l&#9;null&#9;null&#10;socket-&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/socket-client.js&#10;table-view&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/models/agent.js&#10;table-mo&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/public/javascripts/table/table-model.js&#10;prepareTi&#9;null&#9;null&#10;IntoT&#9;null&#9;null&#10;untitled&#9;FILE&#9;file:///Users/liboyuan/WebstormProjects/socket_server/.idea/libraries/untitled_node_modules.xml" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/test" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -811,14 +802,7 @@
       <workItem from="1473394324076" duration="21142000" />
       <workItem from="1473426592325" duration="1161000" />
       <workItem from="1473475249828" duration="643000" />
-      <workItem from="1473480159651" duration="6351000" />
-    </task>
-    <task id="LOCAL-00011" summary="V0.2&#10;updates in different aspects">
-      <created>1472453054848</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1472453054849</updated>
+      <workItem from="1473480159651" duration="7807000" />
     </task>
     <task id="LOCAL-00012" summary="V0.2&#10;updates in different aspects">
       <created>1472453615426</created>
@@ -1156,7 +1140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473484076430</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="v0.4.1&#10;some optimization">
+      <created>1473491593584</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1473491593584</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1192,7 +1183,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="582362000" />
+    <option name="totallyTimeSpent" value="583818000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1281,7 +1272,8 @@
     <MESSAGE value="v0.3.2&#10;bugs fixed" />
     <MESSAGE value="v0.3.2&#10;game system updated" />
     <MESSAGE value="v0.4&#10;statistics updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4&#10;statistics updated" />
+    <MESSAGE value="v0.4.1&#10;some optimization" />
+    <option name="LAST_COMMIT_MESSAGE" value="v0.4.1&#10;some optimization" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1405,13 +1397,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1425">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1448,13 +1433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/table.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="46" column="62" selection-start-line="46" selection-start-column="62" selection-end-line="46" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/table-pc.ejs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
@@ -1481,6 +1459,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1564,18 +1543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/users.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="84" selection-start-line="49" selection-start-column="84" selection-end-line="49" selection-end-column="84" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h1#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="717">
@@ -1602,29 +1569,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
-          <caret line="357" column="9" selection-start-line="357" selection-start-column="9" selection-end-line="357" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/assets.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/tableList.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1636,10 +1585,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
+    <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-978">
-          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+        <state relative-caret-position="-876">
+          <caret line="192" column="28" selection-start-line="192" selection-start-column="28" selection-end-line="192" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/about.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/table.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/table/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="53" column="43" selection-start-line="53" selection-start-column="4" selection-end-line="53" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/table.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="357" column="9" selection-start-line="357" selection-start-column="9" selection-end-line="357" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1662,6 +1643,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-978">
+          <caret line="21" column="11" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/tableList.ejs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/table/table-view.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
@@ -1680,19 +1679,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/stylesheets/table/table.css">
+    <entry file="file://$PROJECT_DIR$/views/users.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-876">
-          <caret line="192" column="28" selection-start-line="192" selection-start-column="28" selection-end-line="192" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/about.ejs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="71" column="23" selection-start-line="71" selection-start-column="23" selection-end-line="71" selection-end-column="23" />
-          <folding />
+        <state relative-caret-position="231">
+          <caret line="77" column="38" selection-start-line="77" selection-start-column="38" selection-end-line="77" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#spin#0;n#th#3;n#tr#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

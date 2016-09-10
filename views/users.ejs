@@ -6,6 +6,7 @@
 
     <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
     <link rel='stylesheet' href='/stylesheets/animate.min.css' />
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
 
     <script src="/javascripts/jquery-1.12.4.min.js"></script>
     <script src="/javascripts/bootstrap.min.js"></script>
@@ -47,7 +48,13 @@
     <div style="position: absolute; top: 60px; left: 0; right: 0; bottom: 0; overflow: scroll">
         <table class="table table-striped" id="players">
             <tr>
-                <th>用户名</th><th>状态</th><th>当前主</th><th>积分</th><th>局数</th><th>胜率</th>
+                <th>用户名</th><th>状态</th><th>当前主</th>
+                <th>积分
+                    <spin style="cursor: pointer" data-toggle="popover" data-placement="bottom" title="积分规则">
+                        <i class="icon-exclamation-sign"></i>
+                    </spin>
+                </th>
+                <th>局数</th><th>胜率</th>
                 <th>升级/局</th><th>得分/局</th><th>抓到红五/局</th><th>被抓红五/局</th>
             </tr>
             <% users.forEach(function (user) { %>
@@ -60,5 +67,22 @@
         </table>
     </div>
 </div>
+<script>
+    $(function () { $("[data-toggle='popover']").popover({html: true,
+        content:
+        '<table><tr><td>完成一局游戏</td><td>＋1</td></tr>' +
+        '<tr><td>作为庄家/副庄获胜</td><td>＋3</td></tr>' +
+        '<tr><td>作为庄家获胜（无副庄）</td><td>＋6</td></tr>' +
+        '<tr><td>作为闲家获胜</td><td>＋2</td></tr>' +
+        '<tr><td>作为庄家/副庄每升一级</td><td>＋1</td></tr>' +
+        '<tr><td>作为闲家每升一级</td><td>＋2</td></tr>' +
+        '<tr><td>每抓到一个红五</td><td>＋1</td></tr>' +
+        '<tr><td>作为庄家/副庄失败</td><td>－3</td></tr>' +
+        '<tr><td>作为庄家失败（无副庄）</td><td>－6</td></tr>' +
+        '<tr><td>作为闲家失败</td><td>－2</td></tr>' +
+        '<tr><td>每被抓一个红五</td><td>－1</td></tr>' +
+        '</table>'
+    }); });
+</script>
 </body>
 </html>
