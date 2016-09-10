@@ -14,8 +14,6 @@ function Table(id) {
     this.currentEventId = 0;
 
     this.masterInGame = null;
-    this.majorNumbersInGame = new Array(Property.GamePlayers);
-
     this.tableTimer = {
         currentCount: -1,
         restart: function (initCount, onCountDown, onTimeOut) {

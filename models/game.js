@@ -6,7 +6,7 @@ var CardUtil = require('./cardUtil');
 var Property = require("../properties/property");
 var AutoPlayer = require('../ai/autoPlayer');
 var Types = require("../properties/types");
-
+var logger = require("../log4js").getLogger('game');
 
 function Game(masterSid, majorNumber) {
 
@@ -139,7 +139,13 @@ function Game(masterSid, majorNumber) {
     };
 
     this.init = function () {
+        logger.info('<==Game Start==>');
         this.dealCards(this.cardUtil.getShuffledCards());
+        logger.info('cards:');
+        logger.info(JSON.stringify(this.cards));
+        logger.info('reserved cards:');
+        logger.info(JSON.stringify(this.reservedCards));
+        logger.info('----------------');
         var startSid = this.masterSid == null ? 0 : this.masterSid;
         this.currentTurn = {
             status: Types.GameStatus.OFFER_MAJOR_AMOUNT,
@@ -212,6 +218,8 @@ function Game(masterSid, majorNumber) {
                 }
             }
         }
+        logger.info('offer major amount:');
+        logger.info(JSON.stringify(this.currentTurn));
         this.currentTurn = {
             status: Types.GameStatus.CHOOSE_MAJOR_COLOR,
             startSid: sid,
@@ -227,10 +235,17 @@ function Game(masterSid, majorNumber) {
         if (this.masterSid == null) {
             this.masterSid = sid;
             content.updated.masterSid = sid;
+            logger.info('new master:');
+            logger.info(this.masterSid);
         }
+        logger.info('----------------');
     };
 
     this.waitingForReserveCards = function (content) {
+        logger.info('choose major color:');
+        logger.info(JSON.stringify(this.currentTurn));
+        logger.info('cards:');
+        logger.info(JSON.stringify(this.cards));
         this.currentTurn = {
             status: Types.GameStatus.RESERVE_CARDS,
             startSid: this.masterSid,
@@ -242,9 +257,14 @@ function Game(masterSid, majorNumber) {
         content.updated = {
             currentTurn: this.currentTurn
         };
+        logger.info('----------------');
     };
 
     this.waitingForChooseAColor = function (content) {
+        logger.info('reserve cards:');
+        logger.info(JSON.stringify(this.currentTurn));
+        logger.info('reserved cards:');
+        logger.info(JSON.stringify(this.reservedCards));
         this.currentTurn = {
             status: Types.GameStatus.CHOOSE_A_COLOR,
             startSid: this.masterSid,
@@ -256,9 +276,14 @@ function Game(masterSid, majorNumber) {
         content.updated = {
             currentTurn: this.currentTurn
         };
+        logger.info('----------------');
     };
 
     this.waitingForPlayCards = function (content) {
+        logger.info('choose a color:');
+        logger.info(JSON.stringify(this.currentTurn));
+        logger.info('a color:');
+        logger.info(this.aColor);
         var sid = this.masterSid;
         this.currentTurn = {
             status: Types.GameStatus.PLAY_CARDS,
@@ -272,10 +297,12 @@ function Game(masterSid, majorNumber) {
         content.updated = {
             currentTurn: this.currentTurn
         };
+        logger.info('----------------');
     };
 
     this.waitingForPlayCardsNextRound = function (content) {
-
+        logger.info('play cards:');
+        logger.info(JSON.stringify(this.currentTurn));
         content.updated = {};
         //计算本轮得分以及抓到的红五情况
         var sid = this.currentTurn.maxSid;
@@ -300,6 +327,9 @@ function Game(masterSid, majorNumber) {
             //last round ended
             this.sumUp();
             content.updated.result = this.result;
+            logger.info('----------------');
+            logger.info('game end:');
+            logger.info(JSON.stringify(this.result));
         } else {
             this.currentTurn = {
                 status: Types.GameStatus.PLAY_CARDS,
@@ -315,6 +345,7 @@ function Game(masterSid, majorNumber) {
             content.updated.caught5Heart = this.caught5Heart;
 
         }
+        logger.info('----------------');
     };
 
     this.onAction = function (sid, action, content, err, callback) {

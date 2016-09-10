@@ -16,6 +16,12 @@ log4js.configure({
             category: 'mem_watch',
             pattern: "-yyyy-MM-dd",
             alwaysIncludePattern: false
+        }, {
+            type: 'dateFile',
+            filename: __dirname + '/logs/game.log',
+            category: 'game',
+            pattern: "-yyyy-MM-dd",
+            alwaysIncludePattern: false
         }
     ]
 });

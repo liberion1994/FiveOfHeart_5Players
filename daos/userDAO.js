@@ -51,23 +51,29 @@ var UserSchema = mongoose.Schema({
 UserSchema.methods.getStatistics = function () {
     var ret = {};
     var games = 0;
-    for (var type in this.statistics.games)
-        games += this.statistics.games[type];
+    games += this.statistics.games.major;
+    games += this.statistics.games.subMajor;
+    games += this.statistics.games.slave;
     var wins = 0;
-    for (var type in this.statistics.wins)
-        wins += this.statistics.wins[type];
+    wins += this.statistics.wins.major;
+    wins += this.statistics.wins.subMajor;
+    wins += this.statistics.wins.slave;
     var levelUps = 0;
-    for (var type in this.statistics.levelUps)
-        levelUps += this.statistics.levelUps[type];
+    levelUps += this.statistics.levelUps.major;
+    levelUps += this.statistics.levelUps.subMajor;
+    levelUps += this.statistics.levelUps.slave;
     var points = 0;
-    for (var type in this.statistics.points)
-        points += this.statistics.points[type];
+    points += this.statistics.points.major;
+    points += this.statistics.points.subMajor;
+    points += this.statistics.points.slave;
     var fohIn = 0;
-    for (var type in this.statistics.fohIn)
-        fohIn += this.statistics.fohIn[type];
+    fohIn += this.statistics.fohIn.major;
+    fohIn += this.statistics.fohIn.subMajor;
+    fohIn += this.statistics.fohIn.slave;
     var fohOut = 0;
-    for (var type in this.statistics.fohOut)
-        fohOut += this.statistics.fohOut[type];
+    fohOut += this.statistics.fohOut.major;
+    fohOut += this.statistics.fohOut.subMajor;
+    fohOut += this.statistics.fohOut.slave;
     ret.score = this.statistics.score;
     ret.winRate = formatter.toPercentage(games == 0 ? wins / games : 0);
     ret.levelUpsPerGame = games == 0 ? levelUps / games : 0;

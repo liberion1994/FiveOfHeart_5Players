@@ -137,8 +137,11 @@ function CardUtil(majorNumber) {
      */
     this.absoluteMajorLarger = function (cur, pre, sum) {
         for (var i = 0; i < sum; i ++) {
-            if (this.numberScale(cur[i]) > this.numberScale(pre[i]))
+            var tmp = this.numberScale(cur[i]) - this.numberScale(pre[i]);
+            if (tmp > 0)
                 return true;
+            if (tmp < 0)
+                return false;
         }
         return false;
     };
