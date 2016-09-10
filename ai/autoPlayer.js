@@ -2,7 +2,7 @@
  * Created by liboyuan on 16/8/28.
  */
 
-var Game = require("../models/game");
+var Types = require("../properties/types");
 var Property = require("../properties/property");
 
 function AutoPlayer(game) {
@@ -11,15 +11,15 @@ function AutoPlayer(game) {
     this.makeAction = function () {
         var sid = this.game.currentTurn.remainedSid[0];
         switch (this.game.currentTurn.status) {
-            case Game.GameStatus.OFFER_MAJOR_AMOUNT:
+            case Types.GameStatus.OFFER_MAJOR_AMOUNT:
                 return this.offerMajorAmount(sid);
-            case Game.GameStatus.CHOOSE_MAJOR_COLOR:
+            case Types.GameStatus.CHOOSE_MAJOR_COLOR:
                 return this.chooseMajorColor(sid);
-            case Game.GameStatus.RESERVE_CARDS:
+            case Types.GameStatus.RESERVE_CARDS:
                 return this.reserveCards(sid);
-            case Game.GameStatus.CHOOSE_A_COLOR:
+            case Types.GameStatus.CHOOSE_A_COLOR:
                 return this.chooseAColor(sid);
-            case Game.GameStatus.PLAY_CARDS:
+            case Types.GameStatus.PLAY_CARDS:
                 return this.playCards(sid);
         }
     };
