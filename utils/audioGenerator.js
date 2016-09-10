@@ -2,7 +2,7 @@
  * Created by liboyuan on 16/9/4.
  */
 
-var GameStatus = require('../models/game').GameStatus;
+var GameStatus = require('../properties/types').GameStatus;
 
 exports.getEnterAudio = function () {
     return 'in_game/enter';

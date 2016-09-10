@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ai/autoPlayer.js" afterPath="$PROJECT_DIR$/ai/autoPlayer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/audioGenerator.js" afterPath="$PROJECT_DIR$/utils/audioGenerator.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,30 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="about.ejs" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/about.ejs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1110">
-              <caret line="74" column="49" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tableList.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/stylesheets/tableList/tableList.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="tableList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/javascripts/tableList/tableList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
+            <state relative-caret-position="0">
               <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
               <folding />
             </state>
@@ -79,17 +59,27 @@
       <file leaf-file-name="agent.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/agent.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-150">
-              <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+            <state relative-caret-position="1770">
+              <caret line="135" column="44" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="autoPlayer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="audioGenerator.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-675">
+              <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="autoPlayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ai/autoPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-12">
+            <state relative-caret-position="315">
               <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
               <folding />
             </state>
@@ -156,7 +146,6 @@
         <option value="$PROJECT_DIR$/public/javascripts/settings/settings.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/main.js" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/utils/audioGenerator.js" />
         <option value="$PROJECT_DIR$/routes/assets.js" />
         <option value="$PROJECT_DIR$/passport.js" />
         <option value="$PROJECT_DIR$/public/javascripts/table/socket-client.js" />
@@ -194,6 +183,7 @@
         <option value="$PROJECT_DIR$/daos/userDAO.js" />
         <option value="$PROJECT_DIR$/models/table.js" />
         <option value="$PROJECT_DIR$/ai/autoPlayer.js" />
+        <option value="$PROJECT_DIR$/utils/audioGenerator.js" />
       </list>
     </option>
   </component>
@@ -707,14 +697,7 @@
       <workItem from="1473256164410" duration="157000" />
       <workItem from="1473394324076" duration="21142000" />
       <workItem from="1473426592325" duration="1161000" />
-      <workItem from="1473475249828" duration="256000" />
-    </task>
-    <task id="LOCAL-00005" summary="V0.1">
-      <created>1472135316434</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1472135316434</updated>
+      <workItem from="1473475249828" duration="464000" />
     </task>
     <task id="LOCAL-00006" summary="V0.1.1&#10;Registry finished">
       <created>1472188674291</created>
@@ -1052,7 +1035,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473475478563</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="v0.4&#10;statistics updated">
+      <created>1473475594029</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1473475594029</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1088,7 +1078,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="575624000" />
+    <option name="totallyTimeSpent" value="575832000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1215,13 +1205,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -1379,13 +1362,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/agentLeaveTimer.js" />
-    <entry file="file://$PROJECT_DIR$/properties/types.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3072">
@@ -1490,7 +1466,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/javascripts/tableList/tableList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
+        <state relative-caret-position="0">
           <caret line="33" column="1" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
           <folding />
         </state>
@@ -1536,18 +1512,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/agent.js">
+    <entry file="file://$PROJECT_DIR$/ai/autoPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="129" column="14" selection-start-line="129" selection-start-column="14" selection-end-line="129" selection-end-column="14" />
+        <state relative-caret-position="315">
+          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ai/autoPlayer.js">
+    <entry file="file://$PROJECT_DIR$/models/agent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+        <state relative-caret-position="1770">
+          <caret line="135" column="44" selection-start-line="135" selection-start-column="38" selection-end-line="135" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/properties/types.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/audioGenerator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-675">
+          <caret line="4" column="45" selection-start-line="4" selection-start-column="45" selection-end-line="4" selection-end-column="45" />
           <folding />
         </state>
       </provider>
