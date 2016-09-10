@@ -181,7 +181,7 @@ function Table(id) {
         var majorNum = this.agents[0].majorNumber;
         if (this.masterInGame != null)
             majorNum = this.agents[this.masterInGame].majorNumber;
-        this.game = new Game.Game(this.masterInGame, majorNum);
+        this.game = new Game(this.masterInGame, majorNum);
         for (var j = 0; j < Property.GamePlayers; j ++)
             this.agents[j].status = Types.AgentStatus.IN_GAME;
 
