@@ -21,7 +21,7 @@ router.get('/:appid/:timestamp/:expires',
         if (!key)
             return res.status(404).send('未找到对应的app');
         var md5 = crypto.createHash('md5');
-        md5.update(appid + '&' + timestamp + '&' + expires + '&' + key);
+        md5.update(appid + '&' + timestamp + '&' + expires + '&' + key, 'utf8');
         var str = md5.digest('hex');
         console.log(str);
         res.send(str);

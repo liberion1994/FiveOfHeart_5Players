@@ -39,6 +39,7 @@ var playerInited = false;
 
 var speechSession = null;
 var speechAppid = '57d3bb98';
+var speechSignature = null;
 
 function agentStatusToText(status) {
     switch (status) {
@@ -162,17 +163,10 @@ function wrappedAlert(msg) {
     notify(msg, 'error');
 }
 
-function playAudio(src) {
-    var div = $('#audio-player')
-        .attr('src', src);
-    div[0].play();
-}
-
 function initSpeech() {
     speechSession = new IFlyTtsSession({
         'url': 'http://webapi.openspeech.cn/',
         'reconnection': true,
         'reconnectionDelay': 30000
     });
-    socketClient.getAuth('57d3bb98');
 }
