@@ -139,7 +139,6 @@ function Game(masterSid, majorNumber) {
     };
 
     this.init = function () {
-        logger.info('<==Game Start==>');
         this.dealCards(this.cardUtil.getShuffledCards());
         logger.info('major number:');
         logger.info(this.majorNumber);
