@@ -81,7 +81,7 @@ var TableArea = function (targetDiv) {
             var aColor = 'A';
             if (table.game.majorColor) {
                 if (!(table.game.majorColor == '♥' || table.game.majorColor == '♦')) {
-                    majorColor = table.game.majorColor + table.game.majorNumber;
+                    majorColor = table.game.majorColor + numberToText(table.game.majorNumber);
                 } else {
                     majorColor = "<span style='color:red;'>" + table.game.majorColor + numberToText(table.game.majorNumber) + "</span>";
                 }
@@ -670,12 +670,14 @@ var OperationArea = function (targetDiv) {
                 .attr('animating', true)
                 .attr('status', 'chosen');
             card_model.status = 'chosen';
+            card.addClass('card-chosen');
         } else {
             newly += ' translateY(10px)';
             card
                 .attr('animating', true)
                 .attr('status', 'inHand');
             card_model.status = 'inHand';
+            card.removeClass('card-chosen');
         }
         setAnimation(card, newly, '-webkit-transform .2s ease', function () {
             card.removeAttr('animating')

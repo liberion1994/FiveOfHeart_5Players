@@ -75,6 +75,7 @@ UserSchema.methods.getStatistics = function () {
     fohOut += this.statistics.fohOut.subMajor;
     fohOut += this.statistics.fohOut.slave;
     ret.score = this.statistics.score;
+    ret.games = games;
     ret.winRate = formatter.toPercentage(games != 0 ? wins / games : 0);
     ret.levelUpsPerGame = formatter.toFloat(games != 0 ? levelUps / games : 0);
     ret.pointsPerGame = formatter.toFloat(games != 0 ? points / games : 0);

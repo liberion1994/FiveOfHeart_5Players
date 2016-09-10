@@ -5,6 +5,7 @@ var agentRepo = require('../models/agentRepo');
 var User = require('../daos/userDAO');
 var validator = require('../utils/validator');
 var Types = require("../properties/types");
+var formatter = require("../utils/formatter");
 
 router.post('/login',
     function (req, res, next) {
@@ -116,7 +117,7 @@ router.get('/user_list',
                     var info = {
                         username: users[i].username,
                         status: status,
-                        majorNumber: users[i].majorNumber
+                        majorNumber: formatter.numberToText(users[i].majorNumber)
                     };
                     var sta = users[i].getStatistics();
                     for (var type in sta)
@@ -128,6 +129,9 @@ router.get('/user_list',
                         return 1;
                     if (b.status == '离线' && a.status != '离线')
                         return -1;
+                    var tmp = b.score - a.score;
+                    if (tmp != 0)
+                        return tmp;
                     return parseFloat(b.winRate) - parseFloat(a.winRate);
                 });
                 agent = req.user.agent;

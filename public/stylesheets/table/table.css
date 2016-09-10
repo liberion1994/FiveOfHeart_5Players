@@ -190,11 +190,16 @@ a {
 .card {
     background: white;
     position: absolute;
+    border: 2px solid white;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border-radius:5px;
     box-shadow:1px 1px 3px #aaaaaa;
     cursor: pointer;
+}
+
+.card-chosen {
+    border: 2px solid #0088bb;
 }
 
 .card-top {

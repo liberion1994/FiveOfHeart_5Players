@@ -313,9 +313,9 @@ function Table(id) {
                     this.agents[i].statistics.wins.major ++;
                     this.agents[i].statistics.levelUps.major += this.game.result.levelUp;
                     if (this.game.subMasterSid != null)
-                        this.agents[i].statistics.score += 3;
+                        this.agents[i].statistics.score += 3 + this.game.result.levelUp;
                     else
-                        this.agents[i].statistics.score += 6;
+                        this.agents[i].statistics.score += 6 + 2 * this.game.result.levelUp;
                 } else {
                     if (this.game.subMasterSid != null)
                         this.agents[i].statistics.score -= 3;
@@ -331,7 +331,7 @@ function Table(id) {
                 if (this.game.result.winners == '庄家') {
                     this.agents[i].statistics.wins.subMajor ++;
                     this.agents[i].statistics.levelUps.subMajor += this.game.result.levelUp;
-                    this.agents[i].statistics.score += 3;
+                    this.agents[i].statistics.score += 3 + this.game.result.levelUp;
                 } else {
                     this.agents[i].statistics.score -= 3;
                 }
@@ -344,7 +344,7 @@ function Table(id) {
                 if (this.game.result.winners == '闲家') {
                     this.agents[i].statistics.wins.slave ++;
                     this.agents[i].statistics.levelUps.slave += this.game.result.levelUp;
-                    this.agents[i].statistics.score += 2;
+                    this.agents[i].statistics.score += 2 + 2 * this.game.result.levelUp;
                 } else {
                     this.agents[i].statistics.score -= 2;
                 }
@@ -356,27 +356,7 @@ function Table(id) {
             this.agents[i].statistics.score += this.game.result.fohIn[i];
             this.agents[i].statistics.score -= this.game.result.fohOut[i];
         }
-        if (this.game.result.winners == '庄家') {
-            this.levelUp(this.game.masterSid, this.game.result.levelUp);
-            if (this.game.subMasterSid != null) {
-                this.masterInGame = this.game.subMasterSid;
-                this.levelUp(this.game.subMasterSid, this.game.result.levelUp);
-            } else {
-                this.masterInGame = this.game.masterSid;
-            }
-        } else {
-            var matched = false;
-            for (var i = 1; i < Property.GamePlayers; i ++) {
-                var tmpId = (this.game.masterSid + i) % Property.GamePlayers;
-                if (this.game.subMasterSid != tmpId) {
-                    this.levelUp(tmpId, this.game.result.levelUp);
-                    if (!matched) {
-                        this.masterInGame = tmpId;
-                        matched = true;
-                    }
-                }
-            }
-        }
+        this.agents[i].statistics.score ++;
     }
 }
 

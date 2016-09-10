@@ -21,25 +21,26 @@ exports.getUnPrepareAudio = function () {
 };
 
 exports.getInGameAudio = function (content, game) {
+    var dir = 'in_game/';
     switch (content.actionType) {
         case GameStatus.OFFER_MAJOR_AMOUNT:
-            return 'in_game/amount' + content.amount;
+            return dir + 'amount' + content.amount;
         case GameStatus.CHOOSE_MAJOR_COLOR:
         case GameStatus.CHOOSE_A_COLOR:
             return content.color;
         case GameStatus.PLAY_CARDS:
             if (content.original)
-                return 'in_game/multi_group_fail';
+                return dir + 'multi_group_fail';
             if (!game) {
                 //last round's last play
-                return 'in_game/game_over';
+                return dir + 'game_over';
             }
             if (game.currentTurn.done.length == 0) {
                 //means last play
                 if (game.currentTurn.startSid == content.sid)
-                    return 'in_game/larger';
+                    return dir + 'larger';
                 else
-                    return 'in_game/smaller';
+                    return dir + 'smaller';
 
             } else if (game.currentTurn.done.length == 1) {
                 var struc = game.cardUtil.getCardStructure(content.cards);
@@ -48,26 +49,26 @@ exports.getInGameAudio = function (content, game) {
                     tmp = struc[type2];
                 struc = tmp;
                 if (struc.length != 1)
-                    return 'in_game/multi_group';
+                    return dir + 'multi_group';
                 if (struc[0].type == 'tractor')
-                    return 'in_game/tractor';
+                    return dir + 'tractor';
                 switch (struc[0].multi) {
                     case 3:
-                        return 'in_game/triple';
+                        return dir + 'triple';
                     case 2:
-                        return 'in_game/double';
+                        return dir + 'double';
                     case 1:
                         var type = struc[0].content[0].type;
                         if (type != 0)
-                            return 'in_game/J';
+                            return dir + 'J';
                         else
-                            return 'in_game/' + struc[0].content[0].color;
+                            return dir + struc[0].content[0].color;
                 }
             } else {
                 if (game.currentTurn.maxSid == content.sid)
-                    return 'in_game/larger';
+                    return dir + 'larger';
                 else
-                    return 'in_game/smaller';
+                    return dir + 'smaller';
             }
             break;
         default:
