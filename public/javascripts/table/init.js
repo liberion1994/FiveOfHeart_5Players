@@ -167,12 +167,3 @@ function playAudio(src) {
         .attr('src', src);
     div[0].play();
 }
-
-function initSpeech() {
-    speechSession = new IFlyTtsSession({
-        'url': 'http://webapi.openspeech.cn/',
-        'reconnection': true,
-        'reconnectionDelay': 30000
-    });
-    socketClient.getAuth('57d3bb98');
-}

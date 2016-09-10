@@ -43,5 +43,4 @@ $(document).ready(function () {
     }, 3000);
 
     initCtrl();
-    initSpeech();
 });
