@@ -4,10 +4,6 @@
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/daos/userDAO.js" afterPath="$PROJECT_DIR$/daos/userDAO.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log4js.js" afterPath="$PROJECT_DIR$/log4js.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/cardUtil.js" afterPath="$PROJECT_DIR$/models/cardUtil.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/game.js" afterPath="$PROJECT_DIR$/models/game.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/table.js" afterPath="$PROJECT_DIR$/models/table.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,7 +26,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/game.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="120">
@@ -110,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userDAO.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="userDAO.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
+              <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -182,12 +178,12 @@
         <option value="$PROJECT_DIR$/views/about.ejs" />
         <option value="$PROJECT_DIR$/ai/autoPlayer.js" />
         <option value="$PROJECT_DIR$/utils/audioGenerator.js" />
-        <option value="$PROJECT_DIR$/daos/userDAO.js" />
         <option value="$PROJECT_DIR$/models/cardUtil.js" />
         <option value="$PROJECT_DIR$/log4js.js" />
         <option value="$PROJECT_DIR$/models/table.js" />
         <option value="$PROJECT_DIR$/models/game.js" />
         <option value="$PROJECT_DIR$/logs/game.log" />
+        <option value="$PROJECT_DIR$/daos/userDAO.js" />
       </list>
     </option>
   </component>
@@ -716,14 +712,7 @@
       <workItem from="1473394324076" duration="21142000" />
       <workItem from="1473426592325" duration="1161000" />
       <workItem from="1473475249828" duration="643000" />
-      <workItem from="1473480159651" duration="2884000" />
-    </task>
-    <task id="LOCAL-00007" summary="V0.1.1&#10;Small bug fixed">
-      <created>1472193268469</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1472193268469</updated>
+      <workItem from="1473480159651" duration="2977000" />
     </task>
     <task id="LOCAL-00008" summary="V0.1.1&#10;Small bug fixed">
       <created>1472197758747</created>
@@ -1061,7 +1050,14 @@
       <option name="project" value="LOCAL" />
       <updated>1473475883291</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="v0.4&#10;statistics updated">
+      <created>1473483394674</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1473483394675</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1097,7 +1093,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="578895000" />
+    <option name="totallyTimeSpent" value="578988000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1500,14 +1496,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="75" column="43" selection-start-line="75" selection-start-column="43" selection-end-line="75" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/cardUtil.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="295">
@@ -1560,6 +1548,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="326" column="24" selection-start-line="326" selection-start-column="24" selection-end-line="326" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/daos/userDAO.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="81" column="31" selection-start-line="81" selection-start-column="31" selection-end-line="81" selection-end-column="31" />
           <folding />
         </state>
       </provider>

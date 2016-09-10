@@ -75,11 +75,11 @@ UserSchema.methods.getStatistics = function () {
     fohOut += this.statistics.fohOut.subMajor;
     fohOut += this.statistics.fohOut.slave;
     ret.score = this.statistics.score;
-    ret.winRate = formatter.toPercentage(games == 0 ? wins / games : 0);
-    ret.levelUpsPerGame = games == 0 ? levelUps / games : 0;
-    ret.pointsPerGame = games == 0 ? points / games : 0;
-    ret.fohInPerGame = games == 0 ? fohIn / games : 0;
-    ret.fohOutPerGame = games == 0 ? fohOut / games : 0;
+    ret.winRate = formatter.toPercentage(games != 0 ? wins / games : 0);
+    ret.levelUpsPerGame = games != 0 ? levelUps / games : 0;
+    ret.pointsPerGame = games != 0 ? points / games : 0;
+    ret.fohInPerGame = games != 0 ? fohIn / games : 0;
+    ret.fohOutPerGame = games != 0 ? fohOut / games : 0;
     return ret;
 };
 
