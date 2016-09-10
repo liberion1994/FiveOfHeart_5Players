@@ -70,8 +70,7 @@ var Agent = function (user) {
             username: this.username,
             status: this.status,
             majorNumber: this.majorNumber,
-            tableId: this.currentTable ? this.currentTable.id : null,
-            activeDate: this.activeDate
+            tableId: this.currentTable ? this.currentTable.id : null
         };
     };
 

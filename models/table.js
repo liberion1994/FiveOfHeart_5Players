@@ -6,6 +6,7 @@ var Property = require('../properties/property');
 var Game = require('./game');
 var socket_io = require('../socket_io/socketIoServer');
 var Types = require("../properties/types");
+var logger = require("../log4js").getLogger('game');
 
 function Table(id) {
     this.id = id;
@@ -179,6 +180,10 @@ function Table(id) {
         var majorNum = this.agents[0].majorNumber;
         if (this.masterInGame != null)
             majorNum = this.agents[this.masterInGame].majorNumber;
+        logger.info('<==Game Start==>');
+        logger.info('players:');
+        logger.info(JSON.stringify(this.wrappedSeatsInfo()));
+        logger.info('----------------');
         this.game = new Game(this.masterInGame, majorNum);
         for (var j = 0; j < Property.GamePlayers; j ++)
             this.agents[j].status = Types.AgentStatus.IN_GAME;

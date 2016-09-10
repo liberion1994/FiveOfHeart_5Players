@@ -141,6 +141,8 @@ function Game(masterSid, majorNumber) {
     this.init = function () {
         logger.info('<==Game Start==>');
         this.dealCards(this.cardUtil.getShuffledCards());
+        logger.info('major number:');
+        logger.info(this.majorNumber);
         logger.info('cards:');
         logger.info(JSON.stringify(this.cards));
         logger.info('reserved cards:');
@@ -244,8 +246,8 @@ function Game(masterSid, majorNumber) {
     this.waitingForReserveCards = function (content) {
         logger.info('choose major color:');
         logger.info(JSON.stringify(this.currentTurn));
-        logger.info('cards:');
-        logger.info(JSON.stringify(this.cards));
+        logger.info('major color:');
+        logger.info(this.majorColor);
         this.currentTurn = {
             status: Types.GameStatus.RESERVE_CARDS,
             startSid: this.masterSid,
