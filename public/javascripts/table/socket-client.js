@@ -7,6 +7,29 @@ function SocketClient() {
 
     this.synchronizing = false;
 
+    this.getAuth = function (appid) {
+        var timestamp = (new Date()).toLocaleTimeString();
+        $.ajax({
+            type: 'GET',
+            url: '/auth/' + appid + '/' + timestamp + '/10000',
+            success: function (signature) {
+                var params = { "params" : "aue = speex-wb;7, ent = intp65, spd = 50, vol = 50, tte = utf8, caller.appid=" + appid + ",timestamp=" + timestamp + ",expires=" + 10000, "signature" : signature, "gat" : "mp3"};
+                speechSession.start(params, '测试一句话', function (err, obj)
+                {
+                    console.log('here');
+                    if(err) {
+                        alert("语音合成发生错误，错误代码 ：" + err);
+                    } else {
+                        playAudio("http://webapi.openspeech.cn/" + obj.audio_url);
+                    }
+                });
+            },
+            error: function () {
+                notify('获取auth验证失败', 'error');
+            }
+        });
+    };
+
     this.loadSettings = function (err, succ) {
         $.ajax({
             type: 'GET',
