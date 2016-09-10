@@ -9,7 +9,6 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var tables = require('./routes/tables');
 var assets = require('./routes/assets');
-var auth = require('./routes/auth');
 
 var tableRepo = require('./models/tableRepo');
 var passport = require('./passport');
@@ -39,7 +38,6 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/tables', tables);
 app.use('/assets', assets);
-app.use('/auth', auth);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
