@@ -69,13 +69,13 @@ $(document).ready(function () {
                             }
                         },
                         error: function () {
-                            alert('发生错误,似乎是登录会话过期,请刷新试试');
+                            notify('发生错误,似乎是登录会话过期,请刷新试试');
                         }
                     });
                 });
             },
             error: function () {
-                alert('发生错误,似乎是登录会话过期,请刷新试试');
+                notify('发生错误,似乎是登录会话过期,请刷新试试');
             }
         });
         $('#table-option').modal();

@@ -360,8 +360,8 @@ function Table(id) {
             }
             this.agents[i].statistics.score += this.game.result.fohIn[i];
             this.agents[i].statistics.score -= this.game.result.fohOut[i];
+            this.agents[i].statistics.score ++;
         }
-        this.agents[i].statistics.score ++;
     }
 }
 
