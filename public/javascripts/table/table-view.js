@@ -76,7 +76,7 @@ var TableArea = function (targetDiv) {
             $('#game-info').html("<i class='icon-star'></i>" +
                 (table.masterInGame == null ? "待定" : table.seats[table.masterInGame].username));
         } else {
-            var majorColor = table.game.majorNumber;
+            var majorColor = numberToText(table.game.majorNumber);
             var aColor = 'A';
             if (table.game.majorColor) {
                 if (!(table.game.majorColor == '♥' || table.game.majorColor == '♦')) {
