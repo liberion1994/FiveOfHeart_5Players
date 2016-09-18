@@ -221,7 +221,7 @@ function CardUtil(majorNumber) {
                     return num + 1;
                 } else if (num > 3) {
                     return num + 2;
-                } else if (num > this.majorNum) {
+                } else if (num > this.majorNumber) {
                     return num + 2;
                 } else {
                     return num + 3;
@@ -245,7 +245,7 @@ function CardUtil(majorNumber) {
                     return num + 2;
                 }
             } else {
-                if (num > this.majorNum) {
+                if (num > this.majorNumber) {
                     return num;
                 } else {
                     return num + 1;
