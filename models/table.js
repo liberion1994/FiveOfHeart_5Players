@@ -305,8 +305,8 @@ function Table(id) {
             this.agents[sid].majorNumber ++;
             if (this.agents[sid].majorNumber == 3 || this.agents[sid].majorNumber == 5)
                 this.agents[sid].majorNumber ++;
-            if (this.agents[sid].majorNumber > 14)
-                this.agents[sid].majorNumber -= 13;
+            if (this.agents[sid].majorNumber > 13)
+                this.agents[sid].majorNumber -= 12;
         }
     };
 

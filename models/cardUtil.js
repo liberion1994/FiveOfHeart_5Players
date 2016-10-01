@@ -736,7 +736,7 @@ function CardUtil(majorNumber) {
             var matched2 = this.findStructure(playedStructureWithoutTractor, limit);
             if (matched2 == null)
                 return false;
-            if (this.cardDesc(matched1.content[0], matched2.content[0]) <= 0) //pre >= played
+            if (this.cardScale(matched1.content[0]) - this.cardScale(matched2.content[0]) >= 0) //pre >= played
                 return false;
             //只有单牌可能出现同大小,此时如果比原来的大了,之后再跟的单牌就不用判断
             if (limit.multi == 1)
