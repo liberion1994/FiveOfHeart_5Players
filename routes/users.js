@@ -108,7 +108,7 @@ router.get('/user_list',
                     var username = users[i].username;
                     var agent = agentRepo.findAgentByUsername(username);
                     var status = '离线';
-                    if (agent) {
+                    if (agent && new Date() - agent.activeDate <= 5 * 60 * 1000) {
                         if (agent.status == Types.AgentStatus.HALL)
                             status = '大厅';
                         else
