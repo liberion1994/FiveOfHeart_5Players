@@ -6,6 +6,7 @@ var passport = require('passport'),
     LocalStrategy = require('passport-local').Strategy;
 var User = require('./daos/userDAO');
 var AgentRepo = require('./models/agentRepo');
+var cipher = require("./cipher");
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -36,8 +37,17 @@ passport.deserializeUser(function (username, done) {
 });
 
 passport.isAuthenticated = function(req, res, next) {
-    if (req.isAuthenticated()) return next();
-    res.status(401).send('您尚未登录!');
+    if (req.isAuthenticated())
+        return next();
+    var username = cipher.decipher(req.query.auth);
+    User.findOne({ username: username }, function(err, user) {
+        if (err) {
+            res.status(401).send('您尚未登录!');
+        }
+        user.agent = AgentRepo.findOrCreateAgentByUser(user);
+        req.user = user;
+        next();
+    });
 };
 
 passport.isAuthenticatedBackToLogin = function(req, res, next) {

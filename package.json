@@ -21,5 +21,6 @@
     "should": "latest",
     "log4js": "latest",
     "memwatch-next": "latest",
+    "crypto": "latest"
   }
 }

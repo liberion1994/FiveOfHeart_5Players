@@ -24,17 +24,7 @@ router.get('/',
 router.get('/simple_info',
     passport.isAuthenticated,
     function(req, res) {
-        var agent = req.user.agent;
-        if (agent.currentTable == null)
-            res.end( {
-                success: true,
-                tables: TableRepo.getAllTablesInfo()
-            });
-        else
-            res.end( {
-                success: false,
-                reason: 'in_game'
-            });
+        res.send(TableRepo.getAllTablesInfo());
     }
 );
 

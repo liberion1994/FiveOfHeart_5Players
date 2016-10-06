@@ -6,6 +6,7 @@ var User = require('../daos/userDAO');
 var validator = require('../utils/validator');
 var Types = require("../properties/types");
 var formatter = require("../utils/formatter");
+var cipher = require("../cipher");
 
 router.post('/login',
     function (req, res, next) {
@@ -18,7 +19,7 @@ router.post('/login',
         req.logIn(user, function (err) {
             if (err)
                 return res.status(400).send('登录错误,请重试');
-            return res.end('success');
+            return res.send({username: user.username, auth: cipher.cipher(user.username)});
         });
     })(req, res, next)}
 );
@@ -33,7 +34,7 @@ router.post('/logout',
             return res.status(400).send('您正在房间内,请先退出房间');
         }
         req.logOut();
-        res.end('success');
+        res.send({success: true});
     }
 );
 
@@ -55,7 +56,7 @@ router.post('/register',
                 username: username,
                 password: password
             }).save();
-            res.end('success');
+            res.send({success: true});
         });
 
     }
