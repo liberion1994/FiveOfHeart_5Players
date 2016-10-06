@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/login/login.js" afterPath="$PROJECT_DIR$/public/javascripts/login/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/navi-bar.js" afterPath="$PROJECT_DIR$/public/javascripts/navi-bar.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passport.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/passport.js">
+      <file leaf-file-name="users.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/users.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -87,31 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="socketIoServer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/socket_io/socketIoServer.js">
+      <file leaf-file-name="navi-bar.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/javascripts/navi-bar.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="43" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="game.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/game.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6045">
-              <caret line="403" column="22" selection-start-line="403" selection-start-column="22" selection-end-line="403" selection-end-column="22" />
+            <state relative-caret-position="75">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -152,7 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/views/login.ejs" />
         <option value="$PROJECT_DIR$/.git/info/exclude" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/routes/index.js" />
@@ -203,6 +181,7 @@
         <option value="$PROJECT_DIR$/models/table.js" />
         <option value="$PROJECT_DIR$/public/javascripts/login/login.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/public/javascripts/navi-bar.js" />
       </list>
     </option>
   </component>
@@ -661,14 +640,7 @@
       <workItem from="1475642248486" duration="4689000" />
       <workItem from="1475672361275" duration="10314000" />
       <workItem from="1475721277618" duration="1255000" />
-      <workItem from="1475726569137" duration="4794000" />
-    </task>
-    <task id="LOCAL-00019" summary="V0.2.1&#10;some optimization">
-      <created>1472643716174</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1472643716174</updated>
+      <workItem from="1475726569137" duration="5251000" />
     </task>
     <task id="LOCAL-00020" summary="V0.2.1&#10;some optimization">
       <created>1472714239227</created>
@@ -1006,7 +978,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475739493718</updated>
     </task>
-    <option name="localTasksCounter" value="68" />
+    <task id="LOCAL-00068" summary="v0.4.8&#10;some usage for client">
+      <created>1475740807568</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1475740807569</updated>
+    </task>
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1042,7 +1021,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="612955000" />
+    <option name="totallyTimeSpent" value="613412000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1062,7 +1041,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3041096" sideWeight="0.5088853" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18429004" sideWeight="0.54226804" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4911147" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3041096" sideWeight="0.4911147" order="11" side_tool="false" content_ui="tabs" x="1260" y="373" width="1324" height="247" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24981412" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18416801" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32876712" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -1146,13 +1125,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/nodejs/4.4.7/core-modules/timers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="91" column="14" selection-start-line="91" selection-start-column="14" selection-end-line="91" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/gameTest.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="124">
@@ -1401,14 +1373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/users.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1260">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cipher.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1435,18 +1399,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/table.js">
+    <entry file="file://$PROJECT_DIR$/public/javascripts/login/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="71" column="66" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="66" />
+        <state relative-caret-position="-150">
+          <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/tableRepo.js">
+    <entry file="file://$PROJECT_DIR$/passport.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+        <state relative-caret-position="160">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-345">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1459,10 +1431,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/javascripts/login/login.js">
+    <entry file="file://$PROJECT_DIR$/routes/tables.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-150">
-          <caret line="52" column="25" selection-start-line="52" selection-start-column="25" selection-end-line="52" selection-end-column="25" />
+        <state relative-caret-position="150">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -1475,26 +1447,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/passport.js">
+    <entry file="file://$PROJECT_DIR$/models/tableRepo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="450">
+          <caret line="31" column="42" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/tables.js">
+    <entry file="file://$PROJECT_DIR$/models/table.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        <state relative-caret-position="255">
+          <caret line="71" column="66" selection-start-line="71" selection-start-column="66" selection-end-line="71" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
+    <entry file="file://$PROJECT_DIR$/routes/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/javascripts/navi-bar.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding />
         </state>
       </provider>

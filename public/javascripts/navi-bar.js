@@ -6,8 +6,9 @@ $(function () {
         $.ajax({
             type: 'POST',
             url: '/users/logout',
+            dataType: 'json',
             success: function (res) {
-                if (res == 'success')
+                if (res.success == true)
                     location.href = '/';
                 else
                     alert('登出失败');
