@@ -30,6 +30,7 @@ function submitLogin(usernameDiv, passwordDiv) {
         type: 'POST',
         url: '/users/login',
         data: {username: username, password: password},
+        dataType: 'json',
         success: function () {
             location.href = '/tables';
         },
@@ -49,6 +50,7 @@ function submitRegister(usernameDiv, passwordDiv, repeatPasswordDiv) {
         type: 'POST',
         url: '/users/register',
         data: {username: username, password: password},
+        dataType: 'json',
         success: function () {
             notify('注册成功,请登录', 'success');
             $('#username').val(username);
