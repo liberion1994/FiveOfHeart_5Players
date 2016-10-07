@@ -18,7 +18,7 @@ exports.GameStatus = {
 };
 
 exports.AgentCommandType = {
-    IntoTable:  0,
+    LeftTable:  0,
     EnterTable: 1,
     LeaveTable: 2,
     Prepare:    3,

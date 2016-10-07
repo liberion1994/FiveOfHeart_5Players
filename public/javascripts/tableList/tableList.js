@@ -61,8 +61,9 @@ $(document).ready(function () {
                         type: 'POST',
                         url: '/tables/' + tid,
                         data: {sid: sid},
+                        dataType: 'json',
                         success: function (msg) {
-                            if (msg == 'success') {
+                            if (msg.success == true) {
                                 location.href = '/tables/' + tid;
                             } else {
                                 alert(msg);

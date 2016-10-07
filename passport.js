@@ -39,10 +39,19 @@ passport.deserializeUser(function (username, done) {
 passport.isAuthenticated = function(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    var username = cipher.decipher(req.query.auth);
+    var auth;
+    if (req.method == "POST") {
+        auth = req.body.auth;
+    } else if (req.method == "GET") {
+        auth = req.query.auth;
+    }
+    if (!auth) {
+        return res.status(401).send({msg: '您尚未登录'});
+    }
+    var username = cipher.decipher(auth);
     User.findOne({ username: username }, function(err, user) {
         if (err) {
-            res.status(401).send('您尚未登录!');
+            return res.status(401).send({msg: '您尚未登录'});
         }
         user.agent = AgentRepo.findOrCreateAgentByUser(user);
         req.user = user;

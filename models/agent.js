@@ -76,7 +76,7 @@ var Agent = function (user) {
 
     this.enterTable = function (tid, sid, err, callback) {
         if (this.status != Types.AgentStatus.HALL)
-            return err('你已经坐在哪张桌子了吧,刷新试试');
+            return err('你已经坐在哪张桌子了吧');
         var table = tableRepo.findTableById(tid);
         if (table == null)
             return err('找不到这张桌子唉');

@@ -7,8 +7,6 @@ var Property = require("../properties/property.js");
 var audioGenerator = require('../utils/audioGenerator');
 var logger = require("../log4js").getLogger('socket_server');
 var Types = require("../properties/types");
-var cipher = require("../cipher");
-var User = require('../daos/userDAO');
 
 socket_io.init = function (server) {
     //require can only be here since it's just a function called
@@ -22,75 +20,45 @@ socket_io.init = function (server) {
     }
 
     socket_io.io = socket_io(server)
+        .use(function(socket, next){
+            // Wrap the express middleware
+            sessionMiddleware(socket.request, {}, next);
+        })
         .on('connection', function (socket) {
 
             function emitFail(msg) { logger.error(msg); socket.emit('fail', msg) }
             function emitErr(msg) { logger.error(msg); socket.emit('err', msg) }
 
-            console.log('conn');
+            var agent = getAgent(socket);
+            if (agent == null)
+                return emitErr('找不到您的代理!');
 
-            if (!socket.agent)
-                socket.emit('auth', '需要身份验证');
+            if (agent.currentTable == null)
+                return;
 
-            socket.on('auth', function (auth) {
-                if (!auth) {
-                    return socket.emit('auth_err', '身份验证无效，请重新登录');
-                }
-                var username = cipher.decipher(auth);
-                User.findOne({ username: username }, function(err, user) {
-                    if (err) {
-                        return socket.emit('auth_err', '身份验证无效，请重新登录');
-                    }
-                    socket.agent = AgentRepo.findOrCreateAgentByUser(user);
-
-                    if (socket.agent.currentTable) {
-                        socket.join('table_' + socket.agent.currentTable.id);
-                    }
-                    socket.emit('auth_done', '身份验证成功');
-                });
-            });
-
+            logger.trace('Receive socket from ' + agent.username + ' in table ' + agent.currentTable.id);
             socket.on('disconnect', function () {
-                if (!socket.agent)
-                    return;
-                socket_io.io.onDisconnect(socket.agent, socket);
+                socket_io.io.onDisconnect(agent, socket);
             });
 
             socket.on('command', function (command) {
-                if (!socket.agent)
-                    return socket.emit('auth', '需要身份验证');
-                var agent = socket.agent;
                 logger.trace('Receive command from ' + agent.username);
                 logger.info(command);
                 switch (command.type) {
                     case Types.AgentCommandType.IntoTable:
                         socket_io.io.onIntoTable(agent, socket);
                         break;
-                    case Types.AgentCommandType.EnterTable:
-                        socket_io.io.onEnterTable(agent, command.content.tid, command.content.sid, emitErr, emitFail, socket);
-                        break;
                     case Types.AgentCommandType.LeaveTable:
-                        if (!socket.agent.currentTable )
-                            return socket.emit('err', '大厅中无法进行此操作');
                         socket_io.io.onLeaveTable(agent, false, emitErr, emitFail);
                         break;
                     case Types.AgentCommandType.Prepare:
-                        if (!socket.agent.currentTable )
-                            return socket.emit('err', '大厅中无法进行此操作');
                         socket_io.io.onPrepare(agent, emitErr, emitFail);
                         break;
                     case Types.AgentCommandType.UnPrepare:
-                        if (!socket.agent.currentTable )
-                            return socket.emit('err', '大厅中无法进行此操作');
                         socket_io.io.onUnPrepare(agent, emitErr, emitFail);
                         break;
                     case Types.AgentCommandType.InGame:
-                        if (!socket.agent.currentTable )
-                            return socket.emit('err', '大厅中无法进行此操作');
                         socket_io.io.onInGame(agent, command, false, emitErr, emitFail);
-                        break;
-                    case Types.AgentCommandType.LeftTable:
-                        socket.leave('table_' + command.content.tid);
                         break;
                     default:
                         break;
@@ -98,11 +66,6 @@ socket_io.init = function (server) {
             });
 
             socket.on('chat', function (content) {
-                if (!socket.agent)
-                    return socket.emit('auth', '需要身份验证');
-                if (!socket.agent.currentTable)
-                    return socket.emit('err', '大厅中无法进行此操作');
-                var agent = socket.agent;
                 if (content.length > Property.ChatContentLength)
                     return emitFail('发送的内容太长了啦');
                 var cur = new Date();
@@ -119,11 +82,6 @@ socket_io.init = function (server) {
             });
 
             socket.on('built-in-message', function (content) {
-                if (!socket.agent)
-                    return socket.emit('auth', '需要身份验证');
-                if (!socket.agent.currentTable)
-                    return socket.emit('err', '大厅中无法进行此操作');
-                var agent = socket.agent;
                 var found = false;
                 var len = Property.BuiltInMessageTypes.length;
                 for (var i = 0; i < len; i ++) {
@@ -167,23 +125,36 @@ socket_io.init = function (server) {
         logger.trace('Response: Disconnect');
     };
 
-    socket_io.io.onEnterTable = function (agent, tid, sid, err, fail, socket) {
-        agent.enterTable(tid, sid, fail, function () {
-            var group = 'table_' + tid;
-            socket.join(group);
-            socket_io.io.in(group)
-                .emit('event', {
-                    type: Types.AgentCommandType.EnterTable,
-                    sid: sid,
-                    majorNumber: agent.majorNumber,
-                    username: agent.username,
-                    eid: agent.currentTable.currentEventId ++,
-                    audioSrc: audioGenerator.getEnterAudio()
-                });
-            logger.trace('Response: EnterTable');
-        });
+    socket_io.io.onEnterTable = function (agent) {
+        var sid = agent.currentTable.agentToSid(agent);
+        var group = 'table_' + agent.currentTable.id;
+        socket_io.io.in(group)
+            .emit('event', {
+                type: Types.AgentCommandType.EnterTable,
+                sid: sid,
+                majorNumber: agent.majorNumber,
+                username: agent.username,
+                eid: agent.currentTable.currentEventId ++,
+                audioSrc: audioGenerator.getEnterAudio()
+            });
 
+        logger.trace('Response: EnterTable');
+    };
 
+    socket_io.io.onIntoTable = function (agent, socket) {
+        //打开了网页
+        socket.join('table_' + agent.currentTable.id);
+
+        var group = 'table_' + agent.currentTable.id;
+        socket_io.io.in(group)
+            .emit('event', {
+                type: Types.AgentCommandType.IntoTable,
+                sid: agent.currentTable.agentToSid(agent),
+                username: agent.username,
+                eid: agent.currentTable.currentEventId ++
+            });
+
+        logger.trace('Response: Connect');
     };
 
     socket_io.io.onLeaveTable = function (agent, force, err, fail) {
@@ -195,7 +166,6 @@ socket_io.init = function (server) {
         var ret = {
             type: Types.AgentCommandType.LeaveTable,
             sid: sid,
-            tid: table.id,
             username: agent.username,
             force: force,
             audioSrc: audioGenerator.getLeaveAudio()
@@ -206,6 +176,7 @@ socket_io.init = function (server) {
             ret.eid = table.currentEventId ++;
             socket_io.io.in(group)
                 .emit('event', ret);
+
             logger.trace('Response: LeaveTable');
         });
     };
@@ -222,7 +193,6 @@ socket_io.init = function (server) {
                     eid: agent.currentTable.currentEventId ++,
                     audioSrc: audioGenerator.getPrepareAudio()
                 });
-            console.log('prepare');
             logger.trace('Response: Prepare');
         });
     };

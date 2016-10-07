@@ -102,21 +102,4 @@ router.get('/:id/seats',
     }
 );
 
-router.post('/:id',
-    passport.isAuthenticated,
-    function(req, res) {
-        var agent = req.user.agent;
-        var tid = req.params.id;
-        var sid = req.body.sid;
-        if (tid == null || sid == null) {
-            res.status(400).send('请求数据出错');
-        } else {
-            agent.enterTable(tid, sid, res.end, function () {
-                socket_io.io.onEnterTable(agent);
-                res.end('success');
-            });
-        }
-    }
-);
-
 module.exports = router;
