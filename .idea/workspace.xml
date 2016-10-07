@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="758ad63c-0d4b-4523-8d87-b2bf800b5892" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/socket_io/socketIoServer2.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/agent.js" afterPath="$PROJECT_DIR$/models/agent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/passport.js" afterPath="$PROJECT_DIR$/passport.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/properties/types.js" afterPath="$PROJECT_DIR$/properties/types.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/javascripts/tableList/tableList.js" afterPath="$PROJECT_DIR$/public/javascripts/tableList/tableList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/stylesheets/table/table.css" afterPath="$PROJECT_DIR$/public/stylesheets/table/table.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/tables.js" afterPath="$PROJECT_DIR$/routes/tables.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/socket_io/socketIoServer.js" afterPath="$PROJECT_DIR$/socket_io/socketIoServer.js" />
     </list>
     <ignored path="untitled.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -740,14 +732,7 @@
       <workItem from="1475761448215" duration="7163000" />
       <workItem from="1475807965371" duration="1191000" />
       <workItem from="1475813084067" duration="11658000" />
-      <workItem from="1475846513129" duration="9575000" />
-    </task>
-    <task id="LOCAL-00021" summary="V0.2.8&#10;small bug fixed and part of audio added">
-      <created>1472993202726</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1472993202726</updated>
+      <workItem from="1475846513129" duration="9618000" />
     </task>
     <task id="LOCAL-00022" summary="v0.3&#10;audio system and some optimization">
       <created>1473044024784</created>
@@ -1085,7 +1070,14 @@
       <option name="project" value="LOCAL" />
       <updated>1475741318870</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="not support old api ever">
+      <created>1475857807938</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1475857807939</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1121,7 +1113,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="651600000" />
+    <option name="totallyTimeSpent" value="651643000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1213,7 +1205,8 @@
     <MESSAGE value="v0.4.1&#10;some optimization" />
     <MESSAGE value="v0.4.1&#10;recover" />
     <MESSAGE value="v0.4.8&#10;some usage for client" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.4.8&#10;some usage for client" />
+    <MESSAGE value="not support old api ever" />
+    <option name="LAST_COMMIT_MESSAGE" value="not support old api ever" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
